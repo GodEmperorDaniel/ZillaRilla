@@ -12,7 +12,7 @@ namespace Enemy.Scripts
         [SerializeField]
         private Command _moveInput;
 
-        public Vector2 MoveDirection { get; private set; }
+        public Vector3 MoveDirection { get; private set; }
         // Start is called before the first frame update
         void Start()
         {
