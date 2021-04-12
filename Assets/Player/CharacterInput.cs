@@ -7,7 +7,7 @@ namespace Player.Scrips
 {
     using Entities.Scripts;
     using Entities.Commands;
-    public class CharacterInput : MonoBehaviour, IMoveInput
+    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput
     {
         [SerializeField]
         private Command _moveInput;
@@ -15,7 +15,8 @@ namespace Player.Scrips
         [SerializeField]
         private PlayerInputActions _inputsActions;
 
-        public Vector2 MoveDirection { get; private set; }
+        public Vector3 MoveDirection { get; private set; }
+        public Vector3 RotationDirection { get; set; }
 
         private void Awake()
         {
@@ -38,11 +39,14 @@ namespace Player.Scrips
         }
         private void OnMouseAimInput(InputAction.CallbackContext c)
         {
-            //float value = c.ReadValue<float>();
+            //probably a little bit of match and coordinate conversions... will fix later
+            //Vector2 value = c.ReadValue<Vector2>();
+
         }
         private void OnAnalogAimInput(InputAction.CallbackContext c)
         {
-            //float value = c.ReadValue<float>();
+            Vector2 value = c.ReadValue<Vector2>();
+            RotationDirection = new Vector3(value.x, 0, value.y);
         }
 
         private void OnJumpInput(InputAction.CallbackContext c)
@@ -53,9 +57,8 @@ namespace Player.Scrips
         private void OnMoveInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
-            Debug.Log(value);
-            MoveDirection = value;
-            _moveInput.Execute();
+            MoveDirection = new Vector3(value.x, 0, value.y);
+            _moveInput?.Execute();
         }
 
         private void OnDisable()

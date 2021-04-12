@@ -22,6 +22,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "MouseAim",
+                    "type": "Value",
+                    "id": "4ae45ad2-fa94-4a42-85aa-d5f45d43489c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "29b487c2-badf-46d8-96e7-2658ce157631",
@@ -34,14 +42,6 @@
                     "type": "Button",
                     "id": "4ee5a6e3-9a4b-495d-91d1-702caac555df",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MouseAim",
-                    "type": "Value",
-                    "id": "4ae45ad2-fa94-4a42-85aa-d5f45d43489c",
-                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -160,7 +160,7 @@
                 {
                     "name": "Gamepad",
                     "id": "57c76bcf-8488-42c2-9339-0167fbcdd721",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -215,7 +215,7 @@
                 {
                     "name": "GamePad",
                     "id": "e12e8d38-332d-4c28-a64b-1535601b15cf",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -259,7 +259,7 @@
                 {
                     "name": "right",
                     "id": "8a6eec78-5f27-4f94-bc00-87d2b0df54f0",
-                    "path": "<Gamepad>/rightStick/left",
+                    "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
