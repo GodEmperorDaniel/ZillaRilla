@@ -15,38 +15,73 @@ namespace Entities.Commands
         private CharacterController _c;
         
         private IMoveInput _move;
+        private IRotationInput _rotate;
 
-        private Coroutine _moving;
-        private Vector3 _dir;
+        private Coroutine c_moving;
+        private Coroutine c_rotate;
+        private Coroutine c_reseter;
+       //private Vector3 _dir;
+
+        [SerializeField]
+        [Tooltip("The time to reset the players move acceleration (basically a deadzone), where the acceleration is based on the acceleratio curve used")]
+        private float _accResetTime = 0;
+
+        private float _time = 0;
 
         private void Awake()
         {
-            //_c = GetComponent<CharacterController>();
+            if(_c == null)
+                _c = GetComponent<CharacterController>();
             _move = GetComponent<IMoveInput>();
-            //_t = transform;
+            _rotate = GetComponent<IRotationInput>();
+            if(_t == null)
+                _t = transform;
         }
 
         public override void Execute()
         {
-            if (_moving == null)
-            {
-                _moving = StartCoroutine (Move());
-            }
+            if (c_moving == null)
+                c_moving = StartCoroutine (Move());
+            if (c_rotate == null)
+                c_rotate = StartCoroutine(Rotate());
         }
 
         private IEnumerator Move()
         {
-
-            while(_move.MoveDirection != Vector2.zero)
+            if (c_reseter != null)
+            { 
+                StopCoroutine(c_reseter);
+                c_reseter = null;
+            }
+            while(_move.MoveDirection != Vector3.zero)
             {
-                _dir = new Vector3(_move.MoveDirection.x, 0, _move.MoveDirection.y);
-                _c.Move(_dir * Time.deltaTime * 5);
-                transform.forward = new Vector3(_move.MoveDirection.x, 0, _move.MoveDirection.y).normalized;
+                _time += Time.deltaTime;
+                _c.Move(_move.MoveDirection * Time.deltaTime * _speed.Evaluate(_time));
+
+                if (_rotate.RotationDirection == Vector3.zero)
+                {
+                    transform.forward = _move.MoveDirection;
+                } 
                 yield return null;
             }
+            c_reseter = StartCoroutine(AccelCooldown());
+            c_moving = null;
+        }
 
-            _moving = null;
+        private IEnumerator Rotate()
+        {
+            if (_rotate.RotationDirection != Vector3.zero)
+            {
+                transform.forward = _rotate.RotationDirection;
+                yield return null;
+            }
+            c_rotate = null;
+        }
 
+        private IEnumerator AccelCooldown()
+        {
+            yield return new WaitForSeconds(_accResetTime);
+            _time = 0;
         }
 
     }
