@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74068116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -49.1}
+  m_LocalPosition: {x: 0, y: 5.5, z: -49.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1427,7 +1427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025751475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -49.1}
+  m_LocalPosition: {x: 0, y: 5.5, z: -49.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543194975}
@@ -2197,13 +2197,13 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 4
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 8
+    OrthographicSize: 10
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2431,6 +2431,10 @@ PrefabInstance:
     - target: {fileID: 3535629612080024836, guid: d4c2e8a168b874d43aa0eb2a16724a71, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535629612080024843, guid: d4c2e8a168b874d43aa0eb2a16724a71, type: 3}
+      propertyPath: _jumpInput
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3535629612080024847, guid: d4c2e8a168b874d43aa0eb2a16724a71, type: 3}
       propertyPath: m_RootOrder

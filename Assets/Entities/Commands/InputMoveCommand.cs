@@ -7,20 +7,9 @@ namespace Entities.Commands
     using Entities.Scripts;
     public class InputMoveCommand : Command
     {
+        [Header("Movement")]
         [SerializeField]
         private AnimationCurve _speed;
-        [SerializeField]
-        private Transform _t;
-        [SerializeField]
-        private CharacterController _c;
-        
-        private IMoveInput _move;
-        private IRotationInput _rotate;
-
-        private Coroutine c_moving;
-        private Coroutine c_rotate;
-        private Coroutine c_reseter;
-       //private Vector3 _dir;
 
         [SerializeField]
         [Tooltip("The time to reset the players move acceleration (basically a deadzone), where the acceleration is based on the acceleratio curve used")]
@@ -28,12 +17,42 @@ namespace Entities.Commands
 
         private float _time = 0;
 
+        private Vector3 _mov;
+
+        private IMoveInput _move;
+        private IRotationInput _rotate;
+
+        private Coroutine c_moving;
+        private Coroutine c_rotate;
+        private Coroutine c_reseter;
+
+        [Header("Jump")]
+        [SerializeField]
+        private float _jumpHeight = 3;
+        [SerializeField]
+        private float _gravity = 8;
+
+        private IJumpInput _jump;
+
+        private Coroutine c_jump;
+
+        [SerializeField]
+        private float _jumpCooldownTime = 0;
+        private Coroutine c_jumpCooldown;
+
+        [Header("Self generating")]
+        [SerializeField]
+        private Transform _t;
+        [SerializeField]
+        private CharacterController _c;
+
         private void Awake()
         {
             if(_c == null)
                 _c = GetComponent<CharacterController>();
             _move = GetComponent<IMoveInput>();
             _rotate = GetComponent<IRotationInput>();
+            _jump = GetComponent<IJumpInput>();
             if(_t == null)
                 _t = transform;
         }
@@ -44,6 +63,31 @@ namespace Entities.Commands
                 c_moving = StartCoroutine (Move());
             if (c_rotate == null)
                 c_rotate = StartCoroutine(Rotate());
+            if (c_jump == null && _jump.JumpButtonPressed)
+                c_jump = StartCoroutine(Jump());
+            if (c_jumpCooldown == null && c_jump != null && _c.isGrounded)
+                c_jumpCooldown = StartCoroutine(JumpCooldown());
+        }
+        private void Update()
+        {
+            Gravity();
+            JumpWhileStill();
+        }
+
+        private void Gravity()
+        {
+            if (!_c.isGrounded)
+            {
+                _mov.y -= _gravity * Time.deltaTime;
+            }
+        }
+
+        private void JumpWhileStill()
+        {
+            if (c_moving == null && _mov.y > 0)
+            {
+                c_moving = StartCoroutine(Move());
+            }
         }
 
         private IEnumerator Move()
@@ -53,17 +97,20 @@ namespace Entities.Commands
                 StopCoroutine(c_reseter);
                 c_reseter = null;
             }
-            while(_move.MoveDirection != Vector3.zero)
+            while (_move.MoveDirection != Vector3.zero || !_c.isGrounded)
             {
+                _mov.x = _move.MoveDirection.x;
+                _mov.z = _move.MoveDirection.z;
                 _time += Time.deltaTime;
-                _c.Move(_move.MoveDirection * Time.deltaTime * _speed.Evaluate(_time));
+                _c.Move(_mov * Time.deltaTime * _speed.Evaluate(_time));
 
-                if (_rotate.RotationDirection == Vector3.zero)
+                if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
                 {
                     transform.forward = _move.MoveDirection;
-                } 
+                }
                 yield return null;
             }
+            _c.Move(Vector3.zero);
             c_reseter = StartCoroutine(AccelCooldown());
             c_moving = null;
         }
@@ -78,6 +125,20 @@ namespace Entities.Commands
             c_rotate = null;
         }
 
+        private IEnumerator Jump()
+        {
+            _mov.y = _jumpHeight;
+            _jump.JumpButtonPressed = false;
+            yield return null;
+        }
+
+        private IEnumerator JumpCooldown()
+        {
+            yield return new WaitForSeconds(_jumpCooldownTime);
+            c_jump = null;
+            c_jumpCooldown = null;
+        }
+
         private IEnumerator AccelCooldown()
         {
             yield return new WaitForSeconds(_accResetTime);
@@ -85,5 +146,4 @@ namespace Entities.Commands
         }
 
     }
-
 }

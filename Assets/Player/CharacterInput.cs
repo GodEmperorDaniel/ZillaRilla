@@ -7,16 +7,21 @@ namespace Player.Scrips
 {
     using Entities.Scripts;
     using Entities.Commands;
-    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput
+    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput
     {
         [SerializeField]
         private Command _moveInput;
+
+        [SerializeField]
+        private Command _jumpInput;
 
         [SerializeField]
         private PlayerInputActions _inputsActions;
 
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
+
+        public bool JumpButtonPressed { get; set; }
 
         private void Awake()
         {
@@ -51,14 +56,15 @@ namespace Player.Scrips
 
         private void OnJumpInput(InputAction.CallbackContext c)
         {
-            //float value = c.ReadValue<float>();
+            JumpButtonPressed = true;
+            _moveInput.Execute();
         }
 
         private void OnMoveInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
-            _moveInput?.Execute();
+            _moveInput.Execute();
         }
 
         private void OnDisable()
