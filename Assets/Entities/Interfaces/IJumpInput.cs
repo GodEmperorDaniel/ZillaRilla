@@ -2,6 +2,6 @@ namespace Entities.Scripts
 {
 	public interface IJumpInput
 	{
-		bool JumpButtonPressed { get; }
+		bool JumpButtonPressed { get; set; }
 	}
 }

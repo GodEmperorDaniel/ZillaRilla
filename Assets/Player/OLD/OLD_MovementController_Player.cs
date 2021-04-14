@@ -104,17 +104,17 @@
 //		moveXY = context.ReadValue<Vector2>();
 //	}
 
-//	public void Jump(InputAction.CallbackContext context)
-//	{
-//		float jumpyValue = context.ReadValue<float>();
+//	//public void Jump(InputAction.CallbackContext context)
+//	//{
+//	//	float jumpyValue = context.ReadValue<float>();
 
-//		if (characterGrounded && jumpyValue > 0)
-//		{
-//			//Debug.Log(context.ReadValue<float>());
-//			//Debug.Log("im starting jump!");
-//			movement = new Vector3(moveXY.x, jumpHeight, moveXY.y);
-//		}
-//	}
+//	//	if (characterGrounded && jumpyValue > 0)
+//	//	{
+//	//		//Debug.Log(context.ReadValue<float>());
+//	//		//Debug.Log("im starting jump!");
+//	//		movement = new Vector3(moveXY.x, jumpHeight, moveXY.y);
+//	//	}
+//	//}
 
 //	public void Sprinting(InputAction.CallbackContext context)
 //	{
@@ -124,7 +124,7 @@
 //			if (sprint != 0 && !dashCoolDown)
 //			{
 //				Debug.Log("Im sprinting");
-//				c_dashing =  StartCoroutine(SprintingTime());
+//				c_dashing = StartCoroutine(SprintingTime());
 //			}
 //			else
 //			{

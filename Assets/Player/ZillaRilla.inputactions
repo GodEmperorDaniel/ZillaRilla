@@ -39,7 +39,7 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "4ee5a6e3-9a4b-495d-91d1-702caac555df",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -449,6 +449,14 @@
                     "type": "PassThrough",
                     "id": "3a4144c1-807b-4663-a4e6-9c58040eb76e",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Open",
+                    "type": "Button",
+                    "id": "9b06dc62-e8ca-4a21-a0c0-d099930fc1a6",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -869,6 +877,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfaf188e-9596-421f-b054-280e67486d4d",
+                    "path": "",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Open",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

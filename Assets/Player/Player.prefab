@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3535629612080024842}
   - component: {fileID: 3535629612080024837}
   m_Layer: 0
-  m_Name: TestPlayer
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 3535629612080024842}
+  _jumpInput: {fileID: 0}
 --- !u!114 &3535629612080024842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,9 +149,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _accResetTime: 1
+  _jumpHeight: 3
+  _gravity: 8
+  _jumpCooldownTime: 0
   _t: {fileID: 3535629612080024847}
   _c: {fileID: 3535629612080024837}
-  _accResetTime: 1
+  rayCastLenght: 1.09
 --- !u!143 &3535629612080024837
 CharacterController:
   m_ObjectHideFlags: 0
