@@ -2,28 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.AI;
 
-namespace Enemy.Scripts
-{
-    using Entities.Scripts;
-    using Entities.Commands;
-    public class EnemyAI : MonoBehaviour, IMoveInput
+    public class EnemyAI : MonoBehaviour
     {
         [SerializeField]
-        private Command _moveInput;
+        private Transform player;
 
-        public Vector3 MoveDirection { get; private set; }
+        public float lookRadius = 10f;
+
+        Transform target;
+        NavMeshAgent agent;
+
         // Start is called before the first frame update
         void Start()
         {
-
+            agent = GetComponent<NavMeshAgent>();
+            target = player;
         }
-
-        // Update is called once per frame
+        
         void Update()
         {
-
+            float distance = Vector3.Distance(target.position, transform.position);
+            if (distance <= lookRadius)
+            {
+                agent.SetDestination(target.position);
+            }
+        }
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, lookRadius);
         }
     }
-}
 
