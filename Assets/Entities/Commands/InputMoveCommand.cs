@@ -35,6 +35,7 @@ namespace Entities.Commands
         private IJumpInput _jump;
 
         private Coroutine c_jump;
+        private bool _isJumping = false;
 
         [SerializeField]
         private float _jumpCooldownTime = 0;
@@ -45,6 +46,8 @@ namespace Entities.Commands
         private Transform _t;
         [SerializeField]
         private CharacterController _c;
+        [SerializeField]
+        private float rayCastLenght = 0.2f;
 
         private void Awake()
         {
@@ -65,7 +68,7 @@ namespace Entities.Commands
                 c_rotate = StartCoroutine(Rotate());
             if (c_jump == null && _jump.JumpButtonPressed)
                 c_jump = StartCoroutine(Jump());
-            if (c_jumpCooldown == null && c_jump != null && _c.isGrounded)
+            if (c_jumpCooldown == null && _isJumping == true)
                 c_jumpCooldown = StartCoroutine(JumpCooldown());
         }
         private void Update()
@@ -84,7 +87,7 @@ namespace Entities.Commands
 
         private void JumpWhileStill()
         {
-            if (c_moving == null && _mov.y > 0)
+            if (c_moving == null && _mov.y != 0)
             {
                 c_moving = StartCoroutine(Move());
             }
@@ -130,13 +133,21 @@ namespace Entities.Commands
             _mov.y = _jumpHeight;
             _jump.JumpButtonPressed = false;
             yield return null;
+            _isJumping = true;
         }
 
         private IEnumerator JumpCooldown()
         {
+            bool raycast = Physics.Raycast(transform.position,Vector3.down, rayCastLenght); 
+            while (!raycast) 
+            {
+                raycast = Physics.Raycast(transform.position, Vector3.down, rayCastLenght);
+                yield return null; 
+            }
             yield return new WaitForSeconds(_jumpCooldownTime);
             c_jump = null;
             c_jumpCooldown = null;
+            _isJumping = false;
         }
 
         private IEnumerator AccelCooldown()

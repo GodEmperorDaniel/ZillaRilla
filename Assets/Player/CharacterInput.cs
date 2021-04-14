@@ -13,9 +13,6 @@ namespace Player.Scrips
         private Command _moveInput;
 
         [SerializeField]
-        private Command _jumpInput;
-
-        [SerializeField]
         private PlayerInputActions _inputsActions;
 
         public Vector3 MoveDirection { get; private set; }
@@ -37,7 +34,6 @@ namespace Player.Scrips
             _inputsActions.Player.AnalogAim.performed += OnAnalogAimInput;
         }
 
-
         private void OnAttackInput(InputAction.CallbackContext c)
         {
             //float value = c.ReadValue<float>();
@@ -56,7 +52,8 @@ namespace Player.Scrips
 
         private void OnJumpInput(InputAction.CallbackContext c)
         {
-            JumpButtonPressed = true;
+            float value = c.ReadValue<float>();
+            JumpButtonPressed = value == 1 ? true : false;
             _moveInput.Execute();
         }
 

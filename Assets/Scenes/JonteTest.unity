@@ -2432,10 +2432,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 3535629612080024843, guid: d4c2e8a168b874d43aa0eb2a16724a71, type: 3}
-      propertyPath: _jumpInput
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3535629612080024847, guid: d4c2e8a168b874d43aa0eb2a16724a71, type: 3}
       propertyPath: m_RootOrder
       value: 6
