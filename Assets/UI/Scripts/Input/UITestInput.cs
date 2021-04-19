@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/UI/UITestInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/UI/Scripts/Input/UITestInput.inputactions'
 
 using System;
 using System.Collections;
@@ -25,6 +25,30 @@ public class @UITestInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Log State"",
+                    ""type"": ""Button"",
+                    ""id"": ""a8d8b69a-b33e-43c8-b797-6f0178b65b03"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause Game"",
+                    ""type"": ""Button"",
+                    ""id"": ""1591c054-5796-4ee7-b298-9712a7a828b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Nudge Debug Box"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b28678b-5a31-494c-8116-a9c4ff0b043b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -36,6 +60,39 @@ public class @UITestInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
                     ""action"": ""Start Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebe6e04a-ba51-4f6b-aa2d-20b93207446c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Log State"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3be995bb-9d97-46e2-963f-62649b81e72f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01bb5e5d-a4ac-4b5b-aa99-89f51f41cddf"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nudge Debug Box"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -108,6 +165,9 @@ public class @UITestInput : IInputActionCollection, IDisposable
         // UITest
         m_UITest = asset.FindActionMap("UITest", throwIfNotFound: true);
         m_UITest_StartGame = m_UITest.FindAction("Start Game", throwIfNotFound: true);
+        m_UITest_LogState = m_UITest.FindAction("Log State", throwIfNotFound: true);
+        m_UITest_PauseGame = m_UITest.FindAction("Pause Game", throwIfNotFound: true);
+        m_UITest_NudgeDebugBox = m_UITest.FindAction("Nudge Debug Box", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -158,11 +218,17 @@ public class @UITestInput : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UITest;
     private IUITestActions m_UITestActionsCallbackInterface;
     private readonly InputAction m_UITest_StartGame;
+    private readonly InputAction m_UITest_LogState;
+    private readonly InputAction m_UITest_PauseGame;
+    private readonly InputAction m_UITest_NudgeDebugBox;
     public struct UITestActions
     {
         private @UITestInput m_Wrapper;
         public UITestActions(@UITestInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @StartGame => m_Wrapper.m_UITest_StartGame;
+        public InputAction @LogState => m_Wrapper.m_UITest_LogState;
+        public InputAction @PauseGame => m_Wrapper.m_UITest_PauseGame;
+        public InputAction @NudgeDebugBox => m_Wrapper.m_UITest_NudgeDebugBox;
         public InputActionMap Get() { return m_Wrapper.m_UITest; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -175,6 +241,15 @@ public class @UITestInput : IInputActionCollection, IDisposable
                 @StartGame.started -= m_Wrapper.m_UITestActionsCallbackInterface.OnStartGame;
                 @StartGame.performed -= m_Wrapper.m_UITestActionsCallbackInterface.OnStartGame;
                 @StartGame.canceled -= m_Wrapper.m_UITestActionsCallbackInterface.OnStartGame;
+                @LogState.started -= m_Wrapper.m_UITestActionsCallbackInterface.OnLogState;
+                @LogState.performed -= m_Wrapper.m_UITestActionsCallbackInterface.OnLogState;
+                @LogState.canceled -= m_Wrapper.m_UITestActionsCallbackInterface.OnLogState;
+                @PauseGame.started -= m_Wrapper.m_UITestActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_UITestActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_UITestActionsCallbackInterface.OnPauseGame;
+                @NudgeDebugBox.started -= m_Wrapper.m_UITestActionsCallbackInterface.OnNudgeDebugBox;
+                @NudgeDebugBox.performed -= m_Wrapper.m_UITestActionsCallbackInterface.OnNudgeDebugBox;
+                @NudgeDebugBox.canceled -= m_Wrapper.m_UITestActionsCallbackInterface.OnNudgeDebugBox;
             }
             m_Wrapper.m_UITestActionsCallbackInterface = instance;
             if (instance != null)
@@ -182,6 +257,15 @@ public class @UITestInput : IInputActionCollection, IDisposable
                 @StartGame.started += instance.OnStartGame;
                 @StartGame.performed += instance.OnStartGame;
                 @StartGame.canceled += instance.OnStartGame;
+                @LogState.started += instance.OnLogState;
+                @LogState.performed += instance.OnLogState;
+                @LogState.canceled += instance.OnLogState;
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
+                @NudgeDebugBox.started += instance.OnNudgeDebugBox;
+                @NudgeDebugBox.performed += instance.OnNudgeDebugBox;
+                @NudgeDebugBox.canceled += instance.OnNudgeDebugBox;
             }
         }
     }
@@ -234,5 +318,8 @@ public class @UITestInput : IInputActionCollection, IDisposable
     public interface IUITestActions
     {
         void OnStartGame(InputAction.CallbackContext context);
+        void OnLogState(InputAction.CallbackContext context);
+        void OnPauseGame(InputAction.CallbackContext context);
+        void OnNudgeDebugBox(InputAction.CallbackContext context);
     }
 }
