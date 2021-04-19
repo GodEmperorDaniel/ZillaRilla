@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 
 public class UIInput : MonoBehaviour, IStartGameInput, ILogState, IPauseGame
 {
-    public Command startGameInput;
-    public Command logStateInput;
-    public Command pauseGameInput;
+    [HideInInspector] public Command startGameInput;
+    [HideInInspector] public Command logStateInput;
+    [HideInInspector] public Command pauseGameInput;
 
     private UITestInput _testingActions;
 
@@ -21,6 +21,10 @@ public class UIInput : MonoBehaviour, IStartGameInput, ILogState, IPauseGame
     private void Awake()
     {
         _testingActions = new UITestInput();
+
+         startGameInput = gameObject.AddComponent<StartGameCommand>();
+         logStateInput = gameObject.AddComponent<LogStateCommand>();
+         pauseGameInput = gameObject.AddComponent<PauseGameCommand>();
     }
 
     private void OnEnable()

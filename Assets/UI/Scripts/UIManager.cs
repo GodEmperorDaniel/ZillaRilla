@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class UIManager : Singleton<UIManager>
+public class UIManager : Manager<UIManager>
 {
+    [SerializeField] private UIInput _uiInput;
+    [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
 
     private void Start()
@@ -18,4 +20,15 @@ public class UIManager : Singleton<UIManager>
     {
         _pauseMenu.gameObject.SetActive(currentState == GameManager.GameState.PAUSED);
     }
+
+    private void ActivateMainMenuUI()
+    {
+        
+    }
+    
+    private void ActivatePauseMenuUI()
+    {
+        
+    }
+    
 }

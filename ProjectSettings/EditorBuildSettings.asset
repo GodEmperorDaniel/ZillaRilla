@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/UI/Scenes/UI Testing.unity
     guid: 0cf172ff9578f6249b784868a1cd34ab
   - enabled: 1
-    path: Assets/UI/Scenes/TestScene1.unity
+    path: Assets/UI/Scenes/Main Menu Placeholder.unity
     guid: 91cb367a3babff04aa69d1adf1031bfe
   - enabled: 1
     path: Assets/UI/Scenes/TestScene2.unity

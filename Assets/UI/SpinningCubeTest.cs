@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class SpinningCubeTest : MonoBehaviour
 {
-    public float rotateSpeed = 1.0f;
-    private float _rotation = 0.0f;
-
     private Rigidbody rigidbody;
 
     private void Start()

@@ -11,7 +11,7 @@ public class EventGameState : UnityEvent<GameManager.GameState, GameManager.Game
 {
 }
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : Manager<GameManager>
 {
     public enum GameState
     {
@@ -19,8 +19,8 @@ public class GameManager : Singleton<GameManager>
         RUNNING,
         PAUSED
     }
-
-
+    
+    
     // Fields
     public GameObject[] _systemPrefab;
     public EventGameState _onGameStateChanged;
@@ -43,8 +43,6 @@ public class GameManager : Singleton<GameManager>
     // Unity Methods
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
         _instancedSystemPrefabs = new List<GameObject>();
         _loadOperations = new List<AsyncOperation>();
 
@@ -80,9 +78,9 @@ public class GameManager : Singleton<GameManager>
 
         ao.completed += OnUnloadOperationComplete;
     }
-    public void StartGame()
+    public void GameStartUp()
     {
-        LoadLevel("TestScene1");
+        LoadLevel("Main Menu Placeholder");
     }
     public void TogglePause()
     {
@@ -162,12 +160,4 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Unload Complete.");
     }
     
-    
-    // >DEBUG<
-    /*public GameObject dRotatingCube; 
-    
-    private void CreateDebugCube()
-    {
-        Instantiate(dRotatingCube);
-    }*/
 }
