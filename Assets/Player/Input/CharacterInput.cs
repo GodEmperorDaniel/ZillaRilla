@@ -9,12 +9,11 @@ namespace Player.Scrips
     using Entities.Commands;
     public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput
     {
-        [SerializeField]
-        private Command _moveInput;
+        [SerializeField] private Command _moveInput;
 
-        [SerializeField]
-        private PlayerInputActions _inputsActions;
+        [SerializeField] private PlayerInputActions _inputsActions;
 
+        [SerializeField] private Animator _playerAnimator;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
 
@@ -22,6 +21,11 @@ namespace Player.Scrips
 
         private void Awake()
         {
+            if (_playerAnimator == null)
+            {
+                Debug.LogWarning("No animator is set in " + this.name + ", getting it through code");
+                TryGetComponent<Animator>(out _playerAnimator);
+            }
             _inputsActions = new PlayerInputActions();
         }
         private void OnEnable()
@@ -29,16 +33,28 @@ namespace Player.Scrips
             _inputsActions.Enable();
             _inputsActions.Player.Jump.performed += OnJumpInput;
             _inputsActions.Player.Move.performed += OnMoveInput;
-            _inputsActions.Player.Attack.performed += OnAttackInput;
+            _inputsActions.Player.Attack1.performed += OnAttack1Input;
+            _inputsActions.Player.Attack2.performed += OnAttack2Input;
+            _inputsActions.Player.Attack3.performed += OnAttack3Input;
             _inputsActions.Player.MouseAim.performed += OnMouseAimInput;
             _inputsActions.Player.AnalogAim.performed += OnAnalogAimInput;
         }
-
-        private void OnAttackInput(InputAction.CallbackContext c)
+		#region Attacks
+		private void OnAttack1Input(InputAction.CallbackContext c)
         {
-            //float value = c.ReadValue<float>();
+            _playerAnimator.SetBool("RillaPunch", true);
         }
-        private void OnMouseAimInput(InputAction.CallbackContext c)
+        private void OnAttack2Input(InputAction.CallbackContext c)
+        {
+            _playerAnimator.SetBool("RillaSlam", true);
+        }
+        private void OnAttack3Input(InputAction.CallbackContext c)
+        {
+            Debug.Log("HAHAHA not implemented /Jonte");
+            //_playerAnimator.SetBool("RillaPunch", true);
+        }
+		#endregion
+		private void OnMouseAimInput(InputAction.CallbackContext c)
         {
             //probably a little bit of match and coordinate conversions... will fix later
             //Vector2 value = c.ReadValue<Vector2>();
