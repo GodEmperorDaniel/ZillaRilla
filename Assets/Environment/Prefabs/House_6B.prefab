@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4928840131240104277}
-  - component: {fileID: 4928840131240104276}
+  - component: {fileID: 7730277399593142024}
   m_Layer: 0
   m_Name: House_6B
   m_TagString: Untagged
@@ -105,7 +105,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4928840131240104274}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.329266, y: -0.00000029934438, z: -36.96637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -113,7 +113,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4928840131240104276
+--- !u!65 &7730277399593142024
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,5 +124,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.2699566, y: 8.973254, z: 4.3179665}
-  m_Center: {x: 0.022397041, y: 4.2553687, z: -0.00014305115}
+  m_Size: {x: 5.0180855, y: 8.634516, z: 5.018058}
+  m_Center: {x: 0.041563988, y: 4.274534, z: 0.00000047683716}
