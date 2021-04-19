@@ -9,14 +9,11 @@ namespace Player.Scrips
     using Entities.Commands;
     public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput
     {
-        [SerializeField]
-        private Command _moveInput;
+        [SerializeField] private Command _moveInput;
 
-        [SerializeField]
-        private PlayerInputActions _inputsActions;
+        [SerializeField] private PlayerInputActions _inputsActions;
 
-        [SerializeField]
-        private Animator _playerAnimator;
+        [SerializeField] private Animator _playerAnimator;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
 
@@ -53,7 +50,7 @@ namespace Player.Scrips
         }
         private void OnAttack3Input(InputAction.CallbackContext c)
         {
-            Debug.Log("HAHAHA not implemented");
+            Debug.Log("HAHAHA not implemented /Jonte");
             //_playerAnimator.SetBool("RillaPunch", true);
         }
 		#endregion

@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 3535629612080024842}
+  _playerAnimator: {fileID: 0}
 --- !u!114 &3535629612080024842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ MonoBehaviour:
   _jumpCooldownTime: 0
   _t: {fileID: 3535629612080024847}
   _c: {fileID: 3535629612080024837}
-  rayCastLenght: 1.09
+  rayCastLenght: 1.25
 --- !u!114 &9179123515598272585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470b6b671f5d0d34093dbdba9b619ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 0}
+  _punchDamage: 10
+  something: 0
 --- !u!143 &3535629612080024837
 CharacterController:
   m_ObjectHideFlags: 0
