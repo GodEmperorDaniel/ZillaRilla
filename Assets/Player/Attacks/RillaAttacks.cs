@@ -9,7 +9,8 @@ public class RillaAttacks : BaseAttack
 
 	[SerializeField] private RillaSlamSettings slamSettings;
 
-	private HashSet<GameObject> _hashEnemies = new HashSet<GameObject>();
+	private HashSet<GameObject> _hashEnemiesPunch = new HashSet<GameObject>();
+	private HashSet<GameObject> _hashEnemiesSlam = new HashSet<GameObject>();
 	private Coroutine c_attackCooldown;
 	private void Awake()
 	{
@@ -24,13 +25,14 @@ public class RillaAttacks : BaseAttack
 	{
 		if (c_attackCooldown == null)
 		{
-			punchSettings._attackHitbox.SetActive(true);
-			Debug.Log("PUNCHING!!");
+			//punchSettings._attackHitbox.SetActive(true);
+			//Debug.Log("PUNCHING!!");
+			//Debug.Log(_hashEnemiesPunch.Count);
 
-			foreach (GameObject enemy in _hashEnemies)
+			foreach (GameObject enemy in _hashEnemiesPunch)
 			{
-				HitEnemy(enemy, punchSettings);
-				Debug.Log("I hit: " + enemy.name);
+				EntityHit(enemy, punchSettings);
+				//Debug.Log("I hit: " + enemy.name);
 			}
 			_playerAnimator.SetBool("RillaPunch", false);
 			c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
@@ -41,12 +43,12 @@ public class RillaAttacks : BaseAttack
 	{
 		if (c_attackCooldown == null)
 		{
-			Debug.Log("GroundSlam!!");
+			//Debug.Log("GroundSlam!!");
 			slamSettings._attackHitbox.SetActive(true);
-			foreach (GameObject enemy in _hashEnemies)
+			foreach (GameObject enemy in _hashEnemiesSlam)
 			{
-				HitEnemy(enemy, slamSettings);
-				Debug.Log("I hit: " + enemy.name);
+				EntityHit(enemy, slamSettings);
+				//Debug.Log("I hit: " + enemy.name);
 			}
 			_playerAnimator.SetBool("RillaSlam", false);
 			c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
@@ -55,40 +57,70 @@ public class RillaAttacks : BaseAttack
 	private IEnumerator AttackCooldown(float resetTime)
 	{
 		yield return new WaitForSeconds(resetTime);
-		punchSettings._attackHitbox.SetActive(false);
-		slamSettings._attackHitbox.SetActive(false);
-		_hashEnemies.Clear();
+		//punchSettings._attackHitbox.SetActive(false);
+		//slamSettings._attackHitbox.SetActive(false);
+		//_hashEnemiesSlam.Clear();
+		//_hashEnemiesPunch.Clear();
 		c_attackCooldown = null;
 	}
 	#endregion
 	#region TriggerData
-	public override void CustomTriggerEnter(Collider other) 
+	public override void CustomTriggerEnter(Collider other, int id) 
 	{
-		if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+		switch (id)
 		{
-			Debug.Log("STAY ENEMY ADDED");
-			_hashEnemies.Add(other.gameObject);
+			case 1:
+			_hashEnemiesPunch.Add(other.gameObject);
+				break;
+			case 2:
+				_hashEnemiesSlam.Add(other.gameObject);
+				break;
+			default:
+				Debug.Log("Something whent wrong in CustomTriggerEnter!");
+				break;
+		}
+
+	}
+	public override void CustomTriggerExit(Collider other, int id) 
+	{
+		switch (id)
+		{
+			case 1:
+				_hashEnemiesPunch.Remove(other.gameObject);
+				break;
+			case 2:
+				_hashEnemiesSlam.Remove(other.gameObject);
+				break;
+			default:
+				Debug.Log("Something whent wrong in CustomTriggerExit!");
+				break;
 		}
 	}
-	public override void CustomTriggerExit(Collider other) 
-	{	
-		if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-		{
-			_hashEnemies.Remove(other.gameObject);
-		}
-	}
-	public override void CustomTriggerStay(Collider other)
+	public override void CustomTriggerStay(Collider other, int id)
 	{
-		if (!_hashEnemies.Contains(other.gameObject))
+		switch (id)
 		{
-			_hashEnemies.Add(other.gameObject);
+			case 1:
+				if (!_hashEnemiesPunch.Contains(other.gameObject))
+				{
+					_hashEnemiesPunch.Add(other.gameObject);
+				}
+				break;
+			case 2:
+				if (!_hashEnemiesSlam.Contains(other.gameObject))
+				{
+					_hashEnemiesSlam.Add(other.gameObject);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 	#endregion
 
-	private void HitEnemy(GameObject enemy, AttackSettings settings)
+	private void EntityHit(GameObject enemy, AttackSettings settings)
 	{
-		//enemy.GetComponent<Atackable>().HitEnemy(settings);
+		enemy.GetComponent<Attackable>().EntitiyHit(settings);
 	}
 
 }
@@ -111,6 +143,11 @@ public class AttackSettings
 	public float _attackDamage;
 	public GameObject _attackHitbox;
 	public float _attackCooldown;
+	public enum SettingType
+	{
+		PUNCH, SLAM
+	}
+	public SettingType _settingType;
 }
 
 #endregion
