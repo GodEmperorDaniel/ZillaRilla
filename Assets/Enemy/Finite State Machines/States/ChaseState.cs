@@ -47,9 +47,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         private void SetChaseTarget(Transform player, Transform transform)
         {
-            float distance = Vector3.Distance(player.position, transform.position);
-            if (distance <= _npc.lookRadius) {
+            if (_npc.Destiantoion <= _npc.lookRadius) {
                 _navMeshAgent.SetDestination(player.position);
+
+                //TO DO STOPPING DISTANCE??
+                //_navMeshAgent.stoppingDistance = ();
             }
             else
             {

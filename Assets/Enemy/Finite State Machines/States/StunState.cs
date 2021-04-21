@@ -7,13 +7,15 @@ using UnityEngine;
 
 namespace Assets.Enemy.Finite_State_Machines.States
 {
-    [CreateAssetMenu(fileName ="IdleState", menuName ="ZillaRilla/States/Idle", order =1)]
-    public class IdleState : AbstractFSMState
+    [CreateAssetMenu(fileName = "StunState", menuName = "ZillaRilla/States/Stun", order = 4)]
+    public class StunState : AbstractFSMState
     {
+        [SerializeField]
+        public float stunTime;
         public override void OnEnable()
         {
             base.OnEnable();
-            StateType = FSMStateType.IDLE;
+            StateType = FSMStateType.STUN;
         }
         public override bool EnterState()
         {
@@ -21,28 +23,27 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             if (EnteredState)
             {
-                Debug.Log("ENTERED IDLE STATE");
-                
+                Debug.Log("ENTERED STUN STATE");
+
             }
             return EnteredState;
-           
+
         }
 
         public override void UpdateState()
         {
-            Debug.Log("UPDATING IDLE STATE");
+            Debug.Log("UPDATING STUN STATE");
 
-            if (_npc.Destiantoion <= _npc.lookRadius)
-            {
-                _fsm.EnterState(FSMStateType.CHASING);
-            }
+
+
+            _fsm.EnterState(FSMStateType.IDLE);
         }
 
         public override bool ExitState()
         {
             base.ExitState();
 
-            Debug.Log("EXITING IDLE STATE");
+            Debug.Log("EXITING STUN STATE");
             return true;
         }
     }
