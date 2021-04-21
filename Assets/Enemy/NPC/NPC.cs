@@ -19,6 +19,7 @@ namespace Assets.Enemy.NPCCode
         public Transform _player;
 
         public float lookRadius = 10f;
+        
 
         public void Awake()
         {
@@ -37,6 +38,9 @@ namespace Assets.Enemy.NPCCode
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, lookRadius);
+        }
+        public float Destiantoion {
+            get { return Vector3.Distance(_player.position, ThisEnemyPosition.position); }
         }
         public Transform ThisEnemyPosition {
             get { return transform; }

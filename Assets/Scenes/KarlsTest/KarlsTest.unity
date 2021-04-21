@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: f235fcd767aa15741ad1fad17a7589dc, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: bd7b203420fa94b4b801b3a3908e2565, type: 2}
 --- !u!1 &109235838
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +834,7 @@ MonoBehaviour:
   _validState:
   - {fileID: 11400000, guid: 48464222c4a7ed249be1462f888d2cb7, type: 2}
   - {fileID: 11400000, guid: 63980e4a564ac2048a2713feeafea2d5, type: 2}
+  - {fileID: 11400000, guid: ffb71bdc82c8e014294d05cf39566e41, type: 2}
 --- !u!1 &1202096019
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +847,6 @@ GameObject:
   - component: {fileID: 1202096024}
   - component: {fileID: 1202096023}
   - component: {fileID: 1202096022}
-  - component: {fileID: 1202096021}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -868,22 +868,6 @@ Transform:
   m_Father: {fileID: 564498244}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &1202096021
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202096019}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.6, y: 0.5, z: 0.6}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!65 &1202096022
 BoxCollider:
   m_ObjectHideFlags: 0
