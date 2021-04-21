@@ -1,19 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1706072399
+--- !u!114 &1660246606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4454198259797477043}
+  m_GameObject: {fileID: 3535629611824607103}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bffe6a0516f39b14b856eb41cb5f6368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _base: {fileID: 9179123515598272585}
-  _ID: 1
+  _base: {fileID: 0}
+  _ID: 2
 --- !u!1 &3535629612080024836
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 3535629612080024840}
   - component: {fileID: 3535629612080024843}
   - component: {fileID: 3535629612080024842}
-  - component: {fileID: 9179123515598272585}
   - component: {fileID: 3535629612080024837}
   - component: {fileID: -8250562152300811029}
   m_Layer: 7
@@ -143,63 +142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2bb9d832c7b484ca2777a2b85c92da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.02563095
-      value: 10.03186
-      inSlope: 0.0000033826248
-      outSlope: 0.0000033826248
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 3.0756345
-      value: 10.031871
-      inSlope: 0.0000033826248
-      outSlope: 0.0000033826248
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _accResetTime: 1
-  _jumpHeight: 3
+  _speedy: 10
+  _jumpStength: 3
+  _jumpTime: 0.25
   _gravity: 8
   _jumpCooldownTime: 0
-  _t: {fileID: 3535629612080024847}
-  _c: {fileID: 3535629612080024837}
+  _transform: {fileID: 0}
+  _characterController: {fileID: 0}
   rayCastLenght: 1.25
---- !u!114 &9179123515598272585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3535629612080024836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470b6b671f5d0d34093dbdba9b619ea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: -8250562152300811029}
-  punchSettings:
-    _attackDamage: 10
-    _attackHitbox: {fileID: 4454198259797477043}
-    _attackCooldown: 0.3
-    _settingType: 0
-  slamSettings:
-    _attackDamage: 20
-    _attackHitbox: {fileID: 3535629611824607103}
-    _attackCooldown: 2
-    _settingType: 1
-    _stun: 0
-    _knockBack: 0
-    _knockBackRange: 0
 --- !u!143 &3535629612080024837
 CharacterController:
   m_ObjectHideFlags: 0
@@ -237,20 +187,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1660246606
+--- !u!114 &1706072399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3535629611824607103}
+  m_GameObject: {fileID: 4454198259797477043}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bffe6a0516f39b14b856eb41cb5f6368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _base: {fileID: 9179123515598272585}
-  _ID: 2
+  _base: {fileID: 0}
+  _ID: 1
 --- !u!1001 &3535629611560434658
 PrefabInstance:
   m_ObjectHideFlags: 0
