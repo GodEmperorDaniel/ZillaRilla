@@ -6,6 +6,12 @@ public class SendTriggerInfo : MonoBehaviour
 {
     [SerializeField] private BaseAttack _base;
     [SerializeField] private int _ID;
+
+    private void Awake()
+    {
+        if (_base == null)
+            Debug.LogError("NEED A ATTACK BASE FOR " + gameObject.name);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))

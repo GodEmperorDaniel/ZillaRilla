@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Attacks.Zilla;
 
-public class ZillaAttacks : MonoBehaviour
+public class ZillaAttacks : BaseAttack
 {
 
 	[SerializeField] private Animator _playerAnimator;
@@ -31,7 +31,7 @@ public class ZillaAttacks : MonoBehaviour
 
 }
 
-	#region Settings Structs
+#region Settings Structs
 namespace Attacks.Zilla
 {
 	[System.Serializable]
@@ -61,4 +61,4 @@ namespace Attacks.Zilla
 	//	public SettingType _settingType;
 	//}
 
-	#endregion
+#endregion

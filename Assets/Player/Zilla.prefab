@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 292721924860911650}
   - component: {fileID: 1943924067469456519}
   m_Layer: 0
-  m_Name: PunchHitBox
+  m_Name: ZillaTailHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2822148468763372411}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: -0, z: 3.52}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 2.29}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3164659197917274311}
   m_RootOrder: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffe6a0516f39b14b856eb41cb5f6368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _base: {fileID: 0}
+  _base: {fileID: 3085210709880663412}
   _ID: 1
 --- !u!1 &3164659195991655095
 GameObject:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffe6a0516f39b14b856eb41cb5f6368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _base: {fileID: 0}
+  _base: {fileID: 3085210709880663412}
   _ID: 2
 --- !u!1 &3164659197917274316
 GameObject:
@@ -372,12 +372,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 1691710566730170659}
-  punchSettings:
+  tailSettings:
     _attackDamage: 0
     _attackHitbox: {fileID: 0}
     _attackCooldown: 0
     _settingType: 0
-  slamSettings:
+  lazorSettings:
     _attackDamage: 0
     _attackHitbox: {fileID: 0}
     _attackCooldown: 0
@@ -411,7 +411,7 @@ Animator:
   m_GameObject: {fileID: 3164659197917274316}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9a9e4f8d1d17a2144b550072d15e14a8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9927605dc3695eb4b87f8d042ca50da8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
