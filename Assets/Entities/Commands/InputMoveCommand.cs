@@ -7,7 +7,8 @@ namespace Entities.Commands
     using Entities.Scripts;
     public class InputMoveCommand : Command
     {
-        [Header("Movement")]
+		#region Variables
+		[Header("Movement")]
         [SerializeField] private float _speedy = 10;
 
         private Vector3 _mov;
@@ -35,8 +36,9 @@ namespace Entities.Commands
         [SerializeField] private Transform _transform;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float rayCastLenght = 0.2f;
-
-        private void Awake()
+		#endregion
+        
+		private void Awake()
         {
             if(_characterController == null)
                 _characterController = GetComponent<CharacterController>();
@@ -50,7 +52,7 @@ namespace Entities.Commands
         public override void Execute()
         {
             if (c_moving == null)
-                c_moving = StartCoroutine (Move());
+                c_moving = StartCoroutine(Move());
             if (c_rotate == null)
                 c_rotate = StartCoroutine(Rotate());
             if (c_jump == null && _jump.JumpButtonPressed)
