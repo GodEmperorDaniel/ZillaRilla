@@ -5,8 +5,13 @@ using UnityEngine;
 
 public class HitIconSpawner : MonoBehaviour
 {
-    public GameObject _hitPrefab;
     private Camera _camera;
+    
+    public GameObject _hitPrefab;
+    public float iconLifeTime;
+    public float iconScaling;
+    public float iconMaxScaling;
+    public Vector3 iconMovement;
 
     private void Start()
     {
@@ -22,7 +27,10 @@ public class HitIconSpawner : MonoBehaviour
     {
         GameObject hitIcon = Instantiate(_hitPrefab, transform);
         hitIcon.GetComponent<Canvas>().worldCamera = _camera;
-        hitIcon.GetComponent<HitIcon>()._camera = _camera;
+        hitIcon.GetComponent<HitIcon>()._lifeTime = iconLifeTime;
+        hitIcon.GetComponent<HitIcon>()._scaling = iconScaling;
+        hitIcon.GetComponent<HitIcon>()._maxScaling = iconMaxScaling;
+        hitIcon.GetComponent<HitIcon>()._movement = iconMovement;
         hitIcon.transform.position = position;
     }
 }

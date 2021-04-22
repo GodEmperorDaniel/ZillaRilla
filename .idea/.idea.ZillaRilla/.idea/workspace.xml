@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game Manager/.idea/.idea.Managers.dir/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game Manager/.idea/.idea.Managers.dir/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game Manager/.idea/.idea.Managers.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game Manager/.idea/.idea.Managers.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Main Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Main Menu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Main Menu Placeholder.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Main Menu Placeholder.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/TestScene2.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/TestScene2.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/LogStateCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/LogStateCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/PauseGameCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/PauseGameCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/StartGameCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/StartGameCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/Hit Icon Canvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/Hit Icon Canvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIcon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIcon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIconSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIconSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +15,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Devices/Keyboard.cs" root0="SKIP_HIGHLIGHTING" />
@@ -111,10 +102,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5644">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="5644" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -144,6 +135,7 @@
       <workItem from="1618909212919" duration="39000" />
       <workItem from="1618909268533" duration="12236000" />
       <workItem from="1618998705067" duration="10194000" />
+      <workItem from="1619082785569" duration="2193000" />
     </task>
     <servers />
   </component>
