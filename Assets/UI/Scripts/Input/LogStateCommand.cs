@@ -6,7 +6,7 @@ namespace UI.Scripts
     {
         public override void Execute()
         {
-            Debug.Log("Current Game State: " + GameManager.Instance.CurrentGameState);
+            //Debug.Log("Current Game State: " + GameManager.Instance.CurrentGameState);
         }
     }
 }

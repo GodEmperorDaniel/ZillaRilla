@@ -6,10 +6,10 @@ namespace UI.Scripts
     {
         public override void Execute()
         {
-            if (GameManager.Instance.CurrentGameState != GameManager.GameState.PREGAME)
+            /*if (GameManager.Instance.CurrentGameState != GameManager.GameState.BOOT)
             {
                 return;
-            }
+            }*/
             
             Debug.Log("StartGame called");
             GameManager.Instance.GameStartUp();

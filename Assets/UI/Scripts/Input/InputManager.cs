@@ -16,7 +16,7 @@ public class InputManager : Manager<InputManager>
 
     private void Start()
     {
-        _uiInput.gameObject.SetActive(false);
+        //_uiInput.gameObject.SetActive(false);
         _characterInput.gameObject.SetActive(false);
     }
 }

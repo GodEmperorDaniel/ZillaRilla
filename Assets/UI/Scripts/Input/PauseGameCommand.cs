@@ -4,12 +4,10 @@ namespace UI.Scripts
 {
     public class PauseGameCommand : Command
     {
-        public override void Execute()
+        /*public override void Execute()
         {
-            
-            
             if (GameManager.Instance.CurrentGameState != GameManager.GameState.PAUSED &&
-                GameManager.Instance.CurrentGameState != GameManager.GameState.RUNNING)
+                GameManager.Instance.CurrentGameState != GameManager.GameState.IN_GAME)
             {
                 Debug.Log("PauseGame not run");
                 return;
@@ -18,6 +16,6 @@ namespace UI.Scripts
             Debug.Log("PauseGame run");
 
             GameManager.Instance.TogglePause();
-        }
+        }*/
     }
 }

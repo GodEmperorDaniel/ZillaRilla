@@ -6,38 +6,20 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 
-[Serializable]
-public class EventGameState : UnityEvent<GameManager.GameState, GameManager.GameState>
-{
-}
-
 public class GameManager : Manager<GameManager>
 {
-    public enum GameState
-    {
-        PREGAME,
-        RUNNING,
-        PAUSED
-    }
-    
+    private StateMachine _gameState;
     
     // Fields
     public GameObject[] _systemPrefab;
-    public EventGameState _onGameStateChanged;
 
     private List<GameObject> _instancedSystemPrefabs;
     private string _currentLevelName = string.Empty;
-    private GameState _currentGameState = GameState.PREGAME;
 
     private List<AsyncOperation> _loadOperations;
 
     
     // Getters/Setters
-    public GameState CurrentGameState
-    {
-        get => _currentGameState;
-        private set => _currentGameState = value;
-    }
     
 
     // Unity Methods
@@ -46,12 +28,17 @@ public class GameManager : Manager<GameManager>
         _instancedSystemPrefabs = new List<GameObject>();
         _loadOperations = new List<AsyncOperation>();
 
+        _gameState = new StateMachine();
+
         InstantiateSystemPrefabs();
-        
-        //CreateDebugCube();
     }
 
-    
+    private void Update()
+    {
+        
+    }
+
+
     // Public Methods
     public void LoadLevel(string levelName)
     {
@@ -67,7 +54,7 @@ public class GameManager : Manager<GameManager>
 
         _currentLevelName = levelName;
     }
-    public void UnloadLevel(int levelName)
+    public void UnloadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
         if (ao == null)
@@ -78,43 +65,26 @@ public class GameManager : Manager<GameManager>
 
         ao.completed += OnUnloadOperationComplete;
     }
+    
     public void GameStartUp()
     {
-        LoadLevel("Main Menu Placeholder");
+        //LoadLevel("Main Menu");
+        //UpdateState(GameState.MAIN_MENU);
+    }
+    public void StartNewGame()
+    {
+        UnloadLevel("Main Menu");
+        LoadLevel("Test Level 1");
+        //UpdateState(GameState.IN_GAME);
     }
     public void TogglePause()
     {
-        UpdateState(_currentGameState == GameState.RUNNING ? GameState.PAUSED : GameState.RUNNING);
+        //UpdateState(_currentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
     }
     
     
     // Internal Methods
-    private void UpdateState(GameState newState)
-    {
-        GameState previousGameState = _currentGameState;
-        _currentGameState = newState;
 
-        switch (_currentGameState)
-        {
-            case GameState.PREGAME:
-                Time.timeScale = 1.0f;
-                break;
-
-            case GameState.RUNNING:
-                Time.timeScale = 1.0f;
-                break;
-
-            case GameState.PAUSED:
-                Time.timeScale = 0.0f;
-                break;
-
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-
-        // Dispatch Messages
-        _onGameStateChanged.Invoke(_currentGameState, previousGameState);
-    }
     private void InstantiateSystemPrefabs()
     {
         for (int i = 0; i < _systemPrefab.Length; ++i)
@@ -145,7 +115,7 @@ public class GameManager : Manager<GameManager>
 
             if (_loadOperations.Count == 0)
             {
-                UpdateState(GameState.RUNNING);
+                //UpdateState(GameState.IN_GAME);
             }
 
 
@@ -159,5 +129,6 @@ public class GameManager : Manager<GameManager>
     {
         Debug.Log("Unload Complete.");
     }
-    
+
+
 }
