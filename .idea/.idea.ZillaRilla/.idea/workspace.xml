@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/Hit Icon Canvas.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/Hit Icon Canvas.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIcon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIcon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIconSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIconSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,19 +27,20 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Devices/Keyboard.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/Unit.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UI/Hit Icons/HitIconSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/d2/cb5a07c1/ILogger.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UI/Hit Icons/HitTester.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/FillableBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.4.0/Runtime/Debugging/DebugManager.Actions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/f4/57abf09a/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UI/Hit Icons/HitIcon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -73,6 +74,12 @@
       <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/HitTester.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIconSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIcon.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectivesUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/HealthBar.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/FillableBar.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -136,6 +143,9 @@
       <workItem from="1618909268533" duration="12236000" />
       <workItem from="1618998705067" duration="10194000" />
       <workItem from="1619082785569" duration="2193000" />
+      <workItem from="1619085944168" duration="5000" />
+      <workItem from="1619088723663" duration="358000" />
+      <workItem from="1619094484012" duration="6770000" />
     </task>
     <servers />
   </component>
