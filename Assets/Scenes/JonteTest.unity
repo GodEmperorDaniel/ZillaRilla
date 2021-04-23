@@ -1489,6 +1489,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 990606472552791884, guid: 2c2ea628e9163e74a8e130f5cce46103, type: 3}
+      propertyPath: slamSettings._attackDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5795970536561376961, guid: 2c2ea628e9163e74a8e130f5cce46103, type: 3}
       propertyPath: _character
       value: 1
