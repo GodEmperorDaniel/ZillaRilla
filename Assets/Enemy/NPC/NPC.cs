@@ -18,6 +18,9 @@ namespace Assets.Enemy.NPCCode
         [SerializeField]
         public Transform _player;
 
+        [SerializeField]
+        public float _stunTime = 3f;
+
         public float lookRadius = 10f;
         
 

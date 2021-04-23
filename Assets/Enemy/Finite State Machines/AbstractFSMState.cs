@@ -25,7 +25,7 @@ public abstract class AbstractFSMState : ScriptableObject
 {
     protected NavMeshAgent _navMeshAgent;
     protected NPC _npc;
-    protected FiniteStateMachine _fsm;
+    public FiniteStateMachine _fsm;
     public ExecutionState ExecutionState { get; protected set; }
     public FSMStateType StateType { get; protected set; }
     public bool EnteredState { get; protected set; }
@@ -61,7 +61,7 @@ public abstract class AbstractFSMState : ScriptableObject
         }
     
     }
-    public virtual void setexecutingFSM(FiniteStateMachine fsm)
+    public virtual void SetexecutingFSM(FiniteStateMachine fsm)
     {
         if (fsm != null)
         {

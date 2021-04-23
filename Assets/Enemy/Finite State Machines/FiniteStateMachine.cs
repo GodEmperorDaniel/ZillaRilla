@@ -28,7 +28,7 @@ namespace Assets.Enemy.Finite_State_Machines
             
             foreach (AbstractFSMState state in _validState)
             {
-                state.setexecutingFSM(this);
+                state.SetexecutingFSM(this);
                 state.SetExecutingNPC(npc);
                 state.SetNavMeshAgent(navMesAgent);
                 _fsmStates.Add(state.StateType, state);
