@@ -16,86 +16,19 @@ public class ZillaAttacks : BaseAttack
 	private Coroutine c_attackCooldown;
 
 	public void ZillaLazor()
-	{
-		Debug.Log("IMA FIRING MAH LAZOR");
-		_playerAnimator.SetBool("ZillaLazor", false);
+	{ 
+		
 	}
 
 	public void ZillaTailWip()
-	{
-		if (c_attackCooldown == null)
-		{
-			foreach (GameObject enemy in _hashEnemiesTail)
-			{
-				CallEntityHit(enemy, tailSettings);
-				//Debug.Log("I hit: " + enemy.name);
-			}
-			_playerAnimator.SetBool("ZillaTail", false);
-			c_attackCooldown = StartCoroutine(AttackCooldown(tailSettings._attackCooldown));
-		}
+	{ 
+		
 	}
 	private void CallEntityHit(GameObject enemy, AttackSettings settings)
 	{
 		enemy.GetComponent<Attackable>().EntitiyHit(settings);
 	}
-	#region TriggerData
-	public override void CustomTriggerEnter(Collider other, int id)
-	{
-		switch (id)
-		{
-			case 1:
-				_hashEnemiesTail.Add(other.gameObject);
-				break;
-			case 2:
-				//_hashEnemiesSlam.Add(other.gameObject);
-				break;
-			default:
-				Debug.Log("Something whent wrong in CustomTriggerEnter!");
-				break;
-		}
 
-	}
-	public override void CustomTriggerExit(Collider other, int id)
-	{
-		switch (id)
-		{
-			case 1:
-				_hashEnemiesTail.Remove(other.gameObject);
-				break;
-			case 2:
-				//_hashEnemiesSlam.Remove(other.gameObject);
-				break;
-			default:
-				Debug.Log("Something whent wrong in CustomTriggerExit!");
-				break;
-		}
-	}
-	public override void CustomTriggerStay(Collider other, int id)
-	{
-		switch (id)
-		{
-			case 1:
-				if (!_hashEnemiesTail.Contains(other.gameObject))
-				{
-					_hashEnemiesTail.Add(other.gameObject);
-				}
-				break;
-			case 2:
-				//if (!_hashEnemiesSlam.Contains(other.gameObject))
-				//{
-				//	_hashEnemiesSlam.Add(other.gameObject);
-				//}
-				break;
-			default:
-				break;
-		}
-	}
-	#endregion
-	private IEnumerator AttackCooldown(float resetTime)
-	{
-		yield return new WaitForSeconds(resetTime);
-		c_attackCooldown = null;
-	}
 }
 
 #region Settings Structs
@@ -115,5 +48,17 @@ namespace Attacks.Zilla
 		//public float _knockBackRange;
 	}
 }
+	//[System.Serializable]
+	//public class AttackSettings
+	//{
+	//	public float _attackDamage;
+	//	public GameObject _attackHitbox;
+	//	public float _attackCooldown;
+	//	public enum SettingType
+	//	{
+	//		TAIL, LAZOR
+	//	}
+	//	public SettingType _settingType;
+	//}
 
 #endregion
