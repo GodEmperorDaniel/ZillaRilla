@@ -26,6 +26,6 @@ public class LevelManager : Manager<LevelManager>
 
     private void UpdateObjective()
     {
-        UIManager.Instance.UpdateObjectiveOnUI(_currentObjective);
+        //UIManager.Instance.UpdateObjectiveOnUI(_currentObjective);
     } 
 }

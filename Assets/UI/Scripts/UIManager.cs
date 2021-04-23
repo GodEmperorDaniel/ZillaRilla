@@ -32,9 +32,14 @@ public class UIManager : Manager<UIManager>
         _pauseMenu.gameObject.SetActive(currentState == GameManager.GameState.PAUSED);
     }*/
     
-    public void UpdateObjectiveOnUI(Objective objective)
+    public void UpdateObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
-        _inGameUI.SetObjective(objective);
+        _inGameUI.SetObjectiveOnUI(objectiveName, objectiveDescription);
+    }
+
+    public void UpdateProgressionOnUI(float progress)
+    {
+        _inGameUI.SetProgressOnUI(progress);
     }
     
     

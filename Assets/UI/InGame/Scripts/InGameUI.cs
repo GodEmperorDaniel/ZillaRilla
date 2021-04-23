@@ -14,31 +14,15 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private FillableBar zillaHealthBar;
     [SerializeField] private FillableBar rillaHealthBar;
     [SerializeField] private FillableBar progressBar;
+    [SerializeField] private GameObject _currentObjective;
 
-    private Text currentObjective;
-
-
-    public void SetObjective(Objective objective)
-    {
-        currentObjective.text = objective.ObjectiveDescription;
-    }
-    
-    public void ActivateProgressBar()
-    {
-        progressBar.gameObject.SetActive(true);
-    }
 
     public void ActivateHealthBars()
     {
         zillaHealthBar.gameObject.SetActive(true);
         rillaHealthBar.gameObject.SetActive(true);
     }
-
-    public void DeactivateProgressBar()
-    {
-        progressBar.gameObject.SetActive(false);
-    }
-
+    
     public void DeactivateHealthBars()
     {
         zillaHealthBar.gameObject.SetActive(false);
@@ -55,8 +39,26 @@ public class InGameUI : MonoBehaviour
         rillaHealthBar.fillAmount = health;
     }
 
+    
+    public void DeactivateProgressBar()
+    {
+        progressBar.gameObject.SetActive(false);
+    }
+
+    public void ActivateProgressBar()
+    {
+        progressBar.gameObject.SetActive(true);
+    }
+
     public void SetProgressOnUI(float progress)
     {
         progressBar.fillAmount = progress;
     }
+
+
+    public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
+    {
+        _currentObjective.GetComponent<Text>().text = objectiveDescription;
+    }
+    
 }
