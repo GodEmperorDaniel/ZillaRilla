@@ -42,11 +42,13 @@ namespace Player.Scrips
 		#region Attacks
 		private void OnAttack1Input(InputAction.CallbackContext c)
         {
-            _playerAnimator.SetBool("RillaPunch", true);
+            if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                _playerAnimator.SetBool("RillaPunch", true);
         }
         private void OnAttack2Input(InputAction.CallbackContext c)
         {
-            _playerAnimator.SetBool("RillaSlam", true);
+            if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                _playerAnimator.SetBool("RillaSlam", true);
         }
         private void OnAttack3Input(InputAction.CallbackContext c)
         {
@@ -70,7 +72,7 @@ namespace Player.Scrips
         {
             float value = c.ReadValue<float>();
             JumpButtonPressed = value == 1 ? true : false;
-            _moveInput.Execute();
+           _moveInput.Execute();
         }
 
         private void OnMoveInput(InputAction.CallbackContext c)
