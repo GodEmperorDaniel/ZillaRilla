@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5795970536561376963}
   - component: {fileID: 5795970536561376962}
   - component: {fileID: 5795970536561376961}
-  - component: {fileID: 6700828266971845964}
+  - component: {fileID: 5795970536561376960}
   - component: {fileID: 990606472552791884}
   - component: {fileID: 5795970536561376975}
   - component: {fileID: 7853826364102467361}
@@ -116,17 +116,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2273a864cb5915469d8be288e8e2faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveInput: {fileID: 6700828266971845964}
+  _moveInput: {fileID: 5795970536561376960}
   _input:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: b2e5b1c5-d87f-46d9-be46-2950c17243ed
+    m_Id: 52cb315b-67f2-472b-9e44-3c4c578125b1
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
   _playerAnimator: {fileID: 7853826364102467361}
---- !u!114 &6700828266971845964
+  _character: 0
+--- !u!114 &5795970536561376960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,13 +140,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedy: 10
-  _jumpStength: 3
+  _jumpStength: 15
   _jumpTime: 0.25
-  _gravity: 8
+  _gravity: 32
   _jumpCooldownTime: 0
-  _transform: {fileID: 5795970536561376965}
-  _characterController: {fileID: 5795970536561376975}
-  rayCastLenght: 0.2
+  _transform: {fileID: 0}
+  _characterController: {fileID: 0}
+  rayCastLenght: 1.25
 --- !u!114 &990606472552791884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +252,19 @@ MonoBehaviour:
     m_ActionId: 3b82b5d9-0b1c-4adf-aec9-096d7916e770
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5795970536561376961}
+        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
+        m_MethodName: OnAnalogAimInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b83e14b-fcfb-4afb-8d61-dfd19849858c
     m_ActionName: Player/AnalogAim[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
   - m_PersistentCalls:
@@ -276,13 +289,13 @@ MonoBehaviour:
     m_ActionName: Player/Attack1[/XInputControllerWindows/buttonWest,/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5795970536561376974}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 5795970536561376961}
+        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
+        m_MethodName: OnAttack2Input
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

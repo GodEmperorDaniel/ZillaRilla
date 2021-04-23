@@ -20,8 +20,12 @@ namespace Player.Scrips
         [SerializeField] private InputDevice _inputDevice;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
+        public enum character
+        {
+            ZILLA, RILLA
+        }
 
-        private Vector2 lastMove;
+        [SerializeField] private character _character;
 
         public bool JumpButtonPressed { get; set; }
 
@@ -38,33 +42,39 @@ namespace Player.Scrips
                 //playerInput.;
             }
         }
-        private void OnEnable()
-        {
-            //_inputsActions.Enable();
-            //_inputsActions.Player.Jump.performed += OnJumpInput;
-            //_inputsActions.Player.Move.performed += OnMoveInput;
-            //_inputsActions.Player.Attack1.performed += OnAttack1Input;
-            //_inputsActions.Player.Attack2.performed += OnAttack2Input;
-            //_inputsActions.Player.Attack3.performed += OnAttack3Input;
-            //_inputsActions.Player.MouseAim.performed += OnMouseAimInput;
-            //_inputsActions.Player.AnalogAim.performed += OnAnalogAimInput;
-            //_inputsActions.Player.AnalogMove.performed += OnAnalogMove;
-        }
-        public void SetDeviceInfo(string deviceInfo)
-        {
-            Debug.Log(deviceInfo);
-            //_inputDevice = device;
-        }
+
 		#region Attacks
 		public void OnAttack1Input(InputAction.CallbackContext c)
         {
-            if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
-                _playerAnimator.SetBool("RillaPunch", true);
+            switch (_character)
+            {
+                case character.ZILLA:
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                        _playerAnimator.SetBool("ZillaTail", true);
+                    break;
+                case character.RILLA:
+                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                        _playerAnimator.SetBool("RillaPunch", true);
+                    break;
+                default:
+                    break;
+            }
         }
         public void OnAttack2Input(InputAction.CallbackContext c)
         {
-            if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
-                _playerAnimator.SetBool("RillaSlam", true);
+            switch (_character)
+            {
+                case character.ZILLA:
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                        _playerAnimator.SetBool("ZillaLazor", true);
+                    break;
+                case character.RILLA:
+                    if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                        _playerAnimator.SetBool("RillaSlam", true);
+                    break;
+                default:
+                    break;
+            }
         }
         public void OnAttack3Input(InputAction.CallbackContext c)
         {
@@ -78,7 +88,7 @@ namespace Player.Scrips
             //Vector2 value = c.ReadValue<Vector2>();
 
         }
-        private void OnAnalogAimInput(InputAction.CallbackContext c)
+        public void OnAnalogAimInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
             RotationDirection = new Vector3(value.x, 0, value.y);
@@ -100,17 +110,10 @@ namespace Player.Scrips
 
         public void OnAnalogMove(InputAction.CallbackContext c)
         {
-                Vector2 value = c.ReadValue<Vector2>();
-                Debug.Log(value);
-                MoveDirection = new Vector3(value.x, 0, value.y);
-                _moveInput.Execute();
-        }
-
-        private void OnDisable()
-        {
-            //_inputsActions.Disable();
-            //_inputsActions.Player.Jump.performed -= OnJumpInput;
-            //_inputsActions.Player.Move.performed -= OnMoveInput;
+            Vector2 value = c.ReadValue<Vector2>();
+            MoveDirection = new Vector3(value.x, 0, value.y);
+            _moveInput.Execute();
         }
     }
 }
+
