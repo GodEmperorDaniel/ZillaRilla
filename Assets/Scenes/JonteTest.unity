@@ -1627,84 +1627,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 543194975}
---- !u!1001 &1062485666
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3085210709880663412, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: tailSettings._settingType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3085210709880663412, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: tailSettings._attackDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3085210709880663412, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: tailSettings._attackHitbox
-      value: 
-      objectReference: {fileID: 1062485667}
-    - target: {fileID: 3085210709880663412, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: tailSettings._attackCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274311, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164659197917274316, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-      propertyPath: m_Name
-      value: Zilla
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38167043f67d4f6458899605f9116cea, type: 3}
---- !u!1 &1062485667 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2822148468763372411, guid: 38167043f67d4f6458899605f9116cea, type: 3}
-  m_PrefabInstance: {fileID: 1062485666}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1195875455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,7 +2370,6 @@ GameObject:
   - component: {fileID: 1885994477}
   - component: {fileID: 1885994478}
   - component: {fileID: 1885994479}
-  - component: {fileID: 1885994480}
   m_Layer: 6
   m_Name: '''enemy'''
   m_TagString: Untagged
@@ -2581,19 +2502,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1885994480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885994472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edf25b059c70fc40a04196f642892f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _validState: []
 --- !u!1 &1920384075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,7 +2852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714349329536684406, guid: 87b7fb10dd7f77248be64a10ee9afeb6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7fb10dd7f77248be64a10ee9afeb6, type: 3}
