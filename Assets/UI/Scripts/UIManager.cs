@@ -7,19 +7,26 @@ using UnityEngine.Serialization;
 
 public class UIManager : Manager<UIManager>
 {
-    [SerializeField] private UIInput _uiInput;
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
 
-    private void Start()
+    protected override void Awake()
     {
-        GameManager.Instance._onGameStateChanged.AddListener(HandleGameStateChange);
+        base.Awake();
+        
+        _mainMenu.gameObject.SetActive(false);
+        _pauseMenu.gameObject.SetActive(false);
     }
 
-    private void HandleGameStateChange(GameManager.GameState currentState, GameManager.GameState previousState)
+    private void Start()
+    {
+        //GameManager.Instance._onGameStateChanged.AddListener(HandleGameStateChange);
+    }
+
+    /*private void HandleGameStateChange(GameManager.GameState currentState, GameManager.GameState previousState)
     {
         _pauseMenu.gameObject.SetActive(currentState == GameManager.GameState.PAUSED);
-    }
+    }*/
 
     private void ActivateMainMenuUI()
     {
