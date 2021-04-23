@@ -122,12 +122,6 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 52cb315b-67f2-472b-9e44-3c4c578125b1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-  _playerAnimator: {fileID: 7853826364102467361}
-  _character: 0
---- !u!114 &5795970536561376960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
