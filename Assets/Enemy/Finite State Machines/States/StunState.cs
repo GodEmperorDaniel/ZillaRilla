@@ -10,8 +10,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
     [CreateAssetMenu(fileName = "StunState", menuName = "ZillaRilla/States/Stun", order = 4)]
     public class StunState : AbstractFSMState
     {
-        [SerializeField]
-        public float stunTime;
+        float _totalDuration;
+
         public override void OnEnable()
         {
             base.OnEnable();
@@ -24,7 +24,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             if (EnteredState)
             {
                 Debug.Log("ENTERED STUN STATE");
-
+                _totalDuration = 0f;
             }
             return EnteredState;
 
@@ -32,11 +32,17 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         public override void UpdateState()
         {
-            Debug.Log("UPDATING STUN STATE");
+            if (EnteredState)
+            {
+               
+                _totalDuration += Time.deltaTime;
+                Debug.Log("UPDATING STUN STATE: "+ _totalDuration + " Seconds.");
 
-
-
-            _fsm.EnterState(FSMStateType.IDLE);
+                if (_totalDuration >= _npc._stunTime)
+                {
+                    _fsm.EnterState(FSMStateType.IDLE);
+                }
+            }
         }
 
         public override bool ExitState()

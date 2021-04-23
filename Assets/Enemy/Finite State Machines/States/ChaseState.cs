@@ -25,7 +25,6 @@ namespace Assets.Enemy.Finite_State_Machines.States
             EnteredState = true;
 
             return EnteredState;
-
         }
         public override void UpdateState()
         {
@@ -51,7 +50,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 _navMeshAgent.SetDestination(player.position);
 
                 //TO DO STOPPING DISTANCE??
-                //_navMeshAgent.stoppingDistance = ();
+                _navMeshAgent.stoppingDistance = 2f;
+                if (_navMeshAgent.stoppingDistance == 2f)
+                {
+                    _fsm.EnterState(FSMStateType.ATTACK);
+                }
             }
             else
             {
