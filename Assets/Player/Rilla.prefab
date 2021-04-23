@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5795970536561376963}
   - component: {fileID: 5795970536561376962}
   - component: {fileID: 5795970536561376961}
-  - component: {fileID: 5795970536561376960}
+  - component: {fileID: 6700828266971845964}
   - component: {fileID: 990606472552791884}
   - component: {fileID: 5795970536561376975}
   - component: {fileID: 7853826364102467361}
@@ -116,12 +116,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2273a864cb5915469d8be288e8e2faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveInput: {fileID: 5795970536561376960}
+  _moveInput: {fileID: 6700828266971845964}
   _input:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 52cb315b-67f2-472b-9e44-3c4c578125b1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  _playerAnimator: {fileID: 7853826364102467361}
+  _character: 1
+--- !u!114 &6700828266971845964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,13 +140,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedy: 10
-  _jumpStength: 15
+  _jumpStength: 3
   _jumpTime: 0.25
-  _gravity: 32
+  _gravity: 8
   _jumpCooldownTime: 0
-  _transform: {fileID: 0}
-  _characterController: {fileID: 0}
-  rayCastLenght: 1.25
+  _transform: {fileID: 5795970536561376965}
+  _characterController: {fileID: 5795970536561376975}
+  rayCastLenght: 0.2
 --- !u!114 &990606472552791884
 MonoBehaviour:
   m_ObjectHideFlags: 0
