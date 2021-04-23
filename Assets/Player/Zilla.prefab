@@ -348,6 +348,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
   _playerAnimator: {fileID: 1691710566730170659}
+  _character: 0
 --- !u!114 &3164659197917274306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,15 +383,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 1691710566730170659}
   tailSettings:
-    _attackDamage: 0
-    _attackHitbox: {fileID: 0}
-    _attackCooldown: 0
-    _settingType: 0
+    _attackDamage: 10
+    _attackHitbox: {fileID: 2822148468763372411}
+    _attackCooldown: 1
+    _settingType: 2
   lazorSettings:
-    _attackDamage: 0
+    _attackDamage: 20
     _attackHitbox: {fileID: 0}
     _attackCooldown: 0
-    _settingType: 0
+    _settingType: 3
     _lazorMaxRange: 0
 --- !u!143 &3164659197917274317
 CharacterController:
@@ -471,7 +472,19 @@ MonoBehaviour:
     m_ActionId: 3b82b5d9-0b1c-4adf-aec9-096d7916e770
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3164659197917274307}
+        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
+        m_MethodName: OnAnalogAimInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b83e14b-fcfb-4afb-8d61-dfd19849858c
     m_ActionName: Player/AnalogAim[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
   - m_PersistentCalls:

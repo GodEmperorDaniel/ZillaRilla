@@ -121,12 +121,7 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: f4f932ba-f7df-4d24-861c-da87130536d1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-  _playerAnimator: {fileID: 7853826364102467361}
---- !u!114 &5795970536561376960
+    m_Id: 52cb315b-67f2-472b-9e44-3c4c578125b1
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,7 +246,19 @@ MonoBehaviour:
     m_ActionId: 3b82b5d9-0b1c-4adf-aec9-096d7916e770
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5795970536561376961}
+        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
+        m_MethodName: OnAnalogAimInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b83e14b-fcfb-4afb-8d61-dfd19849858c
     m_ActionName: Player/AnalogAim[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
   - m_PersistentCalls:
@@ -276,13 +283,13 @@ MonoBehaviour:
     m_ActionName: Player/Attack1[/XInputControllerWindows/buttonWest,/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5795970536561376974}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 5795970536561376961}
+        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
+        m_MethodName: OnAttack2Input
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
