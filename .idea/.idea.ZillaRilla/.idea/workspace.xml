@@ -3,9 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Cube.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Cube.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/GameManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/GameManager.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/InGame UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/InGame UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/health_bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/health_bar.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Main Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Main Menu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Test Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/Test Level 1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +52,11 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Objectives/Objective.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game Manager/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -62,12 +79,10 @@
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/GameManagerOld.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/LogStateCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/PauseGameCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/StartGameCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/ChaseCollider.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/StateMachine.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/Unit.cs" />
@@ -75,11 +90,15 @@
       <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIconSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/HitIcon.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectivesUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/HealthBar.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/FillableBar.cs" />
+      <option value="$PROJECT_DIR$/Assets/Objectives/Objective.cs" />
+      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Game Manager/LevelManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -146,6 +165,7 @@
       <workItem from="1619085944168" duration="5000" />
       <workItem from="1619088723663" duration="358000" />
       <workItem from="1619094484012" duration="6770000" />
+      <workItem from="1619165674226" duration="6921000" />
     </task>
     <servers />
   </component>
