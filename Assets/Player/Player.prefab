@@ -129,6 +129,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 3535629612080024842}
+  _input:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2d1c0333-8182-4f75-9e38-208e7214d011
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
   _playerAnimator: {fileID: -8250562152300811029}
 --- !u!114 &3535629612080024842
 MonoBehaviour:
