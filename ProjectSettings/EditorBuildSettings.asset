@@ -17,4 +17,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JonteTest.unity
     guid: c1cf1fa50a1a91a41b3dd6575a0e5a9f
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: ddc7449c5c095b14995a4af93f1664ee, type: 2}
