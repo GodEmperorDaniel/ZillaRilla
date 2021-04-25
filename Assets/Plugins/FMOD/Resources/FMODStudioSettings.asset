@@ -87,7 +87,7 @@ MonoBehaviour:
       Value: 9264
       HasValue: 1
     Overlay:
-      Value: 0
+      Value: 1
       HasValue: 1
     Logging:
       Value: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: C:/Users/curry/Desktop/fmodProjekt-ZillaRilla/fmodProjekt-ZillaRilla.fspro
-  sourceBankPath: C:\Users\curry\Desktop\fmodProjekt-ZillaRilla\Build
+  sourceProjectPath: ../ZillaRillaFMOD/zillarilla_musik.fspro
+  sourceBankPath: ..\ZillaRillaFMOD\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

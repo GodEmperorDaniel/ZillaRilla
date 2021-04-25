@@ -13,11 +13,7 @@ namespace Player.Scrips
 
         //[SerializeField] private PlayerInputActions _inputsActions;
         [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")]
-        [SerializeField] private InputAction _input;
-
         [SerializeField] private Animator _playerAnimator;
-
-        [SerializeField] private InputDevice _inputDevice;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
         public enum character
@@ -65,16 +61,17 @@ namespace Player.Scrips
             switch (_character)
             {
                 case character.ZILLA:
-                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
-                        _playerAnimator.SetBool("ZillaLazor", true);
+                    //if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                        //_playerAnimator.SetBool("ZillaLazor", true);
                     break;
                 case character.RILLA:
-                    if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
-                        _playerAnimator.SetBool("RillaSlam", true);
+                    //if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                        //_playerAnimator.SetBool("RillaSlam", true);
                     break;
                 default:
                     break;
             }
+            Debug.Log("No animations to see here");
         }
         public void OnAttack3Input(InputAction.CallbackContext c)
         {
@@ -97,6 +94,7 @@ namespace Player.Scrips
         public void OnJumpInput(InputAction.CallbackContext c)
         {
             float value = c.ReadValue<float>();
+            _playerAnimator.SetBool("Jump", true);
             JumpButtonPressed = value == 1 ? true : false;
            _moveInput.Execute();
         }

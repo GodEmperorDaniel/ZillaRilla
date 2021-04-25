@@ -36,10 +36,16 @@ namespace Entities.Commands
         [SerializeField] private Transform _transform;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float rayCastLenght = 0.2f;
+        [SerializeField] private Animator _animator;
 		#endregion
         
 		private void Awake()
         {
+            if (_animator == null)
+            {
+                Debug.Log("Getting Animator");
+                _animator = GetComponent<Animator>();
+            }
             if(_characterController == null)
                 _characterController = GetComponent<CharacterController>();
             _move = GetComponent<IMoveInput>();
@@ -64,6 +70,7 @@ namespace Entities.Commands
         {
             Gravity();
             JumpWhileStill();
+            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), (transform.position + rayCastLenght * Vector3.down), Color.red);
         }
 
         private void Gravity()
@@ -92,10 +99,12 @@ namespace Entities.Commands
 
                 if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
                 {
+                    _animator.SetBool("Walk", true);
                     transform.forward = _move.MoveDirection;
                 }
                 yield return null;
             }
+            _animator.SetBool("Walk", false);
             _characterController.Move(Vector3.zero);
             c_moving = null;
         }
@@ -125,15 +134,16 @@ namespace Entities.Commands
 
         private IEnumerator JumpCooldown()
         {
-            bool raycast = Physics.Raycast(transform.position,Vector3.down, rayCastLenght); 
+            bool raycast = Physics.Raycast(transform.position + new Vector3(0,1,0),Vector3.down, rayCastLenght); 
             while (!raycast) 
             {
-                raycast = Physics.Raycast(transform.position, Vector3.down, rayCastLenght);
+                raycast = Physics.Raycast(transform.position + new Vector3(0, 1, 0), Vector3.down, rayCastLenght);
                 yield return null; 
             }
             yield return new WaitForSeconds(_jumpCooldownTime);
             c_jump = null;
             c_jumpCooldown = null;
+            _animator.SetBool("Jump", false);
             _isJumping = false;
         }
     }

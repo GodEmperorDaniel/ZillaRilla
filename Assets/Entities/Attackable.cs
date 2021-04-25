@@ -37,7 +37,7 @@ public class Attackable : MonoBehaviour
 		if (_health <= 0)
 		{
 			fsm.EnterState(FSMStateType.DEATH);
-			animator.SetBool("Dead", true);
+			animator.SetTrigger("Dead");
 		}
 		Debug.Log("RemovedHealth");
 	}
