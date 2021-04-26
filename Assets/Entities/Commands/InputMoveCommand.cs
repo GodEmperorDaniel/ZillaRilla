@@ -7,15 +7,9 @@ namespace Entities.Commands
     using Entities.Scripts;
     public class InputMoveCommand : Command
     {
-        [Header("Movement")]
-        [SerializeField]
-        private AnimationCurve _speed;
-
-        [SerializeField]
-        [Tooltip("The time to reset the players move acceleration (basically a deadzone), where the acceleration is based on the acceleratio curve used")]
-        private float _accResetTime = 0;
-
-        private float _time = 0;
+		#region Variables
+		[Header("Movement")]
+        [SerializeField] private float _speedy = 10;
 
         private Vector3 _mov;
 
@@ -24,46 +18,47 @@ namespace Entities.Commands
 
         private Coroutine c_moving;
         private Coroutine c_rotate;
-        private Coroutine c_reseter;
 
         [Header("Jump")]
-        [SerializeField]
-        private float _jumpHeight = 3;
-        [SerializeField]
-        private float _gravity = 8;
+        [SerializeField] private float _jumpStength = 3;
+        [SerializeField] private float _jumpTime = 0.25F;
+        [SerializeField] private float _gravity = 8;
 
         private IJumpInput _jump;
 
         private Coroutine c_jump;
         private bool _isJumping = false;
 
-        [SerializeField]
-        private float _jumpCooldownTime = 0;
+        [SerializeField] private float _jumpCooldownTime = 0;
         private Coroutine c_jumpCooldown;
 
         [Header("Self generating")]
-        [SerializeField]
-        private Transform _t;
-        [SerializeField]
-        private CharacterController _c;
-        [SerializeField]
-        private float rayCastLenght = 0.2f;
-
-        private void Awake()
+        [SerializeField] private Transform _transform;
+        [SerializeField] private CharacterController _characterController;
+        [SerializeField] private float rayCastLenght = 0.2f;
+        [SerializeField] private Animator _animator;
+		#endregion
+        
+		private void Awake()
         {
-            if(_c == null)
-                _c = GetComponent<CharacterController>();
+            if (_animator == null)
+            {
+                Debug.Log("Getting Animator");
+                _animator = GetComponent<Animator>();
+            }
+            if(_characterController == null)
+                _characterController = GetComponent<CharacterController>();
             _move = GetComponent<IMoveInput>();
             _rotate = GetComponent<IRotationInput>();
             _jump = GetComponent<IJumpInput>();
-            if(_t == null)
-                _t = transform;
+            if(_transform == null)
+                _transform = transform;
         }
 
         public override void Execute()
         {
             if (c_moving == null)
-                c_moving = StartCoroutine (Move());
+                c_moving = StartCoroutine(Move());
             if (c_rotate == null)
                 c_rotate = StartCoroutine(Rotate());
             if (c_jump == null && _jump.JumpButtonPressed)
@@ -75,11 +70,12 @@ namespace Entities.Commands
         {
             Gravity();
             JumpWhileStill();
+            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), (transform.position + rayCastLenght * Vector3.down), Color.red);
         }
 
         private void Gravity()
         {
-            if (!_c.isGrounded)
+            if (!_characterController.isGrounded)
             {
                 _mov.y -= _gravity * Time.deltaTime;
             }
@@ -95,26 +91,21 @@ namespace Entities.Commands
 
         private IEnumerator Move()
         {
-            if (c_reseter != null)
-            { 
-                StopCoroutine(c_reseter);
-                c_reseter = null;
-            }
-            while (_move.MoveDirection != Vector3.zero || !_c.isGrounded)
+            while (_move.MoveDirection != Vector3.zero || !_characterController.isGrounded)
             {
                 _mov.x = _move.MoveDirection.x;
                 _mov.z = _move.MoveDirection.z;
-                _time += Time.deltaTime;
-                _c.Move(_mov * Time.deltaTime * _speed.Evaluate(_time));
+                _characterController.Move(new Vector3(_mov.x * _speedy, _mov.y, _mov.z * _speedy) * Time.deltaTime);
 
                 if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
                 {
+                    _animator.SetBool("Walk", true);
                     transform.forward = _move.MoveDirection;
                 }
                 yield return null;
             }
-            _c.Move(Vector3.zero);
-            c_reseter = StartCoroutine(AccelCooldown());
+            _animator.SetBool("Walk", false);
+            _characterController.Move(Vector3.zero);
             c_moving = null;
         }
 
@@ -128,33 +119,32 @@ namespace Entities.Commands
             c_rotate = null;
         }
 
-        private IEnumerator Jump()
+        private IEnumerator Jump() //make this move more smooth with lerp
         {
-            _mov.y = _jumpHeight;
-            _jump.JumpButtonPressed = false;
-            yield return null;
+            float count = 0;
+            while (count < _jumpTime && _jump.JumpButtonPressed)
+            {
+                _mov.y = _jumpStength;
+                count = count + Time.deltaTime;
+                yield return null;
+            }
             _isJumping = true;
+            yield return null;
         }
 
         private IEnumerator JumpCooldown()
         {
-            bool raycast = Physics.Raycast(transform.position,Vector3.down, rayCastLenght); 
+            bool raycast = Physics.Raycast(transform.position + new Vector3(0,1,0),Vector3.down, rayCastLenght); 
             while (!raycast) 
             {
-                raycast = Physics.Raycast(transform.position, Vector3.down, rayCastLenght);
+                raycast = Physics.Raycast(transform.position + new Vector3(0, 1, 0), Vector3.down, rayCastLenght);
                 yield return null; 
             }
             yield return new WaitForSeconds(_jumpCooldownTime);
             c_jump = null;
             c_jumpCooldown = null;
+            _animator.SetBool("Jump", false);
             _isJumping = false;
         }
-
-        private IEnumerator AccelCooldown()
-        {
-            yield return new WaitForSeconds(_accResetTime);
-            _time = 0;
-        }
-
     }
 }

@@ -11,11 +11,17 @@ namespace Player.Scrips
     {
         [SerializeField] private Command _moveInput;
 
-        [SerializeField] private PlayerInputActions _inputsActions;
-
+        //[SerializeField] private PlayerInputActions _inputsActions;
+        [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")]
         [SerializeField] private Animator _playerAnimator;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
+        public enum character
+        {
+            ZILLA, RILLA
+        }
+
+        [SerializeField] private character _character;
 
         public bool JumpButtonPressed { get; set; }
 
@@ -26,29 +32,48 @@ namespace Player.Scrips
                 Debug.LogWarning("No animator is set in " + this.name + ", getting it through code");
                 TryGetComponent<Animator>(out _playerAnimator);
             }
-            _inputsActions = new PlayerInputActions();
+            PlayerInput playerInput = GetComponent<PlayerInput>();
+            if (playerInput.currentActionMap == null)
+            {
+                //playerInput.;
+            }
         }
-        private void OnEnable()
-        {
-            _inputsActions.Enable();
-            _inputsActions.Player.Jump.performed += OnJumpInput;
-            _inputsActions.Player.Move.performed += OnMoveInput;
-            _inputsActions.Player.Attack1.performed += OnAttack1Input;
-            _inputsActions.Player.Attack2.performed += OnAttack2Input;
-            _inputsActions.Player.Attack3.performed += OnAttack3Input;
-            _inputsActions.Player.MouseAim.performed += OnMouseAimInput;
-            _inputsActions.Player.AnalogAim.performed += OnAnalogAimInput;
-        }
+
 		#region Attacks
-		private void OnAttack1Input(InputAction.CallbackContext c)
+		public void OnAttack1Input(InputAction.CallbackContext c)
         {
-            _playerAnimator.SetBool("RillaPunch", true);
+            switch (_character)
+            {
+                case character.ZILLA:
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                        _playerAnimator.SetBool("ZillaTail", true);
+                    break;
+                case character.RILLA:
+                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                        _playerAnimator.SetBool("RillaPunch", true);
+                    break;
+                default:
+                    break;
+            }
         }
-        private void OnAttack2Input(InputAction.CallbackContext c)
+        public void OnAttack2Input(InputAction.CallbackContext c)
         {
-            _playerAnimator.SetBool("RillaSlam", true);
+            switch (_character)
+            {
+                case character.ZILLA:
+                    //if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                        //_playerAnimator.SetBool("ZillaLazor", true);
+                    break;
+                case character.RILLA:
+                    //if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                        //_playerAnimator.SetBool("RillaSlam", true);
+                    break;
+                default:
+                    break;
+            }
+            Debug.Log("No animations to see here");
         }
-        private void OnAttack3Input(InputAction.CallbackContext c)
+        public void OnAttack3Input(InputAction.CallbackContext c)
         {
             Debug.Log("HAHAHA not implemented /Jonte");
             //_playerAnimator.SetBool("RillaPunch", true);
@@ -60,31 +85,33 @@ namespace Player.Scrips
             //Vector2 value = c.ReadValue<Vector2>();
 
         }
-        private void OnAnalogAimInput(InputAction.CallbackContext c)
+        public void OnAnalogAimInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
             RotationDirection = new Vector3(value.x, 0, value.y);
         }
 
-        private void OnJumpInput(InputAction.CallbackContext c)
+        public void OnJumpInput(InputAction.CallbackContext c)
         {
             float value = c.ReadValue<float>();
+            _playerAnimator.SetBool("Jump", true);
             JumpButtonPressed = value == 1 ? true : false;
-            _moveInput.Execute();
+           _moveInput.Execute();
         }
 
-        private void OnMoveInput(InputAction.CallbackContext c)
+        public void OnMoveInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
             _moveInput.Execute();
         }
 
-        private void OnDisable()
+        public void OnAnalogMove(InputAction.CallbackContext c)
         {
-            _inputsActions.Disable();
-            _inputsActions.Player.Jump.performed -= OnJumpInput;
-            _inputsActions.Player.Move.performed -= OnMoveInput;
+            Vector2 value = c.ReadValue<Vector2>();
+            MoveDirection = new Vector3(value.x, 0, value.y);
+            _moveInput.Execute();
         }
     }
 }
+
