@@ -1,13 +1,13 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using Attacks;
+using Attacks.Enemy;
+using System;
 
 namespace Assets.Enemy.Finite_State_Machines.States
 {
+    [CreateAssetMenu(fileName = "AttackState", menuName = "ZillaRilla/States/Attack", order = 5)]
+
     public class AttackState : AbstractFSMState
     {
         public override void OnEnable()
@@ -28,10 +28,10 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
+                _npc.getEnemyAttack.EnemyPunch();
                 Debug.Log("UPDATING ATTACK STATE");
+                StartChaseTarget();
             }
-
-            
         }
 
         public override bool ExitState()
@@ -41,5 +41,15 @@ namespace Assets.Enemy.Finite_State_Machines.States
             Debug.Log("EXITING ATTACK STATE");
             return true;
         }
+        private void StartChaseTarget()
+        {
+            //TO DO STOPPING DISTANCE??
+            if (_npc.Destiantion() > _npc.attackRadius)
+           {
+              _navMeshAgent.isStopped = false;
+              _fsm.EnterState(FSMStateType.CHASING);
+           }
+        }
+        
     }
 }
