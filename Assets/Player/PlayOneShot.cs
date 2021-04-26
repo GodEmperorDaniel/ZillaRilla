@@ -10,12 +10,6 @@ public class PlayOneShot : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(listOfSounds[indexOfSound].nameOfSound);
     }
 
-    public void PlayFootstep(int indexOfSound)
-    {
-        FMODUnity.RuntimeManager.PlayOneShot(listOfSounds[indexOfSound].nameOfSound);
-    }
-
-
     [System.Serializable]
     public struct sound
     {

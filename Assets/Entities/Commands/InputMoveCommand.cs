@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace Entities.Commands
 {
@@ -9,7 +10,7 @@ namespace Entities.Commands
     {
 		#region Variables
 		[Header("Movement")]
-        [SerializeField] private float _speedy = 10;
+        [SerializeField] private float _speed = 10;
 
         private Vector3 _mov;
 
@@ -37,9 +38,9 @@ namespace Entities.Commands
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float rayCastLenght = 0.2f;
         [SerializeField] private Animator _animator;
-		#endregion
-        
-		private void Awake()
+        #endregion
+
+        private void Awake()
         {
             if (_animator == null)
             {
@@ -95,7 +96,7 @@ namespace Entities.Commands
             {
                 _mov.x = _move.MoveDirection.x;
                 _mov.z = _move.MoveDirection.z;
-                _characterController.Move(new Vector3(_mov.x * _speedy, _mov.y, _mov.z * _speedy) * Time.deltaTime);
+                _characterController.Move(new Vector3(_mov.x * _speed, _mov.y, _mov.z * _speed) * Time.deltaTime);
 
                 if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
                 {
@@ -111,7 +112,7 @@ namespace Entities.Commands
 
         private IEnumerator Rotate()
         {
-            if (_rotate.RotationDirection != Vector3.zero)
+            if(_rotate.RotationDirection != Vector3.zero)
             {
                 transform.forward = _rotate.RotationDirection;
                 yield return null;
