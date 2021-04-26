@@ -52,13 +52,22 @@ public class InGameUI : MonoBehaviour
 
     public void SetProgressOnUI(float progress)
     {
-        progressBar.fillAmount = progress;
+        progressBar.fillAmount = Round(progress, 2);
     }
 
 
     public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
         _currentObjective.GetComponent<Text>().text = objectiveDescription;
+    }
+    
+    
+    // Should be moved to a Math Utility class
+    // 
+    public static float Round(float value, int digits)
+    {
+        float mult = Mathf.Pow(10.0f, (float)digits);
+        return Mathf.Round(value * mult) / mult;
     }
     
 }

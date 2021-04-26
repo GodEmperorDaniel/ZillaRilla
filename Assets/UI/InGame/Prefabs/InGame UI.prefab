@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.36}
-  m_SizeDelta: {x: 160, y: 81.197}
+  m_SizeDelta: {x: 176, y: 81.197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5492084412074027612
 CanvasRenderer:
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0%
+  m_Text: 100%
 --- !u!1 &922999214848486520
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   zillaHealthBar: {fileID: 8021209499926719359}
   rillaHealthBar: {fileID: 4083143466420140434}
   progressBar: {fileID: 8042333578542567895}
+  _currentObjective: {fileID: 0}
 --- !u!1 &922999215046610877
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,11 +8,12 @@ public class Objective : MonoBehaviour
     private string _objectiveName = "[Default Name]";
     private string _objectiveDescription = "[Default Text]";
     private float _progress = 0f;
+    private bool _completed = false;
 
     [HideInInspector] public bool playerInArea;
     [HideInInspector] public bool enemyInArea;
 
-    /*
+    /* No use right now because not implemented in UI yet
      public string ObjectiveName
     {
         get => _objectiveName;
@@ -24,11 +25,6 @@ public class Objective : MonoBehaviour
     {
         get => _objectiveDescription;
         private set => _objectiveDescription = value;
-    }
-
-    private void Start()
-    {
-        
     }
 
     private void OnEnable()
@@ -44,9 +40,18 @@ public class Objective : MonoBehaviour
 
     private void UpdateProgression()
     {
-        if (!playerInArea || enemyInArea) return;
+        if (_completed || !playerInArea || enemyInArea) return;
 
-        _progress += 0.001f;
-        UIManager.Instance.UpdateProgressionOnUI(_progress);
+        if (_progress <= 1.0f)
+        {
+            _progress += 0.001f;
+            UIManager.Instance.UpdateProgressionOnUI(_progress);
+        }
+        else
+        {
+            _completed = true;
+        }
     }
+    
+    
 }
