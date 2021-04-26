@@ -30,7 +30,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
-                SetChaseTarget(_npc._player);
+                SetChaseTarget(_npc.PlayerTransform);
             }
            
             Debug.Log("UPDATING Chaseing STATE");
@@ -47,7 +47,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         private object SetChaseTarget(Transform player)
         {
             
-            if (_npc.Destiantion <= _npc.lookRadius) {
+            if (_npc.Destiantion()<= _npc.lookRadius) {
                 _navMeshAgent.SetDestination(player.position);
                 //FaceTarget();
                 //if (_npc.Destiantion <= _navMeshAgent.stoppingDistance)
@@ -55,7 +55,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 //    FaceTarget();
                 //}
                 //TO DO STOPPING DISTANCE??
-                if (_npc.Destiantion <= _npc.attackRadius)
+                if (_npc.Destiantion() <= _npc.attackRadius)
                 {
                     _navMeshAgent.isStopped = true;
                     _fsm.EnterState(FSMStateType.ATTACK);

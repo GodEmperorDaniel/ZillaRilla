@@ -32,7 +32,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             Debug.Log("UPDATING IDLE STATE");
 
-            if (_npc.Destiantion <= _npc.lookRadius)
+            if (_npc.Destiantion() <= _npc.lookRadius)
             {
                 _fsm.EnterState(FSMStateType.CHASING);
             }

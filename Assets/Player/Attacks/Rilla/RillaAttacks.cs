@@ -29,7 +29,7 @@ using Attacks.Rilla;
 			if (c_attackCooldown == null)
 			{
 				//punchSettings._attackHitbox.SetActive(true);
-				//Debug.Log("PUNCHING!!");
+				Debug.Log("PUNCHING Player!!");
 				//Debug.Log(_hashEnemiesPunch.Count);
 
 				foreach (GameObject enemy in _hashEnemiesPunch)

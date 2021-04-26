@@ -15,28 +15,36 @@ namespace Assets.Enemy.NPCCode
     {
         NavMeshAgent _navMeshAgent;
         FiniteStateMachine _finiteStateMachine;
+        EnemyAttacks _enemyAttacks;
 
-        public Transform _player;
+        public List<Transform> PlayerList;
+        private Transform playerTransform;
         public float _stunTime = 3f;
         public float lookRadius = 10f;
         public float attackRadius = 5f;
 
         public Animator _playerAnimator;
 
-        public RillaPunchSettings punchSettings;
+        //public RillaPunchSettings punchSettings;
 
 
         public void Awake()
         {
             _navMeshAgent = this.GetComponent<NavMeshAgent>();
             _finiteStateMachine = this.GetComponent<FiniteStateMachine>();
+            _enemyAttacks = this.GetComponent<EnemyAttacks>();
         }
         public void Start()
         {
         }
         public void Update()
         {
-            SetChaseTarget(_player);
+            SetChaseTarget();
+            //foreach (Transform player in PlayerList)
+            //{
+            //    SetChaseTarget(player);
+            //    playerTransform = player;
+            //}
         }
         void OnDrawGizmosSelected()
         {
@@ -46,27 +54,42 @@ namespace Assets.Enemy.NPCCode
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
-        public float Destiantion {
-            get { return Vector3.Distance(_player.position, ThisEnemyPosition.position); }
+        public Transform PlayerTransform { get { return playerTransform;  } set { playerTransform = value; } }
+        public float Destiantion()
+        {
+
+            float saveDistance = 0.0f;
+            foreach (Transform player in PlayerList)
+            {
+                if (saveDistance > Vector3.Distance(player.position, ThisEnemyPosition.position) || saveDistance == 0)
+                {
+                    saveDistance = Vector3.Distance(player.position, ThisEnemyPosition.position);
+                    PlayerTransform = player;
+                }   
+            }
+            return saveDistance;
+        }
+        public List<Transform> GetPlayerList {
+            get { return PlayerList; }
         }
         public Transform ThisEnemyPosition {
             get { return transform; }
         }
-        
-        private object SetChaseTarget(Transform player)
+        public EnemyAttacks getEnemyAttack {
+            get { return _enemyAttacks; }
+        }
+
+        private object SetChaseTarget()
         {
-
-            if (Destiantion <= lookRadius)
+            if (Destiantion() <= lookRadius)
             {
- 
-                FaceTarget();
-
+                FaceTarget(PlayerTransform);
             }
             return null;
         }
-        public void FaceTarget()
+        public void FaceTarget(Transform player)
         {
-            Vector3 direction = (_player.position - transform.position).normalized;
+            Vector3 direction = (player.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }

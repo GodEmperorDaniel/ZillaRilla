@@ -311,8 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffe6a0516f39b14b856eb41cb5f6368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _base: {fileID: 0}
-  _ID: 2
+  _base: {fileID: 1191681671}
+  _ID: 1
+  _targetName: Player
 --- !u!64 &427022734
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -798,6 +799,10 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 2094704783}
+    - target: {fileID: 7025184515510217349, guid: 2c2ea628e9163e74a8e130f5cce46103, type: 3}
+      propertyPath: _targetName
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7025184515631507844, guid: 2c2ea628e9163e74a8e130f5cce46103, type: 3}
       propertyPath: _base
       value: 
@@ -928,6 +933,7 @@ GameObject:
   - component: {fileID: 1191681667}
   - component: {fileID: 1191681666}
   - component: {fileID: 1191681665}
+  - component: {fileID: 1191681671}
   - component: {fileID: 1191681664}
   - component: {fileID: 1191681670}
   - component: {fileID: 1191681669}
@@ -1032,16 +1038,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e336874d67b02543a9f6922add62800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 2094704789}
+  PlayerList:
+  - {fileID: 2094704789}
   _stunTime: 3
   lookRadius: 10
   attackRadius: 5
   _playerAnimator: {fileID: 0}
-  punchSettings:
-    _attackDamage: 1
-    _attackHitbox: {fileID: 0}
-    _attackCooldown: 0
-    _settingType: 0
 --- !u!114 &1191681670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,6 +1062,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ffb71bdc82c8e014294d05cf39566e41, type: 2}
   - {fileID: 11400000, guid: 5ecfe906b14339f4498f7955dd648e9a, type: 2}
   - {fileID: 11400000, guid: 692af16f39b0bfd41a3ec95a56d01849, type: 2}
+--- !u!114 &1191681671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191681663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3b2c45a1ab6be43a9c1041a430c78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 0}
+  punchSettings:
+    _attackDamage: 1
+    _attackHitbox: {fileID: 427022731}
+    _attackCooldown: 1
+    _settingType: 0
 --- !u!1 &1202096019
 GameObject:
   m_ObjectHideFlags: 0
