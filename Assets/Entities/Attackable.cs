@@ -6,8 +6,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent(typeof(FiniteStateMachine))]
 public class Attackable : MonoBehaviour
 {
 	[SerializeField] private float _health = 20;
