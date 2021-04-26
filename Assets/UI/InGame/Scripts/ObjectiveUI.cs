@@ -13,8 +13,5 @@ public class ObjectiveUI : MonoBehaviour
         objectiveText = GetComponent<Text>();
     }
 
-    private void UpdateObjectiveForUI(/*Objective*/)
-    {
-        
-    }
+    
 }
