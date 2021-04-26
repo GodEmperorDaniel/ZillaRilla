@@ -18,6 +18,8 @@ namespace Assets.Enemy.NPCCode
         EnemyAttacks _enemyAttacks;
 
         public List<Transform> PlayerList;
+        [SerializeField]
+        private float _rotationSpeed;
         private Transform playerTransform;
         public float _stunTime = 3f;
         public float lookRadius = 10f;
@@ -40,11 +42,6 @@ namespace Assets.Enemy.NPCCode
         public void Update()
         {
             SetChaseTarget();
-            //foreach (Transform player in PlayerList)
-            //{
-            //    SetChaseTarget(player);
-            //    playerTransform = player;
-            //}
         }
         void OnDrawGizmosSelected()
         {
@@ -91,7 +88,7 @@ namespace Assets.Enemy.NPCCode
         {
             Vector3 direction = (player.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
         }
     }
 }

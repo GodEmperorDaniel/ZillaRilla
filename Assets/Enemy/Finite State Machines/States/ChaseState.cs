@@ -49,12 +49,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             
             if (_npc.Destiantion()<= _npc.lookRadius) {
                 _navMeshAgent.SetDestination(player.position);
-                //FaceTarget();
-                //if (_npc.Destiantion <= _navMeshAgent.stoppingDistance)
-                //{
-                //    FaceTarget();
-                //}
-                //TO DO STOPPING DISTANCE??
+
                 if (_npc.Destiantion() <= _npc.attackRadius)
                 {
                     _navMeshAgent.isStopped = true;
@@ -67,12 +62,5 @@ namespace Assets.Enemy.Finite_State_Machines.States
             }
             return null;
         }
-        //void FaceTarget()
-        //{
-
-        //    Vector3 direction = (_npc._player.position - _npc.ThisEnemyPosition.position).normalized;
-        //    Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        //    _npc.ThisEnemyPosition.rotation = Quaternion.Slerp(_npc.ThisEnemyPosition.rotation, lookRotation,Time.deltaTime * 5f);
-        //}
     }
 }
