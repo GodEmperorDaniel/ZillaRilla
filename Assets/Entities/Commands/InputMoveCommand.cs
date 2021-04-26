@@ -38,10 +38,6 @@ namespace Entities.Commands
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float rayCastLenght = 0.2f;
         [SerializeField] private Animator _animator;
-        [SerializeField] private Camera _currentCamera;
-
-        private float turnSmoothTime = 0.1f;
-        private float turnSmoothVelocity;
         #endregion
 
         private void Awake()
@@ -98,17 +94,15 @@ namespace Entities.Commands
         {
             while (_move.MoveDirection != Vector3.zero || !_characterController.isGrounded)
             {
-                if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
-                {
-                    _animator.SetBool("Walk", true);
-                    float targetAngle = Mathf.Atan2(_move.MoveDirection.x, _move.MoveDirection.z) * Mathf.Rad2Deg + _currentCamera.transform.eulerAngles.y;
-                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                    //transform.forward = _move.MoveDirection;
-                }
                 _mov.x = _move.MoveDirection.x;
                 _mov.z = _move.MoveDirection.z;
                 _characterController.Move(new Vector3(_mov.x * _speed, _mov.y, _mov.z * _speed) * Time.deltaTime);
+
+                if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
+                {
+                    _animator.SetBool("Walk", true);
+                    transform.forward = _move.MoveDirection;
+                }
                 yield return null;
             }
             _animator.SetBool("Walk", false);
@@ -118,7 +112,7 @@ namespace Entities.Commands
 
         private IEnumerator Rotate()
         {
-            if (_rotate.RotationDirection != Vector3.zero)
+            if(_rotate.RotationDirection != Vector3.zero)
             {
                 transform.forward = _rotate.RotationDirection;
                 yield return null;

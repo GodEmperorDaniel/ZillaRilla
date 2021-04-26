@@ -89,6 +89,7 @@ namespace Player.Scrips
         {
             Vector2 value = c.ReadValue<Vector2>();
             RotationDirection = new Vector3(value.x, 0, value.y);
+            _moveInput.Execute();
         }
 
         public void OnJumpInput(InputAction.CallbackContext c)
