@@ -33,11 +33,6 @@ public class GameManager : Manager<GameManager>
         InstantiateSystemPrefabs();
     }
 
-    private void Update()
-    {
-        
-    }
-
 
     // Public Methods
     public void LoadLevel(string levelName)

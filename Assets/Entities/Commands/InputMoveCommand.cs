@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace Entities.Commands
 {
@@ -9,7 +10,7 @@ namespace Entities.Commands
     {
 		#region Variables
 		[Header("Movement")]
-        [SerializeField] private float _speedy = 10;
+        [SerializeField] private float _speed = 10;
 
         private Vector3 _mov;
 
@@ -36,10 +37,16 @@ namespace Entities.Commands
         [SerializeField] private Transform _transform;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float rayCastLenght = 0.2f;
-		#endregion
-        
-		private void Awake()
+        [SerializeField] private Animator _animator;
+        #endregion
+
+        private void Awake()
         {
+            if (_animator == null)
+            {
+                Debug.Log("Getting Animator");
+                _animator = GetComponent<Animator>();
+            }
             if(_characterController == null)
                 _characterController = GetComponent<CharacterController>();
             _move = GetComponent<IMoveInput>();
@@ -64,6 +71,7 @@ namespace Entities.Commands
         {
             Gravity();
             JumpWhileStill();
+            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), (transform.position + rayCastLenght * Vector3.down), Color.red);
         }
 
         private void Gravity()
@@ -88,21 +96,23 @@ namespace Entities.Commands
             {
                 _mov.x = _move.MoveDirection.x;
                 _mov.z = _move.MoveDirection.z;
-                _characterController.Move(new Vector3(_mov.x * _speedy, _mov.y, _mov.z * _speedy) * Time.deltaTime);
+                _characterController.Move(new Vector3(_mov.x * _speed, _mov.y, _mov.z * _speed) * Time.deltaTime);
 
                 if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
                 {
+                    _animator.SetBool("Walk", true);
                     transform.forward = _move.MoveDirection;
                 }
                 yield return null;
             }
+            _animator.SetBool("Walk", false);
             _characterController.Move(Vector3.zero);
             c_moving = null;
         }
 
         private IEnumerator Rotate()
         {
-            if (_rotate.RotationDirection != Vector3.zero)
+            if(_rotate.RotationDirection != Vector3.zero)
             {
                 transform.forward = _rotate.RotationDirection;
                 yield return null;
@@ -125,15 +135,16 @@ namespace Entities.Commands
 
         private IEnumerator JumpCooldown()
         {
-            bool raycast = Physics.Raycast(transform.position,Vector3.down, rayCastLenght); 
+            bool raycast = Physics.Raycast(transform.position + new Vector3(0,1,0),Vector3.down, rayCastLenght); 
             while (!raycast) 
             {
-                raycast = Physics.Raycast(transform.position, Vector3.down, rayCastLenght);
+                raycast = Physics.Raycast(transform.position + new Vector3(0, 1, 0), Vector3.down, rayCastLenght);
                 yield return null; 
             }
             yield return new WaitForSeconds(_jumpCooldownTime);
             c_jump = null;
             c_jumpCooldown = null;
+            _animator.SetBool("Jump", false);
             _isJumping = false;
         }
     }
