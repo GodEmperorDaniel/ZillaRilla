@@ -22,6 +22,7 @@ namespace Player.Scrips
         }
 
         [SerializeField] private character _character;
+        private bool _attack1Pressed;
 
         public bool JumpButtonPressed { get; set; }
         public bool LazorButtonPressed { get; set; }
@@ -43,14 +44,16 @@ namespace Player.Scrips
 		#region Attacks
 		public void OnAttack1Input(InputAction.CallbackContext c)
         {
+            _attack1Pressed = c.ReadValueAsButton();
+            Debug.Log(_attack1Pressed);
             switch (_character)
             {
                 case character.ZILLA:
-                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor") && _attack1Pressed)
                         _playerAnimator.SetBool("ZillaTail", true);
                     break;
                 case character.RILLA:
-                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") && _attack1Pressed)
                         _playerAnimator.SetBool("RillaPunch", true);
                     break;
                 default:

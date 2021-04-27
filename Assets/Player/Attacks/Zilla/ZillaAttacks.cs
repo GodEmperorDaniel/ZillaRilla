@@ -19,7 +19,6 @@ public class ZillaAttacks : BaseAttack
 	private HashSet<GameObject> _hashEnemiesLazor = new HashSet<GameObject>();
 	private Coroutine c_attackCooldown;
 	private Coroutine c_lazorGrowth;
-	private Coroutine c_tryHitLazor;
 
 	private void Awake()
 	{
@@ -30,39 +29,32 @@ public class ZillaAttacks : BaseAttack
 		if (c_attackCooldown == null)
 		{
 			_playerAnimator.SetBool("ZillaLazor", true);
-			Debug.Log("SHOULD ACTIVATE");
 			lazorSettings._attackHitbox.SetActive(true);
 			if (c_lazorGrowth == null)
 			{ 
-				c_lazorGrowth = StartCoroutine(LazorGrowth());
+				c_lazorGrowth = StartCoroutine(LazorAttack());
 			}
 		}
 	}
-	private IEnumerator LazorGrowth()
+	private IEnumerator LazorAttack()
 	{
 		while (_lazorInput.LazorButtonPressed)
 		{
 			if (lazorSettings._attackHitbox.transform.localScale.z < lazorSettings._lazorMaxRange)
 			{
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
-				Debug.Log("Lazor growing!");
+			}
+			foreach (GameObject enemy in _hashEnemiesLazor)
+			{
+				enemy.GetComponent<Attackable>().EntitiyHit(lazorSettings);
 			}
 			yield return null;
 		}
-		lazorSettings._attackHitbox.transform.localScale = new Vector3(0,0,0.5f);
+		lazorSettings._attackHitbox.transform.localScale = new Vector3(0.2f,0.2f,0.5f);
 		lazorSettings._attackHitbox.SetActive(false);
 		_playerAnimator.SetBool("ZillaLazor", false);
 		c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
 		c_lazorGrowth = null;
-	}
-	private IEnumerator LazorHitEnemies()
-	{
-		if (_hashEnemiesLazor.Count > 0)
-		{
-			Debug.Log("We got enemies to kill");
-		}
-
-		yield return null;
 	}
 
 	public void ZillaTailWip()

@@ -10,9 +10,12 @@ public class Attackable : MonoBehaviour
 {
 	[SerializeField] private float _health = 20;
 	[SerializeField] private Animator animator;
-	RillaSlamSettings _settings;
+	[SerializeField] private float _iFrames;
+	private RillaSlamSettings _rillaSlamSettings;
+	private ZillaLazorSettings _zillaLazorSettings;
+	private Coroutine c_invincible;
 
-	FiniteStateMachine fsm;
+	private FiniteStateMachine fsm;
 
     public void Start()
     {
@@ -22,24 +25,42 @@ public class Attackable : MonoBehaviour
 	{
 		Debug.Log( gameObject.name + " LostHealth");
 		RemoveHealth(settings._attackDamage);
-		if (settings._settingType == AttackSettings.SettingType.SLAM)
+		switch (settings._settingType)
 		{
-			_settings = settings as RillaSlamSettings;
-			fsm.EnterState(FSMStateType.STUN);
+			case AttackSettings.SettingType.SLAM:
+				_rillaSlamSettings = settings as RillaSlamSettings;
+				if(_rillaSlamSettings._stun)
+					fsm.EnterState(FSMStateType.STUN);
+				break;
+			case AttackSettings.SettingType.LAZOR:
+				_zillaLazorSettings = settings as ZillaLazorSettings;
+				break;
+			default:
+				break;
 		}
 	}
 
 	private void RemoveHealth(float damage)
 	{
-		if (_health <= 0)
+		if (c_invincible == null)
 		{
-			fsm.EnterState(FSMStateType.DEATH);
-			animator.SetTrigger("Dead");
+			if (_health <= 0)
+			{
+				fsm.EnterState(FSMStateType.DEATH);
+				animator.SetTrigger("Dead");
+			}
+			else
+			{
+				_health -= damage;
+			}
+			Debug.Log("RemovedHealth");
+			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
-		else
-		{
-			_health -= damage;
-		}
-		Debug.Log("RemovedHealth");
+	}
+
+	private IEnumerator InvincibilityFrames()
+	{
+		yield return new WaitForSeconds(_iFrames);
+		c_invincible = null;
 	}
 }
