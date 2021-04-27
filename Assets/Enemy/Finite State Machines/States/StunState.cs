@@ -27,7 +27,6 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 _totalDuration = 0f;
             }
             return EnteredState;
-
         }
 
         public override void UpdateState()
