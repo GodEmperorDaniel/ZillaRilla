@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4928840131240104277}
   - component: {fileID: 7730277399593142024}
   m_Layer: 0
-  m_Name: House_6B
+  m_Name: House_6B1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 4928840131240104274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.329266, y: -0.00000029934438, z: -36.96637}
-  m_LocalScale: {x: 3, y: 2.5, z: 3}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4928840131007691011}
   m_Father: {fileID: 0}
