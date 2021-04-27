@@ -31,11 +31,14 @@ public class Attackable : MonoBehaviour
 
 	private void RemoveHealth(float damage)
 	{
-		_health -= damage;
 		if (_health <= 0)
 		{
 			fsm.EnterState(FSMStateType.DEATH);
 			animator.SetTrigger("Dead");
+		}
+		else
+		{
+			_health -= damage;
 		}
 		Debug.Log("RemovedHealth");
 	}
