@@ -7,7 +7,7 @@ namespace Player.Scrips
 {
     using Entities.Scripts;
     using Entities.Commands;
-    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput
+    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput
     {
         [SerializeField] private Command _moveInput;
 
@@ -22,8 +22,10 @@ namespace Player.Scrips
         }
 
         [SerializeField] private character _character;
+        private bool _attack1Pressed;
 
         public bool JumpButtonPressed { get; set; }
+        public bool LazorButtonPressed { get; set; }
 
         private void Awake()
         {
@@ -33,23 +35,25 @@ namespace Player.Scrips
                 TryGetComponent<Animator>(out _playerAnimator);
             }
             PlayerInput playerInput = GetComponent<PlayerInput>();
-            if (playerInput.currentActionMap == null)
-            {
-                //playerInput.;
-            }
+            //if (playerInput.currentActionMap == null)
+            //{
+            //    //playerInput.;
+            //}
         }
 
 		#region Attacks
 		public void OnAttack1Input(InputAction.CallbackContext c)
         {
+            _attack1Pressed = c.ReadValueAsButton();
+            Debug.Log(_attack1Pressed);
             switch (_character)
             {
                 case character.ZILLA:
-                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor") && _attack1Pressed)
                         _playerAnimator.SetBool("ZillaTail", true);
                     break;
                 case character.RILLA:
-                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") && _attack1Pressed)
                         _playerAnimator.SetBool("RillaPunch", true);
                     break;
                 default:
@@ -58,20 +62,24 @@ namespace Player.Scrips
         }
         public void OnAttack2Input(InputAction.CallbackContext c)
         {
+            bool value = c.ReadValueAsButton();
             switch (_character)
             {
                 case character.ZILLA:
-                    //if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
-                        //_playerAnimator.SetBool("ZillaLazor", true);
+                    LazorButtonPressed = value;
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                    { 
+                        _playerAnimator.SetBool("ZillaLazor", true);
+                    }
                     break;
                 case character.RILLA:
-                    //if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
-                        //_playerAnimator.SetBool("RillaSlam", true);
+                    if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                        _playerAnimator.SetBool("RillaSlam", true);
                     break;
                 default:
                     break;
             }
-            Debug.Log("No animations to see here");
+            //Debug.Log("No animations to see here");
         }
         public void OnAttack3Input(InputAction.CallbackContext c)
         {

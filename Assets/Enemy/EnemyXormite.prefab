@@ -124,12 +124,13 @@ GameObject:
   - component: {fileID: 6613114054487553843}
   - component: {fileID: 6613114054487553841}
   - component: {fileID: 6613114054487553842}
+  - component: {fileID: -3609913050599336262}
   - component: {fileID: 6613114054487553847}
   - component: {fileID: 6613114054487553840}
   - component: {fileID: 6613114054487553846}
   - component: {fileID: 6613114054487553845}
   m_Layer: 6
-  m_Name: Enemy(1)
+  m_Name: EnemyXormite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,6 +203,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &-3609913050599336262
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6613114054487553999}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b91fb970e16571c4894593d73ecbb7ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6613114054487553847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3b2c45a1ab6be43a9c1041a430c78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 0}
+  _playerAnimator: {fileID: -3609913050599336262}
   punchSettings:
     _attackDamage: 1
     _attackHitbox: {fileID: 6613114052974211131}
@@ -234,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 40
   animator: {fileID: 0}
+  _iFrames: 0
 --- !u!114 &6613114054487553846
 MonoBehaviour:
   m_ObjectHideFlags: 0
