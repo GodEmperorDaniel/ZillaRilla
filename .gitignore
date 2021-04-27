@@ -96,3 +96,6 @@ FMOD/.unsaved
 FMOD/.user
 FMOD/.cache
 FMOD/.restore
+#Assets/Plugins/
+
+Assets/Plugins/FMOD/src/Runtime/BankRefAttribute.cs.meta
