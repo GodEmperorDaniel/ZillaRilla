@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 70674030}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 2.22, z: 4.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 8538369396598117620}
   m_RootOrder: 2
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 191052405}
   _ID: 1
+  _targetName: 
 --- !u!1 &197583548
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 191052405}
   _ID: 2
+  _targetName: 
 --- !u!1 &148412715467963453
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +507,7 @@ Transform:
   - {fileID: 2342315576172491513}
   m_Father: {fileID: 5620477089982161172}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -64.69863, y: -0.000019976953, z: 31.43195}
+  m_LocalEulerAnglesHint: {x: -64.698616, y: -0.000026044007, z: 1.4970512}
 --- !u!1 &2530685848688959634
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +722,7 @@ Transform:
   - {fileID: 1477000663057422161}
   m_Father: {fileID: 1071246322939313345}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -7.1407557, y: -9.447863, z: 52.98718}
+  m_LocalEulerAnglesHint: {x: 2.4315872, y: 3.2262802, z: 52.53657}
 --- !u!1 &2980858708328441283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1101,7 @@ Transform:
   - {fileID: 5162655357823020783}
   m_Father: {fileID: 5276734664549629277}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.0000031958648, y: -0.0000062732543, z: -7.040002}
+  m_LocalEulerAnglesHint: {x: -0.0000014466312, y: -0.000006887533, z: -49.16983}
 --- !u!1 &4323347023642279626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1194,7 @@ Transform:
   - {fileID: 3238781029801788892}
   m_Father: {fileID: 1021755714825605192}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.0000051015313, y: 0.0000048519714, z: 32.39999}
+  m_LocalEulerAnglesHint: {x: -0.0000023498164, y: 0.000007997488, z: 7.1269665}
 --- !u!1 &4585039742965536929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,7 +1413,7 @@ Transform:
   - {fileID: 3439714711146796368}
   m_Father: {fileID: 350297144292677022}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.40449682, y: -9.644975, z: -2.5324125}
+  m_LocalEulerAnglesHint: {x: -0.05610901, y: 2.7110891, z: 0.69089866}
 --- !u!1 &6693488478555935980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1565,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3238781029801788892}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 5.263268, y: -0.67426103, z: -159.06285}
+  m_LocalEulerAnglesHint: {x: 5.2690525, y: -0.6855031, z: -156.83025}
 --- !u!1 &7343084974864790855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +1596,7 @@ Transform:
   - {fileID: 1494611952901242569}
   m_Father: {fileID: 3008006000613611806}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -64.69863, y: 0.000030131368, z: 28.0365}
+  m_LocalEulerAnglesHint: {x: -64.69862, y: 0.000023972309, z: 14.853491}
 --- !u!1 &7446477791124624569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1657,7 @@ Transform:
   - {fileID: 4851666330616993674}
   m_Father: {fileID: 3439714711146796368}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 8.859503, y: -11.824812, z: -53.601322}
+  m_LocalEulerAnglesHint: {x: -2.1941829, y: 3.041113, z: -52.49277}
 --- !u!1 &7628293568386168295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,7 +1873,7 @@ Transform:
   m_GameObject: {fileID: 9022312139909254734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 778758696991179882}
   - {fileID: 7957249816180061697}
@@ -1918,7 +1920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2bb9d832c7b484ca2777a2b85c92da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedy: 10
+  _speed: 10
   _jumpStength: 15
   _jumpTime: 0.25
   _gravity: 32
@@ -2113,7 +2115,7 @@ MonoBehaviour:
     m_ActionId: 95883507-dddd-4c3f-8157-8f9355b19977
     m_ActionName: Player/AnalogMove[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -2143,7 +2145,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4
+  m_Height: 4.3
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
