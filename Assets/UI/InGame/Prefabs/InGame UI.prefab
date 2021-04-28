@@ -195,10 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39d822c39f086e4aa656b4c0525613c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zillaHealthBar: {fileID: 8021209499926719359}
-  rillaHealthBar: {fileID: 4083143466420140434}
-  progressBar: {fileID: 8042333578542567895}
-  _currentObjective: {fileID: 0}
+  _zillaHealthBar: {fileID: 8021209499926719359}
+  _rillaHealthBar: {fileID: 4083143466420140434}
+  _progressBar: {fileID: 8042333578542567895}
+  _currentObjective: {fileID: 922999215046610877}
 --- !u!1 &922999215046610877
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 922999215046610872}
   - component: {fileID: 922999215046610879}
   m_Layer: 5
-  m_Name: Current Objective
+  m_Name: Current Objective UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

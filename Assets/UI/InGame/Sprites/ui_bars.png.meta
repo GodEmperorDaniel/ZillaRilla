@@ -104,9 +104,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 250
+        y: 234.66666
         width: 408
-        height: 102
+        height: 117.333336
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,10 +124,10 @@ TextureImporter:
       name: ui_bars_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 130
-        width: 399
-        height: 93
+        x: 0
+        y: 117.666664
+        width: 408
+        height: 117.333336
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,10 +145,10 @@ TextureImporter:
       name: ui_bars_2
       rect:
         serializedVersion: 2
-        x: 4
-        y: 11
-        width: 399
-        height: 93
+        x: 0
+        y: 0.6666641
+        width: 408
+        height: 117.333336
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
