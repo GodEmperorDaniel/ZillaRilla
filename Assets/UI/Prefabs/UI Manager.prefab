@@ -63,6 +63,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5503359539433743511}
     m_Modifications:
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: iconLifeTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: iconMaxScaling
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 669400982252746938, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
