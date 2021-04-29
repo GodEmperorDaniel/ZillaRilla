@@ -24,6 +24,7 @@ namespace Assets.Enemy.NPCCode
         public float _stunTime = 3f;
         public float lookRadius = 10f;
         public float attackRadius = 5f;
+        public float deSpawnTime = 1;
 
         public Animator _playerAnimator;
 
@@ -41,7 +42,7 @@ namespace Assets.Enemy.NPCCode
         }
         public void Update()
         {
-            SetChaseTarget();
+            //SetChaseTarget();
         }
         void OnDrawGizmosSelected()
         {
@@ -58,9 +59,9 @@ namespace Assets.Enemy.NPCCode
             float saveDistance = 0.0f;
             foreach (Transform player in PlayerList)
             {
-                if (saveDistance > Vector3.Distance(player.position, ThisEnemyPosition.position) || saveDistance == 0)
+                if (saveDistance > Vector3.Distance(player.position, transform.position) || saveDistance == 0)
                 {
-                    saveDistance = Vector3.Distance(player.position, ThisEnemyPosition.position);
+                    saveDistance = Vector3.Distance(player.position, transform.position);
                     PlayerTransform = player;
                 }   
             }
@@ -69,20 +70,8 @@ namespace Assets.Enemy.NPCCode
         public List<Transform> GetPlayerList {
             get { return PlayerList; }
         }
-        public Transform ThisEnemyPosition {
-            get { return transform; }
-        }
         public EnemyAttacks getEnemyAttack {
             get { return _enemyAttacks; }
-        }
-
-        private object SetChaseTarget()
-        {
-            if (Destiantion() <= lookRadius)
-            {
-                FaceTarget(PlayerTransform);
-            }
-            return null;
         }
         public void FaceTarget(Transform player)
         {

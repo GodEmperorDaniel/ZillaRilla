@@ -29,6 +29,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             if (EnteredState)
             {
                 _npc.getEnemyAttack.EnemyPunch();
+                _npc.FaceTarget(_npc.PlayerTransform);
                 Debug.Log("UPDATING ATTACK STATE");
                 StartChaseTarget();
             }
@@ -36,6 +37,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         public override bool ExitState()
         {
+            _navMeshAgent.isStopped = false;
             base.ExitState();
 
             Debug.Log("EXITING ATTACK STATE");
@@ -46,7 +48,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             //TO DO STOPPING DISTANCE??
             if (_npc.Destiantion() > _npc.attackRadius)
            {
-              _navMeshAgent.isStopped = false;
+              
               _fsm.EnterState(FSMStateType.CHASING);
            }
         }

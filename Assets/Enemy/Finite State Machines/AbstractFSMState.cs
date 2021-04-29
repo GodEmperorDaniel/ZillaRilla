@@ -19,6 +19,7 @@ public enum FSMStateType
     DEATH,
     ATTACK,
     STUN,
+    VULNERABLE,
 };
 
 public abstract class AbstractFSMState : ScriptableObject

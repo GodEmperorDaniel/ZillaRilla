@@ -19,6 +19,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
         }
         public override bool EnterState()
         {
+            _navMeshAgent.isStopped = true;
+            _navMeshAgent.SetDestination(_npc.transform.position);
             EnteredState = base.EnterState();
 
             if (EnteredState)
@@ -36,7 +38,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
                
                 _totalDuration += Time.deltaTime;
                 Debug.Log("UPDATING STUN STATE: "+ _totalDuration + " Seconds.");
+                //if (_totalDuration <= _npc._stunTime)
+                //{
+                //    Debug.Log("GOING IN TO THE VULNERABLE STATE");
 
+                //}
                 if (_totalDuration >= _npc._stunTime)
                 {
                     _fsm.EnterState(FSMStateType.IDLE);
@@ -46,6 +52,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         public override bool ExitState()
         {
+            _navMeshAgent.isStopped = false;
             base.ExitState();
 
             Debug.Log("EXITING STUN STATE");
