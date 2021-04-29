@@ -28,16 +28,12 @@ using Attacks.Rilla;
 		{
 			if (c_attackCooldown == null)
 			{
-				//punchSettings._attackHitbox.SetActive(true);
-				Debug.Log("PUNCHING Player!!");
-				//Debug.Log(_hashEnemiesPunch.Count);
-
+				Debug.Log("HE DO BE PUNCHING");
 				foreach (GameObject enemy in _hashEnemiesPunch)
 				{
 					CallEntityHit(enemy, punchSettings);
-					//Debug.Log("I hit: " + enemy.name);
 				}
-				_playerAnimator.SetBool("RillaPunch", false);
+				
 				c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
 			}
 		}
@@ -46,23 +42,19 @@ using Attacks.Rilla;
 		{
 			if (c_attackCooldown == null)
 			{
-				//Debug.Log("GroundSlam!!");
+				Debug.Log("HE DO BE SLAMING!");
 				foreach (GameObject enemy in _hashEnemiesSlam)
 				{
 					CallEntityHit(enemy, slamSettings);
-					//Debug.Log("I hit: " + enemy.name);
 				}
-				_playerAnimator.SetBool("RillaSlam", false);
 				c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
 			}
 		}
 		private IEnumerator AttackCooldown(float resetTime)
 		{
 			yield return new WaitForSeconds(resetTime);
-			//punchSettings._attackHitbox.SetActive(false);
-			//slamSettings._attackHitbox.SetActive(false);
-			//_hashEnemiesSlam.Clear();
-			//_hashEnemiesPunch.Clear();
+			_playerAnimator.SetBool("RillaPunch", false);
+			_playerAnimator.SetBool("RillaSlam", false);
 			c_attackCooldown = null;
 		}
 		#endregion

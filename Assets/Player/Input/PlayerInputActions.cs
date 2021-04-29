@@ -52,7 +52,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Attack2"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""76683cfd-6d59-4f7d-a549-6519680722bb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

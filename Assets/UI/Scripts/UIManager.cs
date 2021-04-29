@@ -11,6 +11,8 @@ public class UIManager : Manager<UIManager>
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private InGameUI _inGameUI;
+    [SerializeField] private HitIconSpawner _hitIconSpawner;
+    
 
     public InGameUI InGameUI => _inGameUI;
 
@@ -40,6 +42,16 @@ public class UIManager : Manager<UIManager>
     public void UpdateProgressionOnUI(float progress)
     {
         _inGameUI.SetProgressOnUI(progress);
+    }
+
+    public void UpdateHealthOnUI(float zillaHealth, float rillaHealth)
+    {
+        
+    }
+
+    public void SpawnHitIcon(Vector3 position)
+    {
+        _hitIconSpawner.SpawnHitIcon(position);
     }
     
     

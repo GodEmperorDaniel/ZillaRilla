@@ -28,7 +28,7 @@ public class ZillaAttacks : BaseAttack
 	{
 		if (c_attackCooldown == null)
 		{
-			_playerAnimator.SetBool("ZillaLazor", true);
+			_playerAnimator.SetBool("ZillaLazorAttack", true);
 			lazorSettings._attackHitbox.SetActive(true);
 			if (c_lazorGrowth == null)
 			{ 
@@ -50,14 +50,16 @@ public class ZillaAttacks : BaseAttack
 			}
 			yield return null;
 		}
-		lazorSettings._attackHitbox.transform.localScale = new Vector3(0.2f,0.2f,0.5f);
+		lazorSettings._attackHitbox.transform.localScale = new Vector3(1,1,0.5f);
 		lazorSettings._attackHitbox.SetActive(false);
-		_playerAnimator.SetBool("ZillaLazor", false);
+		//_playerAnimator.SetBool("ZillaLazor", false);
+		_playerAnimator.SetBool("ZillaLazorAttack", false);
+		_playerAnimator.SetBool("ZillaLazorWindup", false);
 		c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
 		c_lazorGrowth = null;
 	}
 
-	public void ZillaTailWip()
+	public void ZillaTailWhip()
 	{
 		if (c_attackCooldown == null)
 		{
@@ -66,7 +68,6 @@ public class ZillaAttacks : BaseAttack
 				CallEntityHit(enemy, tailSettings);
 				//Debug.Log("I hit: " + enemy.name);
 			}
-			_playerAnimator.SetBool("ZillaTail", false);
 			c_attackCooldown = StartCoroutine(AttackCooldown(tailSettings._attackCooldown));
 		}
 	}
@@ -132,6 +133,8 @@ public class ZillaAttacks : BaseAttack
 		if (c_lazorGrowth != null)
 			c_lazorGrowth = null;
 		yield return new WaitForSeconds(resetTime);
+		_playerAnimator.SetBool("ZillaTail", false);
+		_playerAnimator.SetBool("ZillaLazor", false);
 		c_attackCooldown = null;
 	}
 }

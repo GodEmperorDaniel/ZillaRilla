@@ -100,12 +100,12 @@ namespace Entities.Commands
 
                 if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
                 {
-                    _animator.SetBool("Walk", true);
+                    _animator.SetFloat("Speed", _move.MoveDirection.magnitude);
                     transform.forward = _move.MoveDirection;
                 }
                 yield return null;
             }
-            _animator.SetBool("Walk", false);
+            _animator.SetFloat("Speed", _move.MoveDirection.magnitude);
             _characterController.Move(Vector3.zero);
             c_moving = null;
         }
@@ -145,6 +145,7 @@ namespace Entities.Commands
             c_jump = null;
             c_jumpCooldown = null;
             _animator.SetBool("Jump", false);
+            _jump.JumpButtonPressed = false;
             _isJumping = false;
         }
     }
