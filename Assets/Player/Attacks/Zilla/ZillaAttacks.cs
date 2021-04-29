@@ -16,7 +16,7 @@ public class ZillaAttacks : BaseAttack
 	private IZillaLazorInput _lazorInput;
 
 	private HashSet<GameObject> _hashEnemiesTail = new HashSet<GameObject>();
-	private List<GameObject> _hashEnemiesLazor = new List<GameObject>();
+	private List<GameObject> _listEnemiesLazor = new List<GameObject>();
 	private Coroutine c_attackCooldown;
 	private Coroutine c_lazorGrowth;
 
@@ -44,11 +44,11 @@ public class ZillaAttacks : BaseAttack
 			{
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 			}
-			for (int i = 0; i < _hashEnemiesLazor.Count; i++)
+			for (int i = 0; i < _listEnemiesLazor.Count; i++)
 			{
-				if (_hashEnemiesLazor[i] != null)
+				if (_listEnemiesLazor[i] != null)
 				{ 
-					_hashEnemiesLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
+					_listEnemiesLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
 				}
 			}
 			yield return null;
@@ -87,7 +87,7 @@ public class ZillaAttacks : BaseAttack
 				_hashEnemiesTail.Add(other.gameObject);
 				break;
 			case 2:
-				_hashEnemiesLazor.Add(other.gameObject);
+				_listEnemiesLazor.Add(other.gameObject);
 				break;
 			default:
 				Debug.Log("Something whent wrong in CustomTriggerEnter!");
@@ -103,7 +103,7 @@ public class ZillaAttacks : BaseAttack
 				_hashEnemiesTail.Remove(other.gameObject);
 				break;
 			case 2:
-				_hashEnemiesLazor.Remove(other.gameObject);
+				_listEnemiesLazor.Remove(other.gameObject);
 				break;
 			default:
 				Debug.Log("Something whent wrong in CustomTriggerExit!");
@@ -121,9 +121,9 @@ public class ZillaAttacks : BaseAttack
 				}
 				break;
 			case 2:
-				if (!_hashEnemiesLazor.Contains(other.gameObject))
+				if (!_listEnemiesLazor.Contains(other.gameObject))
 				{
-					_hashEnemiesLazor.Add(other.gameObject);
+					_listEnemiesLazor.Add(other.gameObject);
 				}
 				break;
 			default:
@@ -140,11 +140,15 @@ public class ZillaAttacks : BaseAttack
 		_playerAnimator.SetBool("ZillaLazor", false);
 		c_attackCooldown = null;
 	}
-	public void RemoveEnemyFromList(GameObject deadEnemy)
+	public override void RemoveFromPlayerList(GameObject enemy)
 	{
-		if (_hashEnemiesLazor.Contains(deadEnemy))
+		if (_hashEnemiesTail.Contains(enemy))
 		{
-			_hashEnemiesLazor.Remove(deadEnemy);
+			_hashEnemiesTail.Remove(enemy);
+		}
+		if (_listEnemiesLazor.Contains(enemy))
+		{
+			_listEnemiesLazor.Remove(enemy);
 		}
 	}
 }

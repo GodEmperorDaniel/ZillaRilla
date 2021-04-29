@@ -20,7 +20,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         public override bool EnterState()
         {
             base.EnterState();
-            Debug.Log("ENTERED Chaseing STATE");
+            //Debug.Log("ENTERED Chaseing STATE");
 
             EnteredState = true;
 
@@ -33,7 +33,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 SetChaseTarget(_npc.PlayerTransform);
             }
            
-            Debug.Log("UPDATING Chaseing STATE");
+            //Debug.Log("UPDATING Chaseing STATE");
         }
 
         public override bool ExitState()
@@ -41,7 +41,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             _navMeshAgent.isStopped = true;
             base.ExitState();
             
-            Debug.Log("EXITING Chaseing STATE");
+            //Debug.Log("EXITING Chaseing STATE");
             return true;
         }
 

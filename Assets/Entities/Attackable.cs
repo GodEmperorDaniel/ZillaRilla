@@ -83,6 +83,7 @@ public class Attackable : MonoBehaviour
 				_currentHealth -= damage;
 				if (fsm != null)
 				{
+					Debug.Log("Should spawn sprite");
 					UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
 				}
 			}

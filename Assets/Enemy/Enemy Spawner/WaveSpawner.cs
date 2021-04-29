@@ -44,10 +44,10 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         // Debug enemy kill button
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            Destroy(_enemies[0]);
-        }
+        //if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        //{
+        //    Destroy(_enemies[0]);
+        //}
         
         if (_state == SpawnState.WAITING)
         {
@@ -103,18 +103,18 @@ public class WaveSpawner : MonoBehaviour
 
     private void UpdateEnemyList()
     {
-        foreach (GameObject enemy in _enemies)
+        for (int i = 0; i < _enemies.Count; i++)
         {
-            if (enemy == null)
+            if (_enemies[i] == null)
             {
-                _enemies.Remove(enemy);
+                _enemies.RemoveAt(i);
             }
         }
     }
 
     private IEnumerator SpawnWave(Wave wave)
     {
-        Debug.Log("Spawning Wave: " + wave.Name);
+        //Debug.Log("Spawning Wave: " + wave.Name);
         _state = SpawnState.SPAWNING;
 
         for (int i = 0; i < wave.count; i++)
@@ -130,13 +130,12 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemy)
     {
-        Debug.Log("Spawning Enemy " + enemy.name);
+        //Debug.Log("Spawning Enemy " + enemy.name);
         
         if (spawnPoints.Length == 0)
         {
             Debug.LogError("No spawn point referenced");
         }
-        
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         _enemies.Add(Instantiate(enemy, spawnPoint.position, spawnPoint.rotation, transform));
     }
