@@ -15,10 +15,10 @@ public class GameManager : Manager<GameManager>
     private List<AsyncOperation> _loadOperations;
     
     private string _currentLevelName = string.Empty;
-    private List<Goal> _levelObjectives;
+    [SerializeField] private Goal _firstLevelObjectives;
     private Goal _currentObjective;
-    private Attackable _zilla;
-    private Attackable _rilla;
+    public Attackable _zilla;
+    public Attackable _rilla;
 
 
     // Getters/Setters
@@ -33,6 +33,8 @@ public class GameManager : Manager<GameManager>
         _gameState = new StateMachine();
 
         InstantiateSystemPrefabs();
+        FindPlayerCharacters();
+        UpdateObjective(_firstLevelObjectives);
     }
 
 
@@ -99,7 +101,7 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    private void GetPlayerCharacters()
+    private void FindPlayerCharacters()
     {
         _zilla = GameObject.Find("ZillaPlayer").GetComponent<Attackable>();
         _rilla = GameObject.Find("RillaPlayer").GetComponent<Attackable>();
@@ -113,7 +115,7 @@ public class GameManager : Manager<GameManager>
         //UIManager.Instance.UpdateHealthOnUI();
     }
 
-    private void UpdateObjective(Goal objective)
+    public void UpdateObjective(Goal objective)
     {
         _currentObjective = objective;
         UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);

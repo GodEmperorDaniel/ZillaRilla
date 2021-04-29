@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 669400982252746938}
   - component: {fileID: 669400982252746937}
   m_Layer: 5
-  m_Name: Hit Icon Spawner 1
+  m_Name: Hit Icon Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitPrefab: {fileID: 8659380517830422434, guid: 85bfc75a09ccb6e4b9e97896034870de, type: 3}
   iconLifeTime: 1
-  iconScaling: 0.1
-  iconMaxScaling: 2
+  iconScaling: 0.3
+  iconMaxScaling: 4
   iconMovement: {x: 0, y: 0.001, z: 0}

@@ -25,6 +25,7 @@ public class HitIconSpawner : MonoBehaviour
 
     public void SpawnHitIcon(Vector3 position)
     {
+        Debug.Log("Spawned a hit-marker");
         GameObject hitIcon = Instantiate(_hitPrefab, transform);
         hitIcon.GetComponent<Canvas>().worldCamera = _camera;
         hitIcon.GetComponent<HitIcon>()._lifeTime = iconLifeTime;

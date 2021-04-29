@@ -44,9 +44,13 @@ public class UIManager : Manager<UIManager>
         _inGameUI.SetProgressOnUI(progress);
     }
 
-    public void UpdateHealthOnUI(float zillaHealth, float rillaHealth)
+    public void UpdateZillaHealthOnUI(float zillaHealth)
     {
-        
+        _inGameUI.SetZillaHealthOnUI(zillaHealth);
+    }
+    public void UpdateRillaHealthOnUI(float rillaHealth)
+    {
+        _inGameUI.SetRillaHealthOnUI(rillaHealth);
     }
 
     public void SpawnHitIcon(Vector3 position)

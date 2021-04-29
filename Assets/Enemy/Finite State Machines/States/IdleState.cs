@@ -23,7 +23,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             if (EnteredState)
             {
-                Debug.Log("ENTERED IDLE STATE");
+                //Debug.Log("ENTERED IDLE STATE");
                 
             }
             return EnteredState;
@@ -32,7 +32,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         public override void UpdateState()
         {
-            Debug.Log("UPDATING IDLE STATE");
+            //Debug.Log("UPDATING IDLE STATE");
             //Debug.Log(_npc.PlayerTransform.gameObject.name);
 
             if (_npc.Destiantion() <= _npc.lookRadius)
@@ -45,7 +45,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             base.ExitState();
 
-            Debug.Log("EXITING IDLE STATE");
+            //Debug.Log("EXITING IDLE STATE");
             return true;
         }
     }

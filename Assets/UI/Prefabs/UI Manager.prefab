@@ -63,6 +63,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5503359539433743511}
     m_Modifications:
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: iconLifeTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: iconMaxScaling
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 669400982252746938, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -283,6 +291,38 @@ PrefabInstance:
     - target: {fileID: 922999214848486520, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610878, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610878, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610878, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610878, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610878, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 534
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610878, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -420
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610879, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610879, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3717728444481934892, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_AnchorMax.x

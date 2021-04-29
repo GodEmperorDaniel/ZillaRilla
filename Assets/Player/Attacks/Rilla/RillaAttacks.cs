@@ -12,7 +12,7 @@ using Attacks.Rilla;
 
 		[SerializeField] private RillaSlamSettings slamSettings;
 
-		private HashSet<GameObject> _hashEnemiesPunch = new HashSet<GameObject>();
+		private List<GameObject> _listEnemiesPunch = new List<GameObject>();
 		private HashSet<GameObject> _hashEnemiesSlam = new HashSet<GameObject>();
 		private Coroutine c_attackCooldown;
 		private void Awake()
@@ -28,11 +28,18 @@ using Attacks.Rilla;
 		{
 			if (c_attackCooldown == null)
 			{
-				Debug.Log("HE DO BE PUNCHING");
-				foreach (GameObject enemy in _hashEnemiesPunch)
-				{
-					CallEntityHit(enemy, punchSettings);
+				//Debug.Log("HE DO BE PUNCHING");
+			for (int i = 0; i < _listEnemiesPunch.Count; i++)
+			{
+				if (_listEnemiesPunch[i] != null)
+				{ 
+					CallEntityHit(_listEnemiesPunch[i], punchSettings);
 				}
+			}
+				//foreach (GameObject enemy in _listEnemiesPunch)
+				//{
+				//	CallEntityHit(enemy, punchSettings);
+				//}
 				
 				c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
 			}
@@ -64,7 +71,7 @@ using Attacks.Rilla;
 			switch (id)
 			{
 				case 1:
-					_hashEnemiesPunch.Add(other.gameObject);
+					_listEnemiesPunch.Add(other.gameObject);
 					break;
 				case 2:
 					_hashEnemiesSlam.Add(other.gameObject);
@@ -80,7 +87,7 @@ using Attacks.Rilla;
 			switch (id)
 			{
 				case 1:
-					_hashEnemiesPunch.Remove(other.gameObject);
+					_listEnemiesPunch.Remove(other.gameObject);
 					break;
 				case 2:
 					_hashEnemiesSlam.Remove(other.gameObject);
@@ -95,9 +102,9 @@ using Attacks.Rilla;
 			switch (id)
 			{
 				case 1:
-					if (!_hashEnemiesPunch.Contains(other.gameObject))
+					if (!_listEnemiesPunch.Contains(other.gameObject))
 					{
-						_hashEnemiesPunch.Add(other.gameObject);
+						_listEnemiesPunch.Add(other.gameObject);
 					}
 					break;
 				case 2:
@@ -117,7 +124,19 @@ using Attacks.Rilla;
 			enemy.GetComponent<Attackable>().EntitiyHit(settings);
 		}
 
+	public override void RemoveFromPlayerList(GameObject enemy)
+	{
+		if (_listEnemiesPunch.Contains(enemy))
+		{
+			_listEnemiesPunch.Remove(enemy);
+		}
+		if (_hashEnemiesSlam.Contains(enemy))
+		{
+			_hashEnemiesSlam.Remove(enemy);
+		}
 	}
+
+}
 
 #region Settings Structs
 namespace Attacks.Rilla

@@ -330,8 +330,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../ZillaRillaFMOD/zillarilla_musik.fspro
-  sourceBankPath: ..\ZillaRillaFMOD\Build
+  sourceProjectPath: ../NewFMOD29_4/zillarilla_musikspeltest/zillarilla_musik.fspro
+  sourceBankPath: ..\NewFMOD29_4\zillarilla_musikspeltest\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -350,7 +350,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
+  MasterBanks:
+  - Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264

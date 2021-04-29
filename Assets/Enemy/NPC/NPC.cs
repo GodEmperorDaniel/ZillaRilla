@@ -23,10 +23,7 @@ namespace Assets.Enemy.NPCCode
         NavMeshAgent _navMeshAgent;
         FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;
-
-        public EnemyType enemyType;
-
-        public List<Transform> PlayerList;
+        [SerializeField] public List<Transform> _playerList = new List<Transform>(2);
         [SerializeField]
         private float _rotationSpeed;
         private Transform playerTransform;
@@ -48,10 +45,21 @@ namespace Assets.Enemy.NPCCode
         }
         public void Start()
         {
+            
         }
         public void Update()
         {
+            if (_playerList[0] == null)
+            { 
+                setPlayerReferences();
+            }
             //SetChaseTarget();
+        }
+        private void setPlayerReferences()
+        {
+            //Debug.Log(GameManager.Instance._rilla.gameObject.name);
+            _playerList[0] = (GameManager.Instance._rilla.gameObject.transform);
+            _playerList[1] = (GameManager.Instance._zilla.gameObject.transform);
         }
         void OnDrawGizmosSelected()
         {
@@ -66,7 +74,7 @@ namespace Assets.Enemy.NPCCode
         {
 
             float saveDistance = 0.0f;
-            foreach (Transform player in PlayerList)
+            foreach (Transform player in _playerList)
             {
                 if (saveDistance > Vector3.Distance(player.position, transform.position) || saveDistance == 0)
                 {
@@ -77,7 +85,7 @@ namespace Assets.Enemy.NPCCode
             return saveDistance;
         }
         public List<Transform> GetPlayerList {
-            get { return PlayerList; }
+            get { return _playerList; }
         }
         public EnemyAttacks getEnemyAttack {
             get { return _enemyAttacks; }

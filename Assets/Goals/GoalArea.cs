@@ -39,7 +39,7 @@ public class GoalArea : MonoBehaviour
         else
         {
             _enemiesInArea.Add(other);
-            Debug.Log("Added " + other.name + " from _enemiesInArea");
+            //Debug.Log("Added " + other.name + " from _enemiesInArea");
             if (_enemiesInArea.Count != 0) _objective.enemyInArea = true;
         }
     }

@@ -8,8 +8,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Attackable : MonoBehaviour
 {
-	[SerializeField] private float _health = 20;
-	[SerializeField] private Animator animator;
+	[SerializeField] private float _maxHealth;
+	[SerializeField] private float _currentHealth = 20;
+	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
 	private RillaSlamSettings _rillaSlamSettings;
 	private ZillaLazorSettings _zillaLazorSettings;
@@ -21,20 +22,24 @@ public class Attackable : MonoBehaviour
 
 	private AttackSettings _settings;
 
-    public void Start()
-    {
-		
-		_fsm = GetComponent<FiniteStateMachine>();
-		if (TryGetComponent(out NPC npc))
-		{
-			_npc = GetComponent<NPC>();
-		}
-		
+	private Player.Scrips.CharacterInput player;
+
+	private void Awake()
+	{
+		_currentHealth = _maxHealth;
+	}
+	public void Start()
+    {	
+    TryGetComponent<FiniteStateMachine>(out _fsm);
+		TryGetComponent<Player.Scrips.CharacterInput>(out player);
+		TryGetComponent<NPC>(out _npc);
 		
 	}
     public void EntitiyHit(AttackSettings settings)
 	{
-		Debug.Log( gameObject.name + " LostHealth");
+		//Debug.Log( gameObject.name + " LostHealth");
+		_animator = GetComponent<Animator>();
+
 		switch (settings._settingType)
 		{
 			case AttackSettings.SettingType.SLAM:
@@ -53,10 +58,27 @@ public class Attackable : MonoBehaviour
 		}
 		RemoveHealth(settings._attackDamage);
 	}
+	private void Update()
+	{
+		if (player != null)
+		{
+			switch (player.GetCharacter())
+			{
+				case Player.Scrips.CharacterInput.character.ZILLA:
+					UIManager.Instance.UpdateZillaHealthOnUI(_currentHealth / _maxHealth);
+					break;
+				case Player.Scrips.CharacterInput.character.RILLA:
+					UIManager.Instance.UpdateRillaHealthOnUI(_currentHealth / _maxHealth);
+					break;
+				default:
+					break;
+			}
+		}
+	}
 
 	private void RemoveHealth(float damage)
 	{
-		//Debug.Log("KOLLA HÄR: " + _fsm._currentState.StateType);
+		//Debug.Log("KOLLA Hï¿½R: " + _fsm._currentState.StateType);
 		if (_fsm._currentState.StateType == FSMStateType.VULNERABLE)
 		{
 			if (_zillaLazorSettings._settingType == AttackSettings.SettingType.LAZOR)
@@ -74,16 +96,24 @@ public class Attackable : MonoBehaviour
 		}
 		if (c_invincible == null && _npc.enemyType != EnemyType.BOSS)
 		{
-			if (_health <= 0)
+			if (_currentHealth <= 0)
 			{
-				_fsm.EnterState(FSMStateType.DEATH);
-				animator.SetTrigger("Dead");
+				if (_fsm != null)
+				{ 
+					_fsm.EnterState(FSMStateType.DEATH);
+				}
+				_animator.SetTrigger("Dead");
 			}
 			else
 			{
-				_health -= damage;
+				_currentHealth -= damage;
+				if (fsm != null)
+				{
+					Debug.Log("Should spawn sprite");
+					UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
+				}
 			}
-			Debug.Log("RemovedHealth");
+			//Debug.Log("RemovedHealth");
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
         
