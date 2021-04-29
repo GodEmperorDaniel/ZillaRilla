@@ -15,7 +15,7 @@ public class GameManager : Manager<GameManager>
     private List<AsyncOperation> _loadOperations;
     
     private string _currentLevelName = string.Empty;
-    private List<Goal> _levelObjectives;
+    [SerializeField] private Goal _firstLevelObjectives;
     private Goal _currentObjective;
     private Attackable _zilla;
     private Attackable _rilla;
@@ -34,6 +34,7 @@ public class GameManager : Manager<GameManager>
 
         InstantiateSystemPrefabs();
         FindPlayerCharacters();
+        UpdateObjective(_firstLevelObjectives);
     }
 
 
@@ -108,28 +109,13 @@ public class GameManager : Manager<GameManager>
         if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
         if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
     }
-    //public Attackable GetPlayerAttackable(int playerIndex)
-    //{
-    //    switch (playerIndex)
-    //    {
-    //        case 1:
-    //            return _zilla;
-    //            break;
-    //        case 2:
-    //            return _rilla;
-    //            break;
-    //        default:
-    //            return null;
-    //            break;
-    //    }
-    //}
 
     private void UpdateHealth()
     {
         //UIManager.Instance.UpdateHealthOnUI();
     }
 
-    private void UpdateObjective(Goal objective)
+    public void UpdateObjective(Goal objective)
     {
         _currentObjective = objective;
         UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
