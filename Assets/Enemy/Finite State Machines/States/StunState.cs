@@ -36,8 +36,12 @@ namespace Assets.Enemy.Finite_State_Machines.States
                
                 _totalDuration += Time.deltaTime;
                 Debug.Log("UPDATING STUN STATE: "+ _totalDuration + " Seconds.");
+                if (_totalDuration <= _npc._stunTime)
+                {
+                    Debug.Log("GOING IN TO THE VULNERABLE STATE");
 
-                if (_totalDuration >= _npc._stunTime)
+                }
+                else if (_totalDuration >= _npc._stunTime)
                 {
                     _fsm.EnterState(FSMStateType.IDLE);
                 }

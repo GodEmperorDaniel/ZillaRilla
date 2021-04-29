@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace Assets.Enemy.Finite_State_Machines.States
 {
-    [CreateAssetMenu(fileName ="IdleState", menuName ="ZillaRilla/States/Idle", order =1)]
-    public class IdleState : AbstractFSMState
+    class VulnerableState: AbstractFSMState
     {
+
         public override void OnEnable()
         {
             base.OnEnable();
-            StateType = FSMStateType.IDLE;
+            StateType = FSMStateType.VULNERABLE;
         }
         public override bool EnterState()
         {
@@ -21,21 +21,17 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             if (EnteredState)
             {
-                Debug.Log("ENTERED IDLE STATE");
-                
+                Debug.Log("ENTERED VULNERABLE STATE");
             }
             return EnteredState;
-           
         }
 
         public override void UpdateState()
         {
-            Debug.Log("UPDATING IDLE STATE");
-            //Debug.Log(_npc.PlayerTransform.gameObject.name);
-
-            if (_npc.Destiantion() <= _npc.lookRadius)
+            if (EnteredState)
             {
-                _fsm.EnterState(FSMStateType.CHASING);
+                Debug.Log("UPDATING VULNERABLE STATE");
+
             }
         }
 
@@ -43,7 +39,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             base.ExitState();
 
-            Debug.Log("EXITING IDLE STATE");
+            Debug.Log("EXITING VULNERABLE STATE");
             return true;
         }
     }
