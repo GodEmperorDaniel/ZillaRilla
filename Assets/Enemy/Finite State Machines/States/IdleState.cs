@@ -12,11 +12,13 @@ namespace Assets.Enemy.Finite_State_Machines.States
     {
         public override void OnEnable()
         {
+            
             base.OnEnable();
             StateType = FSMStateType.IDLE;
         }
         public override bool EnterState()
         {
+            _navMeshAgent.isStopped = false;
             EnteredState = base.EnterState();
 
             if (EnteredState)
