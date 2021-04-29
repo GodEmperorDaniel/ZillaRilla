@@ -11,59 +11,58 @@ public class InGameUI : MonoBehaviour
     //TODO: News banner
     //TODO: Kill-o-meter for Zilla and Rilla
 
-    [SerializeField] private FillableBar zillaHealthBar;
-    [SerializeField] private FillableBar rillaHealthBar;
-    [SerializeField] private FillableBar progressBar;
+    [SerializeField] private FillableBar _zillaHealthBar;
+    [SerializeField] private FillableBar _rillaHealthBar;
+    [SerializeField] private FillableBar _progressBar;
     [SerializeField] private GameObject _currentObjective;
 
 
     public void ActivateHealthBars()
     {
-        zillaHealthBar.gameObject.SetActive(true);
-        rillaHealthBar.gameObject.SetActive(true);
+        _zillaHealthBar.gameObject.SetActive(true);
+        _rillaHealthBar.gameObject.SetActive(true);
     }
     
     public void DeactivateHealthBars()
     {
-        zillaHealthBar.gameObject.SetActive(false);
-        rillaHealthBar.gameObject.SetActive(false);
+        _zillaHealthBar.gameObject.SetActive(false);
+        _rillaHealthBar.gameObject.SetActive(false);
     }
 
     public void SetZillaHealthOnUI(float health)
     {
-        zillaHealthBar.fillAmount = health;
+        _zillaHealthBar.fillAmount = health;
     }
 
     public void SetRillaHealthOnUI(float health)
     {
-        rillaHealthBar.fillAmount = health;
+        _rillaHealthBar.fillAmount = health;
     }
 
     
     public void DeactivateProgressBar()
     {
-        progressBar.gameObject.SetActive(false);
+        _progressBar.gameObject.SetActive(false);
     }
 
     public void ActivateProgressBar()
     {
-        progressBar.gameObject.SetActive(true);
+        _progressBar.gameObject.SetActive(true);
     }
 
     public void SetProgressOnUI(float progress)
     {
-        progressBar.fillAmount = Round(progress, 2);
+        _progressBar.fillAmount = Round(progress, 2);
     }
-
-
+    
     public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
         _currentObjective.GetComponent<Text>().text = objectiveDescription;
     }
-    
-    
+
+
     // Should be moved to a Math Utility class
-    // 
+    // Rounds float to the amount of digits
     public static float Round(float value, int digits)
     {
         float mult = Mathf.Pow(10.0f, (float)digits);
