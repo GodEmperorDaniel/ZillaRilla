@@ -83,6 +83,7 @@ namespace Player.Scrips
             //_playerAnimator.SetBool("RillaPunch", true);
         }
 		#endregion
+		#region Aim
 		private void OnMouseAimInput(InputAction.CallbackContext c)
         {
             //probably a little bit of match and coordinate conversions... will fix later
@@ -95,16 +96,17 @@ namespace Player.Scrips
             RotationDirection = new Vector3(value.x, 0, value.y);
             _moveInput.Execute();
         }
+		#endregion
 
-        public void OnJumpInput(InputAction.CallbackContext c)
+		public void OnJumpInput(InputAction.CallbackContext c)
         {
             float value = c.ReadValue<float>();
             _playerAnimator.SetBool("Jump", true);
             JumpButtonPressed = value == 1 ? true : false;
            //_moveInput.Execute();
         }
-
-        public void OnMoveInput(InputAction.CallbackContext c)
+		#region Movement
+		public void OnMoveInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
@@ -117,6 +119,11 @@ namespace Player.Scrips
             MoveDirection = new Vector3(value.x, 0, value.y);
             _moveInput.Execute();
         }
-    }
+        #endregion
+        public character GetCharacter()
+        {
+            return _character;
+        }
+	}
 }
 

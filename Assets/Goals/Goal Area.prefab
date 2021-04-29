@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5921160431600559593}
   - component: {fileID: 4654139599880332104}
   m_Layer: 0
-  m_Name: ObjectiveArea
+  m_Name: Goal Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,6 +71,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2666390296723367289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabb0519f55de91408c0015cfcb74917, type: 3}
+  m_Script: {fileID: 11500000, guid: deaa999b4a209b747ad8435e2f62dc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

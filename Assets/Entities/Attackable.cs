@@ -8,22 +8,31 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Attackable : MonoBehaviour
 {
-	[SerializeField] private float _health = 20;
-	[SerializeField] private Animator animator;
+	[SerializeField] private float _maxHealth;
+	[SerializeField] private float _currentHealth = 20;
+	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
 	private RillaSlamSettings _rillaSlamSettings;
 	private ZillaLazorSettings _zillaLazorSettings;
 	private Coroutine c_invincible;
 
 	private FiniteStateMachine fsm;
+	private Player.Scrips.CharacterInput player;
 
-    public void Start()
+	private void Awake()
+	{
+		_currentHealth = _maxHealth;
+	}
+	public void Start()
     {
-		fsm = GetComponent<FiniteStateMachine>();
-    }
+		_animator = GetComponent<Animator>();
+		TryGetComponent<FiniteStateMachine>(out fsm);
+		TryGetComponent<Player.Scrips.CharacterInput>(out player);
+
+	}
     public void EntitiyHit(AttackSettings settings)
 	{
-		Debug.Log( gameObject.name + " LostHealth");
+		//Debug.Log( gameObject.name + " LostHealth");
 		RemoveHealth(settings._attackDamage);
 		switch (settings._settingType)
 		{
@@ -39,21 +48,45 @@ public class Attackable : MonoBehaviour
 				break;
 		}
 	}
+	private void Update()
+	{
+		if (player != null)
+		{
+			switch (player.GetCharacter())
+			{
+				case Player.Scrips.CharacterInput.character.ZILLA:
+					UIManager.Instance.UpdateZillaHealthOnUI(_currentHealth / _maxHealth);
+					break;
+				case Player.Scrips.CharacterInput.character.RILLA:
+					UIManager.Instance.UpdateRillaHealthOnUI(_currentHealth / _maxHealth);
+					break;
+				default:
+					break;
+			}
+		}
+	}
 
 	private void RemoveHealth(float damage)
 	{
 		if (c_invincible == null)
 		{
-			if (_health <= 0)
+			if (_currentHealth <= 0)
 			{
-				fsm.EnterState(FSMStateType.DEATH);
-				animator.SetTrigger("Dead");
+				if (fsm != null)
+				{ 
+					fsm.EnterState(FSMStateType.DEATH);
+				}
+				_animator.SetTrigger("Dead");
 			}
 			else
 			{
-				_health -= damage;
+				_currentHealth -= damage;
+				if (fsm != null)
+				{
+					UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
+				}
 			}
-			Debug.Log("RemovedHealth");
+			//Debug.Log("RemovedHealth");
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
 	}

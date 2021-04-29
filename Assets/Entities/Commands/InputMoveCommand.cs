@@ -148,5 +148,9 @@ namespace Entities.Commands
             _jump.JumpButtonPressed = false;
             _isJumping = false;
         }
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+        }
     }
 }

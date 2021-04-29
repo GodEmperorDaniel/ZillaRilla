@@ -33,6 +33,7 @@ public class GameManager : Manager<GameManager>
         _gameState = new StateMachine();
 
         InstantiateSystemPrefabs();
+        FindPlayerCharacters();
     }
 
 
@@ -99,7 +100,7 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    private void GetPlayerCharacters()
+    private void FindPlayerCharacters()
     {
         _zilla = GameObject.Find("ZillaPlayer").GetComponent<Attackable>();
         _rilla = GameObject.Find("RillaPlayer").GetComponent<Attackable>();
@@ -107,6 +108,21 @@ public class GameManager : Manager<GameManager>
         if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
         if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
     }
+    //public Attackable GetPlayerAttackable(int playerIndex)
+    //{
+    //    switch (playerIndex)
+    //    {
+    //        case 1:
+    //            return _zilla;
+    //            break;
+    //        case 2:
+    //            return _rilla;
+    //            break;
+    //        default:
+    //            return null;
+    //            break;
+    //    }
+    //}
 
     private void UpdateHealth()
     {
