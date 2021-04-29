@@ -35,10 +35,6 @@ namespace Player.Scrips
                 TryGetComponent<Animator>(out _playerAnimator);
             }
             PlayerInput playerInput = GetComponent<PlayerInput>();
-            //if (playerInput.currentActionMap == null)
-            //{
-            //    //playerInput.;
-            //}
         }
 
 		#region Attacks
@@ -69,6 +65,7 @@ namespace Player.Scrips
                     LazorButtonPressed = value;
                     if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
                     { 
+                        _playerAnimator.SetBool("ZillaLazorWindup", true);
                         _playerAnimator.SetBool("ZillaLazor", true);
                     }
                     break;
@@ -79,7 +76,6 @@ namespace Player.Scrips
                 default:
                     break;
             }
-            //Debug.Log("No animations to see here");
         }
         public void OnAttack3Input(InputAction.CallbackContext c)
         {
@@ -105,7 +101,7 @@ namespace Player.Scrips
             float value = c.ReadValue<float>();
             _playerAnimator.SetBool("Jump", true);
             JumpButtonPressed = value == 1 ? true : false;
-           _moveInput.Execute();
+           //_moveInput.Execute();
         }
 
         public void OnMoveInput(InputAction.CallbackContext c)

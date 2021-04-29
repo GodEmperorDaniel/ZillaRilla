@@ -2505,6 +2505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 20
   animator: {fileID: 1885994479}
+  _iFrames: 0
 --- !u!95 &1885994479
 Animator:
   serializedVersion: 3

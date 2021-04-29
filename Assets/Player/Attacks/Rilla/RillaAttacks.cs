@@ -37,7 +37,7 @@ using Attacks.Rilla;
 					CallEntityHit(enemy, punchSettings);
 					//Debug.Log("I hit: " + enemy.name);
 				}
-				_playerAnimator.SetBool("RillaPunch", false);
+				
 				c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
 			}
 		}
@@ -52,17 +52,14 @@ using Attacks.Rilla;
 					CallEntityHit(enemy, slamSettings);
 					//Debug.Log("I hit: " + enemy.name);
 				}
-				_playerAnimator.SetBool("RillaSlam", false);
 				c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
 			}
 		}
 		private IEnumerator AttackCooldown(float resetTime)
 		{
 			yield return new WaitForSeconds(resetTime);
-			//punchSettings._attackHitbox.SetActive(false);
-			//slamSettings._attackHitbox.SetActive(false);
-			//_hashEnemiesSlam.Clear();
-			//_hashEnemiesPunch.Clear();
+			_playerAnimator.SetBool("RillaPunch", false);
+			_playerAnimator.SetBool("RillaSlam", false);
 			c_attackCooldown = null;
 		}
 		#endregion
