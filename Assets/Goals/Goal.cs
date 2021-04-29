@@ -10,7 +10,8 @@ public class Goal : MonoBehaviour
     [SerializeField] private string _goalName = "[Default Name]";
     [SerializeField] private string _goalDescription = "[Default Text]";
     [SerializeField] private Goal _nextGoal;
-    [SerializeField]private bool _tempFix;
+    [SerializeField] private bool _tempFix;
+    [SerializeField] private GameObject _tempObject;
     private bool _completed = false;
     private float _progress = 0f;
     public float _progressAmount = 0.001f;
@@ -74,5 +75,9 @@ public class Goal : MonoBehaviour
     public void GoalCompleted()
     {
         GameManager.Instance.UpdateObjective(_nextGoal);
+        if (_tempObject)
+        {
+            _tempObject.SetActive(false);
+        }
     } 
 }

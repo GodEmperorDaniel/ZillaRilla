@@ -13,7 +13,7 @@ using Attacks.Rilla;
 		[SerializeField] private RillaSlamSettings slamSettings;
 
 		private List<GameObject> _listEnemiesPunch = new List<GameObject>();
-		private HashSet<GameObject> _hashEnemiesSlam = new HashSet<GameObject>();
+		private List<GameObject> _listEnemiesSlam = new List<GameObject>();
 		private Coroutine c_attackCooldown;
 		private void Awake()
 		{
@@ -47,15 +47,18 @@ using Attacks.Rilla;
 
 		public void RillaGroundSlam()
 		{
-			if (c_attackCooldown == null)
+		if (c_attackCooldown == null)
+		{
+			for (int i = 0; i < _listEnemiesSlam.Count; i++)
 			{
-				Debug.Log("HE DO BE SLAMING!");
-				foreach (GameObject enemy in _hashEnemiesSlam)
+				if (_listEnemiesSlam[i] != null)
 				{
-					CallEntityHit(enemy, slamSettings);
+					Debug.Log("HE DO BE SLAMING!");
+					CallEntityHit(_listEnemiesSlam[i], slamSettings);
 				}
-				c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
 			}
+			c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
+		}
 		}
 		private IEnumerator AttackCooldown(float resetTime)
 		{
@@ -74,7 +77,7 @@ using Attacks.Rilla;
 					_listEnemiesPunch.Add(other.gameObject);
 					break;
 				case 2:
-					_hashEnemiesSlam.Add(other.gameObject);
+					_listEnemiesSlam.Add(other.gameObject);
 					break;
 				default:
 					Debug.Log("Something whent wrong in CustomTriggerEnter!");
@@ -90,7 +93,7 @@ using Attacks.Rilla;
 					_listEnemiesPunch.Remove(other.gameObject);
 					break;
 				case 2:
-					_hashEnemiesSlam.Remove(other.gameObject);
+					_listEnemiesSlam.Remove(other.gameObject);
 					break;
 				default:
 					Debug.Log("Something whent wrong in CustomTriggerExit!");
@@ -108,9 +111,9 @@ using Attacks.Rilla;
 					}
 					break;
 				case 2:
-					if (!_hashEnemiesSlam.Contains(other.gameObject))
+					if (!_listEnemiesSlam.Contains(other.gameObject))
 					{
-						_hashEnemiesSlam.Add(other.gameObject);
+						_listEnemiesSlam.Add(other.gameObject);
 					}
 					break;
 				default:
@@ -130,9 +133,9 @@ using Attacks.Rilla;
 		{
 			_listEnemiesPunch.Remove(enemy);
 		}
-		if (_hashEnemiesSlam.Contains(enemy))
+		if (_listEnemiesSlam.Contains(enemy))
 		{
-			_hashEnemiesSlam.Remove(enemy);
+			_listEnemiesSlam.Remove(enemy);
 		}
 	}
 

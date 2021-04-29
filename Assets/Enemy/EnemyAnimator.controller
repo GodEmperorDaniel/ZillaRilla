@@ -88,8 +88,7 @@ AnimatorState:
   m_Name: DamageTaken
   m_Speed: 0.16
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: -630275959478624295}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -115,8 +114,7 @@ AnimatorState:
   m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: -8941085749071974921}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -268,18 +266,6 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
-  - serializedVersion: 5
-    m_Name: Death
-    m_StateMachine: {fileID: 320103565083728709}
-    m_Mask: {fileID: 0}
-    m_Motions: []
-    m_Behaviours: []
-    m_BlendingMode: 0
-    m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
-    m_IKPass: 0
-    m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 9100000}
 --- !u!1107 &320103565083728709
 AnimatorStateMachine:
   serializedVersion: 6
@@ -343,10 +329,15 @@ AnimatorStateMachine:
     m_State: {fileID: -5132122742714340938}
     m_Position: {x: 310, y: 30, z: 0}
   - serializedVersion: 1
+    m_State: {fileID: -6262466657693870386}
+    m_Position: {x: 130, y: -190, z: 0}
+  - serializedVersion: 1
     m_State: {fileID: -6217225587144851972}
-    m_Position: {x: 390, y: -190, z: 0}
+    m_Position: {x: -100, y: -190, z: 0}
   m_ChildStateMachines: []
-  m_AnyStateTransitions: []
+  m_AnyStateTransitions:
+  - {fileID: 9016877995689124888}
+  - {fileID: -914345946943587535}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []

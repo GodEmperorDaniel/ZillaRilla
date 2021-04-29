@@ -15,7 +15,7 @@ public class ZillaAttacks : BaseAttack
 	
 	private IZillaLazorInput _lazorInput;
 
-	private HashSet<GameObject> _hashEnemiesTail = new HashSet<GameObject>();
+	private List<GameObject> _listEnemiesTail = new List<GameObject>();
 	private List<GameObject> _listEnemiesLazor = new List<GameObject>();
 	private Coroutine c_attackCooldown;
 	private Coroutine c_lazorGrowth;
@@ -57,7 +57,6 @@ public class ZillaAttacks : BaseAttack
 		lazorSettings._attackHitbox.SetActive(false);
 		//_playerAnimator.SetBool("ZillaLazor", false);
 		_playerAnimator.SetBool("ZillaLazorAttack", false);
-		_playerAnimator.SetBool("ZillaLazorWindup", false);
 		c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
 		c_lazorGrowth = null;
 	}
@@ -66,10 +65,12 @@ public class ZillaAttacks : BaseAttack
 	{
 		if (c_attackCooldown == null)
 		{
-			foreach (GameObject enemy in _hashEnemiesTail)
+			for (int i = 0; i < _listEnemiesTail.Count; i++)
 			{
-				CallEntityHit(enemy, tailSettings);
-				//Debug.Log("I hit: " + enemy.name);
+				if (_listEnemiesTail[i] != null)
+				{
+					CallEntityHit(_listEnemiesTail[i], tailSettings);
+				}
 			}
 			c_attackCooldown = StartCoroutine(AttackCooldown(tailSettings._attackCooldown));
 		}
@@ -84,7 +85,7 @@ public class ZillaAttacks : BaseAttack
 		switch (id)
 		{
 			case 1:
-				_hashEnemiesTail.Add(other.gameObject);
+				_listEnemiesTail.Add(other.gameObject);
 				break;
 			case 2:
 				_listEnemiesLazor.Add(other.gameObject);
@@ -100,7 +101,7 @@ public class ZillaAttacks : BaseAttack
 		switch (id)
 		{
 			case 1:
-				_hashEnemiesTail.Remove(other.gameObject);
+				_listEnemiesTail.Remove(other.gameObject);
 				break;
 			case 2:
 				_listEnemiesLazor.Remove(other.gameObject);
@@ -115,9 +116,9 @@ public class ZillaAttacks : BaseAttack
 		switch (id)
 		{
 			case 1:
-				if (!_hashEnemiesTail.Contains(other.gameObject))
+				if (!_listEnemiesTail.Contains(other.gameObject))
 				{
-					_hashEnemiesTail.Add(other.gameObject);
+					_listEnemiesTail.Add(other.gameObject);
 				}
 				break;
 			case 2:
@@ -138,13 +139,14 @@ public class ZillaAttacks : BaseAttack
 		yield return new WaitForSeconds(resetTime);
 		_playerAnimator.SetBool("ZillaTail", false);
 		_playerAnimator.SetBool("ZillaLazor", false);
+		_playerAnimator.SetBool("ZillaLazorWindup", false);
 		c_attackCooldown = null;
 	}
 	public override void RemoveFromPlayerList(GameObject enemy)
 	{
-		if (_hashEnemiesTail.Contains(enemy))
+		if (_listEnemiesTail.Contains(enemy))
 		{
-			_hashEnemiesTail.Remove(enemy);
+			_listEnemiesTail.Remove(enemy);
 		}
 		if (_listEnemiesLazor.Contains(enemy))
 		{

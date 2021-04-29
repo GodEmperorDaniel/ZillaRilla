@@ -23,9 +23,9 @@ namespace Assets.Enemy.NPCCode
         NavMeshAgent _navMeshAgent;
         FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;
+        public EnemyType enemyType;
         [SerializeField] public List<Transform> _playerList = new List<Transform>(2);
-        [SerializeField]
-        private float _rotationSpeed;
+        [SerializeField] private float _rotationSpeed;
         private Transform playerTransform;
         public float _stunTime = 3f;
         public float lookRadius = 10f;

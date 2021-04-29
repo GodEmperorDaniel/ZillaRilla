@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "56f72e34-317d-4c87-ae7c-4a4ccb65f7c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -184,7 +192,7 @@
                 {
                     "name": "",
                     "id": "399dc0d4-f8d8-4672-94e3-16ccae994846",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -389,6 +397,17 @@
                     "action": "AnalogMove",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "cb5fe962-66dc-4abb-ac4d-9d686b4965ac",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -57,7 +57,7 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
-                Debug.Log("Still Enemies in scene!");
+                //Debug.Log("Still Enemies in scene!");
                 return;
             }
         }

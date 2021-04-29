@@ -66,7 +66,7 @@ namespace Player.Scrips
                     if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
                     { 
                         _playerAnimator.SetBool("ZillaLazorWindup", true);
-                        _playerAnimator.SetBool("ZillaLazor", true);
+                        //_playerAnimator.SetBool("ZillaLazor", true);
                     }
                     break;
                 case character.RILLA:
@@ -105,8 +105,12 @@ namespace Player.Scrips
             JumpButtonPressed = value == 1 ? true : false;
            //_moveInput.Execute();
         }
-		#region Movement
-		public void OnMoveInput(InputAction.CallbackContext c)
+        public void Quit()
+        {
+            Application.Quit();
+        }
+        #region Movement
+        public void OnMoveInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);

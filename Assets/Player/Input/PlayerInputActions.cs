@@ -81,6 +81,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""56f72e34-317d-4c87-ae7c-4a4ccb65f7c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -197,7 +205,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""399dc0d4-f8d8-4672-94e3-16ccae994846"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -402,6 +410,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""AnalogMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb5fe962-66dc-4abb-ac4d-9d686b4965ac"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1004,6 +1023,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Attack3 = m_Player.FindAction("Attack3", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_AnalogMove = m_Player.FindAction("AnalogMove", throwIfNotFound: true);
+        m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1074,6 +1094,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Attack3;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_AnalogMove;
+    private readonly InputAction m_Player_Quit;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1086,6 +1107,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Attack3 => m_Wrapper.m_Player_Attack3;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @AnalogMove => m_Wrapper.m_Player_AnalogMove;
+        public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1119,6 +1141,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @AnalogMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogMove;
                 @AnalogMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogMove;
                 @AnalogMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogMove;
+                @Quit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1147,6 +1172,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @AnalogMove.started += instance.OnAnalogMove;
                 @AnalogMove.performed += instance.OnAnalogMove;
                 @AnalogMove.canceled += instance.OnAnalogMove;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -1319,6 +1347,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnAttack3(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAnalogMove(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -27,7 +27,18 @@ public class GoalArea : MonoBehaviour
         RemoveAreaObject(other);
     }
 
-    
+    private void Update()
+    {
+        for (int i = 0; i < _enemiesInArea.Count; i++)
+        {
+            if (_enemiesInArea[i] == null)
+            {
+                _enemiesInArea.RemoveAt(i);
+            }
+        }
+        if (_enemiesInArea.Count == 0) _objective.enemyInArea = false;
+    }
+
     private void AddAreaObject(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -55,7 +66,7 @@ public class GoalArea : MonoBehaviour
         else
         {
             _enemiesInArea.Remove(other);
-            Debug.Log("Removed " + other.name + " from _enemiesInArea");
+            //Debug.Log("Removed " + other.name + " from _enemiesInArea");
             if (_enemiesInArea.Count == 0) _objective.enemyInArea = false;
         }
     }

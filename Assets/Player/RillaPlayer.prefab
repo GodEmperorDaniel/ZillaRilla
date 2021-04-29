@@ -2022,6 +2022,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 95883507-dddd-4c3f-8157-8f9355b19977
     m_ActionName: Player/AnalogMove[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 191052407}
+        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 56f72e34-317d-4c87-ae7c-4a4ccb65f7c5
+    m_ActionName: Player/Quit[/DualShock4GamepadHID/start,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -2106,8 +2122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  animator: {fileID: 0}
+  _maxHealth: 100
+  _currentHealth: 20
+  _animator: {fileID: 0}
   _iFrames: 0
 --- !u!1 &9098914504425870452
 GameObject:

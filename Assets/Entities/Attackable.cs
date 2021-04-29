@@ -29,8 +29,8 @@ public class Attackable : MonoBehaviour
 		_currentHealth = _maxHealth;
 	}
 	public void Start()
-    {	
-    TryGetComponent<FiniteStateMachine>(out _fsm);
+    {
+		TryGetComponent<FiniteStateMachine>(out _fsm);
 		TryGetComponent<Player.Scrips.CharacterInput>(out player);
 		TryGetComponent<NPC>(out _npc);
 		
@@ -47,8 +47,10 @@ public class Attackable : MonoBehaviour
 				if (_rillaSlamSettings._stun)
 					_fsm.EnterState(FSMStateType.STUN);
 				if (_rillaSlamSettings._stun && _npc.enemyType == EnemyType.BOSS)
+				{ 
 					_fsm.EnterState(FSMStateType.VULNERABLE);
-
+					//Debug.Log("vuln");
+				}
 				break;
 			case AttackSettings.SettingType.LAZOR:
 				_zillaLazorSettings = settings as ZillaLazorSettings;
@@ -79,27 +81,12 @@ public class Attackable : MonoBehaviour
 	private void RemoveHealth(float damage)
 	{
 		//Debug.Log("KOLLA H�R: " + _fsm._currentState.StateType);
-		if (_fsm._currentState.StateType == FSMStateType.VULNERABLE)
-		{
-			if (_zillaLazorSettings._settingType == AttackSettings.SettingType.LAZOR)
-				if (_health <= 0)
-				{
-					_fsm.EnterState(FSMStateType.DEATH);
-					animator.SetTrigger("Dead");
-				}
-				else
-				{
-					_health -= damage;
-					_fsm.EnterState(FSMStateType.IDLE);
-				}
-
-		}
-		if (c_invincible == null && _npc.enemyType != EnemyType.BOSS)
+		if (c_invincible == null && _npc != null && _npc.enemyType != EnemyType.BOSS)
 		{
 			if (_currentHealth <= 0)
 			{
 				if (_fsm != null)
-				{ 
+				{
 					_fsm.EnterState(FSMStateType.DEATH);
 				}
 				_animator.SetTrigger("Dead");
@@ -107,16 +94,29 @@ public class Attackable : MonoBehaviour
 			else
 			{
 				_currentHealth -= damage;
-				if (fsm != null)
-				{
-					Debug.Log("Should spawn sprite");
-					UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
-				}
+				UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
 			}
 			//Debug.Log("RemovedHealth");
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
-        
+		else if (_fsm != null && _fsm._currentState.StateType == FSMStateType.VULNERABLE)
+		{
+			if (_zillaLazorSettings != null && _zillaLazorSettings._settingType == AttackSettings.SettingType.LAZOR)
+				if (_currentHealth <= 0)
+				{
+					_fsm.EnterState(FSMStateType.DEATH);
+					_animator.SetTrigger("Dead");
+				}
+				else
+				{
+					_currentHealth -= damage;
+					_fsm.EnterState(FSMStateType.IDLE);
+				}
+		}
+		else if (player != null)
+		{
+			_currentHealth -= damage;
+		}
     }
 
     private IEnumerator InvincibilityFrames()
