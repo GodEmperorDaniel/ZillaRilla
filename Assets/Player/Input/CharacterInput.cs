@@ -41,7 +41,7 @@ namespace Player.Scrips
 		public void OnAttack1Input(InputAction.CallbackContext c)
         {
             _attack1Pressed = c.ReadValueAsButton();
-            Debug.Log(_attack1Pressed);
+            //Debug.Log(_attack1Pressed);
             switch (_character)
             {
                 case character.ZILLA:

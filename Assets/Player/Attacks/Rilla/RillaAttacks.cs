@@ -28,14 +28,10 @@ using Attacks.Rilla;
 		{
 			if (c_attackCooldown == null)
 			{
-				//punchSettings._attackHitbox.SetActive(true);
-				Debug.Log("PUNCHING Player!!");
-				//Debug.Log(_hashEnemiesPunch.Count);
-
+				Debug.Log("HE DO BE PUNCHING");
 				foreach (GameObject enemy in _hashEnemiesPunch)
 				{
 					CallEntityHit(enemy, punchSettings);
-					//Debug.Log("I hit: " + enemy.name);
 				}
 				
 				c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
@@ -46,11 +42,10 @@ using Attacks.Rilla;
 		{
 			if (c_attackCooldown == null)
 			{
-				//Debug.Log("GroundSlam!!");
+				Debug.Log("HE DO BE SLAMING!");
 				foreach (GameObject enemy in _hashEnemiesSlam)
 				{
 					CallEntityHit(enemy, slamSettings);
-					//Debug.Log("I hit: " + enemy.name);
 				}
 				c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
 			}
