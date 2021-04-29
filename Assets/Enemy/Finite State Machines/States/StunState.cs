@@ -35,7 +35,10 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
-               
+               //if (_npc.enemyType == EnemyType.BOSS)
+               // {
+               //     _fsm.EnterState(FSMStateType.VULNERABLE);
+               // }
                 _totalDuration += Time.deltaTime;
                 Debug.Log("UPDATING STUN STATE: "+ _totalDuration + " Seconds.");
                 //if (_totalDuration <= _npc._stunTime)
@@ -47,6 +50,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 {
                     _fsm.EnterState(FSMStateType.IDLE);
                 }
+                
             }
         }
 

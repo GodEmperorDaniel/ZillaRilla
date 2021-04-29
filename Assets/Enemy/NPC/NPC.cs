@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
+[System.Serializable]
+public enum EnemyType
+{
+    MELEE,
+    RANGE,
+    BOSS,
+};
 namespace Assets.Enemy.NPCCode
 {
     [RequireComponent(typeof(NavMeshAgent), typeof(FiniteStateMachine), typeof(Transform))]
@@ -16,6 +23,8 @@ namespace Assets.Enemy.NPCCode
         NavMeshAgent _navMeshAgent;
         FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;
+
+        public EnemyType enemyType;
 
         public List<Transform> PlayerList;
         [SerializeField]

@@ -12,7 +12,7 @@ namespace Assets.Enemy.Finite_State_Machines
     public class FiniteStateMachine: MonoBehaviour
     {
 
-        AbstractFSMState _currentState;
+        public AbstractFSMState _currentState;
 
         [SerializeField]
         List<AbstractFSMState> _validState;

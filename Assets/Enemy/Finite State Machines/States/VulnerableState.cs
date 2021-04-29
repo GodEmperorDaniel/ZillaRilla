@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Assets.Enemy.Finite_State_Machines.States
 {
+    [CreateAssetMenu(fileName = "VulnerableState", menuName = "ZillaRilla/States/Vulnerable", order = 5)]
     class VulnerableState: AbstractFSMState
     {
 
