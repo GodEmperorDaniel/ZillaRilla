@@ -16,7 +16,7 @@ public class ZillaAttacks : BaseAttack
 	private IZillaLazorInput _lazorInput;
 
 	private HashSet<GameObject> _hashEnemiesTail = new HashSet<GameObject>();
-	private HashSet<GameObject> _hashEnemiesLazor = new HashSet<GameObject>();
+	private List<GameObject> _hashEnemiesLazor = new List<GameObject>();
 	private Coroutine c_attackCooldown;
 	private Coroutine c_lazorGrowth;
 
@@ -44,9 +44,12 @@ public class ZillaAttacks : BaseAttack
 			{
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 			}
-			foreach (GameObject enemy in _hashEnemiesLazor)
+			for (int i = 0; i < _hashEnemiesLazor.Count; i++)
 			{
-				enemy.GetComponent<Attackable>().EntitiyHit(lazorSettings);
+				if (_hashEnemiesLazor[i] != null)
+				{ 
+					_hashEnemiesLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
+				}
 			}
 			yield return null;
 		}
@@ -136,6 +139,13 @@ public class ZillaAttacks : BaseAttack
 		_playerAnimator.SetBool("ZillaTail", false);
 		_playerAnimator.SetBool("ZillaLazor", false);
 		c_attackCooldown = null;
+	}
+	public void RemoveEnemyFromList(GameObject deadEnemy)
+	{
+		if (_hashEnemiesLazor.Contains(deadEnemy))
+		{
+			_hashEnemiesLazor.Remove(deadEnemy);
+		}
 	}
 }
 

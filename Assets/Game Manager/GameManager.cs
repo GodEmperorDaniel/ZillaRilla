@@ -17,8 +17,8 @@ public class GameManager : Manager<GameManager>
     private string _currentLevelName = string.Empty;
     [SerializeField] private Goal _firstLevelObjectives;
     private Goal _currentObjective;
-    private Attackable _zilla;
-    private Attackable _rilla;
+    public Attackable _zilla;
+    public Attackable _rilla;
 
 
     // Getters/Setters
