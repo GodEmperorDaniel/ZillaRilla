@@ -14,8 +14,8 @@ public class GameManager : Manager<GameManager>
     private List<GameObject> _instancedSystemPrefabs;
     private List<AsyncOperation> _loadOperations;
     
+    
     private string _currentLevelName = string.Empty;
-    [SerializeField] private Goal _firstLevelObjectives;
     private Goal _currentObjective;
     public Attackable _zilla;
     public Attackable _rilla;
@@ -34,7 +34,6 @@ public class GameManager : Manager<GameManager>
 
         InstantiateSystemPrefabs();
         FindPlayerCharacters();
-        UpdateObjective(_firstLevelObjectives);
     }
 
 
@@ -94,11 +93,13 @@ public class GameManager : Manager<GameManager>
     // Internal Methods
     private void InstantiateSystemPrefabs()
     {
-        for (int i = 0; i < _systemPrefab.Length; ++i)
+        foreach (var go in _systemPrefab)
         {
-            var prefabInstance = Instantiate(_systemPrefab[i]);
+            var prefabInstance = Instantiate(go);
             _instancedSystemPrefabs.Add(prefabInstance);
         }
+
+        _instancedSystemPrefabs.Add(FindObjectOfType<GoalManager>().gameObject);
     }
 
     private void FindPlayerCharacters()

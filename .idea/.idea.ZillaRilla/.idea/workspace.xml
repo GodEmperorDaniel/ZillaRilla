@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Area.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Area.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalArea.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalArea.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Test Goal.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Test Goal.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +40,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Devices/Keyboard.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/d2/cb5a07c1/ILogger.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Objectives/Objective.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/f4/57abf09a/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EAE584CE-26BC-4022-9C1B-1AA476BFA589/75/432f9edb/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
@@ -36,7 +49,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Objectives/ObjectiveArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/Unit.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,7 +87,6 @@
       <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectivesUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/HealthBar.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/FillableBar.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" />
@@ -85,7 +96,14 @@
       <option value="$PROJECT_DIR$/Assets/Objectives/Objective.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/GoalArea.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/WaveSpawnerGoal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/Goal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/AreaGoal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/GoalManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -115,10 +133,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13680">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9304">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="13680" />
+      <option name="pid" value="9304" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -157,6 +175,7 @@
       <workItem from="1619425714146" duration="980000" />
       <workItem from="1619426959918" duration="1494000" />
       <workItem from="1619690334494" duration="10570000" />
+      <workItem from="1619773169665" duration="13106000" />
     </task>
     <servers />
   </component>
