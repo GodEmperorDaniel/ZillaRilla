@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
+[System.Serializable]
+public enum EnemyType
+{
+    MELEE,
+    RANGE,
+    BOSS,
+};
 namespace Assets.Enemy.NPCCode
 {
     [RequireComponent(typeof(NavMeshAgent), typeof(FiniteStateMachine), typeof(Transform))]
@@ -16,14 +23,14 @@ namespace Assets.Enemy.NPCCode
         NavMeshAgent _navMeshAgent;
         FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;
-
-        public List<Transform> PlayerList;
-        [SerializeField]
-        private float _rotationSpeed;
+        public EnemyType enemyType;
+        [SerializeField] public List<Transform> _playerList = new List<Transform>(2);
+        [SerializeField] private float _rotationSpeed;
         private Transform playerTransform;
         public float _stunTime = 3f;
         public float lookRadius = 10f;
         public float attackRadius = 5f;
+        public float deSpawnTime = 1;
 
         public Animator _playerAnimator;
 
@@ -38,10 +45,21 @@ namespace Assets.Enemy.NPCCode
         }
         public void Start()
         {
+            
         }
         public void Update()
         {
-            SetChaseTarget();
+            if (_playerList[0] == null)
+            { 
+                setPlayerReferences();
+            }
+            //SetChaseTarget();
+        }
+        private void setPlayerReferences()
+        {
+            //Debug.Log(GameManager.Instance._rilla.gameObject.name);
+            _playerList[0] = (GameManager.Instance._rilla.gameObject.transform);
+            _playerList[1] = (GameManager.Instance._zilla.gameObject.transform);
         }
         void OnDrawGizmosSelected()
         {
@@ -56,33 +74,21 @@ namespace Assets.Enemy.NPCCode
         {
 
             float saveDistance = 0.0f;
-            foreach (Transform player in PlayerList)
+            foreach (Transform player in _playerList)
             {
-                if (saveDistance > Vector3.Distance(player.position, ThisEnemyPosition.position) || saveDistance == 0)
+                if (saveDistance > Vector3.Distance(player.position, transform.position) || saveDistance == 0)
                 {
-                    saveDistance = Vector3.Distance(player.position, ThisEnemyPosition.position);
+                    saveDistance = Vector3.Distance(player.position, transform.position);
                     PlayerTransform = player;
                 }   
             }
             return saveDistance;
         }
         public List<Transform> GetPlayerList {
-            get { return PlayerList; }
-        }
-        public Transform ThisEnemyPosition {
-            get { return transform; }
+            get { return _playerList; }
         }
         public EnemyAttacks getEnemyAttack {
             get { return _enemyAttacks; }
-        }
-
-        private object SetChaseTarget()
-        {
-            if (Destiantion() <= lookRadius)
-            {
-                FaceTarget(PlayerTransform);
-            }
-            return null;
         }
         public void FaceTarget(Transform player)
         {

@@ -152,9 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e336874d67b02543a9f6922add62800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  PlayerList: []
+  _rotationSpeed: 0
   _stunTime: 3
   lookRadius: 10
+  attackRadius: 5
+  _playerAnimator: {fileID: 0}
 --- !u!1 &6070196816457604475
 GameObject:
   m_ObjectHideFlags: 0

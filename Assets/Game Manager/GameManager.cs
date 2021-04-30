@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 
@@ -12,13 +11,16 @@ public class GameManager : Manager<GameManager>
     
     // Fields
     public GameObject[] _systemPrefab;
-
     private List<GameObject> _instancedSystemPrefabs;
-    private string _currentLevelName = string.Empty;
-
     private List<AsyncOperation> _loadOperations;
-
     
+    private string _currentLevelName = string.Empty;
+    [SerializeField] private Goal _firstLevelObjectives;
+    private Goal _currentObjective;
+    public Attackable _zilla;
+    public Attackable _rilla;
+
+
     // Getters/Setters
     
 
@@ -31,6 +33,8 @@ public class GameManager : Manager<GameManager>
         _gameState = new StateMachine();
 
         InstantiateSystemPrefabs();
+        FindPlayerCharacters();
+        UpdateObjective(_firstLevelObjectives);
     }
 
 
@@ -49,6 +53,7 @@ public class GameManager : Manager<GameManager>
 
         _currentLevelName = levelName;
     }
+    
     public void UnloadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
@@ -66,20 +71,27 @@ public class GameManager : Manager<GameManager>
         //LoadLevel("Main Menu");
         //UpdateState(GameState.MAIN_MENU);
     }
+    
     public void StartNewGame()
     {
         UnloadLevel("Main Menu");
         LoadLevel("Test Level 1");
         //UpdateState(GameState.IN_GAME);
+        //UpdateObjective();
     }
+
+    public void StartTestLevel()
+    {
+        
+    }
+    
     public void TogglePause()
     {
         //UpdateState(_currentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
     }
-    
-    
-    // Internal Methods
 
+
+    // Internal Methods
     private void InstantiateSystemPrefabs()
     {
         for (int i = 0; i < _systemPrefab.Length; ++i)
@@ -88,6 +100,27 @@ public class GameManager : Manager<GameManager>
             _instancedSystemPrefabs.Add(prefabInstance);
         }
     }
+
+    private void FindPlayerCharacters()
+    {
+        _zilla = GameObject.Find("ZillaPlayer").GetComponent<Attackable>();
+        _rilla = GameObject.Find("RillaPlayer").GetComponent<Attackable>();
+
+        if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
+        if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
+    }
+
+    private void UpdateHealth()
+    {
+        //UIManager.Instance.UpdateHealthOnUI();
+    }
+
+    public void UpdateObjective(Goal objective)
+    {
+        _currentObjective = objective;
+        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
+    }
+    
     protected override void OnDestroy()
     {
         base.OnDestroy();
@@ -99,8 +132,8 @@ public class GameManager : Manager<GameManager>
 
         _instancedSystemPrefabs.Clear();
     }
-
     
+
     // Events
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
     {
@@ -120,10 +153,11 @@ public class GameManager : Manager<GameManager>
 
         Debug.Log("Load Complete.");
     }
+    
     private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
     {
         Debug.Log("Unload Complete.");
     }
-
-
+    
+    
 }

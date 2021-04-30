@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Attacks.Zilla;
+using Entities.Scripts;
 
 public class ZillaAttacks : BaseAttack
 {
@@ -11,26 +12,66 @@ public class ZillaAttacks : BaseAttack
 	[SerializeField] private ZillaTailSettings tailSettings;
 
 	[SerializeField] private ZillaLazorSettings lazorSettings;
+	
+	private IZillaLazorInput _lazorInput;
 
-	private HashSet<GameObject> _hashEnemiesTail = new HashSet<GameObject>();
+	private List<GameObject> _listEnemiesTail = new List<GameObject>();
+	private List<GameObject> _listEnemiesLazor = new List<GameObject>();
 	private Coroutine c_attackCooldown;
+	private Coroutine c_lazorGrowth;
 
-	public void ZillaLazor()
+	private void Awake()
 	{
-		Debug.Log("IMA FIRING MAH LAZOR");
-		_playerAnimator.SetBool("ZillaLazor", false);
+		_lazorInput = GetComponent<IZillaLazorInput>();
 	}
-
-	public void ZillaTailWip()
+	public void ZillaLazor()
 	{
 		if (c_attackCooldown == null)
 		{
-			foreach (GameObject enemy in _hashEnemiesTail)
-			{
-				CallEntityHit(enemy, tailSettings);
-				//Debug.Log("I hit: " + enemy.name);
+			_playerAnimator.SetBool("ZillaLazorAttack", true);
+			lazorSettings._attackHitbox.SetActive(true);
+			if (c_lazorGrowth == null)
+			{ 
+				c_lazorGrowth = StartCoroutine(LazorAttack());
 			}
-			_playerAnimator.SetBool("ZillaTail", false);
+		}
+	}
+	private IEnumerator LazorAttack()
+	{
+		while (_lazorInput.LazorButtonPressed)
+		{
+			if (lazorSettings._attackHitbox.transform.localScale.z < lazorSettings._lazorMaxRange)
+			{
+				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
+			}
+			for (int i = 0; i < _listEnemiesLazor.Count; i++)
+			{
+				if (_listEnemiesLazor[i] != null)
+				{ 
+					_listEnemiesLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
+				}
+			}
+			yield return null;
+		}
+		lazorSettings._attackHitbox.transform.localScale = new Vector3(1,1,0.5f);
+		lazorSettings._attackHitbox.SetActive(false);
+		//_playerAnimator.SetBool("ZillaLazor", false);
+		_playerAnimator.SetBool("ZillaLazorAttack", false);
+		c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
+		c_lazorGrowth = null;
+	}
+
+	public void ZillaTailWhip()
+	{
+		if (c_attackCooldown == null)
+		{
+			for (int i = 0; i < _listEnemiesTail.Count; i++)
+			{
+				if (_listEnemiesTail[i] != null)
+				{
+					CallEntityHit(_listEnemiesTail[i], tailSettings);
+				}
+			}
 			c_attackCooldown = StartCoroutine(AttackCooldown(tailSettings._attackCooldown));
 		}
 	}
@@ -44,10 +85,10 @@ public class ZillaAttacks : BaseAttack
 		switch (id)
 		{
 			case 1:
-				_hashEnemiesTail.Add(other.gameObject);
+				_listEnemiesTail.Add(other.gameObject);
 				break;
 			case 2:
-				//_hashEnemiesSlam.Add(other.gameObject);
+				_listEnemiesLazor.Add(other.gameObject);
 				break;
 			default:
 				Debug.Log("Something whent wrong in CustomTriggerEnter!");
@@ -60,10 +101,10 @@ public class ZillaAttacks : BaseAttack
 		switch (id)
 		{
 			case 1:
-				_hashEnemiesTail.Remove(other.gameObject);
+				_listEnemiesTail.Remove(other.gameObject);
 				break;
 			case 2:
-				//_hashEnemiesSlam.Remove(other.gameObject);
+				_listEnemiesLazor.Remove(other.gameObject);
 				break;
 			default:
 				Debug.Log("Something whent wrong in CustomTriggerExit!");
@@ -75,16 +116,16 @@ public class ZillaAttacks : BaseAttack
 		switch (id)
 		{
 			case 1:
-				if (!_hashEnemiesTail.Contains(other.gameObject))
+				if (!_listEnemiesTail.Contains(other.gameObject))
 				{
-					_hashEnemiesTail.Add(other.gameObject);
+					_listEnemiesTail.Add(other.gameObject);
 				}
 				break;
 			case 2:
-				//if (!_hashEnemiesSlam.Contains(other.gameObject))
-				//{
-				//	_hashEnemiesSlam.Add(other.gameObject);
-				//}
+				if (!_listEnemiesLazor.Contains(other.gameObject))
+				{
+					_listEnemiesLazor.Add(other.gameObject);
+				}
 				break;
 			default:
 				break;
@@ -93,8 +134,24 @@ public class ZillaAttacks : BaseAttack
 	#endregion
 	private IEnumerator AttackCooldown(float resetTime)
 	{
+		if (c_lazorGrowth != null)
+			c_lazorGrowth = null;
 		yield return new WaitForSeconds(resetTime);
+		_playerAnimator.SetBool("ZillaTail", false);
+		_playerAnimator.SetBool("ZillaLazor", false);
+		_playerAnimator.SetBool("ZillaLazorWindup", false);
 		c_attackCooldown = null;
+	}
+	public override void RemoveFromPlayerList(GameObject enemy)
+	{
+		if (_listEnemiesTail.Contains(enemy))
+		{
+			_listEnemiesTail.Remove(enemy);
+		}
+		if (_listEnemiesLazor.Contains(enemy))
+		{
+			_listEnemiesLazor.Remove(enemy);
+		}
 	}
 }
 
@@ -109,6 +166,7 @@ namespace Attacks.Zilla
 	public class ZillaLazorSettings : AttackSettings
 	{
 		public float _lazorMaxRange;
+		public float _lazorGrowthPerSec;
 		//public bool _stun;
 		//[Header("Knockback")]
 		//public bool _knockBack;
