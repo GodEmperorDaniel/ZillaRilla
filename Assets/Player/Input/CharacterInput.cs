@@ -45,7 +45,7 @@ namespace Player.Scrips
             switch (_character)
             {
                 case character.ZILLA:
-                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor") && _attack1Pressed)
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") && _attack1Pressed)
                         _playerAnimator.SetBool("ZillaTail", true);
                     break;
                 case character.RILLA:
@@ -63,7 +63,7 @@ namespace Player.Scrips
             {
                 case character.ZILLA:
                     LazorButtonPressed = value;
-                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") && LazorButtonPressed)
                     { 
                         _playerAnimator.SetBool("ZillaLazorWindup", true);
                         //_playerAnimator.SetBool("ZillaLazor", true);
