@@ -35,17 +35,13 @@ namespace Player.Scrips
                 TryGetComponent<Animator>(out _playerAnimator);
             }
             PlayerInput playerInput = GetComponent<PlayerInput>();
-            //if (playerInput.currentActionMap == null)
-            //{
-            //    //playerInput.;
-            //}
         }
 
 		#region Attacks
 		public void OnAttack1Input(InputAction.CallbackContext c)
         {
             _attack1Pressed = c.ReadValueAsButton();
-            Debug.Log(_attack1Pressed);
+            //Debug.Log(_attack1Pressed);
             switch (_character)
             {
                 case character.ZILLA:
@@ -69,7 +65,8 @@ namespace Player.Scrips
                     LazorButtonPressed = value;
                     if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
                     { 
-                        _playerAnimator.SetBool("ZillaLazor", true);
+                        _playerAnimator.SetBool("ZillaLazorWindup", true);
+                        //_playerAnimator.SetBool("ZillaLazor", true);
                     }
                     break;
                 case character.RILLA:
@@ -79,7 +76,6 @@ namespace Player.Scrips
                 default:
                     break;
             }
-            //Debug.Log("No animations to see here");
         }
         public void OnAttack3Input(InputAction.CallbackContext c)
         {
@@ -87,6 +83,7 @@ namespace Player.Scrips
             //_playerAnimator.SetBool("RillaPunch", true);
         }
 		#endregion
+		#region Aim
 		private void OnMouseAimInput(InputAction.CallbackContext c)
         {
             //probably a little bit of match and coordinate conversions... will fix later
@@ -99,15 +96,20 @@ namespace Player.Scrips
             RotationDirection = new Vector3(value.x, 0, value.y);
             _moveInput.Execute();
         }
+		#endregion
 
-        public void OnJumpInput(InputAction.CallbackContext c)
+		public void OnJumpInput(InputAction.CallbackContext c)
         {
             float value = c.ReadValue<float>();
             _playerAnimator.SetBool("Jump", true);
             JumpButtonPressed = value == 1 ? true : false;
-           _moveInput.Execute();
+           //_moveInput.Execute();
         }
-
+        public void Quit()
+        {
+            Application.Quit();
+        }
+        #region Movement
         public void OnMoveInput(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
@@ -121,6 +123,11 @@ namespace Player.Scrips
             MoveDirection = new Vector3(value.x, 0, value.y);
             _moveInput.Execute();
         }
-    }
+        #endregion
+        public character GetCharacter()
+        {
+            return _character;
+        }
+	}
 }
 

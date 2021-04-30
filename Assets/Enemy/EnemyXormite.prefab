@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 6613114054487553840}
   - component: {fileID: 6613114054487553846}
   - component: {fileID: 6613114054487553845}
+  - component: {fileID: 670120131864494691}
   m_Layer: 6
   m_Name: EnemyXormite
   m_TagString: Untagged
@@ -145,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 6613114054487553999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.08, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6613114052974211132}
   - {fileID: 6650753751156024691}
@@ -162,7 +163,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -216,7 +217,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b91fb970e16571c4894593d73ecbb7ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: -3609913050599336262}
   punchSettings:
-    _attackDamage: 1
+    _attackDamage: 5
     _attackHitbox: {fileID: 6613114052974211131}
     _attackCooldown: 1
     _settingType: 0
@@ -252,9 +253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 40
-  animator: {fileID: 0}
-  _iFrames: 0
+  _maxHealth: 40
+  _currentHealth: 20
+  _animator: {fileID: 0}
+  _iFrames: 0.3
 --- !u!114 &6613114054487553846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edf25b059c70fc40a04196f642892f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentState: {fileID: 0}
   _validState:
   - {fileID: 11400000, guid: 63980e4a564ac2048a2713feeafea2d5, type: 2}
   - {fileID: 11400000, guid: 48464222c4a7ed249be1462f888d2cb7, type: 2}
@@ -285,13 +288,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e336874d67b02543a9f6922add62800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerList:
+  enemyType: 0
+  _playerList:
+  - {fileID: 0}
   - {fileID: 0}
   _rotationSpeed: 5
   _stunTime: 3
-  lookRadius: 10
-  attackRadius: 4
+  lookRadius: 60
+  attackRadius: 13.28
+  deSpawnTime: 1
   _playerAnimator: {fileID: 0}
+--- !u!114 &670120131864494691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6613114054487553999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfSounds:
+  - nameOfSound: event:/Ljud/Alien SFX/AlienDeath
 --- !u!1001 &6613114054355255960
 PrefabInstance:
   m_ObjectHideFlags: 0

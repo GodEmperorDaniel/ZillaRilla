@@ -12,8 +12,8 @@ using Attacks.Rilla;
 
 		[SerializeField] private RillaSlamSettings slamSettings;
 
-		private HashSet<GameObject> _hashEnemiesPunch = new HashSet<GameObject>();
-		private HashSet<GameObject> _hashEnemiesSlam = new HashSet<GameObject>();
+		private List<GameObject> _listEnemiesPunch = new List<GameObject>();
+		private List<GameObject> _listEnemiesSlam = new List<GameObject>();
 		private Coroutine c_attackCooldown;
 		private void Awake()
 		{
@@ -28,41 +28,43 @@ using Attacks.Rilla;
 		{
 			if (c_attackCooldown == null)
 			{
-				//punchSettings._attackHitbox.SetActive(true);
-				Debug.Log("PUNCHING Player!!");
-				//Debug.Log(_hashEnemiesPunch.Count);
-
-				foreach (GameObject enemy in _hashEnemiesPunch)
-				{
-					CallEntityHit(enemy, punchSettings);
-					//Debug.Log("I hit: " + enemy.name);
+				//Debug.Log("HE DO BE PUNCHING");
+			for (int i = 0; i < _listEnemiesPunch.Count; i++)
+			{
+				if (_listEnemiesPunch[i] != null)
+				{ 
+					CallEntityHit(_listEnemiesPunch[i], punchSettings);
 				}
-				_playerAnimator.SetBool("RillaPunch", false);
+			}
+				//foreach (GameObject enemy in _listEnemiesPunch)
+				//{
+				//	CallEntityHit(enemy, punchSettings);
+				//}
+				
 				c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
 			}
 		}
 
 		public void RillaGroundSlam()
 		{
-			if (c_attackCooldown == null)
+		if (c_attackCooldown == null)
+		{
+			for (int i = 0; i < _listEnemiesSlam.Count; i++)
 			{
-				//Debug.Log("GroundSlam!!");
-				foreach (GameObject enemy in _hashEnemiesSlam)
+				if (_listEnemiesSlam[i] != null)
 				{
-					CallEntityHit(enemy, slamSettings);
-					//Debug.Log("I hit: " + enemy.name);
+					Debug.Log("HE DO BE SLAMING!");
+					CallEntityHit(_listEnemiesSlam[i], slamSettings);
 				}
-				_playerAnimator.SetBool("RillaSlam", false);
-				c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
 			}
+			c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
+		}
 		}
 		private IEnumerator AttackCooldown(float resetTime)
 		{
 			yield return new WaitForSeconds(resetTime);
-			//punchSettings._attackHitbox.SetActive(false);
-			//slamSettings._attackHitbox.SetActive(false);
-			//_hashEnemiesSlam.Clear();
-			//_hashEnemiesPunch.Clear();
+			_playerAnimator.SetBool("RillaPunch", false);
+			_playerAnimator.SetBool("RillaSlam", false);
 			c_attackCooldown = null;
 		}
 		#endregion
@@ -72,10 +74,10 @@ using Attacks.Rilla;
 			switch (id)
 			{
 				case 1:
-					_hashEnemiesPunch.Add(other.gameObject);
+					_listEnemiesPunch.Add(other.gameObject);
 					break;
 				case 2:
-					_hashEnemiesSlam.Add(other.gameObject);
+					_listEnemiesSlam.Add(other.gameObject);
 					break;
 				default:
 					Debug.Log("Something whent wrong in CustomTriggerEnter!");
@@ -88,10 +90,10 @@ using Attacks.Rilla;
 			switch (id)
 			{
 				case 1:
-					_hashEnemiesPunch.Remove(other.gameObject);
+					_listEnemiesPunch.Remove(other.gameObject);
 					break;
 				case 2:
-					_hashEnemiesSlam.Remove(other.gameObject);
+					_listEnemiesSlam.Remove(other.gameObject);
 					break;
 				default:
 					Debug.Log("Something whent wrong in CustomTriggerExit!");
@@ -103,15 +105,15 @@ using Attacks.Rilla;
 			switch (id)
 			{
 				case 1:
-					if (!_hashEnemiesPunch.Contains(other.gameObject))
+					if (!_listEnemiesPunch.Contains(other.gameObject))
 					{
-						_hashEnemiesPunch.Add(other.gameObject);
+						_listEnemiesPunch.Add(other.gameObject);
 					}
 					break;
 				case 2:
-					if (!_hashEnemiesSlam.Contains(other.gameObject))
+					if (!_listEnemiesSlam.Contains(other.gameObject))
 					{
-						_hashEnemiesSlam.Add(other.gameObject);
+						_listEnemiesSlam.Add(other.gameObject);
 					}
 					break;
 				default:
@@ -125,7 +127,19 @@ using Attacks.Rilla;
 			enemy.GetComponent<Attackable>().EntitiyHit(settings);
 		}
 
+	public override void RemoveFromPlayerList(GameObject enemy)
+	{
+		if (_listEnemiesPunch.Contains(enemy))
+		{
+			_listEnemiesPunch.Remove(enemy);
+		}
+		if (_listEnemiesSlam.Contains(enemy))
+		{
+			_listEnemiesSlam.Remove(enemy);
+		}
 	}
+
+}
 
 #region Settings Structs
 namespace Attacks.Rilla
