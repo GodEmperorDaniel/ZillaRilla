@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2666390296723367289
+--- !u!1 &4962355506602757194
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5088142985798525673}
-  - component: {fileID: 1591907219494201975}
-  - component: {fileID: 5921160431600559593}
-  - component: {fileID: 4654139599880332104}
-  m_Layer: 0
-  m_Name: Goal Area
+  - component: {fileID: 4962355506602757174}
+  - component: {fileID: 4962355506602757173}
+  - component: {fileID: 4962355506602757172}
+  - component: {fileID: 4962355506602757195}
+  m_Layer: 8
+  m_Name: Test Area Goal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5088142985798525673
+--- !u!4 &4962355506602757174
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2666390296723367289}
+  m_GameObject: {fileID: 4962355506602757194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.14, y: 4.61, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1591907219494201975
+--- !u!65 &4962355506602757173
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4962355506602757194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &4962355506602757172
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2666390296723367289}
+  m_GameObject: {fileID: 4962355506602757194}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -49,28 +62,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5921160431600559593
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2666390296723367289}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 5, z: 0}
---- !u!114 &4654139599880332104
+--- !u!114 &4962355506602757195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2666390296723367289}
+  m_GameObject: {fileID: 4962355506602757194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deaa999b4a209b747ad8435e2f62dc5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d20103ca399f4a4aa9f155d4f9187ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _goalName: '[Default Name]'
+  _goalDescription: '[Default Text]'
+  _nextGoal: {fileID: 0}
+  _progressAmount: 0.001
