@@ -3,22 +3,34 @@
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Wave Spawner.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Area.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Area.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalArea.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalArea.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/GoalManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Test Goal.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Test Goal.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/EventManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/EventManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManagerOld.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameManagerOld.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/GameStates.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Level Manager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Level Manager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/LevelManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/LevelManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Test Level 2.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Test Level 2.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Test Level.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Goal Test Level.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Boot.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Boot.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Cut Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Cut Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Main Menu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Main Menu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Objective Test Level.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/Objective Test Level.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,10 +62,8 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/Unit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game Manager/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -104,6 +114,7 @@
       <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/AreaGoal.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/GoalManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -133,10 +144,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9304">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="9304" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -176,6 +187,8 @@
       <workItem from="1619426959918" duration="1494000" />
       <workItem from="1619690334494" duration="10570000" />
       <workItem from="1619773169665" duration="13106000" />
+      <workItem from="1620033805218" duration="66000" />
+      <workItem from="1620033891559" duration="796000" />
     </task>
     <servers />
   </component>

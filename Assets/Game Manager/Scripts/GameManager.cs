@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Manager<GameManager>
 {
+    // TODO: Game States with entry and exit methods
+
     private StateMachine _gameState;
     
     // Fields
