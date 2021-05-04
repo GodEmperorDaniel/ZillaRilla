@@ -1315,6 +1315,14 @@ PrefabInstance:
       propertyPath: PlayerList.Array.data[1]
       value: 
       objectReference: {fileID: 132411224}
+    - target: {fileID: 6613114054487553845, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
+      propertyPath: _playerList.Array.data[0]
+      value: 
+      objectReference: {fileID: 132411224}
+    - target: {fileID: 6613114054487553845, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
+      propertyPath: _playerList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2078873235}
     - target: {fileID: 6613114054487553846, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: _validState.Array.size
       value: 6
