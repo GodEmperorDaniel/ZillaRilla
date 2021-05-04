@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
@@ -9,14 +10,23 @@ public class GameManager : Manager<GameManager>
 {
     // TODO: Game States with entry and exit methods
 
-    private StateMachine _gameState;
-    
+    public enum GameState
+    {
+        BOOT,
+        CUTSCENE,
+        MAIN_MENU,
+        LOADING,
+        IN_GAME,
+        PAUSED
+    }
+
     // Fields
     public GameObject[] _systemPrefab;
     private List<GameObject> _instancedSystemPrefabs;
     private List<AsyncOperation> _loadOperations;
-    
-    
+    private GameState _gameState;
+
+
     private string _currentLevelName = string.Empty;
     private Goal _currentObjective;
     public Attackable _zilla;
@@ -24,7 +34,7 @@ public class GameManager : Manager<GameManager>
 
 
     // Getters/Setters
-    
+
 
     // Unity Methods
     private void Start()
@@ -32,14 +42,20 @@ public class GameManager : Manager<GameManager>
         _instancedSystemPrefabs = new List<GameObject>();
         _loadOperations = new List<AsyncOperation>();
 
-        _gameState = new StateMachine();
 
         InstantiateSystemPrefabs();
-        FindPlayerCharacters();
+
+
+        //FindPlayerCharacters(); // Needs to be moved to after level with characters is loaded!
     }
 
 
     // Public Methods
+    
+    
+    // Loads scene and the completed event calls the OnLoadComplete
+    // method when the load operation is completed.
+    // Loading multiple scenes is possible
     public void LoadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
@@ -54,7 +70,9 @@ public class GameManager : Manager<GameManager>
 
         _currentLevelName = levelName;
     }
-    
+
+    // Unloads scene and the completed event calls the OnUnloadComplete
+    // method when the unload operation is completed
     public void UnloadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
@@ -66,33 +84,118 @@ public class GameManager : Manager<GameManager>
 
         ao.completed += OnUnloadOperationComplete;
     }
-    
-    public void GameStartUp()
+
+    public void LoadMainMenu()
     {
-        //LoadLevel("Main Menu");
-        //UpdateState(GameState.MAIN_MENU);
+        LoadLevel("Main Menu");
+        UpdateState(GameState.MAIN_MENU);
     }
-    
+
     public void StartNewGame()
     {
         UnloadLevel("Main Menu");
         LoadLevel("Test Level 1");
-        //UpdateState(GameState.IN_GAME);
-        //UpdateObjective();
+        UpdateState(GameState.IN_GAME);
+        FindPlayerCharacters();
     }
 
     public void StartTestLevel()
     {
-        
     }
-    
+
     public void TogglePause()
     {
         //UpdateState(_currentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
     }
 
+    public void UpdateObjective(Goal objective)
+    {
+        _currentObjective = objective;
+        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
+    }
+
 
     // Internal Methods
+    private void UpdateState(GameState state)
+    {
+        ExitCurrentState();
+        EnterNewState(state);
+    }
+
+    private void ExitCurrentState()
+    {
+        switch (_gameState)
+        {
+            case GameState.BOOT:
+                break;
+
+            case GameState.CUTSCENE:
+                // Disable cutscene UI
+                // Disable skip cutscene controls?
+                break;
+
+            case GameState.MAIN_MENU:
+                UIManager.Instance.DisableMainMenuUI();
+                break;
+
+            case GameState.LOADING:
+                // Disable loading UI
+                break;
+
+            case GameState.IN_GAME:
+                UIManager.Instance.DisableInGameUI();
+                break;
+
+            case GameState.PAUSED:
+                UIManager.Instance.DisablePauseUI();
+                Time.timeScale = 1.0f;
+                break;
+
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void EnterNewState(GameState state)
+    {
+        _gameState = state;
+        
+        switch (state)
+        {
+            case GameState.BOOT:
+
+                break;
+            case GameState.CUTSCENE:
+                // Enable cutscene UI
+                // Enable skip cutscene controls?
+                break;
+
+            case GameState.MAIN_MENU:
+                UIManager.Instance.EnableMainMenuUI();
+                EnableMenuControls();
+                break;
+
+            case GameState.LOADING:
+                // Enable loading UI
+                // Disable all controls
+                break;
+
+            case GameState.IN_GAME:
+                UIManager.Instance.EnableInGameUI();
+                EnableInGameControls();
+                break;
+
+            case GameState.PAUSED:
+                Time.timeScale = 1.0f;
+                UIManager.Instance.EnablePauseUI();
+                EnableMenuControls();
+                break;
+
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
+    }
+
     private void InstantiateSystemPrefabs()
     {
         foreach (var go in _systemPrefab)
@@ -101,7 +204,8 @@ public class GameManager : Manager<GameManager>
             _instancedSystemPrefabs.Add(prefabInstance);
         }
 
-        _instancedSystemPrefabs.Add(FindObjectOfType<GoalManager>().gameObject);
+        GoalManager goalManager = FindObjectOfType<GoalManager>();
+        if (goalManager != null) _instancedSystemPrefabs.Add(goalManager.gameObject);
     }
 
     private void FindPlayerCharacters()
@@ -113,17 +217,23 @@ public class GameManager : Manager<GameManager>
         if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
     }
 
+    private void EnableMenuControls()
+    {
+        _zilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+        _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+    }
+
+    private void EnableInGameControls()
+    {
+        _zilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+    }
+
     private void UpdateHealth()
     {
         //UIManager.Instance.UpdateHealthOnUI();
     }
 
-    public void UpdateObjective(Goal objective)
-    {
-        _currentObjective = objective;
-        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
-    }
-    
     protected override void OnDestroy()
     {
         base.OnDestroy();
@@ -135,7 +245,7 @@ public class GameManager : Manager<GameManager>
 
         _instancedSystemPrefabs.Clear();
     }
-    
+
 
     // Events
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
@@ -156,11 +266,9 @@ public class GameManager : Manager<GameManager>
 
         Debug.Log("Load Complete.");
     }
-    
+
     private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
     {
         Debug.Log("Unload Complete.");
     }
-    
-    
 }
