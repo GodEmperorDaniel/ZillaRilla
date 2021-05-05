@@ -11,6 +11,7 @@ public class UIManager : Manager<UIManager>
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private InGameUI _inGameUI;
+    
     [SerializeField] private HitIconSpawner _hitIconSpawner;
     
 
@@ -59,20 +60,34 @@ public class UIManager : Manager<UIManager>
     }
     
     
+    
+    public void EnableInGameUI()
+    {
+        _inGameUI.gameObject.SetActive(true);
+    }
 
-    private void ActivateMainMenuUI()
+    public void DisableInGameUI()
     {
-        
+        _inGameUI.gameObject.SetActive(false);
+    }
+
+    public void EnablePauseUI()
+    {
+        _pauseMenu.gameObject.SetActive(true);
     }
     
-    private void ActivatePauseMenuUI()
+    public void DisablePauseUI()
     {
-        
+        _pauseMenu.gameObject.SetActive(false);
     }
-    
-    private void ActivateInGameUI()
+
+    public void EnableMainMenuUI()
     {
-        
+        _mainMenu.gameObject.SetActive(true);
     }
-    
+
+    public void DisableMainMenuUI()
+    {
+        _mainMenu.gameObject.SetActive(false);
+    }
 }
