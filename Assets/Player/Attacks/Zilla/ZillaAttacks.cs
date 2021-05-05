@@ -12,7 +12,7 @@ public class ZillaAttacks : BaseAttack
 	[SerializeField] private ZillaTailSettings tailSettings;
 
 	[SerializeField] private ZillaLazorSettings lazorSettings;
-	
+
 	private IZillaLazorInput _lazorInput;
 
 	private List<GameObject> _listEnemiesTail = new List<GameObject>();
@@ -38,11 +38,19 @@ public class ZillaAttacks : BaseAttack
 	}
 	private IEnumerator LazorAttack()
 	{
+		RaycastHit ray;
 		while (_lazorInput.LazorButtonPressed)
 		{
-			if (lazorSettings._attackHitbox.transform.localScale.z < lazorSettings._lazorMaxRange)
+			bool hit = Physics.Raycast(lazorSettings._attackHitbox.transform.position, transform.forward, out ray, lazorSettings._attackHitbox.transform.localScale.z, lazorSettings.layerMask);
+			//Debug.DrawRay(lazorSettings._attackHitbox.transform.position, transform.forward, );
+			if (!hit && lazorSettings._attackHitbox.transform.localScale.z < lazorSettings._lazorMaxRange)
 			{
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
+			}
+			else if (hit)
+			{
+				Debug.Log("Hit");
+				lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, ray.distance);
 			}
 			for (int i = 0; i < _listEnemiesLazor.Count; i++)
 			{
@@ -55,7 +63,6 @@ public class ZillaAttacks : BaseAttack
 		}
 		lazorSettings._attackHitbox.transform.localScale = new Vector3(1,1,0.5f);
 		lazorSettings._attackHitbox.SetActive(false);
-		//_playerAnimator.SetBool("ZillaLazor", false);
 		_playerAnimator.SetBool("ZillaLazorAttack", false);
 		c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
 		c_lazorGrowth = null;
@@ -69,7 +76,12 @@ public class ZillaAttacks : BaseAttack
 			{
 				if (_listEnemiesTail[i] != null)
 				{
-					CallEntityHit(_listEnemiesTail[i], tailSettings);
+					if (_listEnemiesTail[i].layer == LayerMask.GetMask("Enemy", "Destructables"))
+						CallEntityHit(_listEnemiesTail[i], tailSettings);
+					else
+					{
+						AttackObject(_listEnemiesTail[i], (_listEnemiesTail[i].transform.position - transform.position).normalized);
+					}
 				}
 			}
 			c_attackCooldown = StartCoroutine(AttackCooldown(tailSettings._attackCooldown));
@@ -167,6 +179,7 @@ namespace Attacks.Zilla
 	{
 		public float _lazorMaxRange;
 		public float _lazorGrowthPerSec;
+		public LayerMask layerMask; //FIX THIS!!
 		//public bool _stun;
 		//[Header("Knockback")]
 		//public bool _knockBack;

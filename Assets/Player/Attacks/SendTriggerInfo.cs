@@ -7,7 +7,7 @@ public class SendTriggerInfo : MonoBehaviour
 {
     [SerializeField] private BaseAttack _base;
     [SerializeField] private int _ID;
-    [SerializeField] private string _targetName;
+    [SerializeField] private List<string> _targets;
 
     private void Awake()
     {
@@ -16,23 +16,32 @@ public class SendTriggerInfo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer(_targetName))
+        for (int i = 0; i < _targets.Count; i++)
         {
-            _base.CustomTriggerEnter(other, _ID);
-        }
+            if (other.gameObject.layer == LayerMask.NameToLayer(_targets[i]))
+            {
+                _base.CustomTriggerEnter(other, _ID);
+            }
+        }  
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer(_targetName))
+        for (int i = 0; i < _targets.Count; i++)
         {
-            _base.CustomTriggerExit(other, _ID); 
+            if (other.gameObject.layer == LayerMask.NameToLayer(_targets[i]))
+            {
+                _base.CustomTriggerExit(other, _ID);
+            }
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer(_targetName))
+        for (int i = 0; i < _targets.Count; i++)
         {
-            _base.CustomTriggerStay(other, _ID);
+            if (other.gameObject.layer == LayerMask.NameToLayer(_targets[i]))
+            {
+                _base.CustomTriggerStay(other, _ID);
+            }
         }
     }
 }

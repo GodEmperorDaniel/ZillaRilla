@@ -14,6 +14,7 @@ namespace Player.Scrips
         //[SerializeField] private PlayerInputActions _inputsActions;
         [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")]
         [SerializeField] private Animator _playerAnimator;
+        [SerializeField] private PlayerInput _playerInput;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
         public enum character
@@ -23,6 +24,7 @@ namespace Player.Scrips
 
         [SerializeField] private character _character;
         private bool _attack1Pressed;
+        private bool _rillaLeftPunch;
 
         public bool JumpButtonPressed { get; set; }
         public bool LazorButtonPressed { get; set; }
@@ -49,8 +51,15 @@ namespace Player.Scrips
                         _playerAnimator.SetBool("ZillaTail", true);
                     break;
                 case character.RILLA:
-                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") && _attack1Pressed)
+                    if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") && _attack1Pressed)
+                    {
+                        _rillaLeftPunch = !_rillaLeftPunch;
                         _playerAnimator.SetBool("RillaPunch", true);
+                        if (_rillaLeftPunch)
+                            _playerAnimator.SetBool("Rilla_Left_Punch", true);
+                        else
+                            _playerAnimator.SetBool("Rilla_Right_Punch", true);
+                    }
                     break;
                 default:
                     break;
@@ -127,7 +136,7 @@ namespace Player.Scrips
         public character GetCharacter()
         {
             return _character;
-        }
+        }  
 	}
 }
 

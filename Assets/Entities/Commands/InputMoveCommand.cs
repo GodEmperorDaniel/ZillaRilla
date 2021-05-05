@@ -33,6 +33,9 @@ namespace Entities.Commands
         [SerializeField] private float _jumpCooldownTime = 0;
         private Coroutine c_jumpCooldown;
 
+        [Header("Interacting")]
+        [SerializeField] private float _objectKnockbackForce;
+
         [Header("Self generating")]
         [SerializeField] private Transform _transform;
         [SerializeField] private CharacterController _characterController;
@@ -141,16 +144,25 @@ namespace Entities.Commands
                 raycast = Physics.Raycast(transform.position + new Vector3(0, 1, 0), Vector3.down, rayCastLenght);
                 yield return null; 
             }
-            yield return new WaitForSeconds(_jumpCooldownTime);
-            c_jump = null;
-            c_jumpCooldown = null;
             _animator.SetBool("Jump", false);
+            yield return new WaitForSeconds(_jumpCooldownTime);
             _jump.JumpButtonPressed = false;
             _isJumping = false;
+            c_jump = null;
+            c_jumpCooldown = null;
         }
         private void OnDisable()
         {
             StopAllCoroutines();
         }
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if (hit.gameObject.layer == LayerMask.NameToLayer("Movable"))
+            {
+                Rigidbody rb = hit.gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(_move.MoveDirection, ForceMode.Impulse);
+            }
+        }
+
     }
 }
