@@ -5,14 +5,20 @@ using Attacks.Enemy;
 
 public class SendTriggerInfo : MonoBehaviour
 {
-    [SerializeField] private BaseAttack _base;
+    public BaseAttack _base;
     [SerializeField] private int _ID;
     [SerializeField] private string _targetName;
 
     private void Awake()
     {
+
         if (_base == null)
-            Debug.LogError("NEED A ATTACK BASE FOR " + gameObject.name);
+        {
+            _base = GetComponentInParent<EnemyAttacks>();
+            //Debug.LogError("NEED A ATTACK BASE FOR " + gameObject.name);
+            //Debug.LogWarning("MY PARENT IS: " + gameObject.name);
+            
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

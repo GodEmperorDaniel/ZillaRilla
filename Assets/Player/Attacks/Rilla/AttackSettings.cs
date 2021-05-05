@@ -9,7 +9,7 @@ public class AttackSettings
 	public float _attackCooldown;
 	public enum SettingType
 	{
-		PUNCH, SLAM, TAIL, LAZOR 
+		PUNCH, SLAM, TAIL, LAZOR, SHOOTING
 	}
 	public SettingType _settingType;
 }

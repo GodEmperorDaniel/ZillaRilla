@@ -28,7 +28,15 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
-                _npc.getEnemyAttack.EnemyPunch();
+                if (_npc.enemyType == EnemyType.RANGE)
+                {
+                    _npc.getEnemyAttack.EnemyShoot();
+                }
+                else
+                {
+                    _npc.getEnemyAttack.EnemyPunch();
+                }
+                
                 _npc.FaceTarget(_npc.PlayerTransform);
                 Debug.Log("UPDATING ATTACK STATE");
                 StartChaseTarget();

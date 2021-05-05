@@ -37,9 +37,10 @@ public class Attackable : MonoBehaviour
 	}
     public void EntitiyHit(AttackSettings settings)
 	{
+		_rillaSlamSettings = null;
+		_zillaLazorSettings = null;
 		//Debug.Log( gameObject.name + " LostHealth");
 		_animator = GetComponent<Animator>();
-
 		switch (settings._settingType)
 		{
 			case AttackSettings.SettingType.SLAM:
@@ -49,7 +50,6 @@ public class Attackable : MonoBehaviour
 				if (_rillaSlamSettings._stun && _npc.enemyType == EnemyType.BOSS)
 				{ 
 					_fsm.EnterState(FSMStateType.VULNERABLE);
-					//Debug.Log("vuln");
 				}
 				break;
 			case AttackSettings.SettingType.LAZOR:
@@ -80,7 +80,6 @@ public class Attackable : MonoBehaviour
 
 	private void RemoveHealth(float damage)
 	{
-		//Debug.Log("KOLLA H�R: " + _fsm._currentState.StateType);
 		if (c_invincible == null && _npc != null && _npc.enemyType != EnemyType.BOSS)
 		{
 			if (_currentHealth <= 0)
@@ -102,6 +101,7 @@ public class Attackable : MonoBehaviour
 		else if (_fsm != null && _fsm._currentState.StateType == FSMStateType.VULNERABLE)
 		{
 			if (_zillaLazorSettings != null && _zillaLazorSettings._settingType == AttackSettings.SettingType.LAZOR)
+			{
 				if (_currentHealth <= 0)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);
@@ -109,13 +109,17 @@ public class Attackable : MonoBehaviour
 				}
 				else
 				{
+					Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
 					_currentHealth -= damage;
 					_fsm.EnterState(FSMStateType.IDLE);
 				}
+			}
 		}
-		else if (player != null)
+		else if (c_invincible == null && player != null)
 		{
+			Debug.Log(" THIS ENEMYS GOT HANDS");
 			_currentHealth -= damage;
+			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
     }
 
