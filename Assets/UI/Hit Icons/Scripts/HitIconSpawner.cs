@@ -20,7 +20,11 @@ public class HitIconSpawner : MonoBehaviour
 
     private void Update()
     {
-        transform.forward = _camera.transform.forward;
+        if (_camera != null)
+        {
+            transform.forward = _camera.transform.forward;
+        }
+        
     }
 
     public void SpawnHitIcon(Vector3 position)

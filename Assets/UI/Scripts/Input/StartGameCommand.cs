@@ -12,7 +12,7 @@ namespace UI.Scripts
             }*/
             
             Debug.Log("StartGame called");
-            GameManager.Instance.GameStartUp();
+            GameManager.Instance.LoadMainMenu();
         }
     }
 }
