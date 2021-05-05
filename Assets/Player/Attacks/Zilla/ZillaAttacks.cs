@@ -19,11 +19,14 @@ public class ZillaAttacks : BaseAttack
 	private List<GameObject> _listEnemiesLazor = new List<GameObject>();
 	private Coroutine c_attackCooldown;
 	private Coroutine c_lazorGrowth;
-
+	Ray ray;
+	RaycastHit rayHit = new RaycastHit();
+	bool hit = false;
 	private void Awake()
 	{
 		_lazorInput = GetComponent<IZillaLazorInput>();
 	}
+
 	public void ZillaLazor()
 	{
 		if (c_attackCooldown == null)
@@ -31,37 +34,61 @@ public class ZillaAttacks : BaseAttack
 			_playerAnimator.SetBool("ZillaLazorAttack", true);
 			lazorSettings._attackHitbox.SetActive(true);
 			if (c_lazorGrowth == null)
-			{ 
+			{
+				//doTheUpdateStuff = true;
 				c_lazorGrowth = StartCoroutine(LazorAttack());
 			}
 		}
 	}
+	private void FixedUpdate()
+	{
+		ray = new Ray(transform.position + new Vector3(0, lazorSettings._attackHitbox.transform.position.y, 0), transform.forward);
+		for (int i = 0; i < lazorSettings.layers.Count; i++)
+		{
+			hit = Physics.Raycast(ray, out rayHit, lazorSettings._lazorMaxRange, LayerMask.GetMask(lazorSettings.layers[i]));
+			Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name);
+		}
+	}
+	private void OnDrawGizmos()
+	{
+		Gizmos.DrawRay(ray);
+	}
+
 	private IEnumerator LazorAttack()
 	{
-		RaycastHit ray;
 		while (_lazorInput.LazorButtonPressed)
 		{
-			bool hit = Physics.Raycast(lazorSettings._attackHitbox.transform.position, transform.forward, out ray, lazorSettings._attackHitbox.transform.localScale.z, lazorSettings.layerMask);
-			//Debug.DrawRay(lazorSettings._attackHitbox.transform.position, transform.forward, );
+			yield return new WaitForFixedUpdate();
 			if (!hit && lazorSettings._attackHitbox.transform.localScale.z < lazorSettings._lazorMaxRange)
 			{
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
+				yield return null;
 			}
-			else if (hit)
+			else if (hit && rayHit.distance > lazorSettings._attackHitbox.transform.lossyScale.z)
 			{
-				Debug.Log("Hit");
-				lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, ray.distance);
+				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
+				yield return null;
 			}
+			else if (hit && rayHit.distance < lazorSettings._attackHitbox.transform.localScale.z)
+			{
+				lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, (rayHit.distance - 1.467f) / (transform.localScale.z * 2));
+				yield return null;
+			}
+			//else if (hit)
+			//{
+			//	Debug.Log("Hit" + rayHit.collider.name);
+			//	lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, rayHit.distance);
+			//}
 			for (int i = 0; i < _listEnemiesLazor.Count; i++)
 			{
 				if (_listEnemiesLazor[i] != null)
-				{ 
+				{
 					_listEnemiesLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
 				}
 			}
 			yield return null;
 		}
-		lazorSettings._attackHitbox.transform.localScale = new Vector3(1,1,0.5f);
+		lazorSettings._attackHitbox.transform.localScale = new Vector3(1, 1, 0.5f);
 		lazorSettings._attackHitbox.SetActive(false);
 		_playerAnimator.SetBool("ZillaLazorAttack", false);
 		c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
@@ -179,7 +206,7 @@ namespace Attacks.Zilla
 	{
 		public float _lazorMaxRange;
 		public float _lazorGrowthPerSec;
-		public LayerMask layerMask; //FIX THIS!!
+		public List<string> layers; 
 		//public bool _stun;
 		//[Header("Knockback")]
 		//public bool _knockBack;
