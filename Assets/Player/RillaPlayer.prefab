@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 191052405}
   _ID: 1
-  _targetName: Enemy
+  _targets: []
 --- !u!1 &197583548
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 191052405}
   _ID: 2
-  _targetName: Enemy
+  _targets: []
 --- !u!1 &133824083603545219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1427,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8df425b5cc24481448a3d8e6894bcb97, type: 2}
+  - {fileID: 2100000, guid: d4cda408e91f0954295712b9a0aa242f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1749,6 +1749,7 @@ MonoBehaviour:
   _jumpTime: 0.25
   _gravity: 200
   _jumpCooldownTime: 0
+  _objectKnockbackForce: 0
   _transform: {fileID: 8538369396598117620}
   _characterController: {fileID: 191052404}
   rayCastLenght: 1.25
@@ -1973,6 +1974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 191052406}
   _playerAnimator: {fileID: 191052409}
+  _playerInput: {fileID: 0}
   _character: 1
 --- !u!143 &191052404
 CharacterController:
