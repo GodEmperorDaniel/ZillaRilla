@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rilla
+  m_Name: Car_69_Pink1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 3caed57a397096c46943eaed5aaa98bf, type: 3}
+        m_Texture: {fileID: 2800000, guid: c3dc67e74ca4f7147945683c5d3ffb29, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: df2c7082a77be884393578b572a6bd39, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6970a5af89864484bacd5bda2441b345, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7d7db1fd05a5b574b9b9d85eca1ed1cb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 48610c1ca5d715a4fa29bc63fcb2eff8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 50269de249946f04b9dec112a450c203, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5c1913b083ec71245af2aefe79d20bdd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
