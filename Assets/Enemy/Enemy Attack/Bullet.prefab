@@ -128,7 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 0}
   _ID: 2
-  _targetName: Player
+  _targets:
+  - Player
 --- !u!114 &5323017550646587021
 MonoBehaviour:
   m_ObjectHideFlags: 0

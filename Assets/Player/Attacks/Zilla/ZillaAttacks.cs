@@ -103,7 +103,7 @@ public class ZillaAttacks : BaseAttack
 			{
 				if (_listEnemiesTail[i] != null)
 				{
-					if (_listEnemiesTail[i].layer == LayerMask.GetMask("Enemy", "Destructables"))
+					if (_listEnemiesTail[i].layer == LayerMask.NameToLayer("Enemy"))
 						CallEntityHit(_listEnemiesTail[i], tailSettings);
 					else
 					{
