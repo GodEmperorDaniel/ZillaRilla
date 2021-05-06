@@ -46,7 +46,8 @@ public class ZillaAttacks : BaseAttack
 		for (int i = 0; i < lazorSettings.layers.Count; i++)
 		{
 			hit = Physics.Raycast(ray, out rayHit, lazorSettings._lazorMaxRange, LayerMask.GetMask(lazorSettings.layers[i]));
-			Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name);
+			if(hit)
+				Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name);
 		}
 	}
 	private void OnDrawGizmos()
@@ -64,12 +65,13 @@ public class ZillaAttacks : BaseAttack
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 				yield return null;
 			}
-			else if (hit && (rayHit.distance - 1.467f) > lazorSettings._attackHitbox.transform.lossyScale.z / 2)
+			else if (hit && (rayHit.distance - 2) / 2 > lazorSettings._attackHitbox.transform.lossyScale.z)
 			{
+				Debug.Log("doing second");
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 				yield return null;
 			}
-			else if (hit && (rayHit.distance - 1.467f) < lazorSettings._attackHitbox.transform.localScale.z / 2)
+			else if (hit && (rayHit.distance - 2) / 2 < lazorSettings._attackHitbox.transform.localScale.z)
 			{
 				lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, (rayHit.distance - 1.467f) / (transform.localScale.z * 2));
 				yield return null;
@@ -103,7 +105,8 @@ public class ZillaAttacks : BaseAttack
 			{
 				if (_listEnemiesTail[i] != null)
 				{
-					if (_listEnemiesTail[i].layer == LayerMask.GetMask("Enemy", "Destructables"))
+				Debug.Log("In");
+					if (_listEnemiesTail[i].layer == LayerMask.NameToLayer("Enemy"))
 						CallEntityHit(_listEnemiesTail[i], tailSettings);
 					else
 					{

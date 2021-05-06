@@ -32,7 +32,7 @@ public class RillaAttacks : BaseAttack
 			{
 				if (_listPunch[i] != null)
 				{
-					if (_listPunch[i].layer == LayerMask.GetMask("Enemy", "Destructables"))
+					if (_listPunch[i].layer == LayerMask.NameToLayer("Enemy"))
 						CallEntityHit(_listPunch[i], punchSettings);
 					else
 					{
@@ -52,8 +52,8 @@ public class RillaAttacks : BaseAttack
 			{
 				if (_listSlam[i] != null)
 				{
-					if (_listSlam[i].layer == LayerMask.GetMask("Enemy", "Destructables"))
-						CallEntityHit(_listSlam[i], punchSettings);
+					if (_listSlam[i].layer == LayerMask.NameToLayer("Enemy"))
+						CallEntityHit(_listSlam[i], slamSettings);
 					else
 					{
 						AttackObject(_listSlam[i], (_listSlam[i].transform.position - transform.position).normalized);
