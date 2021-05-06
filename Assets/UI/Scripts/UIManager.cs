@@ -2,16 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using Object = System.Object;
 
 public class UIManager : Manager<UIManager>
 {
+    // TODO: Don't forget to uncomment deactivate camera in Awake()
+    
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private InGameUI _inGameUI;
-    
+
     [SerializeField] private HitIconSpawner _hitIconSpawner;
     private Camera _dummyCamera;
 
@@ -20,9 +19,9 @@ public class UIManager : Manager<UIManager>
     protected override void Awake()
     {
         base.Awake();
-        
+
         _dummyCamera = Instantiate(new GameObject("Dummy Camera"), transform).AddComponent<Camera>();
-        
+
         //_dummyCamera.gameObject.SetActive(false);
         _mainMenu.gameObject.SetActive(false);
         _pauseMenu.gameObject.SetActive(false);
@@ -37,7 +36,7 @@ public class UIManager : Manager<UIManager>
     {
         _pauseMenu.gameObject.SetActive(currentState == GameManager.GameState.PAUSED);
     }*/
-    
+
     public void UpdateObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
         _inGameUI.SetObjectiveOnUI(objectiveName, objectiveDescription);
@@ -52,6 +51,7 @@ public class UIManager : Manager<UIManager>
     {
         _inGameUI.SetZillaHealthOnUI(zillaHealth);
     }
+
     public void UpdateRillaHealthOnUI(float rillaHealth)
     {
         _inGameUI.SetRillaHealthOnUI(rillaHealth);
@@ -61,9 +61,8 @@ public class UIManager : Manager<UIManager>
     {
         _hitIconSpawner.SpawnHitIcon(position);
     }
-    
-    
-    
+
+
     public void EnableInGameUI()
     {
         _inGameUI.gameObject.SetActive(true);
@@ -78,7 +77,7 @@ public class UIManager : Manager<UIManager>
     {
         _pauseMenu.gameObject.SetActive(true);
     }
-    
+
     public void DisablePauseUI()
     {
         _pauseMenu.gameObject.SetActive(false);
@@ -93,7 +92,7 @@ public class UIManager : Manager<UIManager>
     {
         _mainMenu.gameObject.SetActive(false);
     }
-    
+
     public void EnableDummyCamera()
     {
         _dummyCamera.gameObject.SetActive(true);

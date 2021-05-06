@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class NewsBanner : MonoBehaviour
 {
@@ -16,32 +17,34 @@ public class NewsBanner : MonoBehaviour
     private bool _bannerIsUp;
 
     [SerializeField] private TextMeshProUGUI _newsText;
+    [SerializeField] private RectMask2D _textMask;
+    private RectTransform _textTransform;
+    private ContentSizeFitter _textSizeFitter;
 
     private void Start()
     {
         _animation = GetComponent<Animation>();
-        
-        
+        _textTransform = _newsText.GetComponent<RectTransform>();
+        _textSizeFitter = _newsText.GetComponent<ContentSizeFitter>();
     }
 
     public void ActivateBanner(string text)
     {
+        StartCoroutine(InitializeText(text));
         _animation.Play("NewsBannerUp");
-        _newsText.SetText(text);
     }
-    
+
     public void DeactivateBanner()
     {
         _animation.Play("NewsBannerDown");
     }
-    
+
     private void ActivateAnimationCompleted()
     {
         _bannerIsUp = true;
-        
         Debug.Log("Banner Activated");
     }
-    
+
     private void DeactivateAnimationCompleted()
     {
         _bannerIsUp = false;
@@ -56,10 +59,27 @@ public class NewsBanner : MonoBehaviour
             if (!_bannerIsUp) ActivateBanner("Test Text");
             else DeactivateBanner();
         }
-
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            Debug.Log("Set Text");
-        }
     }
+
+    private IEnumerator InitializeText(string text)
+    {
+        _newsText.SetText(text);
+        Canvas.ForceUpdateCanvases();
+
+        yield return new WaitForEndOfFrame();
+        
+        //Debug.Log("Text Bounds: " + _newsText.mesh.bounds);
+        
+        Vector3 textPosition = _textTransform.localPosition;
+        float textWidth = _textTransform.rect.width;
+        float maskWidth = _textMask.canvasRect.width;
+        float textStartOffset = (textWidth + maskWidth) / 2;
+
+        //Debug.Log("Text Width: " + textWidth + ", Mask Width: " + maskWidth + ", Text Start Offset: " + textStartOffset);
+        
+        textPosition = new Vector3(textStartOffset, textPosition.y, textPosition.z);
+        _textTransform.localPosition = textPosition;
+    }
+
+  
 }

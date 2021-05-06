@@ -51,8 +51,8 @@ public class GameManager : Manager<GameManager>
 
 
     // Public Methods
-    
-    
+
+
     // Loads scene and the completed event calls the OnLoadComplete
     // method when the load operation is completed.
     // Loading multiple scenes is possible
@@ -162,7 +162,7 @@ public class GameManager : Manager<GameManager>
     private void EnterNewState(GameState state)
     {
         _gameState = state;
-        
+
         switch (state)
         {
             case GameState.BOOT:

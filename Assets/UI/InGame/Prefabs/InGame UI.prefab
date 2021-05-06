@@ -374,7 +374,7 @@ Animation:
   m_GameObject: {fileID: 7502274204133367957}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 56525108450763a41809f2b9a437b2ac, type: 2}
+  m_Animation: {fileID: 0}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e659e4a4325f846a0454b67178a142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _newsText: {fileID: 0}
 --- !u!1 &8663563457689848402
 GameObject:
   m_ObjectHideFlags: 0
