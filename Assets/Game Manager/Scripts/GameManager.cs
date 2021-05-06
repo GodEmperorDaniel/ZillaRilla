@@ -132,14 +132,17 @@ public class GameManager : Manager<GameManager>
             case GameState.CUTSCENE:
                 // Disable cutscene UI
                 // Disable skip cutscene controls?
+                UIManager.Instance.DisableDummyCamera();
                 break;
 
             case GameState.MAIN_MENU:
                 UIManager.Instance.DisableMainMenuUI();
+                UIManager.Instance.DisableDummyCamera();
                 break;
 
             case GameState.LOADING:
                 // Disable loading UI
+                UIManager.Instance.DisableDummyCamera();
                 break;
 
             case GameState.IN_GAME:
@@ -172,12 +175,14 @@ public class GameManager : Manager<GameManager>
 
             case GameState.MAIN_MENU:
                 UIManager.Instance.EnableMainMenuUI();
+                UIManager.Instance.EnableDummyCamera();
                 EnableMenuControls();
                 break;
 
             case GameState.LOADING:
                 // Enable loading UI
                 // Disable all controls
+                UIManager.Instance.EnableDummyCamera();
                 break;
 
             case GameState.IN_GAME:

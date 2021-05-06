@@ -13,6 +13,7 @@ public enum EnemyType
 {
     MELEE,
     RANGE,
+    SPAWNER,
     BOSS,
 };
 namespace Assets.Enemy.NPCCode

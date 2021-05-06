@@ -211,6 +211,7 @@ MonoBehaviour:
   _jumpTime: 0.25
   _gravity: 200
   _jumpCooldownTime: 0
+  _objectKnockbackForce: 0
   _transform: {fileID: 381463971055927896}
   _characterController: {fileID: 1205055678}
   rayCastLenght: 1.25
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 1205055680}
   _playerAnimator: {fileID: 1205055677}
+  _playerInput: {fileID: 0}
   _character: 0
 --- !u!143 &1205055678
 CharacterController:
@@ -556,12 +558,12 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1284236494600727328, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
+  - {fileID: 2100000, guid: 83b9b939592489f42b30c8ff5cd363cd, type: 2}
   - {fileID: -531715790415618499, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
   - {fileID: -5043511746308828206, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
-  - {fileID: -9124395511433152323, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
+  - {fileID: 2100000, guid: 83b9b939592489f42b30c8ff5cd363cd, type: 2}
   - {fileID: -1601704742578711011, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
-  - {fileID: -1284236494600727328, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
+  - {fileID: 2100000, guid: 83b9b939592489f42b30c8ff5cd363cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -806,7 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 3342601052565810500}
   _ID: 2
-  _targetName: Enemy
+  _targets: []
 --- !u!1 &2599255701387354215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 3342601052565810500}
   _ID: 1
-  _targetName: Enemy
+  _targets: []
 --- !u!1 &5048259435796888841
 GameObject:
   m_ObjectHideFlags: 0

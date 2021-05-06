@@ -13,7 +13,7 @@ public class UIManager : Manager<UIManager>
     [SerializeField] private InGameUI _inGameUI;
     
     [SerializeField] private HitIconSpawner _hitIconSpawner;
-    
+    private Camera _dummyCamera;
 
     public InGameUI InGameUI => _inGameUI;
 
@@ -21,6 +21,9 @@ public class UIManager : Manager<UIManager>
     {
         base.Awake();
         
+        _dummyCamera = Instantiate(new GameObject("Dummy Camera"), transform).AddComponent<Camera>();
+        
+        //_dummyCamera.gameObject.SetActive(false);
         _mainMenu.gameObject.SetActive(false);
         _pauseMenu.gameObject.SetActive(false);
     }
@@ -89,5 +92,15 @@ public class UIManager : Manager<UIManager>
     public void DisableMainMenuUI()
     {
         _mainMenu.gameObject.SetActive(false);
+    }
+    
+    public void EnableDummyCamera()
+    {
+        _dummyCamera.gameObject.SetActive(true);
+    }
+
+    public void DisableDummyCamera()
+    {
+        _dummyCamera.gameObject.SetActive(false);
     }
 }

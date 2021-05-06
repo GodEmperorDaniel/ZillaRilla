@@ -19,6 +19,7 @@ public enum FSMStateType
     DEATH,
     ATTACK,
     STUN,
+    FLEE,
     VULNERABLE,
 };
 
