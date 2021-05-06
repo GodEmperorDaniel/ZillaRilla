@@ -23,7 +23,7 @@ public class UIManager : Manager<UIManager>
         
         _dummyCamera = Instantiate(new GameObject("Dummy Camera"), transform).AddComponent<Camera>();
         
-        //_dummyCamera.gameObject.SetActive(false);
+        _dummyCamera.gameObject.SetActive(false);
         _mainMenu.gameObject.SetActive(false);
         _pauseMenu.gameObject.SetActive(false);
     }
