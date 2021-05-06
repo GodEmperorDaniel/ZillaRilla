@@ -64,12 +64,12 @@ public class ZillaAttacks : BaseAttack
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 				yield return null;
 			}
-			else if (hit && rayHit.distance > lazorSettings._attackHitbox.transform.lossyScale.z)
+			else if (hit && (rayHit.distance - 1.467f) > lazorSettings._attackHitbox.transform.lossyScale.z / 2)
 			{
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 				yield return null;
 			}
-			else if (hit && rayHit.distance < lazorSettings._attackHitbox.transform.localScale.z)
+			else if (hit && (rayHit.distance - 1.467f) < lazorSettings._attackHitbox.transform.localScale.z / 2)
 			{
 				lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, (rayHit.distance - 1.467f) / (transform.localScale.z * 2));
 				yield return null;
