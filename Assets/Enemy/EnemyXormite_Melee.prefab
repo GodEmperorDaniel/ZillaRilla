@@ -111,7 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 6613114054487553847}
   _ID: 1
-  _targetName: Player
+  _targets:
+  - Player
 --- !u!1 &6613114054487553999
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ GameObject:
   - component: {fileID: 6613114054487553845}
   - component: {fileID: 670120131864494691}
   m_Layer: 6
-  m_Name: EnemyXormite
+  m_Name: EnemyXormite_Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,6 +242,14 @@ MonoBehaviour:
     _attackHitbox: {fileID: 6613114052974211131}
     _attackCooldown: 1
     _settingType: 0
+  shootingSettings:
+    _attackDamage: 0
+    _attackHitbox: {fileID: 0}
+    _attackCooldown: 0
+    _settingType: 0
+    _bullet: {fileID: 0}
+    bulletSpeed: 10
+    _shootPosition: {fileID: 0}
 --- !u!114 &6613114054487553840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +285,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ffb71bdc82c8e014294d05cf39566e41, type: 2}
   - {fileID: 11400000, guid: 5ecfe906b14339f4498f7955dd648e9a, type: 2}
   - {fileID: 11400000, guid: 692af16f39b0bfd41a3ec95a56d01849, type: 2}
+  - {fileID: 11400000, guid: ec1083afd39285e4eacdac03656a34a1, type: 2}
 --- !u!114 &6613114054487553845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  _enemyToSpawn: {fileID: 0}
   _playerList:
   - {fileID: 0}
   - {fileID: 0}
@@ -312,63 +323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOfSounds:
   - nameOfSound: event:/Ljud/Alien SFX/AlienDeath
---- !u!1001 &2113959557279504113
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6650753751156024691}
-    m_Modifications:
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.3943662e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.7329323
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.9719705
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767189593105781688, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553419920923018025, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
-      propertyPath: m_Name
-      value: pAntennae (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3b9c2b083132d464abf21457ebacab2a, type: 3}
 --- !u!1001 &6613114054355255960
 PrefabInstance:
   m_ObjectHideFlags: 0
