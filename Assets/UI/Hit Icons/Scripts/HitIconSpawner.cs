@@ -7,7 +7,7 @@ public class HitIconSpawner : MonoBehaviour
 {
     private Camera _camera;
     
-    public GameObject _hitPrefab;
+    public List<GameObject> _hitPrefab;
     public float iconLifeTime;
     public float iconScaling;
     public float iconMaxScaling;
@@ -29,12 +29,16 @@ public class HitIconSpawner : MonoBehaviour
 
     public void SpawnHitIcon(Vector3 position)
     {
-        GameObject hitIcon = Instantiate(_hitPrefab, transform);
+        GameObject hitIcon = Instantiate(_hitPrefab[RandomGenerator(_hitPrefab.Count - 1)], transform);
         hitIcon.GetComponent<Canvas>().worldCamera = _camera;
         hitIcon.GetComponent<HitIcon>()._lifeTime = iconLifeTime;
         hitIcon.GetComponent<HitIcon>()._scaling = iconScaling;
         hitIcon.GetComponent<HitIcon>()._maxScaling = iconMaxScaling;
         hitIcon.GetComponent<HitIcon>()._movement = iconMovement;
         hitIcon.transform.position = position;
+    }
+    private int RandomGenerator(int maxExlusive)
+    {
+        return UnityEngine.Random.Range(0, maxExlusive);
     }
 }

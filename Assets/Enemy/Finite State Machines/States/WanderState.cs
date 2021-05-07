@@ -10,6 +10,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
     [CreateAssetMenu(fileName = "WanderState", menuName = "ZillaRilla/States/Wander", order = 7)]
     class WanderState: AbstractFSMState
     {
+        [SerializeField] private float _nrEnemiesToSpawn = 5; //QUICK FIX
+        private float _spawnedEnemies; //QUICK FIX
         private float wanderRange = 30f;
         private Vector3 wanderTarget;
         private NavMeshHit navHit;
@@ -82,7 +84,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
             if (RandomWanderTarget(myTransform.position, wanderRange, out wanderTarget))
             {
                 myNavMeshAgent.SetDestination(wanderTarget);
-                _fsm.EnterState(FSMStateType.SPAWNING);
+                if (_npc.enemyType == EnemyType.SPAWNER && _spawnedEnemies != _nrEnemiesToSpawn)
+                { 
+                    _fsm.EnterState(FSMStateType.SPAWNING);
+                    _spawnedEnemies++;
+                }
             }
         }
         private bool RandomWanderTarget(Vector3 center, float range, out Vector3 result)

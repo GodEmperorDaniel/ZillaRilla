@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852ddce6140aa5142b01e5618d7ce842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitPrefab: {fileID: 8659380517830422434, guid: 85bfc75a09ccb6e4b9e97896034870de, type: 3}
+  _hitPrefab:
+  - {fileID: 0}
   iconLifeTime: 1
   iconScaling: 0.3
   iconMaxScaling: 5
