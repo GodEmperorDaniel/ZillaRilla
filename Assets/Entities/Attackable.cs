@@ -39,14 +39,15 @@ public class Attackable : MonoBehaviour
 	{
 		_rillaSlamSettings = null;
 		_zillaLazorSettings = null;
-		//Debug.Log( gameObject.name + " LostHealth");
 		_animator = GetComponent<Animator>();
 		switch (settings._settingType)
 		{
 			case AttackSettings.SettingType.SLAM:
 				_rillaSlamSettings = settings as RillaSlamSettings;
 				if (_rillaSlamSettings._stun)
+				{
 					_fsm.EnterState(FSMStateType.STUN);
+				}
 				if (_rillaSlamSettings._stun && _npc.enemyType == EnemyType.BOSS)
 				{ 
 					_fsm.EnterState(FSMStateType.VULNERABLE);
