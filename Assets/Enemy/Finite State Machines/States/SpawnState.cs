@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,34 +6,35 @@ using UnityEngine;
 
 namespace Assets.Enemy.Finite_State_Machines.States
 {
-    [CreateAssetMenu(fileName ="IdleState", menuName ="ZillaRilla/States/Idle", order =1)]
-    public class IdleState : AbstractFSMState
+    [CreateAssetMenu(fileName = "SpawnState", menuName = "ZillaRilla/States/Spawn", order = 8)]
+    class SpawnState: AbstractFSMState 
     {
         public override void OnEnable()
         {
-            
+
             base.OnEnable();
-            StateType = FSMStateType.IDLE;
+            StateType = FSMStateType.SPAWNING;
         }
         public override bool EnterState()
         {
             _navMeshAgent.isStopped = false;
             EnteredState = base.EnterState();
 
-            if (EnteredState)
-            {
-                //Debug.Log("ENTERED IDLE STATE");
-                
-            }
+            //if (EnteredState)
+            //{
+            //    Debug.Log("ENTERED SPAWNING STATE");
+
+            //}
             return EnteredState;
-           
+
         }
 
         public override void UpdateState()
         {
             if (EnteredState)
             {
-                _fsm.EnterState(FSMStateType.WANDER);
+                SpawnEnemy();
+                _fsm.EnterState(FSMStateType.IDLE);
             }
         }
 
@@ -42,8 +42,13 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             base.ExitState();
 
-            //Debug.Log("EXITING IDLE STATE");
+            //Debug.Log("EXITING SPAWNING STATE");
             return true;
+        }
+
+        private void SpawnEnemy()
+        {
+            Instantiate(_npc.GetEnemyObject, _npc.ThisTransform.position + new Vector3(0, 1, 0), Quaternion.identity);
         }
     }
 }

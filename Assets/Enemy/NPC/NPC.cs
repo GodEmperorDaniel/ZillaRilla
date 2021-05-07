@@ -25,9 +25,11 @@ namespace Assets.Enemy.NPCCode
         FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;
         public EnemyType enemyType;
-        [SerializeField] public List<Transform> _playerList = new List<Transform>(2);
+        public GameObject _enemyToSpawn;
+        public List<Transform> _playerList = new List<Transform>(2);
         [SerializeField] private float _rotationSpeed;
         private Transform playerTransform;
+        private Transform enemyTransform;
         public float _stunTime = 3f;
         public float lookRadius = 10f;
         public float attackRadius = 5f;
@@ -43,10 +45,7 @@ namespace Assets.Enemy.NPCCode
             _navMeshAgent = this.GetComponent<NavMeshAgent>();
             _finiteStateMachine = this.GetComponent<FiniteStateMachine>();
             _enemyAttacks = this.GetComponent<EnemyAttacks>();
-        }
-        public void Start()
-        {
-            
+            enemyTransform = this.gameObject.transform;
         }
         public void Update()
         {
@@ -71,6 +70,10 @@ namespace Assets.Enemy.NPCCode
             Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
         public Transform PlayerTransform { get { return playerTransform;  } set { playerTransform = value; } }
+
+        public Transform ThisTransform { get { return enemyTransform; } set { enemyTransform = value;  } }
+
+        public GameObject GetEnemyObject { get { return _enemyToSpawn; } }
         public float Destiantion()
         {
 

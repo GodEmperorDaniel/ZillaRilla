@@ -43,10 +43,13 @@ public class ZillaAttacks : BaseAttack
 	private void FixedUpdate()
 	{
 		ray = new Ray(transform.position + new Vector3(0, lazorSettings._attackHitbox.transform.position.y, 0), transform.forward);
-		for (int i = 0; i < lazorSettings.layers.Count; i++)
+		for (int i = 0; i < lazorSettings._layersThatInterup.Count; i++)
 		{
-			hit = Physics.Raycast(ray, out rayHit, lazorSettings._lazorMaxRange, LayerMask.GetMask(lazorSettings.layers[i]));
-			Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name);
+			hit = Physics.SphereCast(ray, lazorSettings._sphereCastRadius,out rayHit, (lazorSettings._lazorMaxRange + 1.467f) * transform.localScale.z , LayerMask.GetMask(lazorSettings._layersThatInterup[i]));
+			if (hit)
+			{ 
+				//Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name + " " + lazorSettings._attackHitbox.transform.lossyScale.z);
+			}
 		}
 	}
 	private void OnDrawGizmos()
@@ -64,21 +67,16 @@ public class ZillaAttacks : BaseAttack
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 				yield return null;
 			}
-			else if (hit && (rayHit.distance - 1.467f) > lazorSettings._attackHitbox.transform.lossyScale.z / 2)
+			else if (hit && (rayHit.distance + lazorSettings._sphereCastRadius - (1.467f * transform.localScale.z)) > lazorSettings._attackHitbox.transform.lossyScale.z + lazorSettings._lazorGrowthPerSec * Time.deltaTime)
 			{
 				lazorSettings._attackHitbox.transform.localScale += new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
 				yield return null;
 			}
-			else if (hit && (rayHit.distance - 1.467f) < lazorSettings._attackHitbox.transform.localScale.z / 2)
+			else if (hit && (rayHit.distance + lazorSettings._sphereCastRadius - (1.467f * transform.localScale.z)) < lazorSettings._attackHitbox.transform.lossyScale.z + lazorSettings._lazorGrowthPerSec* Time.deltaTime)
 			{
-				lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, (rayHit.distance - 1.467f) / (transform.localScale.z * 2));
+				lazorSettings._attackHitbox.transform.localScale = new Vector3(1, 1, (rayHit.distance + lazorSettings._sphereCastRadius - (1.467f * transform.localScale.z)) / (transform.lossyScale.z));
 				yield return null;
 			}
-			//else if (hit)
-			//{
-			//	Debug.Log("Hit" + rayHit.collider.name);
-			//	lazorSettings._attackHitbox.transform.localScale = new Vector3(0, 0, rayHit.distance);
-			//}
 			for (int i = 0; i < _listEnemiesLazor.Count; i++)
 			{
 				if (_listEnemiesLazor[i] != null)
@@ -103,7 +101,7 @@ public class ZillaAttacks : BaseAttack
 			{
 				if (_listEnemiesTail[i] != null)
 				{
-					if (_listEnemiesTail[i].layer == LayerMask.GetMask("Enemy", "Destructables"))
+					if (_listEnemiesTail[i].layer == LayerMask.NameToLayer("Enemy"))
 						CallEntityHit(_listEnemiesTail[i], tailSettings);
 					else
 					{
@@ -206,7 +204,8 @@ namespace Attacks.Zilla
 	{
 		public float _lazorMaxRange;
 		public float _lazorGrowthPerSec;
-		public List<string> layers; 
+		public List<string> _layersThatInterup;
+		public float _sphereCastRadius;
 		//public bool _stun;
 		//[Header("Knockback")]
 		//public bool _knockBack;
