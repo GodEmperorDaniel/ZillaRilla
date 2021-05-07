@@ -53,7 +53,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
                     //_fsm.EnterState(FSMStateType.SPAWNING);
                 }
-                Debug.Log("UPDATING WANDER STATE");
+                //Debug.Log("UPDATING WANDER STATE");
             }
         }
 

@@ -124,8 +124,8 @@ namespace Entities.Commands
                 case Player.Scrips.CharacterInput.character.ZILLA:
                     if (_rotate.RotationDirection != Vector3.zero && _lazor.LazorButtonPressed)
                     {
-                        Debug.Log(_character.ToString() + " USING FIRST");
-                        Debug.Log(_lazor.LazorButtonPressed);
+                        //Debug.Log(_character.ToString() + " USING FIRST");
+                        //Debug.Log(_lazor.LazorButtonPressed);
                         Quaternion target = Quaternion.LookRotation(_rotate.RotationDirection);
                         Quaternion newTargetRotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * _lazorRotationSpeed);
                         transform.rotation = newTargetRotation;
@@ -143,7 +143,7 @@ namespace Entities.Commands
                 case Player.Scrips.CharacterInput.character.RILLA:
                    if (_rotate.RotationDirection != Vector3.zero)
                     {
-                        Debug.Log(_character.ToString() + " USING FIRST");
+                        //Debug.Log(_character.ToString() + " USING FIRST");
                         transform.forward = _rotate.RotationDirection;
                         yield return null;
                     }
