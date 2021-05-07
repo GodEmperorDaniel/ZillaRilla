@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class UIManager : Manager<UIManager>
 {
-    // TODO: Don't forget to uncomment deactivate camera in Awake()
-    
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private InGameUI _inGameUI;
@@ -22,7 +20,7 @@ public class UIManager : Manager<UIManager>
 
         _dummyCamera = Instantiate(new GameObject("Dummy Camera"), transform).AddComponent<Camera>();
 
-        //_dummyCamera.gameObject.SetActive(false);
+        _dummyCamera.gameObject.SetActive(false);
         _mainMenu.gameObject.SetActive(false);
         _pauseMenu.gameObject.SetActive(false);
     }

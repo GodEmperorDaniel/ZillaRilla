@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Manager<GameManager>
 {
-    // TODO: Game States with entry and exit methods
-
     public enum GameState
     {
         BOOT,
@@ -20,7 +18,7 @@ public class GameManager : Manager<GameManager>
         PAUSED
     }
 
-    // Fields
+    // FIELDS
     public GameObject[] _systemPrefab;
     private List<GameObject> _instancedSystemPrefabs;
     private List<AsyncOperation> _loadOperations;
@@ -33,10 +31,10 @@ public class GameManager : Manager<GameManager>
     public Attackable _rilla;
 
 
-    // Getters/Setters
+    // GETTERS/SETTERS
 
 
-    // Unity Methods
+    // UNITY METHODS
     private void Start()
     {
         _instancedSystemPrefabs = new List<GameObject>();
@@ -50,8 +48,25 @@ public class GameManager : Manager<GameManager>
     }
 
 
-    // Public Methods
+    // PUBLIC METHODS
 
+    public void LoadMainMenu()
+    {
+        LoadLevel("Main Menu");
+        UpdateState(GameState.MAIN_MENU);
+    }
+
+    public void StartNewGame()
+    {
+        UnloadLevel("Main Menu");
+        LoadLevel("Test Level 1");
+        UpdateState(GameState.IN_GAME);
+        FindPlayerCharacters();
+    }
+
+    public void StartTestLevel()
+    {
+    }
 
     // Loads scene and the completed event calls the OnLoadComplete
     // method when the load operation is completed.
@@ -85,24 +100,6 @@ public class GameManager : Manager<GameManager>
         ao.completed += OnUnloadOperationComplete;
     }
 
-    public void LoadMainMenu()
-    {
-        LoadLevel("Main Menu");
-        UpdateState(GameState.MAIN_MENU);
-    }
-
-    public void StartNewGame()
-    {
-        UnloadLevel("Main Menu");
-        LoadLevel("Test Level 1");
-        UpdateState(GameState.IN_GAME);
-        FindPlayerCharacters();
-    }
-
-    public void StartTestLevel()
-    {
-    }
-
     public void TogglePause()
     {
         //UpdateState(_currentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
@@ -115,7 +112,7 @@ public class GameManager : Manager<GameManager>
     }
 
 
-    // Internal Methods
+    // INTERNAL METHODS
     private void UpdateState(GameState state)
     {
         ExitCurrentState();

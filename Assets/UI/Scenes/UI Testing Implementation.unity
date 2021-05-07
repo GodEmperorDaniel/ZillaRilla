@@ -442,29 +442,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6794664260640413254, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794664260640413254, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794664260640413254, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
-      propertyPath: m_AnchorMin.x
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: debugMode
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6794664260640413254, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: newsTexts.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6794664260640413254, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -100
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: newsTexts.Array.data[0]
+      value: '[Example Text]'
       objectReference: {fileID: 0}
-    - target: {fileID: 6794664260640413254, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -50
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: newsTexts.Array.data[1]
+      value: '[Example Text]'
       objectReference: {fileID: 0}
     - target: {fileID: 8907175529459847758, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_Name
