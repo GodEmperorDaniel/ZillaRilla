@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 922999215046610878, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 310
+      value: 229
       objectReference: {fileID: 0}
     - target: {fileID: 922999215046610879, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_FontData.m_MinSize
