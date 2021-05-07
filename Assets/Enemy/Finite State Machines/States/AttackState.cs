@@ -38,7 +38,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 }
                 
                 _npc.FaceTarget(_npc.PlayerTransform);
-                Debug.Log("UPDATING ATTACK STATE");
+                //Debug.Log("UPDATING ATTACK STATE");
                 StartChaseTarget();
             }
         }
