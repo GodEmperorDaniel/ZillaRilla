@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Scenes/Goal Test Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Goals/Scenes/Goal Test Level.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +51,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/LogStateCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/IStartGameInput.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIInput.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/StartGameCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/IStartGameInput.cs" />
@@ -94,13 +93,15 @@
       <option value="$PROJECT_DIR$/Assets/Goals/AreaGoal.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/GoalManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/Scripts/HitIconSpawner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -179,7 +180,7 @@
       <workItem from="1620204111825" duration="7096000" />
       <workItem from="1620221057227" duration="5429000" />
       <workItem from="1620290368492" duration="18129000" />
-      <workItem from="1620376411461" duration="6507000" />
+      <workItem from="1620376411461" duration="10217000" />
     </task>
     <servers />
   </component>

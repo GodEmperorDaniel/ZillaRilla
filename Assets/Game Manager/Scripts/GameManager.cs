@@ -35,8 +35,10 @@ public class GameManager : Manager<GameManager>
 
 
     // UNITY METHODS
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+        
         _instancedSystemPrefabs = new List<GameObject>();
         _loadOperations = new List<AsyncOperation>();
 

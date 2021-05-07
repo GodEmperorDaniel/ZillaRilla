@@ -9,8 +9,6 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class WaveSpawner : MonoBehaviour
 {
-    // TODO: NPC not added to list of enemies? 
-
     public enum SpawnState
     {
         SPAWNING,
