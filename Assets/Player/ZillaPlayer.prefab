@@ -189,11 +189,11 @@ MonoBehaviour:
     _attackHitbox: {fileID: 8227438593615647616}
     _attackCooldown: 1
     _settingType: 3
-    _lazorMaxRange: 20
+    _lazorMaxRange: 40
     _lazorGrowthPerSec: 30
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
+    _layersThatInterup:
+    - Enemy
+    _sphereCastRadius: 3
 --- !u!114 &1205055680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2bb9d832c7b484ca2777a2b85c92da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 25
+  _moveSpeed: 20
+  _lazorRotationSpeed: 10
   _jumpStength: 50
   _jumpTime: 0.25
   _gravity: 200
@@ -449,13 +450,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4.3
+  m_Height: 4.2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.9
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2.25, z: 0}
+  m_Center: {x: 0, y: 2.14, z: 0}
 --- !u!95 &1205055677
 Animator:
   serializedVersion: 3
@@ -558,7 +559,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 83b9b939592489f42b30c8ff5cd363cd, type: 2}
+  - {fileID: -1053228997862598704, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
   - {fileID: -531715790415618499, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
   - {fileID: -5043511746308828206, guid: c124661e198e5bd4b84b33fedce9c09f, type: 3}
   - {fileID: 2100000, guid: 83b9b939592489f42b30c8ff5cd363cd, type: 2}
@@ -792,8 +793,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4872068, y: 3.0036018, z: 2.0056553}
-  m_Center: {x: -0.014086406, y: -1.0018009, z: 1.0022609}
+  m_Size: {x: 1.4872068, y: 3.0036018, z: 1}
+  m_Center: {x: -0.014086406, y: -1.0018009, z: 0.5}
 --- !u!114 &4041203867455560715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +809,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 3342601052565810500}
   _ID: 2
-  _targets: []
+  _targets:
+  - Enemy
 --- !u!1 &2599255701387354215
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +850,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2599255701387354215}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
   m_MotionVectors: 0
@@ -859,7 +861,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4603e9976eaa3144f8e19f71fa769739, type: 2}
+  - {fileID: 2100000, guid: 37f700d341ddb1b4ab43e1c7e6132e68, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -882,22 +884,31 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 2}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5126046
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.24803592
+        outSlope: 0.24803592
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.5294118
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -933,7 +944,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 3
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 0
@@ -1099,7 +1110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 3342601052565810500}
   _ID: 1
-  _targets: []
+  _targets:
+  - Enemy
+  - Movable
 --- !u!1 &5048259435796888841
 GameObject:
   m_ObjectHideFlags: 0

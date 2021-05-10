@@ -32,16 +32,9 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         public override void UpdateState()
         {
-            //Debug.Log("UPDATING IDLE STATE");
-            //Debug.Log(_npc.PlayerTransform.gameObject.name);
-
-            if (_npc.Destiantion() <= _npc.lookRadius && _npc.enemyType != EnemyType.SPAWNER)
+            if (EnteredState)
             {
-                _fsm.EnterState(FSMStateType.CHASING);
-            }
-            else
-            {
-                _fsm.EnterState(FSMStateType.FLEE);
+                _fsm.EnterState(FSMStateType.WANDER);
             }
         }
 

@@ -787,6 +787,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2618605768878082352, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
+      propertyPath: _systemPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618605768878082352, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
+      propertyPath: _systemPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2618605768878082353, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -844,6 +852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1807693845188316277, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1807693846598476944, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -892,5 +904,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1807693846828747212, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
+--- !u!1 &1807693846114193139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1807693846828747212, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
+  m_PrefabInstance: {fileID: 1807693846114193138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807693846114193140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807693846114193139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227f981814234f65b1bce85b86f4f02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesAtTheSameTime: 3
+  _spawnCountdown: 1
+  spawnPoints: []
+  _wave:
+    Name: 
+    enemy: {fileID: 6613114054487553999, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
+    minTimeBetweenSpawns: 1

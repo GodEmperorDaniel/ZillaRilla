@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpelTestBana.unity
     guid: 193f17db65bdc8a4f9c537f866aacd4b
+  - enabled: 0
+    path: Assets/UI/InGame/XML/Loader Scene.unity
+    guid: 915ab2360683ead40b14f570cfc30aca
+  - enabled: 1
+    path: Assets/UI/InGame/XML/XMLTest.unity
+    guid: 603d04fd34eb633478f8da60deb8ab26
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ddc7449c5c095b14995a4af93f1664ee, type: 2}

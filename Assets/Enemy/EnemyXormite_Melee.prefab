@@ -285,6 +285,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ffb71bdc82c8e014294d05cf39566e41, type: 2}
   - {fileID: 11400000, guid: 5ecfe906b14339f4498f7955dd648e9a, type: 2}
   - {fileID: 11400000, guid: 692af16f39b0bfd41a3ec95a56d01849, type: 2}
+  - {fileID: 11400000, guid: ec1083afd39285e4eacdac03656a34a1, type: 2}
 --- !u!114 &6613114054487553845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  _enemyToSpawn: {fileID: 0}
   _playerList:
   - {fileID: 0}
   - {fileID: 0}

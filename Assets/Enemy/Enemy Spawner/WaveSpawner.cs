@@ -48,10 +48,10 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         // Debug enemy kill button
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        /*if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             Destroy(_enemies[0]);
-        }
+        }*/
 
         if (_state == SpawnState.WAITING)
         {
@@ -141,7 +141,7 @@ public class WaveSpawner : MonoBehaviour
         {
             Transform defaultSpawnPoint = transform;
             _enemies.Add(Instantiate(enemy, defaultSpawnPoint.position, defaultSpawnPoint.rotation, defaultSpawnPoint));
-            
+
             Debug.LogError("[" + name + "] Default Spawn Point Used");
         }
         else
