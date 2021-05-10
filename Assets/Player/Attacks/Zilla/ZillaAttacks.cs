@@ -43,6 +43,7 @@ public class ZillaAttacks : BaseAttack
 	private void FixedUpdate()
 	{
 		ray = new Ray(transform.position + new Vector3(0, lazorSettings._attackHitbox.transform.position.y, 0), transform.forward);
+		//Debug.Log(lazorSettings._attackHitbox.transform.position.y);
 		for (int i = 0; i < lazorSettings._layersThatInterup.Count; i++)
 		{
 			hit = Physics.SphereCast(ray, lazorSettings._sphereCastRadius,out rayHit, (lazorSettings._lazorMaxRange + 1.467f) * transform.localScale.z , LayerMask.GetMask(lazorSettings._layersThatInterup[i]));
