@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2bb9d832c7b484ca2777a2b85c92da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 20
+  _moveSpeed: 30
   _lazorRotationSpeed: 10
   _jumpStength: 50
   _jumpTime: 0.25
@@ -217,6 +217,7 @@ MonoBehaviour:
   _characterController: {fileID: 1205055678}
   rayCastLenght: 1.25
   _animator: {fileID: 1205055677}
+  _character: 0
 --- !u!114 &1205055676
 MonoBehaviour:
   m_ObjectHideFlags: 0
