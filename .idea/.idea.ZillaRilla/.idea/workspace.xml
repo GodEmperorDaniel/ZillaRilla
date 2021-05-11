@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Scenes/Goal Test Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Goals/Scenes/Goal Test Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Attackable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Attackable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Car_69_Mint1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Car_69_Mint1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Attacks/BaseAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Attacks/BaseAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Attacks/Rilla/RillaAttacks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Attacks/Rilla/RillaAttacks.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Attacks/Zilla/ZillaAttacks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Attacks/Zilla/ZillaAttacks.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +36,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A9EF27D6-0E31-4451-9C07-41B6584BA229/e4/9a22904c/XObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.4/Scripts/Runtime/TMP_PackageResourceImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Layout/ContentSizeFitter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/Unit.cs" root0="FORCE_HIGHLIGHTING" />
@@ -51,13 +54,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/StartGameCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/IStartGameInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/SpinningCubeTest.cs" />
-      <option value="$PROJECT_DIR$/Assets/Utils/Singleton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Utils/Manager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/ZRDebug.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/CharacterInput.cs" />
@@ -97,11 +93,18 @@
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/BaseAttack.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/Zilla/ZillaAttacks.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/Rilla/RillaAttacks.cs" />
+      <option value="$PROJECT_DIR$/Assets/Entities/Attackable.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -117,7 +120,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -131,10 +134,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8080">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28912">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="8080" />
+      <option name="pid" value="28912" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -181,6 +184,15 @@
       <workItem from="1620221057227" duration="5429000" />
       <workItem from="1620290368492" duration="18129000" />
       <workItem from="1620376411461" duration="10217000" />
+      <workItem from="1620656285028" duration="151000" />
+      <workItem from="1620656791901" duration="2068000" />
+      <workItem from="1620658939439" duration="127000" />
+      <workItem from="1620659084904" duration="99000" />
+      <workItem from="1620660107021" duration="68000" />
+      <workItem from="1620723176068" duration="9965000" />
+      <workItem from="1620737084571" duration="284000" />
+      <workItem from="1620737692409" duration="5031000" />
+      <workItem from="1620744474847" duration="1064000" />
     </task>
     <servers />
   </component>
@@ -203,6 +215,30 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs</url>
+          <line>18</line>
+          <properties documentPath="C:\dev\Unity\ZillaRilla\Assets\Environment\Scripts\DestructableBuilding.cs" initialLine="18" containingFunctionPresentation="method 'BuildingDestruction'">
+            <startOffsets>
+              <option value="406" />
+            </startOffsets>
+            <endOffsets>
+              <option value="438" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
+        <watch expression="_animation" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

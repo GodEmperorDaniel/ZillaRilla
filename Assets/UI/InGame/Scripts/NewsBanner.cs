@@ -55,11 +55,6 @@ public class NewsBanner : MonoBehaviour
     // PUBLIC METHODS
     public void ActivateBanner(int textIndex)
     {
-        if (textIndex >= newsTexts.Count)
-        {
-            Debug.LogError("Index outside of List");
-            return;
-        }
         StartCoroutine(InitializeText(newsTexts[textIndex]));
         _animation.Play("NewsBannerUp");
     }
