@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 06d848bf630c64d418670479dce8fddb, type: 2}
+--- !u!114 &1993718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4442516052479609664, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+  m_PrefabInstance: {fileID: 367770376}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5305739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2007237252865473163, guid: 48560fc1634b5ed4bb2dd0ee5e0a9c81, type: 3}
@@ -1778,6 +1789,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZillaPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3342601052565810500, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: lazorSettings._layersThatInterup.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342601052565810500, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: lazorSettings._layersThatInterup.Array.data[1]
+      value: Default
+      objectReference: {fileID: 0}
     - target: {fileID: 5798371208809673996, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3201,6 +3220,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299387607}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &302248878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1605752104, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+  m_PrefabInstance: {fileID: 137291681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &305247915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2007237252865473163, guid: 48560fc1634b5ed4bb2dd0ee5e0a9c81, type: 3}
@@ -6478,11 +6508,11 @@ PrefabInstance:
     - target: {fileID: 2618605768878082352, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
       propertyPath: _rilla
       value: 
-      objectReference: {fileID: 1581241301}
+      objectReference: {fileID: 1993718}
     - target: {fileID: 2618605768878082352, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
       propertyPath: _zilla
       value: 
-      objectReference: {fileID: 803257440}
+      objectReference: {fileID: 302248878}
     - target: {fileID: 2618605768878082352, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
       propertyPath: _firstLevelObjectives
       value: 
@@ -8928,17 +8958,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4489633229206293361, guid: e2880647f1552534b90478f96abf01a2, type: 3}
   m_PrefabInstance: {fileID: 841369380}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &803257440 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1605752104, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
-  m_PrefabInstance: {fileID: 137291681}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &805137334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9576,6 +9595,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1807693845188316277, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1807693845188316280, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
       propertyPath: m_LocalPosition.x
       value: 299.23
@@ -9636,6 +9659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1807693846598476946, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1807693846828747184, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
       propertyPath: m_LocalPosition.x
       value: 297.6
@@ -9647,6 +9674,10 @@ PrefabInstance:
     - target: {fileID: 1807693846828747184, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
       propertyPath: m_LocalPosition.z
       value: 143.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807693846828747212, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1807693846828747213, guid: 46cc8035b517f2d42b60b0139925f349, type: 3}
       propertyPath: _goalDescription
@@ -15661,17 +15692,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581055198}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1581241301 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4442516052479609664, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
-  m_PrefabInstance: {fileID: 367770376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1585102337
 PrefabInstance:
   m_ObjectHideFlags: 0

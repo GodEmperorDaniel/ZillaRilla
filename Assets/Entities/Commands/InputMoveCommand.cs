@@ -134,7 +134,7 @@ namespace Entities.Commands
                     }
                     else if (_rotate.RotationDirection != Vector3.zero && !_lazor.LazorButtonPressed)
                     {
-                        Debug.Log(_character.ToString() + " USING SECOND");
+                        //Debug.Log(_character.ToString() + " USING SECOND");
                         transform.forward = _rotate.RotationDirection;
                         yield return null;
                     }
@@ -193,6 +193,6 @@ namespace Entities.Commands
                 rb.AddForce(_move.MoveDirection, ForceMode.Impulse);
             }
         }
-		#endregion
-	}
+        #endregion
+    }
 }
