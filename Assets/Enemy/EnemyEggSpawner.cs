@@ -6,12 +6,12 @@ public class EnemyEggSpawner : MonoBehaviour
 {
     public GameObject _enemy;
     public float timeForSpawning;
-    public float despawnEggTimer;
+    //public float despawnEggTimer;
 
     private void Start()
     {
         StartCoroutine(EnemySpawning(timeForSpawning));
-        Destroy(this.gameObject, despawnEggTimer);
+        Destroy(this.gameObject, timeForSpawning + 1);
     }
 
     IEnumerator EnemySpawning(float time)
