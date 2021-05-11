@@ -6,12 +6,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class Attackable : MonoBehaviour
 {
 	[SerializeField] private float _maxHealth;
 	[SerializeField] private float _currentHealth = 20;
+	
 	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
+	
 	private RillaSlamSettings _rillaSlamSettings;
 	private ZillaLazorSettings _zillaLazorSettings;
 	private Coroutine c_invincible;
@@ -24,43 +27,19 @@ public class Attackable : MonoBehaviour
 
 	private Player.Scrips.CharacterInput player;
 
+	// UNITY METHODS
 	private void Awake()
 	{
 		_currentHealth = _maxHealth;
 	}
+	
 	public void Start()
     {
 		TryGetComponent<FiniteStateMachine>(out _fsm);
 		TryGetComponent<Player.Scrips.CharacterInput>(out player);
 		TryGetComponent<NPC>(out _npc);
-		
-	}
-    public void EntitiyHit(AttackSettings settings)
-	{
-		_rillaSlamSettings = null;
-		_zillaLazorSettings = null;
-		_animator = GetComponent<Animator>();
-		switch (settings._settingType)
-		{
-			case AttackSettings.SettingType.SLAM:
-				_rillaSlamSettings = settings as RillaSlamSettings;
-				if (_rillaSlamSettings._stun)
-				{
-					_fsm.EnterState(FSMStateType.STUN);
-				}
-				if (_rillaSlamSettings._stun && _npc.enemyType == EnemyType.BOSS)
-				{ 
-					_fsm.EnterState(FSMStateType.VULNERABLE);
-				}
-				break;
-			case AttackSettings.SettingType.LAZOR:
-				_zillaLazorSettings = settings as ZillaLazorSettings;
-				break;
-			default:
-				break;
-		}
-		RemoveHealth(settings._attackDamage);
-	}
+    }
+
 	private void Update()
 	{
 		if (player != null)
@@ -79,6 +58,37 @@ public class Attackable : MonoBehaviour
 		}
 	}
 
+	// PUBLIC METHODS
+	public void EntitiyHit(AttackSettings settings)
+	{
+		_rillaSlamSettings = null;
+		_zillaLazorSettings = null;
+		_animator = GetComponent<Animator>();
+		
+		switch (settings._settingType)
+		{
+			case AttackSettings.SettingType.SLAM:
+				_rillaSlamSettings = settings as RillaSlamSettings;
+				if (_fsm != null && _rillaSlamSettings._stun)
+				{
+					_fsm.EnterState(FSMStateType.STUN);
+					if (_npc.enemyType == EnemyType.BOSS)
+					{ 
+						_fsm.EnterState(FSMStateType.VULNERABLE);
+					}
+				}
+				break;
+			case AttackSettings.SettingType.LAZOR:
+				_zillaLazorSettings = settings as ZillaLazorSettings;
+				break;
+			default:
+				break;
+		}
+		RemoveHealth(settings._attackDamage);
+	}
+
+	
+	// INTERNAL METHODS
 	private void RemoveHealth(float damage)
 	{
 		if (c_invincible == null && _npc != null && _npc.enemyType != EnemyType.BOSS)
@@ -121,6 +131,15 @@ public class Attackable : MonoBehaviour
 			Debug.Log(" THIS ENEMYS GOT HANDS");
 			_currentHealth -= damage;
 			c_invincible = StartCoroutine(InvincibilityFrames());
+		}
+		else if (_currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
+		{
+			Debug.Log("Destructible Damaged for " + damage + "HP");
+			_currentHealth -= damage;
+			if (_currentHealth <= 0.0f)
+			{
+				SendMessage("BuildingDestruction");
+			}
 		}
     }
 
