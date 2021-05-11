@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class RespawnScript : MonoBehaviour
 {
+    [SerializeField] private Vector3 _offset;
     private Coroutine c_respawn;
     private List<PlayerData> _respawnTargets = new List<PlayerData>();
     private List<PlayerData> _currentlyRespawning;
+    private bool _rightLeft;
 
     public void AddRespawnTarget(Attackable player, int respawnTime = 5)
     {
@@ -36,7 +38,16 @@ public class RespawnScript : MonoBehaviour
     }
     private IEnumerator Respawn(Attackable player, int respawnTime)
     {
-        player.transform.position = transform.position;
+        if (_rightLeft)
+        {
+            player.transform.position = transform.position + _offset;
+            _rightLeft = !_rightLeft;
+        }
+        else
+        {
+            player.transform.position = transform.position - _offset;
+            _rightLeft = !_rightLeft;
+        }
         yield return new WaitForSeconds(respawnTime);
         player.gameObject.SetActive(true);
         yield return null;

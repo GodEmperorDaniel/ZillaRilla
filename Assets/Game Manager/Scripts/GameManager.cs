@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Entities.Scripts;
 
 
 public class GameManager : Manager<GameManager>
@@ -26,7 +27,10 @@ public class GameManager : Manager<GameManager>
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
     private Goal _currentObjective;
-    
+
+    private Coroutine c_revivalInProgress;
+    private IReviveInput _reviveInput;
+
     public Attackable _zilla;
     public Attackable _rilla;
 
@@ -43,6 +47,7 @@ public class GameManager : Manager<GameManager>
         _loadOperations = new List<AsyncOperation>();
 
         InstantiateSystemPrefabs();
+        
     }
 
     private void Start()
@@ -70,12 +75,12 @@ public class GameManager : Manager<GameManager>
             TogglePause();
         }
     }
-
-    // PUBLIC METHODS
-    /*Loads scene and the completed event calls the OnLoadComplete
+	#region LevelManagement
+	// PUBLIC METHODS
+	/*Loads scene and the completed event calls the OnLoadComplete
     method when the load operation is completed.
     Loading multiple scenes is possible*/
-    public void LoadLevel(string levelName)
+	public void LoadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
@@ -103,8 +108,8 @@ public class GameManager : Manager<GameManager>
 
         ao.completed += OnUnloadOperationComplete;
     }
-
-    public void UpdateObjective(Goal objective)
+	#endregion
+	public void UpdateObjective(Goal objective)
     {
         _currentObjective = objective;
         UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
@@ -157,8 +162,8 @@ public class GameManager : Manager<GameManager>
         ExitCurrentState();
         EnterNewState(state);
     }
-
-    private void ExitCurrentState()
+	#region StateManagement
+	private void ExitCurrentState()
     {
         switch (_currentGameState)
         {
@@ -241,8 +246,8 @@ public class GameManager : Manager<GameManager>
         
         Debug.Log("Entered state: " + state);
     }
-
-    private void InstantiateSystemPrefabs()
+	#endregion
+	private void InstantiateSystemPrefabs()
     {
         foreach (var go in _systemPrefab)
         {
@@ -275,13 +280,10 @@ public class GameManager : Manager<GameManager>
         _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
 
-    private void UpdateHealth()
-    {
-        //UIManager.Instance.UpdateHealthOnUI();
-    }
-
-
-
+    //private void UpdateHealth() its an unused private
+    //{
+    //    //UIManager.Instance.UpdateHealthOnUI();
+    //}
 
     // EVENT METHODS
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
@@ -308,5 +310,47 @@ public class GameManager : Manager<GameManager>
     private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
     {
         Debug.Log("Unload Complete.");
+    }
+
+    //PLAYER MANAGEMENT
+    public void PlayerNeedsReviving(Attackable revivalTarget)
+    {
+        if (c_revivalInProgress == null)
+        {
+            if (revivalTarget == _zilla)
+            {
+                _reviveInput = _rilla.GetComponent<IReviveInput>();
+            }
+            else
+            {
+                _reviveInput = _zilla.GetComponent<IReviveInput>();
+            }
+            c_revivalInProgress = StartCoroutine(RevivalCountdown(revivalTarget));
+        }
+        else
+            Debug.Log("YOU LOST");
+    }
+    private IEnumerator RevivalCountdown(Attackable revivalTarget)
+    {
+        UIManager.Instance.InGameUI.ActivateProgressBar();
+        //float p;
+        float i = revivalTarget._playerSettings._respawnTime;
+        while(i > 0)
+        {
+            if (_reviveInput.ReviveInputIsPressed)
+            {
+                //UIManager.Instance.InGameUI.SetProgressOnUI();
+            }
+            else 
+            {
+                UIManager.Instance.UpdateObjectiveOnUI("",i.ToString("F1"));
+                i -= Time.deltaTime;
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        revivalTarget.ResetHealth();
+        yield return null;
+        revivalTarget._playerSettings._isReviving = false;
+        c_revivalInProgress = null;
     }
 }

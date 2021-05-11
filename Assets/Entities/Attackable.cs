@@ -12,7 +12,7 @@ public class Attackable : MonoBehaviour
 	[SerializeField] private float _currentHealth = 20;
 	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
-	[SerializeField] private Player.Settings.IfPlayer _playerSettings;
+	[SerializeField] public Player.Settings.IfPlayer _playerSettings;
 	private RillaSlamSettings _rillaSlamSettings;
 	private ZillaLazorSettings _zillaLazorSettings;
 	private Coroutine c_invincible;
@@ -66,12 +66,14 @@ public class Attackable : MonoBehaviour
 	{
 		if (player != null)
 		{
-			if (_currentHealth == 0)
+			if (_currentHealth == 0 && !_playerSettings._isReviving)
 			{
 				//Debug.Log("It starts 0 health");
-				player.gameObject.SetActive(false);
+				//player.gameObject.SetActive(false);
 				//Debug.Log("It sets inactive");
-				_playerSettings.respawnPoint.AddRespawnTarget(this);
+				//_playerSettings.respawnPoint.AddRespawnTarget(this);
+				_playerSettings._isReviving = true;
+				GameManager.Instance.PlayerNeedsReviving(this);
 			}
 			else
 			{
@@ -152,6 +154,7 @@ namespace Player.Settings
 	[Serializable]
 	public class IfPlayer
 	{
-		public RespawnScript respawnPoint;
+		public float _respawnTime;
+		public bool _isReviving;
 	}
 }

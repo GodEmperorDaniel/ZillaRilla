@@ -42,13 +42,14 @@ public class ZillaAttacks : BaseAttack
 	}
 	private void FixedUpdate()
 	{
-		ray = new Ray(transform.position + new Vector3(0, lazorSettings._attackHitbox.transform.position.y, 0), transform.forward);
+		ray = new Ray(new Vector3(transform.position.x, lazorSettings._attackHitbox.transform.position.y, transform.position.z), transform.forward);
 		//Debug.Log(lazorSettings._attackHitbox.transform.position.y);
 		for (int i = 0; i < lazorSettings._layersThatInterup.Count; i++)
 		{
 			hit = Physics.SphereCast(ray, lazorSettings._sphereCastRadius,out rayHit, (lazorSettings._lazorMaxRange + 1.467f) * transform.localScale.z , LayerMask.GetMask(lazorSettings._layersThatInterup[i]));
 			if (hit)
-			{ 
+			{
+				break;
 				//Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name + " " + lazorSettings._attackHitbox.transform.lossyScale.z);
 			}
 		}
