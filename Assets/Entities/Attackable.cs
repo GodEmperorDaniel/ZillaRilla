@@ -39,21 +39,33 @@ public class Attackable : MonoBehaviour
 		TryGetComponent<Player.Scrips.CharacterInput>(out player);
 		TryGetComponent<NPC>(out _npc);
     }
-
 	private void Update()
 	{
 		if (player != null)
 		{
-			switch (player.GetCharacter())
+			if (_currentHealth == 0 && !_playerSettings._isReviving)
 			{
-				case Player.Scrips.CharacterInput.character.ZILLA:
-					UIManager.Instance.UpdateZillaHealthOnUI(_currentHealth / _maxHealth);
-					break;
-				case Player.Scrips.CharacterInput.character.RILLA:
-					UIManager.Instance.UpdateRillaHealthOnUI(_currentHealth / _maxHealth);
-					break;
-				default:
-					break;
+				//Debug.Log("It starts 0 health");
+				//player.gameObject.SetActive(false);
+				//Debug.Log("It sets inactive");
+				//_playerSettings.respawnPoint.AddRespawnTarget(this);
+				_playerSettings._isReviving = true;
+				PlayerManager.Instance.PlayerNeedsReviving(this);
+			}
+			else
+			{
+				float healthPercent = _currentHealth / _maxHealth;
+				switch (player.GetCharacter())
+				{
+					case Player.Scrips.CharacterInput.character.ZILLA:
+						UIManager.Instance.UpdateZillaHealthOnUI(healthPercent);
+						break;
+					case Player.Scrips.CharacterInput.character.RILLA:
+						UIManager.Instance.UpdateRillaHealthOnUI(healthPercent);
+						break;
+					default:
+						break;
+				}
 			}
 		}
 	}
@@ -86,37 +98,6 @@ public class Attackable : MonoBehaviour
 		}
 		RemoveHealth(settings._attackDamage);
 	}
-	private void Update()
-	{
-		if (player != null)
-		{
-			if (_currentHealth == 0 && !_playerSettings._isReviving)
-			{
-				//Debug.Log("It starts 0 health");
-				//player.gameObject.SetActive(false);
-				//Debug.Log("It sets inactive");
-				//_playerSettings.respawnPoint.AddRespawnTarget(this);
-				_playerSettings._isReviving = true;
-				PlayerManager.Instance.PlayerNeedsReviving(this);
-			}
-			else
-			{
-				float healthPercent = _currentHealth / _maxHealth;
-				switch (player.GetCharacter())
-				{
-					case Player.Scrips.CharacterInput.character.ZILLA:
-						UIManager.Instance.UpdateZillaHealthOnUI(healthPercent);
-						break;
-					case Player.Scrips.CharacterInput.character.RILLA:
-						UIManager.Instance.UpdateRillaHealthOnUI(healthPercent);
-						break;
-					default:
-						break;
-				}
-			}
-		}
-	}
-
 	
 	// INTERNAL METHODS
 	private void RemoveHealth(float damage)
