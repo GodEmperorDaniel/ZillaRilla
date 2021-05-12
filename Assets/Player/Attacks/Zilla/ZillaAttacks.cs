@@ -9,7 +9,7 @@ public class ZillaAttacks : BaseAttack
     //TODO Attack Destructible
     
     [SerializeField] private Animator _playerAnimator;
-
+    
     [SerializeField] private ZillaTailSettings tailSettings;
 
     [SerializeField] private ZillaLazorSettings lazorSettings;
@@ -59,6 +59,7 @@ public class ZillaAttacks : BaseAttack
             hit = Physics.SphereCast(ray, lazorSettings._sphereCastRadius, out rayHit, maxRayDistance, hitLayer);
             if (hit)
             {
+                break;
                 //Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name + " " + lazorSettings._attackHitbox.transform.lossyScale.z);
             }
         }

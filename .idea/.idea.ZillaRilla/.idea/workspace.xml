@@ -57,7 +57,6 @@
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/ZRDebug.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/CharacterInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/GameManagerOld.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/LogStateCommand.cs" />
@@ -95,7 +94,6 @@
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/Attacks/BaseAttack.cs" />

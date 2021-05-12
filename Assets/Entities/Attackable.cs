@@ -14,7 +14,7 @@ public class Attackable : MonoBehaviour
 	
 	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
-	
+	[SerializeField] private Player.Settings.IfPlayer _playerSettings;
 	private RillaSlamSettings _rillaSlamSettings;
 	private ZillaLazorSettings _zillaLazorSettings;
 	private Coroutine c_invincible;
@@ -86,6 +86,34 @@ public class Attackable : MonoBehaviour
 		}
 		RemoveHealth(settings._attackDamage);
 	}
+	private void Update()
+	{
+		if (player != null)
+		{
+			if (_currentHealth == 0)
+			{
+				//Debug.Log("It starts 0 health");
+				player.gameObject.SetActive(false);
+				//Debug.Log("It sets inactive");
+				_playerSettings.respawnPoint.AddRespawnTarget(this);
+			}
+			else
+			{
+				float healthPercent = _currentHealth / _maxHealth;
+				switch (player.GetCharacter())
+				{
+					case Player.Scrips.CharacterInput.character.ZILLA:
+						UIManager.Instance.UpdateZillaHealthOnUI(healthPercent);
+						break;
+					case Player.Scrips.CharacterInput.character.RILLA:
+						UIManager.Instance.UpdateRillaHealthOnUI(healthPercent);
+						break;
+					default:
+						break;
+				}
+			}
+		}
+	}
 
 	
 	// INTERNAL METHODS
@@ -142,10 +170,23 @@ public class Attackable : MonoBehaviour
 			}
 		}
     }
+	public void ResetHealth()
+	{
+		Debug.Log("reseting health");
+		_currentHealth = _maxHealth;
+	}
 
     private IEnumerator InvincibilityFrames()
 	{
 		yield return new WaitForSeconds(_iFrames);
 		c_invincible = null;
+	}
+}
+namespace Player.Settings
+{
+	[Serializable]
+	public class IfPlayer
+	{
+		public RespawnScript respawnPoint;
 	}
 }

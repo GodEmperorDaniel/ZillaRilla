@@ -45,4 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _systemPrefab:
   - {fileID: 8907175529459847758, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
-  - {fileID: 5774292382821233811, guid: afd51c3fc51d201408699d3b540a8d8e, type: 3}
+  _zilla: {fileID: 0}
+  _rilla: {fileID: 0}

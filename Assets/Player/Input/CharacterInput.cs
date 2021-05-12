@@ -14,7 +14,6 @@ namespace Player.Scrips
         //[SerializeField] private PlayerInputActions _inputsActions;
         [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")]
         [SerializeField] private Animator _playerAnimator;
-        [SerializeField] private PlayerInput _playerInput;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
         public enum character
@@ -39,8 +38,8 @@ namespace Player.Scrips
             PlayerInput playerInput = GetComponent<PlayerInput>();
         }
 
-		#region Attacks
-		public void OnAttack1Input(InputAction.CallbackContext c)
+        #region Attacks
+        public void OnAttack1Input(InputAction.CallbackContext c)
         {
             _attack1Pressed = c.ReadValueAsButton();
             //Debug.Log(_attack1Pressed);
@@ -103,7 +102,8 @@ namespace Player.Scrips
         {
             Vector2 value = c.ReadValue<Vector2>();
             RotationDirection = new Vector3(value.x, 0, value.y);
-            _moveInput.Execute();
+            if(_moveInput.isActiveAndEnabled)
+                _moveInput.Execute();
         }
 		#endregion
 
@@ -123,14 +123,16 @@ namespace Player.Scrips
         {
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
-            _moveInput.Execute();
+            if(_moveInput.isActiveAndEnabled)
+                _moveInput.Execute();
         }
 
         public void OnAnalogMove(InputAction.CallbackContext c)
         {
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
-            _moveInput.Execute();
+            if(_moveInput.isActiveAndEnabled)
+                _moveInput.Execute();
         }
         #endregion
         public character GetCharacter()
