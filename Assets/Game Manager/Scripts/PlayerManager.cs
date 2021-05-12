@@ -27,30 +27,40 @@ public class PlayerManager : Manager<PlayerManager>
     }
     private IEnumerator RevivalCountdown(Attackable revivalTarget)
     {
-        UIManager.Instance.InGameUI.ActivateProgressBar();
-        float percentageRevived;
+        UIManager.Instance.InGameUI.ActivateReviveBar();
+        UIManager.Instance.InGameUI.ActivateReviveCountdown();
+        float percentageRevived = 0;
+        UIManager.Instance.InGameUI.SetReviveMeterOnUI(percentageRevived);
         float i = revivalTarget._playerSettings._timeUntilDeath;
         while (i > 0)
         {
             if (_reviveInput.ReviveInputIsPressed)
             {
-                percentageRevived =+ Time.deltaTime / revivalTarget._playerSettings._timeToRevive;
-                UIManager.Instance.InGameUI.SetProgressOnUI(percentageRevived);
+                percentageRevived += Time.deltaTime / revivalTarget._playerSettings._timeToRevive;
+                //Debug.Log(percentageRevived);
+                UIManager.Instance.InGameUI.SetReviveMeterOnUI(percentageRevived);
                 if (percentageRevived >= 1)
                 {
-                    revivalTarget.ResetHealth();
+                    revivalTarget.ResetHealth(0.4f);
                     c_revivalInProgress = null;
+                    revivalTarget._playerSettings._isReviving = false;
+                    break;
                 }
+                yield return null;
             }
             else
             {
-                UIManager.Instance.UpdateObjectiveOnUI("", i.ToString("F1"));
+                UIManager.Instance.InGameUI.SetCountdownTimeOnUI(i.ToString("F1"));
                 i -= Time.deltaTime;
             }
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        if (i <= 0)
+        {
+            UIManager.Instance.UpdateObjectiveOnUI("","YOU LOST");
+        }
+        UIManager.Instance.InGameUI.DeactivateReviveBar();
+        UIManager.Instance.InGameUI.DeactivateReviveCountdown();
         yield return null;
-        revivalTarget._playerSettings._isReviving = false;
-        c_revivalInProgress = null;
     }
 }
