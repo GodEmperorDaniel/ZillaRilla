@@ -505,6 +505,14 @@ PrefabInstance:
       propertyPath: _playerSettings.respawnPoint
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1605752104, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: _playerSettings._timeToRevive
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605752104, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: _playerSettings._timeUntilDeath
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 381463971055927896, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -716,6 +724,14 @@ PrefabInstance:
     - target: {fileID: 4442516052479609664, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
       propertyPath: _playerSettings.respawnPoint
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442516052479609664, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: _playerSettings._timeToRevive
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442516052479609664, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: _playerSettings._timeUntilDeath
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8538369396598117620, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
       propertyPath: m_RootOrder
@@ -972,6 +988,14 @@ PrefabInstance:
       propertyPath: _zilla
       value: 
       objectReference: {fileID: 807852620}
+    - target: {fileID: 2618605768878082352, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
+      propertyPath: _systemPrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618605768878082352, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
+      propertyPath: _systemPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 65193974807203215, guid: 50a3917b2007186418d2823378a6873d, type: 3}
     - target: {fileID: 2618605768878082353, guid: ce63daa81130e6948b8f8abb9762ffb4, type: 3}
       propertyPath: m_Name
       value: GameManager (1)
@@ -2515,7 +2539,8 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _iFrames: 2
   _playerSettings:
-    _respawnTime: 0
+    _timeToRevive: 0
+    _timeUntilDeath: 0
     _isReviving: 0
 --- !u!54 &1694615701
 Rigidbody:

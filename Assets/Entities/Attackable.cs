@@ -73,7 +73,7 @@ public class Attackable : MonoBehaviour
 				//Debug.Log("It sets inactive");
 				//_playerSettings.respawnPoint.AddRespawnTarget(this);
 				_playerSettings._isReviving = true;
-				GameManager.Instance.PlayerNeedsReviving(this);
+				PlayerManager.Instance.PlayerNeedsReviving(this);
 			}
 			else
 			{
@@ -142,7 +142,6 @@ public class Attackable : MonoBehaviour
 		Debug.Log("reseting health");
 		_currentHealth = _maxHealth;
 	}
-
     private IEnumerator InvincibilityFrames()
 	{
 		yield return new WaitForSeconds(_iFrames);
@@ -154,7 +153,9 @@ namespace Player.Settings
 	[Serializable]
 	public class IfPlayer
 	{
-		public float _respawnTime;
+		[Header("Revive")]
+		public float _timeToRevive;
+		public float _timeUntilDeath;
 		public bool _isReviving;
 	}
 }

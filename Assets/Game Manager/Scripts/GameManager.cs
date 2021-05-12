@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using Entities.Scripts;
 
 
 public class GameManager : Manager<GameManager>
@@ -27,9 +26,6 @@ public class GameManager : Manager<GameManager>
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
     private Goal _currentObjective;
-
-    private Coroutine c_revivalInProgress;
-    private IReviveInput _reviveInput;
 
     public Attackable _zilla;
     public Attackable _rilla;
@@ -297,9 +293,6 @@ public class GameManager : Manager<GameManager>
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
                 FindPlayerCharacters();
             }
-
-            
-
             // dispatch message
             // transition between scenes
         }
@@ -310,47 +303,5 @@ public class GameManager : Manager<GameManager>
     private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
     {
         Debug.Log("Unload Complete.");
-    }
-
-    //PLAYER MANAGEMENT
-    public void PlayerNeedsReviving(Attackable revivalTarget)
-    {
-        if (c_revivalInProgress == null)
-        {
-            if (revivalTarget == _zilla)
-            {
-                _reviveInput = _rilla.GetComponent<IReviveInput>();
-            }
-            else
-            {
-                _reviveInput = _zilla.GetComponent<IReviveInput>();
-            }
-            c_revivalInProgress = StartCoroutine(RevivalCountdown(revivalTarget));
-        }
-        else
-            Debug.Log("YOU LOST");
-    }
-    private IEnumerator RevivalCountdown(Attackable revivalTarget)
-    {
-        UIManager.Instance.InGameUI.ActivateProgressBar();
-        //float p;
-        float i = revivalTarget._playerSettings._respawnTime;
-        while(i > 0)
-        {
-            if (_reviveInput.ReviveInputIsPressed)
-            {
-                //UIManager.Instance.InGameUI.SetProgressOnUI();
-            }
-            else 
-            {
-                UIManager.Instance.UpdateObjectiveOnUI("",i.ToString("F1"));
-                i -= Time.deltaTime;
-            }
-            yield return new WaitForSeconds(Time.deltaTime);
-        }
-        revivalTarget.ResetHealth();
-        yield return null;
-        revivalTarget._playerSettings._isReviving = false;
-        c_revivalInProgress = null;
     }
 }
