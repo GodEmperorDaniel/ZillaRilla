@@ -9,6 +9,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
     [CreateAssetMenu(fileName = "SpawnState", menuName = "ZillaRilla/States/Spawn", order = 8)]
     class SpawnState: AbstractFSMState 
     {
+        [SerializeField] private float test;
         public override void OnEnable()
         {
 
