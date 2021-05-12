@@ -99,6 +99,7 @@ namespace Entities.Commands
 
         private IEnumerator Move()
         {
+            //Debug.Log(gameObject.name);
             while (_move.MoveDirection != Vector3.zero || !_characterController.isGrounded)
             {
                 _mov.x = _move.MoveDirection.x;
@@ -194,5 +195,12 @@ namespace Entities.Commands
             }
         }
         #endregion
+        private void OnDisable()
+        {
+            c_jump = null;
+            c_jumpCooldown = null;
+            c_moving = null;
+            c_rotate = null;
+        }
     }
 }

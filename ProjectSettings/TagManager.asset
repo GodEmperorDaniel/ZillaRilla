@@ -17,6 +17,8 @@ TagManager:
   - Player
   - Objective
   - Movable
+  - House
+  - Terrain
   - Destructible
   - 
   - 
