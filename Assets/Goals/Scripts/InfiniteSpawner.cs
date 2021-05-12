@@ -78,14 +78,14 @@ public class InfiniteSpawner : MonoBehaviour
         if (spawnPoints.Length == 0)
         {
             Transform defaultSpawnPoint = transform;
-            _enemies.Add(Instantiate(enemy, defaultSpawnPoint.position, defaultSpawnPoint.rotation, defaultSpawnPoint));
+            _enemies.Add(Instantiate(enemy, defaultSpawnPoint.position, defaultSpawnPoint.rotation, null));
 
             Debug.LogError("[" + name + "] Default Spawn Point Used");
         }
         else
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            _enemies.Add(Instantiate(enemy, spawnPoint.position, spawnPoint.rotation, transform));
+            _enemies.Add(Instantiate(enemy, spawnPoint.position, spawnPoint.rotation, null));
         }
     }
 }

@@ -54,6 +54,6 @@ MonoBehaviour:
   - {fileID: 6735379524385902249, guid: 82be52954620d1d42ad53a0aead6add8, type: 3}
   - {fileID: 3724776392524075530, guid: 23e35df0fb193a441beefa2121fe8b23, type: 3}
   iconLifeTime: 1
-  iconScaling: 0.3
-  iconMaxScaling: 5
+  iconScaling: 0.5
+  iconMaxScaling: 7
   iconMovement: {x: 0, y: 0.001, z: 0}

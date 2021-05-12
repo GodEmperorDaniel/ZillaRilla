@@ -20,4 +20,14 @@ public class PauseMenu : MonoBehaviour
     {
         GameManager.Instance.TogglePause();
     }*/
+    
+    public void TogglePause()
+    {
+        GameManager.Instance.TogglePause();
+    }
+
+    public void ExitToMainMenu()
+    {
+        GameManager.Instance.ExitToMainMenu();
+    }
 }

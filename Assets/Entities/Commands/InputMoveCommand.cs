@@ -99,6 +99,7 @@ namespace Entities.Commands
 
         private IEnumerator Move()
         {
+            //Debug.Log(gameObject.name);
             while (_move.MoveDirection != Vector3.zero || !_characterController.isGrounded)
             {
                 _mov.x = _move.MoveDirection.x;
@@ -134,7 +135,7 @@ namespace Entities.Commands
                     }
                     else if (_rotate.RotationDirection != Vector3.zero && !_lazor.LazorButtonPressed)
                     {
-                        Debug.Log(_character.ToString() + " USING SECOND");
+                        //Debug.Log(_character.ToString() + " USING SECOND");
                         transform.forward = _rotate.RotationDirection;
                         yield return null;
                     }
@@ -193,6 +194,13 @@ namespace Entities.Commands
                 rb.AddForce(_move.MoveDirection, ForceMode.Impulse);
             }
         }
-		#endregion
-	}
+        #endregion
+        private void OnDisable()
+        {
+            c_jump = null;
+            c_jumpCooldown = null;
+            c_moving = null;
+            c_rotate = null;
+        }
+    }
 }

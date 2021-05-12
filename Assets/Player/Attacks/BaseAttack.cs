@@ -10,9 +10,11 @@ public abstract class BaseAttack : MonoBehaviour
 
 	public virtual void RemoveFromPlayerList(GameObject enemy){ }
 
-	protected void AttackObject(GameObject GO, Vector3 direction)
+	protected void ApplyForceToMovable(GameObject GO, Vector3 direction)
 	{
 		Rigidbody rb = GO.GetComponent<Rigidbody>();
 		rb.AddForce(direction * 10, ForceMode.Impulse);
 	}
+	
+	
 }

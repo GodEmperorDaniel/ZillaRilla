@@ -22,17 +22,17 @@ public class GameManager : Manager<GameManager>
     public GameObject[] _systemPrefab;
     private List<GameObject> _instancedSystemPrefabs;
     private List<AsyncOperation> _loadOperations;
-    private GameState _gameState;
-
 
     private string _currentLevelName = string.Empty;
+    private GameState _currentGameState;
     private Goal _currentObjective;
+
     public Attackable _zilla;
     public Attackable _rilla;
 
 
     // GETTERS/SETTERS
-
+    
 
     // UNITY METHODS
     protected override void Awake()
@@ -42,38 +42,41 @@ public class GameManager : Manager<GameManager>
         _instancedSystemPrefabs = new List<GameObject>();
         _loadOperations = new List<AsyncOperation>();
 
-
         InstantiateSystemPrefabs();
-
-
-        //FindPlayerCharacters(); // Needs to be moved to after level with characters is loaded!
+        
     }
 
-
-    // PUBLIC METHODS
-
-    public void LoadMainMenu()
+    private void Start()
     {
-        LoadLevel("Main Menu");
-        UpdateState(GameState.MAIN_MENU);
+        DeactivateAllUI();
+        LoadMainMenu();
     }
 
-    public void StartNewGame()
+    protected override void OnDestroy()
     {
-        UnloadLevel("Main Menu");
-        LoadLevel("Test Level 1");
-        UpdateState(GameState.IN_GAME);
-        FindPlayerCharacters();
+        base.OnDestroy();
+
+        for (int i = 0; i < _instancedSystemPrefabs.Count; ++i)
+        {
+            Destroy(_instancedSystemPrefabs[i]);
+        }
+
+        _instancedSystemPrefabs.Clear();
     }
 
-    public void StartTestLevel()
+    private void Update()
     {
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            TogglePause();
+        }
     }
-
-    // Loads scene and the completed event calls the OnLoadComplete
-    // method when the load operation is completed.
-    // Loading multiple scenes is possible
-    public void LoadLevel(string levelName)
+	#region LevelManagement
+	// PUBLIC METHODS
+	/*Loads scene and the completed event calls the OnLoadComplete
+    method when the load operation is completed.
+    Loading multiple scenes is possible*/
+	public void LoadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
@@ -88,8 +91,8 @@ public class GameManager : Manager<GameManager>
         _currentLevelName = levelName;
     }
 
-    // Unloads scene and the completed event calls the OnUnloadComplete
-    // method when the unload operation is completed
+    /*Unloads scene and the completed event calls the OnUnloadComplete
+    method when the unload operation is completed*/
     public void UnloadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
@@ -101,29 +104,64 @@ public class GameManager : Manager<GameManager>
 
         ao.completed += OnUnloadOperationComplete;
     }
-
-    public void TogglePause()
-    {
-        //UpdateState(_currentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
-    }
-
-    public void UpdateObjective(Goal objective)
+	#endregion
+	public void UpdateObjective(Goal objective)
     {
         _currentObjective = objective;
         UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
     }
 
+    public void TogglePause()
+    {
+        UpdateState(_currentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
+    // SPECIFIC SCENE LOADERS
+    public void LoadMainMenu()
+    {
+        LoadLevel("Main Menu");
+        UpdateState(GameState.MAIN_MENU);
+    }
+
+    public void StartNewGame()
+    {
+        UnloadLevel("Main Menu");
+        LoadLevel("SpelTestBana");
+        UpdateState(GameState.IN_GAME);
+    }
+
+    public void ExitToMainMenu()
+    {
+        UnloadLevel("SpelTestBana");
+        LoadLevel("Main Menu");
+        UpdateState(GameState.MAIN_MENU);
+    }
+    
 
     // INTERNAL METHODS
+    private void DeactivateAllUI()
+    {
+        UIManager.Instance.DisableDummyCamera();
+        UIManager.Instance.DisableMainMenuUI();
+        UIManager.Instance.DisableInGameUI();
+        UIManager.Instance.DisablePauseUI();
+    }
+    
     private void UpdateState(GameState state)
     {
         ExitCurrentState();
         EnterNewState(state);
     }
-
-    private void ExitCurrentState()
+	#region StateManagement
+	private void ExitCurrentState()
     {
-        switch (_gameState)
+        switch (_currentGameState)
         {
             case GameState.BOOT:
                 break;
@@ -156,11 +194,14 @@ public class GameManager : Manager<GameManager>
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        
+        Debug.Log("Exited state: " + _currentGameState);
+
     }
 
     private void EnterNewState(GameState state)
     {
-        _gameState = state;
+        _currentGameState = state;
 
         switch (state)
         {
@@ -175,7 +216,7 @@ public class GameManager : Manager<GameManager>
             case GameState.MAIN_MENU:
                 UIManager.Instance.EnableMainMenuUI();
                 UIManager.Instance.EnableDummyCamera();
-                EnableMenuControls();
+                //EnableMenuControls();
                 break;
 
             case GameState.LOADING:
@@ -186,21 +227,23 @@ public class GameManager : Manager<GameManager>
 
             case GameState.IN_GAME:
                 UIManager.Instance.EnableInGameUI();
-                EnableInGameControls();
+                //EnableInGameControls();
                 break;
 
             case GameState.PAUSED:
-                Time.timeScale = 1.0f;
+                Time.timeScale = 0.0f;
                 UIManager.Instance.EnablePauseUI();
-                EnableMenuControls();
+                //EnableMenuControls();
                 break;
 
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
+        
+        Debug.Log("Entered state: " + state);
     }
-
-    private void InstantiateSystemPrefabs()
+	#endregion
+	private void InstantiateSystemPrefabs()
     {
         foreach (var go in _systemPrefab)
         {
@@ -214,11 +257,11 @@ public class GameManager : Manager<GameManager>
 
     private void FindPlayerCharacters()
     {
-        _zilla = GameObject.Find("ZillaPlayer").GetComponent<Attackable>();
-        _rilla = GameObject.Find("RillaPlayer").GetComponent<Attackable>();
-
-        if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
-        if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
+        if (GameObject.Find("ZillaPlayer")) GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
+        if (GameObject.Find("RillaPlayer")) GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
+        
+        //if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
+        //if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
     }
 
     private void EnableMenuControls()
@@ -233,25 +276,12 @@ public class GameManager : Manager<GameManager>
         _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
 
-    private void UpdateHealth()
-    {
-        //UIManager.Instance.UpdateHealthOnUI();
-    }
+    //private void UpdateHealth() its an unused private
+    //{
+    //    //UIManager.Instance.UpdateHealthOnUI();
+    //}
 
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-
-        for (int i = 0; i < _instancedSystemPrefabs.Count; ++i)
-        {
-            Destroy(_instancedSystemPrefabs[i]);
-        }
-
-        _instancedSystemPrefabs.Clear();
-    }
-
-
-    // Events
+    // EVENT METHODS
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
     {
         if (_loadOperations.Contains(asyncOperation))
@@ -260,10 +290,9 @@ public class GameManager : Manager<GameManager>
 
             if (_loadOperations.Count == 0)
             {
-                //UpdateState(GameState.IN_GAME);
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
+                FindPlayerCharacters();
             }
-
-
             // dispatch message
             // transition between scenes
         }
