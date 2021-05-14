@@ -16,6 +16,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &2126311652
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371777693499716366}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: f8a1c3826b27ee44db9a2936093d51fe, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1390043270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,6 +48,10 @@ MonoBehaviour:
   _currentHealth: 20
   _animator: {fileID: 0}
   _iFrames: 0
+  _playerSettings:
+    _timeToRevive: 0
+    _timeUntilDeath: 0
+    _isReviving: 0
 --- !u!114 &4527497004584191229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +64,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cddfa3e58ddf844c842325e0d2904c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _smokePrefab: {fileID: 3312276840990385156, guid: 54148358821020c498c73439b1cc7717, type: 3}
+  _rubblePrefab: {fileID: 3762085104780522141, guid: ac960634073f3194c991bca7c6dab9fe, type: 3}
+  smokeLifetime: 5
+  collapseDelay: 1
+  _rubbleMesh: {fileID: 0}
+  isRubble: 0
 --- !u!1001 &5259616145618801471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93,7 +119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2007237252865473163, guid: 48560fc1634b5ed4bb2dd0ee5e0a9c81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 2007237252865473163, guid: 48560fc1634b5ed4bb2dd0ee5e0a9c81, type: 3}
       propertyPath: m_LocalPosition.z
