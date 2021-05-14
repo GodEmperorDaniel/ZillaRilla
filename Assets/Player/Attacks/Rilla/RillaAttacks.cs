@@ -26,15 +26,16 @@ public class RillaAttacks : BaseAttack
 	#region Attacks
 	public void RillaPunch()
 	{
+		Debug.Log(_listPunch.Count);
 		if (c_attackCooldown != null) return;
 		
 		for (int i = 0; i < _listPunch.Count; i++)
 		{
-			if (_listPunch[i] == null) continue;
+			if (_listPunch[i] == null) continue; 
 			
 			if (_listPunch[i].layer == LayerMask.NameToLayer("Enemy"))
 				CallEntityHit(_listPunch[i], punchSettings);
-			if (_listPunch[i].layer == LayerMask.NameToLayer("Destructible"))
+			else if (_listPunch[i].layer == LayerMask.NameToLayer("Destructible"))
 				CallEntityHit(_listPunch[i], punchSettings);
 			else
 			{
@@ -134,7 +135,7 @@ public class RillaAttacks : BaseAttack
 		enemy.GetComponent<Attackable>().EntitiyHit(settings);
 	}
 
-	public override void RemoveFromPlayerList(GameObject enemy)
+	public override void RemoveFromPlayerList(GameObject enemy) //this can be removed and all its referenses!!
 	{
 		if (_listPunch.Contains(enemy))
 		{
