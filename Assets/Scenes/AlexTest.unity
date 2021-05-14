@@ -123,177 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &293300363
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 138294269706700163, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5830048683002592416, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
-      propertyPath: m_Name
-      value: Debris_BrickP
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0427f9567c0cfdf468cda8c023fa2bed, type: 3}
---- !u!1001 &326473430
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3230767541164183772, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8168512512434226967, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
-      propertyPath: m_Name
-      value: Debris_BrickR
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c66e00a53ba9bdb45b96fd6df8c04c00, type: 3}
---- !u!1001 &601141788
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608476880424904943, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275222534653235765, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
-      propertyPath: m_Name
-      value: Debris_BrickY
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c14b4bfbe9aba7e4e9a9736de8b79aae, type: 3}
 --- !u!1 &1144132464
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +175,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -371,13 +200,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144132464}
-  m_LocalRotation: {x: 0.04535509, y: -0.94925636, z: 0.17277849, w: 0.25884917}
-  m_LocalPosition: {x: 5.15, y: 3.79, z: 8.85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.09078243, y: -0.8800224, z: 0.13932854, w: 0.44486716}
+  m_LocalPosition: {x: 9.06, y: 4.75, z: 6.2}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20.579, y: -149.457, z: 0.204}
+  m_LocalEulerAnglesHint: {x: 19.026, y: -126.729, z: -2.171}
 --- !u!114 &1144132468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +384,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4736e3c7c675816419bc14036f2ed87d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -599,60 +428,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2057228405
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761785374658896152, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8713078588587916007, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
-      propertyPath: m_Name
-      value: Debris_BrickO
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 83944e32b8021cd4e8e358d22ab09189, type: 3}
