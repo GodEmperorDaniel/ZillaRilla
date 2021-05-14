@@ -27,6 +27,8 @@ public class ZillaAttacks : BaseAttack
     private void Awake()
     {
         _lazorInput = GetComponent<IZillaLazorInput>();
+        tailSettings.playerIndex = 0;
+        lazorSettings.playerIndex = 0;
     }
 
     public void ZillaLazor()
@@ -108,7 +110,8 @@ public class ZillaAttacks : BaseAttack
             {
                 if (_listCanHitListLazor[i] != null)
                 {
-                    _listCanHitListLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
+                    //_listCanHitListLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
+                    CallEntityHit(_listCanHitListLazor[i], lazorSettings);
                 }
             }
 
@@ -132,15 +135,13 @@ public class ZillaAttacks : BaseAttack
 
             if (_listCanHitListTail[i].layer == LayerMask.NameToLayer("Enemy"))
             { 
+                //if (tailSettings._knockbackStrength > 0)
+                //{
+                //    Vector3 normDirection =
+                //        (_listCanHitListTail[i].transform.position - transform.position).normalized;
+                //    _listCanHitListTail[i].GetComponent<KnockBack>().ApplyKnockBack(normDirection, tailSettings._knockbackStrength, tailSettings._knockbackTime);   
+                //}
                 CallEntityHit(_listCanHitListTail[i], tailSettings);
-                if (tailSettings._knockBackStrength > 0)
-                {
-                    Vector3 normDirection =
-                        (_listCanHitListTail[i].transform.position - transform.position).normalized;
-                    _listCanHitListTail[i].GetComponent<KnockBack>().ApplyKnockBack(normDirection, tailSettings._knockBackStrength);   
-                    //Debug.Log(_listCanHitListTail[i].GetComponent<KnockBack>());
-                }
-
             }
             else if (_listCanHitListTail[i].layer == LayerMask.NameToLayer("Destructible"))
                 CallEntityHit(_listCanHitListTail[i], tailSettings);
@@ -157,6 +158,7 @@ public class ZillaAttacks : BaseAttack
 
     private void CallEntityHit(GameObject enemy, AttackSettings settings)
     {
+        //AddToComboMeter(0);
         enemy.GetComponent<Attackable>().EntitiyHit(settings);
     }
 
@@ -261,11 +263,6 @@ namespace Attacks.Zilla
         public List<string> _layersThatInterup;
 
         public float _sphereCastRadius;
-        //public bool _stun;
-        //[Header("Knockback")]
-        //public bool _knockBack;
-        //public float _knockBackRange;
     }
 }
-
 #endregion

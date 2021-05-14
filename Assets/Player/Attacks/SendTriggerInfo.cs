@@ -22,7 +22,7 @@ public class SendTriggerInfo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Added " + other.name);
+        //Debug.Log("Added " + other.name);
         
         for (int i = 0; i < _targets.Count; i++)
         {
@@ -34,7 +34,7 @@ public class SendTriggerInfo : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Removed " + other.name);
+        //Debug.Log("Removed " + other.name);
 
         
         for (int i = 0; i < _targets.Count; i++)

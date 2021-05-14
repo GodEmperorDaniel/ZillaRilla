@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _percentHealthOnRespawn: 0.4
+  _maxDistanceToRevive: 20
+  _neededToFillComboMeter: 20

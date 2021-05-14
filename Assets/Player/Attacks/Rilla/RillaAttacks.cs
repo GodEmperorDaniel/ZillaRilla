@@ -17,6 +17,8 @@ public class RillaAttacks : BaseAttack
 	private Coroutine c_attackCooldown;
 	private void Awake()
 	{
+		punchSettings.playerIndex = 1;
+		slamSettings.playerIndex = 1;
 		if (_playerAnimator == null)
 		{
 			Debug.LogWarning("No animator is set in " + gameObject.name + ", getting it through code");
@@ -26,7 +28,6 @@ public class RillaAttacks : BaseAttack
 	#region Attacks
 	public void RillaPunch()
 	{
-		Debug.Log(_listPunch.Count);
 		if (c_attackCooldown != null) return;
 		
 		for (int i = 0; i < _listPunch.Count; i++)
@@ -132,6 +133,7 @@ public class RillaAttacks : BaseAttack
 
 	private void CallEntityHit(GameObject enemy, AttackSettings settings)
 	{
+		//AddToComboMeter(1);
 		enemy.GetComponent<Attackable>().EntitiyHit(settings);
 	}
 
