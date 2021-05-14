@@ -12,4 +12,5 @@ public class AttackSettings
 		PUNCH, SLAM, TAIL, LAZOR, SHOOTING
 	}
 	public SettingType _settingType;
+	public float _knockBackStrength;
 }

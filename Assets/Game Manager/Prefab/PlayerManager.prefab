@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd97df0bb237844e9564b5bee97985d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _percentHealthOnRespawn: 0.4

@@ -5,6 +5,10 @@ using Entities.Scripts;
 
 public class PlayerManager : Manager<PlayerManager>
 {
+    [Range(0f,1f)]
+    [SerializeField] private float _percentHealthOnRespawn;
+    [SerializeField] private float _maxDistanceToRevive = 20;
+    private float _distancePlayers;
     private Coroutine c_revivalInProgress;
     private IReviveInput _reviveInput;
     //PLAYER MANAGEMENT
@@ -34,14 +38,14 @@ public class PlayerManager : Manager<PlayerManager>
         float i = revivalTarget._playerSettings._timeUntilDeath;
         while (i > 0)
         {
-            if (_reviveInput.ReviveInputIsPressed)
+            _distancePlayers = Vector3.Distance(GameManager.Instance._rilla.transform.position, GameManager.Instance._zilla.transform.position);
+            if (_reviveInput.ReviveInputIsPressed && _distancePlayers < _maxDistanceToRevive)
             {
                 percentageRevived += Time.deltaTime / revivalTarget._playerSettings._timeToRevive;
-                //Debug.Log(percentageRevived);
                 UIManager.Instance.InGameUI.SetReviveMeterOnUI(percentageRevived);
                 if (percentageRevived >= 1)
                 {
-                    revivalTarget.ResetHealth(0.4f);
+                    revivalTarget.ResetHealth(_percentHealthOnRespawn);
                     c_revivalInProgress = null;
                     revivalTarget._playerSettings._isReviving = false;
                     break;

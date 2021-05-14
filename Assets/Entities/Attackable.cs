@@ -106,7 +106,7 @@ public class Attackable : MonoBehaviour
 		{
 			if (_currentHealth <= 0)
 			{
-				if (_fsm != null)
+				if (_fsm != null && _fsm._currentState.StateType != FSMStateType.DEATH)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);
 				}
