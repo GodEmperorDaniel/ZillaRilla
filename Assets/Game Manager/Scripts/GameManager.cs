@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-
+//TODO: FIX STARTGAME SO YOU CAN INSERT AND START YOUR OWN SCENE INSTEAD OF ONLY DEV_BANA
 public class GameManager : Manager<GameManager>
 {
     public enum GameState

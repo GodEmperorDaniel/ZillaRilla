@@ -8,16 +8,18 @@ using UnityEngine.UI;
 public class InGameUI : MonoBehaviour
 {
     //TODO: Button Prompts (Tutorial and such)
-    //TODO: News banner
     //TODO: Kill-o-meter for Zilla and Rilla
 
     [SerializeField] private FillableBar _zillaHealthBar;
     [SerializeField] private FillableBar _rillaHealthBar;
     [SerializeField] private FillableBar _progressBar;
+    [SerializeField] private FillableBar _reviveMeter;
+    [SerializeField] private GameObject _reviveCountdownText;
     [SerializeField] private GameObject _currentObjective;
+    [SerializeField] private NewsBanner _newsBanner;
 
-
-    public void ActivateHealthBars()
+	#region HealthBar
+	public void ActivateHealthBars()
     {
         _zillaHealthBar.gameObject.SetActive(true);
         _rillaHealthBar.gameObject.SetActive(true);
@@ -38,9 +40,9 @@ public class InGameUI : MonoBehaviour
     {
         _rillaHealthBar.fillAmount = health;
     }
-
-    
-    public void DeactivateProgressBar()
+	#endregion
+	#region ProgressBar
+	public void DeactivateProgressBar()
     {
         _progressBar.gameObject.SetActive(false);
     }
@@ -54,13 +56,48 @@ public class InGameUI : MonoBehaviour
     {
         _progressBar.fillAmount = Round(progress, 2);
     }
-    
+    #endregion
+    #region NewsBanner
+    public void ActivateNewsBanner(int index)
+    {
+        _newsBanner.ActivateBanner(index);
+    }
+
+    public void DeactivateNewsBanner()
+    {
+        _newsBanner.DeactivateBanner();
+    }
+    #endregion
+    #region Revive
+    public void ActivateReviveBar()
+    {
+        _reviveMeter.gameObject.SetActive(true);
+    }
+    public void DeactivateReviveBar()
+    {
+        _reviveMeter.gameObject.SetActive(false);
+    }
+    public void ActivateReviveCountdown()
+    {
+        _reviveCountdownText.gameObject.SetActive(true);
+    }
+    public void DeactivateReviveCountdown()
+    {
+        _reviveCountdownText.gameObject.SetActive(false);
+    }
+    public void SetReviveMeterOnUI(float progress)
+    {
+        _reviveMeter.fillAmount = Round(progress, 2);
+    }
+    public void SetCountdownTimeOnUI(string timeToShow)
+    {
+        _reviveCountdownText.GetComponent<Text>().text = timeToShow;
+    }
+    #endregion
     public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
         _currentObjective.GetComponent<Text>().text = objectiveDescription;
     }
-
-
     // Should be moved to a Math Utility class
     // Rounds float to the amount of digits
     public static float Round(float value, int digits)

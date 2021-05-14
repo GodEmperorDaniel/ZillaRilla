@@ -129,9 +129,19 @@ public class ZillaAttacks : BaseAttack
         for (int i = 0; i < _listCanHitListTail.Count; i++)
         {
             if (_listCanHitListTail[i] == null) continue;
-            
+
             if (_listCanHitListTail[i].layer == LayerMask.NameToLayer("Enemy"))
+            { 
                 CallEntityHit(_listCanHitListTail[i], tailSettings);
+                if (tailSettings._knockBackStrength > 0)
+                {
+                    Vector3 normDirection =
+                        (_listCanHitListTail[i].transform.position - transform.position).normalized;
+                    _listCanHitListTail[i].GetComponent<KnockBack>().ApplyKnockBack(normDirection, tailSettings._knockBackStrength);   
+                    //Debug.Log(_listCanHitListTail[i].GetComponent<KnockBack>());
+                }
+
+            }
             else if (_listCanHitListTail[i].layer == LayerMask.NameToLayer("Destructible"))
                 CallEntityHit(_listCanHitListTail[i], tailSettings);
             else
