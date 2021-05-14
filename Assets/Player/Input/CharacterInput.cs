@@ -108,9 +108,8 @@ namespace Player.Scrips
             if(_moveInput.isActiveAndEnabled)
                 _moveInput.Execute();
         }
-		#endregion
-
-		public void OnJumpInput(InputAction.CallbackContext c)
+        #endregion
+        public void OnJumpInput(InputAction.CallbackContext c)
         {
             float value = c.ReadValue<float>();
             if (_useJumpInput)

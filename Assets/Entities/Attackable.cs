@@ -10,7 +10,7 @@ using UnityEngine;
 public class Attackable : MonoBehaviour
 {
 	[SerializeField] private float _maxHealth;
-	[SerializeField] private float _currentHealth = 20;
+	[SerializeField] private float _currentHealth;
 	
 	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
@@ -106,7 +106,7 @@ public class Attackable : MonoBehaviour
 		{
 			if (_currentHealth <= 0)
 			{
-				if (_fsm != null)
+				if (_fsm != null && _fsm._currentState.StateType != FSMStateType.DEATH)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);
 				}
@@ -153,10 +153,15 @@ public class Attackable : MonoBehaviour
 			}
 		}
     }
-	public void ResetHealth()
+	public void ResetHealth(float healthResetPercent = 0)
 	{
+		if (healthResetPercent == 0)
+		{
+			Debug.LogWarning("Because parameter was left at 0 health is reset to 100%");
+			healthResetPercent = 1;
+		}
 		Debug.Log("reseting health");
-		_currentHealth = _maxHealth;
+		_currentHealth = healthResetPercent * _maxHealth;
 	}
     private IEnumerator InvincibilityFrames()
 	{
