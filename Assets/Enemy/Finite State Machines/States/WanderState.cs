@@ -12,7 +12,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
     {
         [SerializeField] private float _nrEnemiesToSpawn = 5; //QUICK FIX
         private float _spawnedEnemies; //QUICK FIX
-        private float wanderRange = 30f;
+        private readonly float wanderRange = 30f;
         private Vector3 wanderTarget;
         private NavMeshHit navHit;
         private Transform myTransform;
@@ -44,10 +44,9 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
-                CheckForTarget(_npc.PlayerTransform);
+                CheckForTarget();
                 if (Time.time > nextCheck)
                 {
-
                     nextCheck = Time.time + checkRate;
                     CheckIfIShouldWander();
 
@@ -65,7 +64,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             return true;
         }
 
-        private void CheckForTarget(Transform player)
+        private void CheckForTarget()
         {
             if (_npc.Destiantion() <= _npc.lookRadius)
             {
@@ -93,7 +92,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         }
         private bool RandomWanderTarget(Vector3 center, float range, out Vector3 result)
         {
-            Vector3 randomPoint = center + Random.insideUnitSphere * wanderRange;
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
             if (NavMesh.SamplePosition(randomPoint, out navHit, 1.0f, NavMesh.AllAreas))
             {
                 result = navHit.position;
