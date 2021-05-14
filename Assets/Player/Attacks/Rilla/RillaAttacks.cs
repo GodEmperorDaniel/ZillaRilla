@@ -34,8 +34,8 @@ public class RillaAttacks : BaseAttack
 			
 			if (_listPunch[i].layer == LayerMask.NameToLayer("Enemy"))
 				CallEntityHit(_listPunch[i], punchSettings);
-			if (_listPunch[i].layer == LayerMask.NameToLayer("Destructible"))
-				CallEntityHit(_listPunch[i], punchSettings);
+			else if (_listPunch[i].layer == LayerMask.NameToLayer("Destructible"))
+					CallEntityHit(_listPunch[i], punchSettings);
 			else
 			{
 				ApplyForceToMovable(_listPunch[i], (_listPunch[i].transform.position - transform.position).normalized);
