@@ -15,6 +15,13 @@ public abstract class BaseAttack : MonoBehaviour
 		Rigidbody rb = GO.GetComponent<Rigidbody>();
 		rb.AddForce(direction * 10, ForceMode.Impulse);
 	}
-	
-	
+	/// <summary>
+	/// 0 = ZILLA, 1 = RILLA
+	/// </summary>
+	/// <param name="playerIndex"> 0 = ZILLA, 1 = RILLA </param>
+	//protected void AddToComboMeter(int playerIndex)
+	//{
+	//	Debug.Log("Combo:d");
+	//	PlayerManager.Instance.AddToPlayerCombo(playerIndex);
+	//}
 }

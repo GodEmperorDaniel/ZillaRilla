@@ -120,7 +120,14 @@ MonoBehaviour:
   _zillaHealthBar: {fileID: 8021209499926719359}
   _rillaHealthBar: {fileID: 4083143466420140434}
   _progressBar: {fileID: 8042333578542567895}
+  _reviveMeter: {fileID: 0}
+  _reviveCountdownText: {fileID: 0}
+  _zillaComboMeter: {fileID: 0}
+  _zillaComboText: {fileID: 0}
+  _rillaComboMeter: {fileID: 0}
+  _rillaComboText: {fileID: 0}
   _currentObjective: {fileID: 922999215046610877}
+  _newsBanner: {fileID: 0}
 --- !u!1 &922999215046610877
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,15 +682,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015837591692333921, guid: 56bb91b8add96af4794a094de9154e7c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015837591692333921, guid: 56bb91b8add96af4794a094de9154e7c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015837591692333921, guid: 56bb91b8add96af4794a094de9154e7c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015837591692333921, guid: 56bb91b8add96af4794a094de9154e7c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -769,6 +776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 922999214848486516}
     m_Modifications:
+    - target: {fileID: 2950228398921361219, guid: 2151c40c07f859540991b02dc9b60392, type: 3}
+      propertyPath: m_Name
+      value: Rilla Combo Bar
+      objectReference: {fileID: 0}
     - target: {fileID: 5472642093158620502, guid: 2151c40c07f859540991b02dc9b60392, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

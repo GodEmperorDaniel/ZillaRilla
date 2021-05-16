@@ -22,6 +22,7 @@ public class Attackable : MonoBehaviour
 	private FiniteStateMachine _fsm;
 	private FSMStateType _fsmStateType;
 	private NPC _npc;
+	private KnockBack _knockBack;
 
 	private AttackSettings _settings;
 
@@ -38,6 +39,7 @@ public class Attackable : MonoBehaviour
 		TryGetComponent<FiniteStateMachine>(out _fsm);
 		TryGetComponent<Player.Scrips.CharacterInput>(out player);
 		TryGetComponent<NPC>(out _npc);
+		TryGetComponent<KnockBack>(out _knockBack);
     }
 	private void Update()
 	{
@@ -96,12 +98,14 @@ public class Attackable : MonoBehaviour
 			default:
 				break;
 		}
-		RemoveHealth(settings._attackDamage);
+		TestToRemoveHealth(settings); //should the slam do dmg to bosses? in this case it does!
 	}
 	
 	// INTERNAL METHODS
-	private void RemoveHealth(float damage)
+	//Maybe we should change to make the enemy take dmg first and then check if it's lower than 0 they die?? might be nitpicky tho
+	private void TestToRemoveHealth(AttackSettings settings)
 	{
+		//if not inv and it's not a boss --> die or take dmg
 		if (c_invincible == null && _npc != null && _npc.enemyType != EnemyType.BOSS)
 		{
 			if (_currentHealth <= 0)
@@ -114,15 +118,33 @@ public class Attackable : MonoBehaviour
 			}
 			else
 			{
-				_currentHealth -= damage;
-				UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
+				_currentHealth -= settings._attackDamage;
 			}
 			//Debug.Log("RemovedHealth");
+			switch (settings.playerIndex)
+			{
+				case 0:
+					if(settings._knockbackStrength > 0)
+						_knockBack.ApplyKnockBack((gameObject.transform.position - GameManager.Instance._zilla.gameObject.transform.position).normalized, settings._knockbackStrength, settings._knockbackTime);
+					PlayerManager.Instance.AddToPlayerCombo(0);
+					break;
+				case 1:
+					if (settings._knockbackStrength > 0)
+						_knockBack.ApplyKnockBack((gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position).normalized, settings._knockbackStrength, settings._knockbackTime);
+					PlayerManager.Instance.AddToPlayerCombo(1);
+					break;
+				default:
+					Debug.LogError("Game Breaking miss happend in attackable!!");
+					break;
+			}
+			UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
+			
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
+		//if it's in vuln-state (boss) then zilla lazor will dmg it
 		else if (_fsm != null && _fsm._currentState.StateType == FSMStateType.VULNERABLE)
 		{
-			if (_zillaLazorSettings != null && _zillaLazorSettings._settingType == AttackSettings.SettingType.LAZOR)
+			if (_zillaLazorSettings != null && _zillaLazorSettings._settingType == AttackSettings.SettingType.LAZOR) // don't think the && is needed
 			{
 				if (_currentHealth <= 0)
 				{
@@ -131,22 +153,25 @@ public class Attackable : MonoBehaviour
 				}
 				else
 				{
-					Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
-					_currentHealth -= damage;
+					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
+					_currentHealth -= settings._attackDamage;
 					_fsm.EnterState(FSMStateType.IDLE);
 				}
+				UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
+				PlayerManager.Instance.AddToPlayerCombo(0);
+				c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!
 			}
 		}
 		else if (c_invincible == null && player != null)
 		{
-			Debug.Log(" THIS ENEMYS GOT HANDS");
-			_currentHealth -= damage;
+			//Debug.Log(" THIS ENEMYS GOT HANDS"); 
+			_currentHealth -= settings._attackDamage;
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
 		else if (_currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
 		{
-			Debug.Log("Destructible Damaged for " + damage + "HP");
-			_currentHealth -= damage;
+			Debug.Log("Destructible Damaged for " + settings._attackDamage + "HP");
+			_currentHealth -= settings._attackDamage;
 			if (_currentHealth <= 0.0f)
 			{
 				SendMessage("BuildingDestruction");
@@ -160,7 +185,7 @@ public class Attackable : MonoBehaviour
 			Debug.LogWarning("Because parameter was left at 0 health is reset to 100%");
 			healthResetPercent = 1;
 		}
-		Debug.Log("reseting health");
+		//Debug.Log("reseting health");
 		_currentHealth = healthResetPercent * _maxHealth;
 	}
     private IEnumerator InvincibilityFrames()
@@ -177,6 +202,6 @@ namespace Player.Settings
 		[Header("Revive")]
 		public float _timeToRevive;
 		public float _timeUntilDeath;
-		public bool _isReviving;
+		[HideInInspector] public bool _isReviving;
 	}
 }

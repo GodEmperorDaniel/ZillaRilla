@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackSettings
 {
+	[HideInInspector]
+	public int playerIndex;
 	public float _attackDamage;
 	public GameObject _attackHitbox;
 	public float _attackCooldown;
@@ -12,5 +14,6 @@ public class AttackSettings
 		PUNCH, SLAM, TAIL, LAZOR, SHOOTING
 	}
 	public SettingType _settingType;
-	public float _knockBackStrength;
+	public float _knockbackStrength;
+	public float _knockbackTime;
 }

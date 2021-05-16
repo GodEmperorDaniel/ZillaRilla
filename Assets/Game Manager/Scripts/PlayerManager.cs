@@ -5,13 +5,30 @@ using Entities.Scripts;
 
 public class PlayerManager : Manager<PlayerManager>
 {
+    [Header("Revive")]
     [Range(0f,1f)]
     [SerializeField] private float _percentHealthOnRespawn;
     [SerializeField] private float _maxDistanceToRevive = 20;
     private float _distancePlayers;
     private Coroutine c_revivalInProgress;
     private IReviveInput _reviveInput;
+    [Header("Combo-Meter")]
+    [SerializeField] private float _neededToFillComboMeter = 1;
+    [SerializeField] private float _timeToLoseCombo = 3;
+    private float _zillaMeterPercent = 0;
+    private int _zillaCurrentComboCount = 0;
+    private float _rillaMeterPercent = 0;
+    private int _rillaCurrentComboCount = 0;
+    private Coroutine c_zillaComboTimer;
+    private Coroutine c_rillaComboTimer;
+
+    private void Update()
+    {
+        UIManager.Instance.InGameUI.SetZillaComboCounter("x" + _zillaCurrentComboCount.ToString());
+        UIManager.Instance.InGameUI.SetRillaComboCounter("x" + _rillaCurrentComboCount.ToString());
+    }
     //PLAYER MANAGEMENT
+    #region Revive
     public void PlayerNeedsReviving(Attackable revivalTarget)
     {
         if (c_revivalInProgress == null)
@@ -67,4 +84,57 @@ public class PlayerManager : Manager<PlayerManager>
         UIManager.Instance.InGameUI.DeactivateReviveCountdown();
         yield return null;
     }
+    #endregion
+    #region PlayerCombo
+    /// <summary>
+    /// 0 = ZILLA, 1 = RILLA
+    /// </summary>
+    /// <param name="playerIndex"> 0 = ZILLA, 1 = RILLA </param>
+    public void AddToPlayerCombo(int playerIndex)
+    {
+        switch (playerIndex)
+        {
+            case 0:
+                if(c_zillaComboTimer != null)
+                    StopCoroutine(c_zillaComboTimer);
+                _zillaMeterPercent++;
+                _zillaCurrentComboCount++;
+                c_zillaComboTimer = StartCoroutine(ResetComboCounter(playerIndex));
+                if (_zillaMeterPercent / _neededToFillComboMeter <= 1)
+                    UIManager.Instance.InGameUI.SetZillaComboMeter(_zillaMeterPercent / _neededToFillComboMeter);
+                break;
+            case 1:
+                if(c_rillaComboTimer != null)
+                    StopCoroutine(c_rillaComboTimer);
+                _rillaMeterPercent++;
+                _rillaCurrentComboCount++;
+                c_rillaComboTimer = StartCoroutine(ResetComboCounter(playerIndex));
+                if(_zillaMeterPercent / _neededToFillComboMeter <= 1)
+                    UIManager.Instance.InGameUI.SetRillaComboMeter(_rillaMeterPercent / _neededToFillComboMeter);
+                break;
+            default:
+                Debug.LogWarning("Nu blev något väldigt fel i AddToPlayerCombo i PlayerManager");
+                break;
+        }
+    }
+    private IEnumerator ResetComboCounter(int playerIndex)
+    {
+        switch (playerIndex)
+        {
+            case 0:
+                yield return new WaitForSeconds(_timeToLoseCombo);
+                _zillaCurrentComboCount = 0;
+                c_zillaComboTimer = null;
+                break;
+            case 1:
+                yield return new WaitForSeconds(_timeToLoseCombo);
+                _rillaCurrentComboCount = 0;
+                c_rillaComboTimer = null;
+                break;
+            default:
+                Debug.LogWarning("Nu blev något väldigt fel in Ienumerator i PlayerManager");
+                break;
+        }
+    }
+    #endregion 
 }

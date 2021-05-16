@@ -33,7 +33,6 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 //Debug.Log("ENTERED DEATH STATE");
                 _zilla.RemoveFromPlayerList(_fsm.gameObject);
                 _rilla.RemoveFromPlayerList(_fsm.gameObject);
-                Debug.Log("added bugsplat");
                 Instantiate(_bugSplatDecal,_fsm.gameObject.transform.position, _bugSplatDecal.transform.rotation);
                 Destroy(_npc.gameObject, _npc.deSpawnTime);
             }

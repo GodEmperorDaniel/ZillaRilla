@@ -15,7 +15,6 @@ public class RemoveDecal : MonoBehaviour
 		Material mat = GetComponent<MeshRenderer>().material;
 		float t = 0;
 		Color matDefCol = mat.color;
-		Debug.Log("Doing something");
 		while (t < 1)
 		{ 
 			mat.color = Color.Lerp(matDefCol, new Color(matDefCol.r, matDefCol.g, matDefCol.b, 0), t);

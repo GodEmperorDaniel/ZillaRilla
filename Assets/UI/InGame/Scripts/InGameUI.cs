@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InGameUI : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private FillableBar _progressBar;
     [SerializeField] private FillableBar _reviveMeter;
     [SerializeField] private GameObject _reviveCountdownText;
+    [SerializeField] private FillableBar _zillaComboMeter;
+    [SerializeField] private TextMeshProUGUI _zillaComboText;
+    [SerializeField] private FillableBar _rillaComboMeter;
+    [SerializeField] private TextMeshProUGUI _rillaComboText;
     [SerializeField] private GameObject _currentObjective;
     [SerializeField] private NewsBanner _newsBanner;
 
@@ -92,6 +97,24 @@ public class InGameUI : MonoBehaviour
     public void SetCountdownTimeOnUI(string timeToShow)
     {
         _reviveCountdownText.GetComponent<Text>().text = timeToShow;
+    }
+    #endregion
+    #region ComboMeter
+    public void SetZillaComboMeter(float percentFilled)
+    {
+        _zillaComboMeter.fillAmount = Round(percentFilled, 2);
+    }
+    public void SetRillaComboMeter(float percentFilled)
+    {
+        _rillaComboMeter.fillAmount = percentFilled;
+    }
+    public void SetZillaComboCounter(string combo)
+    {
+        _zillaComboText.SetText(combo);
+    }
+    public void SetRillaComboCounter(string combo)
+    {
+        _rillaComboText.SetText(combo);
     }
     #endregion
     public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
