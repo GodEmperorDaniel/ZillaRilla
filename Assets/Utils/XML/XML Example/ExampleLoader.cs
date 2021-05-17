@@ -7,7 +7,7 @@ using System.IO;
 using System.Xml.Linq;
 using UnityEngine.SceneManagement; //Needed for XDocument
 
-public class Loader : MonoBehaviour
+public class ExampleLoader : MonoBehaviour
 {
     XDocument xmlDoc; //create Xdocument. Will be used later to read XML file
     IEnumerable<XElement> items; //Create an Ienumerable list. Will be used to store XML Items.
