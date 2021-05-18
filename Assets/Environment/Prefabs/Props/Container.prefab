@@ -107,7 +107,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6223072832357745591}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0.01
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -221,7 +221,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6450132230441920251}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -241,7 +241,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.25999457, y: 0.655213, z: -0.31000352}
+  m_ConnectedAnchor: {x: 0.25999457, y: 0.6552132, z: -0.31000355}
   m_UseSpring: 0
   m_Spring:
     spring: 1
@@ -371,7 +371,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8603299656961425332}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -391,7 +391,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.2598346, y: 0.654842, z: -0.31052026}
+  m_ConnectedAnchor: {x: -0.2598346, y: 0.6548424, z: -0.3105202}
   m_UseSpring: 0
   m_Spring:
     spring: 1
