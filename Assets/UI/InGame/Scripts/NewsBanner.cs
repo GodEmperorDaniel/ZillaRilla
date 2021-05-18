@@ -10,10 +10,7 @@ using UnityEngine.UI;
 
 public class NewsBanner : MonoBehaviour
 {
-    // TODO: Store text somehow. Script? XML?
-
     // FIELDS
-    
     private Animation _animation;
     private bool _bannerIsUp;
     private bool _textIsScrolling = false;

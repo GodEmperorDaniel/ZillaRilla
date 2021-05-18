@@ -45,8 +45,9 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         private object SetFleeFromTarget(Transform player)
         {
-            if (_npc.Destiantion() <= _npc.lookRadius)
+            if (_npc.ClosestPlayerDistance(out Transform target) <= _npc.lookRadius)
             {
+                _npc.PlayerTransform = target;
                 Vector3 dirToPLayer = _npc.transform.position - player.position;
 
                 Vector3 newPos = _npc.transform.position + dirToPLayer;

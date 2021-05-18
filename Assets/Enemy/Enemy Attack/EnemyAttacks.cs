@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Enemy.NPCCode;
 using UnityEngine;
 using Attacks.Enemy;
+using UnityEditor;
 
 public class EnemyAttacks : BaseAttack
 {
@@ -23,6 +26,7 @@ public class EnemyAttacks : BaseAttack
             TryGetComponent<Animator>(out _playerAnimator);
         }
     }
+
     private void Update()
     {
         foreach (GameObject player in _hashEnemyShoot)
@@ -43,20 +47,22 @@ public class EnemyAttacks : BaseAttack
                 CallEntityHit(player, punchSettings);
                 //Debug.Log("I hit: " + enemy.name);
             }
+
             //_playerAnimator.SetBool("RillaPunch", false);
             c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
         }
     }
+
     public void EnemyShoot()
     {
         if (c_attackCooldown == null)
         {
-            
-            Rigidbody bulletClone = (Rigidbody)Instantiate(shootingSettings._bullet, shootingSettings._shootPosition.position, shootingSettings._bullet.transform.rotation);
+            Rigidbody bulletClone = (Rigidbody) Instantiate(shootingSettings._bullet,
+                shootingSettings._shootPosition.position, shootingSettings._bullet.transform.rotation);
             bulletClone.GetComponent<SendTriggerInfo>()._base = this;
 
             bulletClone.velocity = transform.forward * shootingSettings.bulletSpeed;
-            
+
             c_attackCooldown = StartCoroutine(AttackCooldown(shootingSettings._attackCooldown));
         }
     }
@@ -66,72 +72,112 @@ public class EnemyAttacks : BaseAttack
         yield return new WaitForSeconds(resetTime);
         c_attackCooldown = null;
     }
-	#region TriggerData
-	public override void CustomTriggerEnter(Collider other, int id)
-	{
-		switch (id)
-		{
-			case 1:
+
+    private void CallEntityHit(GameObject player, AttackSettings settings)
+    {
+        player.GetComponent<Attackable>().EntitiyHit(settings);
+    }
+
+    private RaycastHit hit;
+    private Vector3 targetingOrigin;
+    
+    public bool IsPlayerInView(Transform player, NPC npc)
+    {
+        targetingOrigin = transform.position + Vector3.up * 3f;
+        Vector3 direction = player.position - transform.position;
+        string[] targetLayers = shootingSettings._bullet.GetComponent<SendTriggerInfo>().Targets.ToArray();
+        LayerMask hitLayers = LayerMask.GetMask(targetLayers);
+        
+        bool playerInView = false;
+        if (Physics.Raycast(targetingOrigin, direction, out  hit, npc.lookRadius, hitLayers))
+        {
+            playerInView = hit.collider.gameObject.layer == LayerMask.NameToLayer("Player");
+
+            //Debug.Log("Object Name: " + hit.collider.name
+            //                          + "Hit Layer: " + LayerMask.LayerToName(hit.collider.gameObject.layer));
+        }
+
+        return playerInView;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (hit.transform != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(targetingOrigin, hit.point);
+        }
+    }
+
+    #region TriggerData
+
+    public override void CustomTriggerEnter(Collider other, int id)
+    {
+        switch (id)
+        {
+            case 1:
                 _hashEnemyPunch.Add(other.gameObject);
-				break;
+                break;
             case 2:
                 _hashEnemyShoot.Add(other.gameObject);
                 break;
-			default:
-				Debug.Log("Something whent wrong in CustomTriggerEnter!");
-				break;
-		}
+            default:
+                Debug.Log("Something whent wrong in CustomTriggerEnter!");
+                break;
+        }
+    }
 
-	}
-	public override void CustomTriggerExit(Collider other, int id)
-	{
-		switch (id)
-		{
-			case 1:
+    public override void CustomTriggerExit(Collider other, int id)
+    {
+        switch (id)
+        {
+            case 1:
                 _hashEnemyPunch.Remove(other.gameObject);
-				break;
+                break;
             case 2:
                 _hashEnemyShoot.Remove(other.gameObject);
                 break;
-			default:
-				Debug.Log("Something whent wrong in CustomTriggerExit!");
-				break;
-		}
-	}
-	public override void CustomTriggerStay(Collider other, int id)
-	{
-		switch (id)
-		{
-			case 1:
-				if (!_hashEnemyPunch.Contains(other.gameObject))
-				{
+            default:
+                Debug.Log("Something whent wrong in CustomTriggerExit!");
+                break;
+        }
+    }
+
+    public override void CustomTriggerStay(Collider other, int id)
+    {
+        switch (id)
+        {
+            case 1:
+                if (!_hashEnemyPunch.Contains(other.gameObject))
+                {
                     _hashEnemyPunch.Add(other.gameObject);
-				}
-				break;
+                }
+
+                break;
             case 2:
                 if (!_hashEnemyShoot.Contains(other.gameObject))
                 {
                     _hashEnemyShoot.Add(other.gameObject);
                 }
+
                 break;
-			default:
-				break;
-		}
-	}
-	#endregion
-	private void CallEntityHit(GameObject player, AttackSettings settings)
-    {
-        player.GetComponent<Attackable>().EntitiyHit(settings);
+            default:
+                break;
+        }
     }
 
+    #endregion
 }
+
 #region Settings Structs
+
 namespace Attacks.Enemy
 {
     [System.Serializable]
     public class EnemyPunchSettings : AttackSettings
     {
     }
+
     [System.Serializable]
     public class EnemyShootinghSettings : AttackSettings
     {
@@ -140,6 +186,5 @@ namespace Attacks.Enemy
         public Transform _shootPosition;
     }
 }
+
 #endregion
-
-
