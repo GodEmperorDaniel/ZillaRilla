@@ -1725,15 +1725,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 191052409}
   punchSettings:
+    playerIndex: 0
     _attackDamage: 10
     _attackHitbox: {fileID: 70674030}
     _attackCooldown: 0.3
     _settingType: 0
+    _knockbackStrength: 0
+    _knockbackTime: 0
   slamSettings:
+    playerIndex: 0
     _attackDamage: 5
     _attackHitbox: {fileID: 197583548}
     _attackCooldown: 1
     _settingType: 1
+    _knockbackStrength: 0
+    _knockbackTime: 0
     _stun: 1
     _knockBack: 0
     _knockBackRange: 0
@@ -1858,22 +1864,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 191052407}
         m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
-        m_MethodName: OnAttack3Input
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 226b6c67-186b-4edd-83fc-7f4d64c5f294
-    m_ActionName: Player/Attack3[/XInputControllerWindows/buttonNorth,/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 191052407}
-        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
         m_MethodName: OnJumpInput
         m_Mode: 0
         m_Arguments:
@@ -1962,6 +1952,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 56f72e34-317d-4c87-ae7c-4a4ccb65f7c5
     m_ActionName: Player/Quit[/DualShock4GamepadHID/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 191052407}
+        m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4e1464dd-4805-4272-af6d-0bd910d117fb
+    m_ActionName: Player/Heal[/XInputControllerWindows/buttonNorth,/DualShock4GamepadHID/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -1981,7 +1987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 191052406}
   _playerAnimator: {fileID: 191052409}
-  _playerInput: {fileID: 0}
+  _useJumpInput: 0
+  _useJumpAsRevive: 1
   _character: 1
 --- !u!143 &191052404
 CharacterController:
@@ -2052,6 +2059,10 @@ MonoBehaviour:
   _currentHealth: 20
   _animator: {fileID: 0}
   _iFrames: 1
+  _playerSettings:
+    _timeToRevive: 2
+    _timeUntilDeath: 10
+    _isReviving: 0
 --- !u!1 &9098914504425870452
 GameObject:
   m_ObjectHideFlags: 0

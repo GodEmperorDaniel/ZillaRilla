@@ -10,7 +10,7 @@ public class FillableBar : MonoBehaviour
 {
     //[HideInInspector]
     public float fillAmount;
-    
+    [SerializeField] private Image frame;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image fillImage;
     
@@ -26,5 +26,9 @@ public class FillableBar : MonoBehaviour
             float actualPercent = fillAmount * 100;
             percentText.text = actualPercent + "%";
         }
+    }
+    public void ChangeFrame(Sprite newSprite)
+    {
+        frame.sprite = newSprite;
     }
 }

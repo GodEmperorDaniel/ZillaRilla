@@ -8,9 +8,9 @@ public class RillaAttacks : BaseAttack
 {
 	[SerializeField] private Animator _playerAnimator;
 
-	[SerializeField] private RillaPunchSettings punchSettings;
+	[SerializeField] public RillaPunchSettings punchSettings;
 
-	[SerializeField] private RillaSlamSettings slamSettings;
+	[SerializeField] public RillaSlamSettings slamSettings;
 
 	private List<GameObject> _listPunch = new List<GameObject>();
 	private List<GameObject> _listSlam = new List<GameObject>();

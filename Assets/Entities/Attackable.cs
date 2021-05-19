@@ -10,6 +10,7 @@ using UnityEngine;
 public class Attackable : MonoBehaviour
 {
 	[SerializeField] private float _maxHealth;
+	[ContextMenuItem("Revive Player", "QuickRevivePlayer")]
 	[SerializeField] private float _currentHealth;
 	
 	[SerializeField] private Animator _animator;
@@ -118,7 +119,7 @@ public class Attackable : MonoBehaviour
 			}
 			else
 			{
-				_currentHealth -= settings._attackDamage;
+				_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			}
 			//Debug.Log("RemovedHealth");
 			switch (settings.playerIndex)
@@ -154,7 +155,7 @@ public class Attackable : MonoBehaviour
 				else
 				{
 					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
-					_currentHealth -= settings._attackDamage;
+					_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 					_fsm.EnterState(FSMStateType.IDLE);
 				}
 				UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
@@ -165,19 +166,37 @@ public class Attackable : MonoBehaviour
 		else if (c_invincible == null && player != null)
 		{
 			//Debug.Log(" THIS ENEMYS GOT HANDS"); 
-			_currentHealth -= settings._attackDamage;
+			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
 		else if (_currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
 		{
 			Debug.Log("Destructible Damaged for " + settings._attackDamage + "HP");
-			_currentHealth -= settings._attackDamage;
+			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			if (_currentHealth <= 0.0f)
 			{
 				SendMessage("BuildingDestruction");
 			}
 		}
     }
+	private void QuickRevivePlayer()
+	{
+		PlayerManager.Instance.QuickRevivePlayer(this);
+	}
+    private IEnumerator InvincibilityFrames()
+	{
+		yield return new WaitForSeconds(_iFrames);
+		c_invincible = null;
+	}
+	#region Heal
+	/// <summary>
+	/// Primarily used to heal the player, but will heal whatever entity it's this script is attached to
+	/// </summary>
+	/// <param name="healAmount"> Amount of health recovered </param>
+	public void HealPlayer(float healAmount)
+	{
+		_currentHealth += healAmount;
+	}
 	public void ResetHealth(float healthResetPercent = 0)
 	{
 		if (healthResetPercent == 0)
@@ -188,12 +207,9 @@ public class Attackable : MonoBehaviour
 		//Debug.Log("reseting health");
 		_currentHealth = healthResetPercent * _maxHealth;
 	}
-    private IEnumerator InvincibilityFrames()
-	{
-		yield return new WaitForSeconds(_iFrames);
-		c_invincible = null;
-	}
+	#endregion
 }
+
 namespace Player.Settings
 {
 	[Serializable]

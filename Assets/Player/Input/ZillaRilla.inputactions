@@ -46,14 +46,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Attack3",
-                    "type": "Button",
-                    "id": "226b6c67-186b-4edd-83fc-7f4d64c5f294",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Jump",
                     "type": "PassThrough",
                     "id": "4ee5a6e3-9a4b-495d-91d1-702caac555df",
@@ -73,6 +65,14 @@
                     "name": "Quit",
                     "type": "Button",
                     "id": "56f72e34-317d-4c87-ae7c-4a4ccb65f7c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Heal",
+                    "type": "Button",
+                    "id": "4e1464dd-4805-4272-af6d-0bd910d117fb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -267,28 +267,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "27f9b37a-506b-46ce-bfe4-ddc10c1af3fc",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Attack3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d0ab612c-937f-43ba-bbd7-c89579cfcd81",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Attack3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Arrow Keys",
                     "id": "2e21f73f-84c3-456e-b7bf-e790e20347c3",
                     "path": "2DVector",
@@ -406,6 +384,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e55b6d47-336c-4507-9b19-a39a017c66cd",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Heal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

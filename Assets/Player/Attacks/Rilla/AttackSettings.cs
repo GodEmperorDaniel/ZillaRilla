@@ -7,6 +7,7 @@ public class AttackSettings
 	[HideInInspector]
 	public int playerIndex;
 	public float _attackDamage;
+	public float _damageMultiplier = 1;
 	public GameObject _attackHitbox;
 	public float _attackCooldown;
 	public enum SettingType
