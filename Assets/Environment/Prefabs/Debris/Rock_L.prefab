@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1417959146}
   - component: {fileID: 4927328541536378519}
   m_Layer: 0
-  m_Name: Rock_L_Object
+  m_Name: Rock_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3876024990122904387}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2dca99d9a6e4d44398fd98aa0363b32, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -105,8 +105,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3876024990122904387}
   serializedVersion: 2
-  m_Mass: 20
-  m_Drag: 0
+  m_Mass: 30
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
