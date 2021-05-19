@@ -66,8 +66,9 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         private void CheckForTarget()
         {
-            if (_npc.Destiantion() <= _npc.lookRadius)
+            if (_npc.ClosestPlayerDistance(out Transform target) <= _npc.lookRadius)
             {
+                _npc.PlayerTransform = target;
                 if (_npc.enemyType == EnemyType.SPAWNER)
                 {
                     _fsm.EnterState(FSMStateType.FLEE);

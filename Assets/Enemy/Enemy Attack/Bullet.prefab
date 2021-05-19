@@ -130,6 +130,9 @@ MonoBehaviour:
   _ID: 2
   _targets:
   - Player
+  - Terrain
+  - House
+  - Destructible
 --- !u!114 &5323017550646587021
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,12 @@ public class SendTriggerInfo : MonoBehaviour
     [SerializeField] private int _ID;
     [SerializeField] private List<string> _targets;
 
+    public List<string> Targets
+    {
+        get => _targets;
+        private set => _targets = value;
+    }
+
     private void Awake()
     {
 

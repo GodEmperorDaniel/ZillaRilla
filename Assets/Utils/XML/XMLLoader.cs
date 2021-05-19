@@ -24,14 +24,6 @@ public static class XMLLoader
         return xmlElements;
     }
 
-    public static List<string> GetXMLStrings(string fileName)
-    {
-        List<string> stringList = new List<string>();
-
-
-        return stringList;
-    }
-
     public static Dictionary<string, string> GetXMLDictionary(string fileName)
     {
         Dictionary<string, string> dictionary = new Dictionary<string, string>();

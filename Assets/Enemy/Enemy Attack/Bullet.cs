@@ -1,14 +1,20 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     public float _destoryTime;
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject, _destoryTime);
+        if (LayerMask.LayerToName(other.gameObject.layer) == "Player" || LayerMask.LayerToName(other.gameObject.layer) == "House")
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject, _destoryTime);
+        }
     }
 
 }

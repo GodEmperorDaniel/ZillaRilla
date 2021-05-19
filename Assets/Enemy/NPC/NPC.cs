@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,11 +17,15 @@ public enum EnemyType
     SPAWNER,
     BOSS,
 };
+
 namespace Assets.Enemy.NPCCode
 {
     [RequireComponent(typeof(NavMeshAgent), typeof(FiniteStateMachine), typeof(Transform))]
-    public class NPC: MonoBehaviour
+    public class NPC : MonoBehaviour
     {
+        //TODO: Ranged Enemy approaching player when no line of sight
+        //TODO: If there is another player in range prioritize the one it can shoot
+
         NavMeshAgent _navMeshAgent;
         private FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;
@@ -34,31 +39,37 @@ namespace Assets.Enemy.NPCCode
         public float lookRadius = 10f;
         public float attackRadius = 5f;
         public float deSpawnTime = 1;
+        private LayerMask _coveringLayers;
 
         public Animator _playerAnimator;
+        
 
         //public RillaPunchSettings punchSettings;
+
         public void Awake()
         {
-            _navMeshAgent = this.GetComponent<NavMeshAgent>();
-            _finiteStateMachine = this.GetComponent<FiniteStateMachine>();
-            _enemyAttacks = this.GetComponent<EnemyAttacks>();
-            enemyTransform = this.gameObject.transform;
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _finiteStateMachine = GetComponent<FiniteStateMachine>();
+            _enemyAttacks = GetComponent<EnemyAttacks>();
+            enemyTransform = gameObject.transform;
         }
+
         public void Update()
         {
             if (_playerList[0] == null)
-            { 
+            {
                 SetPlayerReferences();
             }
             //SetChaseTarget();
         }
+
         private void SetPlayerReferences()
         {
             //Debug.Log(GameManager.Instance._rilla.gameObject.name);
-            _playerList[0] = (GameManager.Instance._rilla.gameObject.transform);
-            _playerList[1] = (GameManager.Instance._zilla.gameObject.transform);
+            _playerList[0] = GameManager.Instance._rilla.gameObject.transform;
+            _playerList[1] = GameManager.Instance._zilla.gameObject.transform;
         }
+
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
@@ -67,37 +78,76 @@ namespace Assets.Enemy.NPCCode
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
-        public Transform PlayerTransform { get { return playerTransform;  } set { playerTransform = value; } }
 
-        public Transform ThisTransform { get { return enemyTransform; } set { enemyTransform = value;  } }
-        public FiniteStateMachine GetFiniteStateMachine { get { return _finiteStateMachine; } set { _finiteStateMachine = value; } }
-
-        public GameObject GetEnemyObject { get { return _enemyToSpawn; } }
-        public float Destiantion()
+        public float ClosestPlayerDistance(out Transform targetTransform)
         {
-
-            float saveDistance = 0.0f;
+            float playerDistance = 0.0f;
+            targetTransform = null;
             foreach (Transform player in _playerList)
             {
-                if (saveDistance > Vector3.Distance(player.position, transform.position) || saveDistance == 0)
+                if (playerDistance > Vector3.Distance(player.position, transform.position) || playerDistance == 0)
                 {
-                    saveDistance = Vector3.Distance(player.position, transform.position);
-                    PlayerTransform = player;
-                }   
+                    playerDistance = Vector3.Distance(player.position, transform.position);
+                    targetTransform = player;
+                }
             }
-            return saveDistance;
+
+            return playerDistance;
         }
-        public List<Transform> GetPlayerList {
-            get { return _playerList; }
+        
+        public float ClosestPlayerDistance()
+        {
+            float playerDistance = 0.0f;
+            foreach (Transform player in _playerList)
+            {
+                if (playerDistance > Vector3.Distance(player.position, transform.position) || playerDistance == 0)
+                {
+                    playerDistance = Vector3.Distance(player.position, transform.position);
+                }
+            }
+
+            return playerDistance;
         }
-        public EnemyAttacks GetEnemyAttack {
-            get { return _enemyAttacks; }
-        }
+
         public void FaceTarget(Transform target)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
+        }
+
+        
+        public Transform PlayerTransform
+        {
+            get { return playerTransform; }
+            set { playerTransform = value; }
+        }
+
+        public Transform ThisTransform
+        {
+            get { return enemyTransform; }
+            set { enemyTransform = value; }
+        }
+
+        public FiniteStateMachine GetFiniteStateMachine
+        {
+            get { return _finiteStateMachine; }
+            set { _finiteStateMachine = value; }
+        }
+
+        public GameObject GetEnemyObject
+        {
+            get { return _enemyToSpawn; }
+        }
+
+        public List<Transform> GetPlayerList
+        {
+            get { return _playerList; }
+        }
+
+        public EnemyAttacks GetEnemyAttack
+        {
+            get { return _enemyAttacks; }
         }
     }
 }

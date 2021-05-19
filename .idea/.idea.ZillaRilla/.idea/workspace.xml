@@ -3,21 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/EnemyAttacks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/EnemyAttacks.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/AttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/ChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/ChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/FleeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/FleeState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/WanderState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/WanderState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DEV_BANA.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DEV_BANA.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DEV_BANA/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DEV_BANA/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DEV_BANA/NavMesh.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DEV_BANA/NavMesh.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader Scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader Scene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLTest.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8D3A4CBA-CDAE-45B3-84E0-E80B376938E1/76/54facd92/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/f9/222c96ed/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/7c/3a548426/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Devices/Keyboard.cs" root0="SKIP_HIGHLIGHTING" />
@@ -65,12 +66,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Player/CharacterInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManagerOld.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/LogStateCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/PauseGameCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/StartGameCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/ChaseCollider.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/StateMachine.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" />
@@ -89,7 +84,6 @@
       <option value="$PROJECT_DIR$/Assets/Objectives/Objective.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/GoalArea.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/WaveSpawnerGoal.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Goal.cs" />
@@ -103,7 +97,6 @@
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/Attacks/BaseAttack.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/Attacks/Zilla/ZillaAttacks.cs" />
@@ -113,9 +106,17 @@
       <option value="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/xml_text_test.xml" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/XML/ExampleLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/ChaseState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/FleeState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/WanderState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/AttackState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/EnemyAttacks.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Attack/Bullet.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -145,10 +146,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21952">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12204">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21952" />
+      <option name="pid" value="12204" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -208,6 +209,7 @@
       <workItem from="1620983261927" duration="5447000" />
       <workItem from="1620989120426" duration="321000" />
       <workItem from="1621244410856" duration="4225000" />
+      <workItem from="1621326367166" duration="21870000" />
     </task>
     <servers />
   </component>
@@ -232,9 +234,26 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Enemy/Finite State Machines/States/AttackState.cs</url>
+          <line>54</line>
+          <properties documentPath="C:\dev\Unity\ZillaRilla\Assets\Enemy\Finite State Machines\States\AttackState.cs" initialLine="50" containingFunctionPresentation="method 'UpdateState'">
+            <startOffsets>
+              <option value="1968" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2056" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
-        <watch expression="_animation" />
+        <watch expression="currentTarget.name" />
       </configuration>
     </watches-manager>
   </component>
