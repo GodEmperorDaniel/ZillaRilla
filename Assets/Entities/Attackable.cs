@@ -169,11 +169,10 @@ public class Attackable : MonoBehaviour
 			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
-		else if (c_invincible == null && _currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
+		else if (_currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
 		{
 			Debug.Log("Destructible Damaged for " + settings._attackDamage + "HP");
 			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
-			c_invincible = StartCoroutine(InvincibilityFrames());
 			if (_currentHealth <= 0.0f)
 			{
 				SendMessage("BuildingDestruction");
