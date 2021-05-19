@@ -40,7 +40,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
                //     _fsm.EnterState(FSMStateType.VULNERABLE);
                // }
                 _totalDuration += Time.deltaTime;
-                Debug.Log("UPDATING STUN STATE: "+ _totalDuration + " Seconds.");
+                //Debug.Log("UPDATING STUN STATE: "+ _totalDuration + " Seconds.");
                 //if (_totalDuration <= _npc._stunTime)
                 //{
                 //    Debug.Log("GOING IN TO THE VULNERABLE STATE");

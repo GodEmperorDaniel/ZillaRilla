@@ -2,27 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using Object = System.Object;
 
 public class UIManager : Manager<UIManager>
 {
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private InGameUI _inGameUI;
+
     [SerializeField] private HitIconSpawner _hitIconSpawner;
-    
+    private Camera _dummyCamera;
 
     public InGameUI InGameUI => _inGameUI;
 
     protected override void Awake()
     {
         base.Awake();
-        
+
+        _dummyCamera = GetComponentInChildren<Camera>();
+        _dummyCamera.gameObject.SetActive(false);
         _mainMenu.gameObject.SetActive(false);
         _pauseMenu.gameObject.SetActive(false);
     }
+
+    
 
     private void Start()
     {
@@ -33,7 +35,7 @@ public class UIManager : Manager<UIManager>
     {
         _pauseMenu.gameObject.SetActive(currentState == GameManager.GameState.PAUSED);
     }*/
-    
+
     public void UpdateObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
         _inGameUI.SetObjectiveOnUI(objectiveName, objectiveDescription);
@@ -48,6 +50,7 @@ public class UIManager : Manager<UIManager>
     {
         _inGameUI.SetZillaHealthOnUI(zillaHealth);
     }
+
     public void UpdateRillaHealthOnUI(float rillaHealth)
     {
         _inGameUI.SetRillaHealthOnUI(rillaHealth);
@@ -57,22 +60,45 @@ public class UIManager : Manager<UIManager>
     {
         _hitIconSpawner.SpawnHitIcon(position);
     }
-    
-    
 
-    private void ActivateMainMenuUI()
+
+    public void EnableInGameUI()
     {
-        
+        _inGameUI.gameObject.SetActive(true);
     }
-    
-    private void ActivatePauseMenuUI()
+
+    public void DisableInGameUI()
     {
-        
+        _inGameUI.gameObject.SetActive(false);
     }
-    
-    private void ActivateInGameUI()
+
+    public void EnablePauseUI()
     {
-        
+        _pauseMenu.gameObject.SetActive(true);
     }
-    
+
+    public void DisablePauseUI()
+    {
+        _pauseMenu.gameObject.SetActive(false);
+    }
+
+    public void EnableMainMenuUI()
+    {
+        _mainMenu.gameObject.SetActive(true);
+    }
+
+    public void DisableMainMenuUI()
+    {
+        _mainMenu.gameObject.SetActive(false);
+    }
+
+    public void EnableDummyCamera()
+    {
+        _dummyCamera.gameObject.SetActive(true);
+    }
+
+    public void DisableDummyCamera()
+    {
+        _dummyCamera.gameObject.SetActive(false);
+    }
 }

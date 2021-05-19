@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
+
+[Serializable]
 public class WaveSpawner : MonoBehaviour
 {
     public enum SpawnState
@@ -13,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
         WAITING,
         COUNTING
     }
-    
+
     [Serializable]
     public class Wave
     {
@@ -35,7 +37,9 @@ public class WaveSpawner : MonoBehaviour
 
     private SpawnState _state = SpawnState.COUNTING;
 
-    private void Start()
+    public bool WavesCompleted { get; private set; } = false;
+
+    private void OnEnable()
     {
         _enemies = new List<GameObject>();
         _waveCountdown = timeBetweenWaves;
@@ -44,11 +48,11 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         // Debug enemy kill button
-        //if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        //{
-        //    Destroy(_enemies[0]);
-        //}
-        
+        /*if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Destroy(_enemies[0]);
+        }*/
+
         if (_state == SpawnState.WAITING)
         {
             if (!EnemyIsAlive())
@@ -61,7 +65,7 @@ public class WaveSpawner : MonoBehaviour
                 return;
             }
         }
-        
+
         if (_waveCountdown <= 0)
         {
             if (_state != SpawnState.SPAWNING)
@@ -84,9 +88,10 @@ public class WaveSpawner : MonoBehaviour
 
         if (_activeWave + 1 > waves.Count - 1)
         {
-            _activeWave = 0;
-            Debug.Log("ALL WAVES COMPLETE! Looping...");
+            WavesCompleted = true;
+            Debug.Log("ALL WAVES COMPLETE!");
         }
+
         _activeWave++;
     }
 
@@ -124,19 +129,25 @@ public class WaveSpawner : MonoBehaviour
         }
 
         _state = SpawnState.WAITING;
-        
+
         yield break;
     }
 
     private void SpawnEnemy(GameObject enemy)
     {
         //Debug.Log("Spawning Enemy " + enemy.name);
-        
+
         if (spawnPoints.Length == 0)
         {
-            Debug.LogError("No spawn point referenced");
+            Transform defaultSpawnPoint = transform;
+            _enemies.Add(Instantiate(enemy, defaultSpawnPoint.position, defaultSpawnPoint.rotation, defaultSpawnPoint));
+
+            Debug.LogError("[" + name + "] Default Spawn Point Used");
         }
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        _enemies.Add(Instantiate(enemy, spawnPoint.position, spawnPoint.rotation, transform));
+        else
+        {
+            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            _enemies.Add(Instantiate(enemy, spawnPoint.position, spawnPoint.rotation, transform));
+        }
     }
 }

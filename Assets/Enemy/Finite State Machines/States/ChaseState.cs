@@ -60,6 +60,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             }
             else
             {
+                //_navMeshAgent.SetDestination(_npc.ThisTransform.position);
                 _fsm.EnterState(FSMStateType.IDLE);
             }
             return null;

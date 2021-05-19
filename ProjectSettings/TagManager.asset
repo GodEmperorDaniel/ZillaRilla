@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Destructible
   layers:
   - Default
   - TransparentFX
@@ -15,12 +16,12 @@ TagManager:
   - Enemy
   - Player
   - Objective
+  - Movable
+  - House
+  - Terrain
+  - Destructible
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Non-selectable
   - 
   - 
   - 

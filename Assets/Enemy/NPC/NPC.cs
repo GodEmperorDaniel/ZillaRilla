@@ -13,6 +13,7 @@ public enum EnemyType
 {
     MELEE,
     RANGE,
+    SPAWNER,
     BOSS,
 };
 namespace Assets.Enemy.NPCCode
@@ -21,12 +22,14 @@ namespace Assets.Enemy.NPCCode
     public class NPC: MonoBehaviour
     {
         NavMeshAgent _navMeshAgent;
-        FiniteStateMachine _finiteStateMachine;
+        private FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;
         public EnemyType enemyType;
-        [SerializeField] public List<Transform> _playerList = new List<Transform>(2);
+        public GameObject _enemyToSpawn;
+        public List<Transform> _playerList = new List<Transform>(2);
         [SerializeField] private float _rotationSpeed;
         private Transform playerTransform;
+        private Transform enemyTransform;
         public float _stunTime = 3f;
         public float lookRadius = 10f;
         public float attackRadius = 5f;
@@ -35,27 +38,22 @@ namespace Assets.Enemy.NPCCode
         public Animator _playerAnimator;
 
         //public RillaPunchSettings punchSettings;
-
-
         public void Awake()
         {
             _navMeshAgent = this.GetComponent<NavMeshAgent>();
             _finiteStateMachine = this.GetComponent<FiniteStateMachine>();
             _enemyAttacks = this.GetComponent<EnemyAttacks>();
-        }
-        public void Start()
-        {
-            
+            enemyTransform = this.gameObject.transform;
         }
         public void Update()
         {
             if (_playerList[0] == null)
             { 
-                setPlayerReferences();
+                SetPlayerReferences();
             }
             //SetChaseTarget();
         }
-        private void setPlayerReferences()
+        private void SetPlayerReferences()
         {
             //Debug.Log(GameManager.Instance._rilla.gameObject.name);
             _playerList[0] = (GameManager.Instance._rilla.gameObject.transform);
@@ -70,6 +68,11 @@ namespace Assets.Enemy.NPCCode
             Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
         public Transform PlayerTransform { get { return playerTransform;  } set { playerTransform = value; } }
+
+        public Transform ThisTransform { get { return enemyTransform; } set { enemyTransform = value;  } }
+        public FiniteStateMachine GetFiniteStateMachine { get { return _finiteStateMachine; } set { _finiteStateMachine = value; } }
+
+        public GameObject GetEnemyObject { get { return _enemyToSpawn; } }
         public float Destiantion()
         {
 
@@ -87,12 +90,12 @@ namespace Assets.Enemy.NPCCode
         public List<Transform> GetPlayerList {
             get { return _playerList; }
         }
-        public EnemyAttacks getEnemyAttack {
+        public EnemyAttacks GetEnemyAttack {
             get { return _enemyAttacks; }
         }
-        public void FaceTarget(Transform player)
+        public void FaceTarget(Transform target)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
+            Vector3 direction = (target.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
         }

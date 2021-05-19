@@ -7,13 +7,15 @@ namespace Player.Scrips
 {
     using Entities.Scripts;
     using Entities.Commands;
-    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput
+    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput, IReviveInput
     {
         [SerializeField] private Command _moveInput;
 
         //[SerializeField] private PlayerInputActions _inputsActions;
         [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")]
         [SerializeField] private Animator _playerAnimator;
+        [SerializeField] private bool _useJumpInput;
+        [SerializeField] private bool _useJumpAsRevive = true;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
         public enum character
@@ -23,9 +25,11 @@ namespace Player.Scrips
 
         [SerializeField] private character _character;
         private bool _attack1Pressed;
+        private bool _rillaLeftPunch;
 
         public bool JumpButtonPressed { get; set; }
         public bool LazorButtonPressed { get; set; }
+        public bool ReviveInputIsPressed{ get; set; }
 
         private void Awake()
         {
@@ -37,20 +41,27 @@ namespace Player.Scrips
             PlayerInput playerInput = GetComponent<PlayerInput>();
         }
 
-		#region Attacks
-		public void OnAttack1Input(InputAction.CallbackContext c)
+        #region Attacks
+        public void OnAttack1Input(InputAction.CallbackContext c)
         {
             _attack1Pressed = c.ReadValueAsButton();
             //Debug.Log(_attack1Pressed);
             switch (_character)
             {
                 case character.ZILLA:
-                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor") && _attack1Pressed)
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") && _attack1Pressed)
                         _playerAnimator.SetBool("ZillaTail", true);
                     break;
                 case character.RILLA:
-                    if(!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") && _attack1Pressed)
+                    if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") && _attack1Pressed)
+                    {
+                        _rillaLeftPunch = !_rillaLeftPunch;
                         _playerAnimator.SetBool("RillaPunch", true);
+                        if (_rillaLeftPunch)
+                            _playerAnimator.SetBool("Rilla_Left_Punch", true);
+                        else
+                            _playerAnimator.SetBool("Rilla_Right_Punch", true);
+                    }
                     break;
                 default:
                     break;
@@ -63,7 +74,7 @@ namespace Player.Scrips
             {
                 case character.ZILLA:
                     LazorButtonPressed = value;
-                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazor"))
+                    if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") && LazorButtonPressed)
                     { 
                         _playerAnimator.SetBool("ZillaLazorWindup", true);
                         //_playerAnimator.SetBool("ZillaLazor", true);
@@ -94,16 +105,23 @@ namespace Player.Scrips
         {
             Vector2 value = c.ReadValue<Vector2>();
             RotationDirection = new Vector3(value.x, 0, value.y);
-            _moveInput.Execute();
+            if(_moveInput.isActiveAndEnabled)
+                _moveInput.Execute();
         }
-		#endregion
-
-		public void OnJumpInput(InputAction.CallbackContext c)
+        #endregion
+        public void OnJumpInput(InputAction.CallbackContext c)
         {
             float value = c.ReadValue<float>();
-            _playerAnimator.SetBool("Jump", true);
-            JumpButtonPressed = value == 1 ? true : false;
-           //_moveInput.Execute();
+            if (_useJumpInput)
+            {
+                _playerAnimator.SetBool("Jump", true); //dessa två rader kan nog skapa problem
+                JumpButtonPressed = value == 1 ? true : false;
+                //_moveInput.Execute();
+            }
+            if (_useJumpAsRevive)
+            { 
+                ReviveInputIsPressed = value == 1 ? true : false;
+            }
         }
         public void Quit()
         {
@@ -114,20 +132,23 @@ namespace Player.Scrips
         {
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
-            _moveInput.Execute();
+            if(_moveInput.isActiveAndEnabled)
+                _moveInput.Execute();
         }
 
         public void OnAnalogMove(InputAction.CallbackContext c)
         {
+            
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
-            _moveInput.Execute();
+            if(_moveInput.isActiveAndEnabled)
+                _moveInput.Execute();
         }
         #endregion
         public character GetCharacter()
         {
             return _character;
-        }
+        }  
 	}
 }
 

@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLTest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLTest.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,42 +37,35 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Devices/Keyboard.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/d2/cb5a07c1/ILogger.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Objectives/Objective.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/f4/57abf09a/Debug.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EAE584CE-26BC-4022-9C1B-1AA476BFA589/75/432f9edb/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.4.0/Runtime/Debugging/DebugManager.Actions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EAE584CE-26BC-4022-9C1B-1AA476BFA589/64/4ffd4bf0/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.4/Scripts/Runtime/TMP_PackageResourceImporter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A9EF27D6-0E31-4451-9C07-41B6584BA229/e3/39d71fd1/XDocument.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Layout/ContentSizeFitter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Objectives/ObjectiveArea.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/wrapping-up/07/demos/Swords and Shovels Progamming Closing the Loop/Assets/3. Game Manager/Scripts/Menu/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game Manager/GameStates.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8D3A4CBA-CDAE-45B3-84E0-E80B376938E1/76/54facd92/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/f9/222c96ed/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/7c/3a548426/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Devices/Keyboard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EAE584CE-26BC-4022-9C1B-1AA476BFA589/f9/bfe202ac/Environment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.4/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.4.0/Runtime/Debugging/DebugManager.Actions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A9EF27D6-0E31-4451-9C07-41B6584BA229/e4/9a22904c/XObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/ac/cc8fce28/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/Unit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/45/928dc1f0/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game Manager/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Environment/Scripts/SmokeLauncher.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/UI/StartGameCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/ILogState.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/LogStateCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/IStartGameInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/StartGameCommand.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/IStartGameInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/SpinningCubeTest.cs" />
-      <option value="$PROJECT_DIR$/Assets/Utils/Singleton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Utils/Manager.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Utils/ZRDebug.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/CharacterInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/GameManagerOld.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/LogStateCommand.cs" />
@@ -75,17 +81,41 @@
       <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectivesUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/HealthBar.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/FillableBar.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/ObjectiveUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/UITester.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/LevelManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Objectives/ObjectiveArea.cs" />
       <option value="$PROJECT_DIR$/Assets/Objectives/Objective.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/GoalArea.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/WaveSpawnerGoal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/Goal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/AreaGoal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/GoalManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/Scripts/HitIconSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/SendTriggerInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/BaseAttack.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/Zilla/ZillaAttacks.cs" />
+      <option value="$PROJECT_DIR$/Assets/Player/Attacks/Rilla/RillaAttacks.cs" />
+      <option value="$PROJECT_DIR$/Assets/Entities/Attackable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Environment/Scripts/SmokeLauncher.cs" />
+      <option value="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/xml_text_test.xml" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/ExampleLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -96,12 +126,12 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -115,10 +145,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13680">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21952">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="13680" />
+      <option name="pid" value="21952" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -157,6 +187,27 @@
       <workItem from="1619425714146" duration="980000" />
       <workItem from="1619426959918" duration="1494000" />
       <workItem from="1619690334494" duration="10570000" />
+      <workItem from="1619773169665" duration="13106000" />
+      <workItem from="1620033805218" duration="66000" />
+      <workItem from="1620033891559" duration="796000" />
+      <workItem from="1620120220989" duration="13014000" />
+      <workItem from="1620204111825" duration="7096000" />
+      <workItem from="1620221057227" duration="5429000" />
+      <workItem from="1620290368492" duration="18129000" />
+      <workItem from="1620376411461" duration="10217000" />
+      <workItem from="1620656285028" duration="151000" />
+      <workItem from="1620656791901" duration="2068000" />
+      <workItem from="1620658939439" duration="127000" />
+      <workItem from="1620659084904" duration="99000" />
+      <workItem from="1620660107021" duration="68000" />
+      <workItem from="1620723176068" duration="9965000" />
+      <workItem from="1620737084571" duration="284000" />
+      <workItem from="1620737692409" duration="5031000" />
+      <workItem from="1620744474847" duration="1064000" />
+      <workItem from="1620813165865" duration="12500000" />
+      <workItem from="1620983261927" duration="5447000" />
+      <workItem from="1620989120426" duration="321000" />
+      <workItem from="1621244410856" duration="4225000" />
     </task>
     <servers />
   </component>
@@ -179,6 +230,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
+        <watch expression="_animation" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

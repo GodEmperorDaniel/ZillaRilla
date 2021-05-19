@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class SpinningCubeTest : MonoBehaviour
 {
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         NudgeCube();
     }
 
@@ -24,7 +24,7 @@ public class SpinningCubeTest : MonoBehaviour
 
     private void NudgeCube()
     {
-        rigidbody.AddForceAtPosition(new Vector3(3, 0, 0), new Vector3(0, 0, 1));
+        rb.AddForceAtPosition(new Vector3(3, 0, 0), new Vector3(0, 0, 1));
     }
 
 
