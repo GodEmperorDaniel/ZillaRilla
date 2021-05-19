@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class DestructableBuilding : MonoBehaviour
 {
-    private Attackable _attackable;
+    private Attackable _attackable; //to check health?
     private Animation _animation;
     [SerializeField] private ParticleSystem _smokePrefab;
     [SerializeField] private GameObject _rubblePrefab;
@@ -15,7 +15,7 @@ public class DestructableBuilding : MonoBehaviour
     public float smokeLifetime = 5.0f;
     public float collapseDelay = 1.0f;
     
-    [SerializeField] private Mesh _rubbleMesh;
+    //[SerializeField] private Mesh _rubbleMesh; //unused prob?
 
     [HideInInspector] public bool isRubble = false;
 
@@ -27,19 +27,19 @@ public class DestructableBuilding : MonoBehaviour
         TryGetComponent(out _animation);
     }
 
-    private void Update()
-    {
-        if (Keyboard.current.numpad1Key.wasPressedThisFrame)
-        {
-            StartCoroutine(BuildingDestruction());
-        }
+    //private void Update()
+    //{
+    //    if (Keyboard.current.numpad1Key.wasPressedThisFrame)
+    //    {
+    //        StartCoroutine(BuildingDestruction());
+    //    }
 
-        StartCoroutine(SmokeTimer());
-    }
+    //    StartCoroutine(SmokeTimer());
+    //}
 
     private IEnumerator SmokeTimer()
     {
-        if (_smokeParticleSystems.Count <= 0) yield return null;
+        if (_smokeParticleSystems.Count <= 0) yield return null; //what is this suppose to do? / Jonte
 
         yield return new WaitForSeconds(smokeLifetime);
         
@@ -81,5 +81,6 @@ public class DestructableBuilding : MonoBehaviour
 
             _smokeParticleSystems.Add(pSystem);
         }
+        StartCoroutine(SmokeTimer()); //blir lite mindre corutine calls på detta sättet tänker jag? eller missar jag något kanske
     }
 }
