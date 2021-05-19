@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
@@ -27,12 +28,14 @@ public class NewsBanner : MonoBehaviour
     public float bannerActivationSpeed;
     public bool debugMode = false;
 
-    public List<string> newsTexts;
+    private Dictionary<string, string> _xmlNewsText;
 
     
     // UNITY METHODS
     private void Start()
     {
+        _xmlNewsText = XMLLoader.GetXMLDictionary("xml_text_test.xml");
+        
         _animation = GetComponent<Animation>();
         _textTransform = _newsText.GetComponent<RectTransform>();
     }
@@ -45,22 +48,28 @@ public class NewsBanner : MonoBehaviour
         }
     
         // DEBUG
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && debugMode)
+        if (Keyboard.current.numpad1Key.wasPressedThisFrame && debugMode)
         {
-            Debug.Log("SPACE!!");
+            Debug.Log("Text 1");
+            if (!_bannerIsUp) ActivateBanner(0);
+        }
+        else if (Keyboard.current.numpad2Key.wasPressedThisFrame && debugMode)
+        {
+            Debug.Log("text 2");
             if (!_bannerIsUp) ActivateBanner(1);
         }
+        else if (Keyboard.current.numpad3Key.wasPressedThisFrame && debugMode)
+        {
+            Debug.Log("Text 3");
+            if (!_bannerIsUp) ActivateBanner(2);
+        }
+        
     }
 
     // PUBLIC METHODS
     public void ActivateBanner(int textIndex)
     {
-        if (textIndex >= newsTexts.Count)
-        {
-            Debug.LogError("Index outside of List");
-            return;
-        }
-        StartCoroutine(InitializeText(newsTexts[textIndex]));
+        StartCoroutine(InitializeText(_xmlNewsText.ElementAt(textIndex).Value));
         _animation.Play("NewsBannerUp");
     }
 
@@ -116,6 +125,7 @@ public class NewsBanner : MonoBehaviour
         if (_currentLoop == textLoops)
         {
             _textIsScrolling = false;
+            _currentLoop = 0;
             TextScrollCompleted();
             return;
         }

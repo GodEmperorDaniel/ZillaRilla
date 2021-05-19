@@ -10,6 +10,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
     [CreateAssetMenu(fileName ="IdleState", menuName ="ZillaRilla/States/Idle", order =1)]
     public class IdleState : AbstractFSMState
     {
+        private bool _isWanderStateActive = false;
         public override void OnEnable()
         {
             
@@ -23,8 +24,15 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             if (EnteredState)
             {
+                foreach (AbstractFSMState state in _npc.GetFiniteStateMachine._validState)
+                {
+                    if (state.StateType == FSMStateType.WANDER)
+                    {
+                        _isWanderStateActive = true;
+                    }
+                }
                 //Debug.Log("ENTERED IDLE STATE");
-                
+
             }
             return EnteredState;
            
@@ -34,7 +42,10 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
-                _fsm.EnterState(FSMStateType.WANDER);
+                if (_isWanderStateActive)
+                {
+                    _fsm.EnterState(FSMStateType.WANDER);
+                }
             }
         }
 

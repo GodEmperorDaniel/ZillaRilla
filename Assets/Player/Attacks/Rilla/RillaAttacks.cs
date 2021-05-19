@@ -17,6 +17,8 @@ public class RillaAttacks : BaseAttack
 	private Coroutine c_attackCooldown;
 	private void Awake()
 	{
+		punchSettings.playerIndex = 1;
+		slamSettings.playerIndex = 1;
 		if (_playerAnimator == null)
 		{
 			Debug.LogWarning("No animator is set in " + gameObject.name + ", getting it through code");
@@ -26,22 +28,22 @@ public class RillaAttacks : BaseAttack
 	#region Attacks
 	public void RillaPunch()
 	{
-		if (c_attackCooldown == null)
+		if (c_attackCooldown != null) return;
+		
+		for (int i = 0; i < _listPunch.Count; i++)
 		{
-			for (int i = 0; i < _listPunch.Count; i++)
+			if (_listPunch[i] == null) continue; 
+			
+			if (_listPunch[i].layer == LayerMask.NameToLayer("Enemy"))
+				CallEntityHit(_listPunch[i], punchSettings);
+			else if (_listPunch[i].layer == LayerMask.NameToLayer("Destructible"))
+				CallEntityHit(_listPunch[i], punchSettings);
+			else
 			{
-				if (_listPunch[i] != null)
-				{
-					if (_listPunch[i].layer == LayerMask.NameToLayer("Enemy"))
-						CallEntityHit(_listPunch[i], punchSettings);
-					else
-					{
-						AttackObject(_listPunch[i], (_listPunch[i].transform.position - transform.position).normalized);
-					}
-				}
+				ApplyForceToMovable(_listPunch[i], (_listPunch[i].transform.position - transform.position).normalized);
 			}
-			c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
 		}
+		c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
 	}
 
 	public void RillaGroundSlam()
@@ -54,9 +56,11 @@ public class RillaAttacks : BaseAttack
 				{
 					if (_listSlam[i].layer == LayerMask.NameToLayer("Enemy"))
 						CallEntityHit(_listSlam[i], slamSettings);
+					else if (_listSlam[i].layer == LayerMask.NameToLayer("Destructible"))
+						CallEntityHit(_listSlam[i], slamSettings);
 					else
 					{
-						AttackObject(_listSlam[i], (_listSlam[i].transform.position - transform.position).normalized);
+						ApplyForceToMovable(_listSlam[i], (_listSlam[i].transform.position - transform.position).normalized);
 					}
 				}
 			}
@@ -129,10 +133,11 @@ public class RillaAttacks : BaseAttack
 
 	private void CallEntityHit(GameObject enemy, AttackSettings settings)
 	{
+		//AddToComboMeter(1);
 		enemy.GetComponent<Attackable>().EntitiyHit(settings);
 	}
 
-	public override void RemoveFromPlayerList(GameObject enemy)
+	public override void RemoveFromPlayerList(GameObject enemy) //this can be removed and all its referenses!!
 	{
 		if (_listPunch.Contains(enemy))
 		{

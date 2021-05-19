@@ -30,11 +30,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
             {
                 if (_npc.enemyType == EnemyType.RANGE)
                 {
-                    _npc.getEnemyAttack.EnemyShoot();
+                    _npc.GetEnemyAttack.EnemyShoot();
                 }
                 else
                 {
-                    _npc.getEnemyAttack.EnemyPunch();
+                    _npc.GetEnemyAttack.EnemyPunch();
                 }
                 
                 _npc.FaceTarget(_npc.PlayerTransform);

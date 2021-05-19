@@ -15,7 +15,7 @@ namespace Assets.Enemy.Finite_State_Machines
         public AbstractFSMState _currentState;
 
         [SerializeField]
-        List<AbstractFSMState> _validState;
+        public List<AbstractFSMState> _validState;
         Dictionary<FSMStateType, AbstractFSMState> _fsmStates;
 
         public void Awake()

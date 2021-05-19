@@ -38,7 +38,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         public override bool ExitState()
         {
             base.ExitState();
-
+            
             Debug.Log("EXITING FLEE STATE");
             return true;
         }

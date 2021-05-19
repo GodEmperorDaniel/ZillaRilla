@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-
+//TODO: FIX STARTGAME SO YOU CAN INSERT AND START YOUR OWN SCENE INSTEAD OF ONLY DEV_BANA
 public class GameManager : Manager<GameManager>
 {
     public enum GameState
@@ -26,7 +26,7 @@ public class GameManager : Manager<GameManager>
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
     private Goal _currentObjective;
-    
+
     public Attackable _zilla;
     public Attackable _rilla;
 
@@ -43,6 +43,7 @@ public class GameManager : Manager<GameManager>
         _loadOperations = new List<AsyncOperation>();
 
         InstantiateSystemPrefabs();
+        
     }
 
     private void Start()
@@ -70,12 +71,12 @@ public class GameManager : Manager<GameManager>
             TogglePause();
         }
     }
-
-    // PUBLIC METHODS
-    /*Loads scene and the completed event calls the OnLoadComplete
+	#region LevelManagement
+	// PUBLIC METHODS
+	/*Loads scene and the completed event calls the OnLoadComplete
     method when the load operation is completed.
     Loading multiple scenes is possible*/
-    public void LoadLevel(string levelName)
+	public void LoadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
@@ -103,8 +104,8 @@ public class GameManager : Manager<GameManager>
 
         ao.completed += OnUnloadOperationComplete;
     }
-
-    public void UpdateObjective(Goal objective)
+	#endregion
+	public void UpdateObjective(Goal objective)
     {
         _currentObjective = objective;
         UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
@@ -157,8 +158,8 @@ public class GameManager : Manager<GameManager>
         ExitCurrentState();
         EnterNewState(state);
     }
-
-    private void ExitCurrentState()
+	#region StateManagement
+	private void ExitCurrentState()
     {
         switch (_currentGameState)
         {
@@ -241,8 +242,8 @@ public class GameManager : Manager<GameManager>
         
         Debug.Log("Entered state: " + state);
     }
-
-    private void InstantiateSystemPrefabs()
+	#endregion
+	private void InstantiateSystemPrefabs()
     {
         foreach (var go in _systemPrefab)
         {
@@ -275,13 +276,10 @@ public class GameManager : Manager<GameManager>
         _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
 
-    private void UpdateHealth()
-    {
-        //UIManager.Instance.UpdateHealthOnUI();
-    }
-
-
-
+    //private void UpdateHealth() its an unused private
+    //{
+    //    //UIManager.Instance.UpdateHealthOnUI();
+    //}
 
     // EVENT METHODS
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
@@ -295,9 +293,6 @@ public class GameManager : Manager<GameManager>
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
                 FindPlayerCharacters();
             }
-
-            
-
             // dispatch message
             // transition between scenes
         }

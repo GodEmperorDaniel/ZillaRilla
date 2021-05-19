@@ -8,7 +8,8 @@ using UnityEditor;
 
 public class FillableBar : MonoBehaviour
 {
-    [HideInInspector] public float fillAmount;
+    //[HideInInspector]
+    public float fillAmount;
     
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image fillImage;

@@ -7,13 +7,15 @@ namespace Player.Scrips
 {
     using Entities.Scripts;
     using Entities.Commands;
-    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput
+    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput, IReviveInput
     {
         [SerializeField] private Command _moveInput;
 
         //[SerializeField] private PlayerInputActions _inputsActions;
         [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")]
         [SerializeField] private Animator _playerAnimator;
+        [SerializeField] private bool _useJumpInput;
+        [SerializeField] private bool _useJumpAsRevive = true;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
         public enum character
@@ -27,6 +29,7 @@ namespace Player.Scrips
 
         public bool JumpButtonPressed { get; set; }
         public bool LazorButtonPressed { get; set; }
+        public bool ReviveInputIsPressed{ get; set; }
 
         private void Awake()
         {
@@ -105,14 +108,20 @@ namespace Player.Scrips
             if(_moveInput.isActiveAndEnabled)
                 _moveInput.Execute();
         }
-		#endregion
-
-		public void OnJumpInput(InputAction.CallbackContext c)
+        #endregion
+        public void OnJumpInput(InputAction.CallbackContext c)
         {
             float value = c.ReadValue<float>();
-            _playerAnimator.SetBool("Jump", true);
-            JumpButtonPressed = value == 1 ? true : false;
-           //_moveInput.Execute();
+            if (_useJumpInput)
+            {
+                _playerAnimator.SetBool("Jump", true); //dessa två rader kan nog skapa problem
+                JumpButtonPressed = value == 1 ? true : false;
+                //_moveInput.Execute();
+            }
+            if (_useJumpAsRevive)
+            { 
+                ReviveInputIsPressed = value == 1 ? true : false;
+            }
         }
         public void Quit()
         {
@@ -129,6 +138,7 @@ namespace Player.Scrips
 
         public void OnAnalogMove(InputAction.CallbackContext c)
         {
+            
             Vector2 value = c.ReadValue<Vector2>();
             MoveDirection = new Vector3(value.x, 0, value.y);
             if(_moveInput.isActiveAndEnabled)
