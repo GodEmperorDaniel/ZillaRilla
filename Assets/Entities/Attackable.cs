@@ -10,6 +10,7 @@ using UnityEngine;
 public class Attackable : MonoBehaviour
 {
 	[SerializeField] private float _maxHealth;
+	[ContextMenuItem("Revive Player", "QuickRevivePlayer")]
 	[SerializeField] private float _currentHealth;
 	
 	[SerializeField] private Animator _animator;
@@ -178,6 +179,24 @@ public class Attackable : MonoBehaviour
 			}
 		}
     }
+	private void QuickRevivePlayer()
+	{
+		PlayerManager.Instance.QuickRevivePlayer(this);
+	}
+    private IEnumerator InvincibilityFrames()
+	{
+		yield return new WaitForSeconds(_iFrames);
+		c_invincible = null;
+	}
+	#region Heal
+	/// <summary>
+	/// Primarily used to heal the player, but will heal whatever entity it's this script is attached to
+	/// </summary>
+	/// <param name="healAmount"> Amount of health recovered </param>
+	public void HealPlayer(float healAmount)
+	{
+		_currentHealth += healAmount;
+	}
 	public void ResetHealth(float healthResetPercent = 0)
 	{
 		if (healthResetPercent == 0)
@@ -188,12 +207,9 @@ public class Attackable : MonoBehaviour
 		//Debug.Log("reseting health");
 		_currentHealth = healthResetPercent * _maxHealth;
 	}
-    private IEnumerator InvincibilityFrames()
-	{
-		yield return new WaitForSeconds(_iFrames);
-		c_invincible = null;
-	}
+	#endregion
 }
+
 namespace Player.Settings
 {
 	[Serializable]

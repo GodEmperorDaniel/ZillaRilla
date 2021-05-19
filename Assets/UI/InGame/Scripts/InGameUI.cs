@@ -45,6 +45,15 @@ public class InGameUI : MonoBehaviour
     {
         _rillaHealthBar.fillAmount = health;
     }
+
+    public void ChangeZillaFrame(Sprite newSprite)
+    {
+        _zillaHealthBar.ChangeFrame(newSprite);
+    }
+    public void ChangeRillaFrame(Sprite newSprite)
+    {
+        _rillaHealthBar.ChangeFrame(newSprite);
+    }
 	#endregion
 	#region ProgressBar
 	public void DeactivateProgressBar()
