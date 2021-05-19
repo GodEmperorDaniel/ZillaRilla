@@ -10,9 +10,9 @@ public class ZillaAttacks : BaseAttack
     
     [SerializeField] private Animator _playerAnimator;
     
-    [SerializeField] private ZillaTailSettings tailSettings;
+    [SerializeField] public ZillaTailSettings tailSettings; 
 
-    [SerializeField] private ZillaLazorSettings lazorSettings;
+    [SerializeField] public ZillaLazorSettings lazorSettings;
 
     private IZillaLazorInput _lazorInput;
 

@@ -119,7 +119,7 @@ public class Attackable : MonoBehaviour
 			}
 			else
 			{
-				_currentHealth -= settings._attackDamage;
+				_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			}
 			//Debug.Log("RemovedHealth");
 			switch (settings.playerIndex)
@@ -155,7 +155,7 @@ public class Attackable : MonoBehaviour
 				else
 				{
 					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
-					_currentHealth -= settings._attackDamage;
+					_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 					_fsm.EnterState(FSMStateType.IDLE);
 				}
 				UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
@@ -166,13 +166,13 @@ public class Attackable : MonoBehaviour
 		else if (c_invincible == null && player != null)
 		{
 			//Debug.Log(" THIS ENEMYS GOT HANDS"); 
-			_currentHealth -= settings._attackDamage;
+			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
 		else if (_currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
 		{
 			Debug.Log("Destructible Damaged for " + settings._attackDamage + "HP");
-			_currentHealth -= settings._attackDamage;
+			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			if (_currentHealth <= 0.0f)
 			{
 				SendMessage("BuildingDestruction");

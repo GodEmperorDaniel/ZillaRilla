@@ -18,7 +18,8 @@ public class PlayerManager : Manager<PlayerManager>
     [SerializeField] private float _timeToLoseCombo = 3;
 
     [Range(0.1f, 1f)]
-    [SerializeField] private float _rageModeThreshhold = 1; 
+    [SerializeField] private float _rageModeThreshhold = 1;
+    [SerializeField] private float _newDamageMultiplier = 1.5f;
 
     private float _zillaMeterCounter = 0;
     [SerializeField] private Sprite _zillaRageFrame;
@@ -35,6 +36,9 @@ public class PlayerManager : Manager<PlayerManager>
     private Coroutine c_zillaComboTimer;
     private Coroutine c_rillaComboTimer;
 
+    private ZillaAttacks _zillaAttacks;
+    private RillaAttacks _rillaAttacks;
+
     [Header("Healing")]
     private IHealInput _zillaHealInput;
     private Coroutine c_zillaHealthDelay;
@@ -46,7 +50,10 @@ public class PlayerManager : Manager<PlayerManager>
     {
         _zillaHealInput = GameManager.Instance._zilla.GetComponent<IHealInput>();
         _rillaHealInput = GameManager.Instance._rilla.GetComponent<IHealInput>();
+        _zillaAttacks = GameManager.Instance._zilla.GetComponent<ZillaAttacks>();
+        _rillaAttacks = GameManager.Instance._rilla.GetComponent<RillaAttacks>();
     }
+    //detta blir en rätt tung update :((
     private void Update()
     {
         UIManager.Instance.InGameUI.SetZillaComboCounter("x" + _zillaCurrentComboCount.ToString());
@@ -59,13 +66,29 @@ public class PlayerManager : Manager<PlayerManager>
         UIManager.Instance.InGameUI.SetRillaComboMeter(_rillaActualMeterPercent);
 
         if (_zillaActualMeterPercent >= _rageModeThreshhold)
+        {
             UIManager.Instance.InGameUI.ChangeZillaFrame(_zillaRageFrame);
+            _zillaAttacks.lazorSettings._damageMultiplier = _newDamageMultiplier;
+            _zillaAttacks.tailSettings._damageMultiplier = _newDamageMultiplier;
+        }
         else
+        { 
             UIManager.Instance.InGameUI.ChangeZillaFrame(_zillaOriginalFrame);
+            _zillaAttacks.lazorSettings._damageMultiplier = 1;
+            _zillaAttacks.tailSettings._damageMultiplier = 1;
+        }
         if (_rillaActualMeterPercent >= _rageModeThreshhold)
+        {
             UIManager.Instance.InGameUI.ChangeRillaFrame(_rillaRageFrame);
+            _rillaAttacks.punchSettings._damageMultiplier = _newDamageMultiplier;
+            _rillaAttacks.slamSettings._damageMultiplier = _newDamageMultiplier;
+        }
         else
+        { 
             UIManager.Instance.InGameUI.ChangeRillaFrame(_rillaOriginalFrame);
+            _rillaAttacks.punchSettings._damageMultiplier = 1;
+            _rillaAttacks.slamSettings._damageMultiplier = 1;
+        }
         if (_zillaHealInput.IHealPressed && c_zillaHealthDelay == null)
         {
             c_zillaHealthDelay = StartCoroutine(HealingDelay(0,0.3f));
@@ -173,7 +196,6 @@ public class PlayerManager : Manager<PlayerManager>
                 break;
         }
     }
-    //TODO: 
     public IEnumerator HealPlayer(int index)
     {
         switch (index)
