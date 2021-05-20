@@ -125,12 +125,12 @@ public class Attackable : MonoBehaviour
 			switch (settings.playerIndex)
 			{
 				case 0:
-					if(settings._knockbackStrength > 0)
+					if(settings._knockbackStrength > 0 && _knockBack)
 						_knockBack.ApplyKnockBack((gameObject.transform.position - GameManager.Instance._zilla.gameObject.transform.position).normalized, settings._knockbackStrength, settings._knockbackTime);
 					PlayerManager.Instance.AddToPlayerCombo(0);
 					break;
 				case 1:
-					if (settings._knockbackStrength > 0)
+					if (settings._knockbackStrength > 0 && _knockBack)
 						_knockBack.ApplyKnockBack((gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position).normalized, settings._knockbackStrength, settings._knockbackTime);
 					PlayerManager.Instance.AddToPlayerCombo(1);
 					break;

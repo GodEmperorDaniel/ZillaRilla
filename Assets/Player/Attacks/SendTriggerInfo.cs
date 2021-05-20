@@ -28,25 +28,25 @@ public class SendTriggerInfo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Added " + other.name);
         
         for (int i = 0; i < _targets.Count; i++)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer(_targets[i]))
             {
+                //Debug.Log(gameObject.name + " Added " + other.name);
                 _base.CustomTriggerEnter(other, _ID);
             }
         }  
     }
     private void OnTriggerExit(Collider other)
     {
-        //Debug.Log("Removed " + other.name);
 
         
         for (int i = 0; i < _targets.Count; i++)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer(_targets[i]))
             {
+                //Debug.Log(gameObject.name + " Removed " + other.name);
                 _base.CustomTriggerExit(other, _ID);
             }
         }

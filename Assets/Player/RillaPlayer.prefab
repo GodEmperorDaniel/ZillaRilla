@@ -1727,6 +1727,7 @@ MonoBehaviour:
   punchSettings:
     playerIndex: 0
     _attackDamage: 10
+    _damageMultiplier: 1
     _attackHitbox: {fileID: 70674030}
     _attackCooldown: 0.3
     _settingType: 0
@@ -1735,6 +1736,7 @@ MonoBehaviour:
   slamSettings:
     playerIndex: 0
     _attackDamage: 5
+    _damageMultiplier: 1
     _attackHitbox: {fileID: 197583548}
     _attackCooldown: 1
     _settingType: 1
