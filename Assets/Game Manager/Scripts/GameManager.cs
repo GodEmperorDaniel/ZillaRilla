@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,10 @@ public class GameManager : Manager<GameManager>
     }
 
     // FIELDS
+    public SceneAsset mainLevel;
+    public SceneAsset cutScene;
+    public SceneAsset creditsScene;
+    
     public GameObject[] _systemPrefab;
     private List<GameObject> _instancedSystemPrefabs;
     private List<AsyncOperation> _loadOperations;
@@ -27,23 +32,25 @@ public class GameManager : Manager<GameManager>
     private GameState _currentGameState;
     private Goal _currentObjective;
 
+
     public Attackable _zilla;
     public Attackable _rilla;
 
+    public GameState CurrentGameState => _currentGameState;
+
 
     // GETTERS/SETTERS
-    
+
 
     // UNITY METHODS
     protected override void Awake()
     {
         base.Awake();
-        
+
         _instancedSystemPrefabs = new List<GameObject>();
         _loadOperations = new List<AsyncOperation>();
 
         InstantiateSystemPrefabs();
-        
     }
 
     private void Start()
@@ -71,12 +78,14 @@ public class GameManager : Manager<GameManager>
             TogglePause();
         }
     }
-	#region LevelManagement
-	// PUBLIC METHODS
-	/*Loads scene and the completed event calls the OnLoadComplete
+
+    #region LevelManagement
+
+    // PUBLIC METHODS
+    /*Loads scene and the completed event calls the OnLoadComplete
     method when the load operation is completed.
     Loading multiple scenes is possible*/
-	public void LoadLevel(string levelName)
+    public void LoadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
@@ -104,8 +113,10 @@ public class GameManager : Manager<GameManager>
 
         ao.completed += OnUnloadOperationComplete;
     }
-	#endregion
-	public void UpdateObjective(Goal objective)
+
+    #endregion
+
+    public void UpdateObjective(Goal objective)
     {
         _currentObjective = objective;
         UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
@@ -113,7 +124,7 @@ public class GameManager : Manager<GameManager>
 
     public void TogglePause()
     {
-        UpdateState(_currentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
     }
 
     public void QuitGame()
@@ -132,17 +143,17 @@ public class GameManager : Manager<GameManager>
     public void StartNewGame()
     {
         UnloadLevel("Main Menu");
-        LoadLevel("SpelTestBana");
+        LoadLevel(mainLevel.name);
         UpdateState(GameState.IN_GAME);
     }
 
     public void ExitToMainMenu()
     {
-        UnloadLevel("SpelTestBana");
+        UnloadLevel(mainLevel.name);
         LoadLevel("Main Menu");
         UpdateState(GameState.MAIN_MENU);
     }
-    
+
 
     // INTERNAL METHODS
     private void DeactivateAllUI()
@@ -152,16 +163,18 @@ public class GameManager : Manager<GameManager>
         UIManager.Instance.DisableInGameUI();
         UIManager.Instance.DisablePauseUI();
     }
-    
+
     private void UpdateState(GameState state)
     {
         ExitCurrentState();
         EnterNewState(state);
     }
-	#region StateManagement
-	private void ExitCurrentState()
+
+    #region StateManagement
+
+    private void ExitCurrentState()
     {
-        switch (_currentGameState)
+        switch (CurrentGameState)
         {
             case GameState.BOOT:
                 break;
@@ -194,9 +207,8 @@ public class GameManager : Manager<GameManager>
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
-        Debug.Log("Exited state: " + _currentGameState);
 
+        Debug.Log("Exited state: " + CurrentGameState);
     }
 
     private void EnterNewState(GameState state)
@@ -239,11 +251,13 @@ public class GameManager : Manager<GameManager>
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
-        
+
         Debug.Log("Entered state: " + state);
     }
-	#endregion
-	private void InstantiateSystemPrefabs()
+
+    #endregion
+
+    private void InstantiateSystemPrefabs()
     {
         foreach (var go in _systemPrefab)
         {
@@ -259,7 +273,7 @@ public class GameManager : Manager<GameManager>
     {
         if (GameObject.Find("ZillaPlayer")) GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
         if (GameObject.Find("RillaPlayer")) GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
-        
+
         //if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
         //if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
     }

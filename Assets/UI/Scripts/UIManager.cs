@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UI.Main_Menu;
 using UnityEngine;
 
 public class UIManager : Manager<UIManager>
@@ -100,5 +101,60 @@ public class UIManager : Manager<UIManager>
     public void DisableDummyCamera()
     {
         _dummyCamera.gameObject.SetActive(false);
+    }
+
+    public void MenuMovement(float navigateDirection)
+    {
+        _mainMenu.MoveArrow(navigateDirection);
+    }
+
+    public void PressAccept()
+    {
+        GameManager.GameState state = GameManager.Instance.CurrentGameState;
+
+        switch (state)
+        {
+            case GameManager.GameState.BOOT:
+                break;
+            case GameManager.GameState.CUTSCENE:
+                break;
+            case GameManager.GameState.MAIN_MENU:
+                _mainMenu.Accept();
+                break;
+            case GameManager.GameState.LOADING:
+                break;
+            case GameManager.GameState.IN_GAME:
+                break;
+            case GameManager.GameState.PAUSED:
+                _pauseMenu.Accept();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    public void PressCancel()
+    {
+        GameManager.GameState state = GameManager.Instance.CurrentGameState;
+
+        switch (state)
+        {
+            case GameManager.GameState.BOOT:
+                break;
+            case GameManager.GameState.CUTSCENE:
+                break;
+            case GameManager.GameState.MAIN_MENU:
+                _mainMenu.Cancel();
+                break;
+            case GameManager.GameState.LOADING:
+                break;
+            case GameManager.GameState.IN_GAME:
+                break;
+            case GameManager.GameState.PAUSED:
+                _pauseMenu.Cancel();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }
