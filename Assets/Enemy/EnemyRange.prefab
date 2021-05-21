@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3308678846968212350}
   - component: {fileID: 3308678846968212351}
   - component: {fileID: 3308678846968212348}
+  - component: {fileID: -3450734186199853848}
   m_Layer: 6
   m_Name: EnemyRange
   m_TagString: Untagged
@@ -124,17 +125,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 3308678846968212338}
   punchSettings:
+    playerIndex: 0
     _attackDamage: 0
+    _damageMultiplier: 1
     _attackHitbox: {fileID: 0}
     _attackCooldown: 0
     _settingType: 0
-    _knockBackStrength: 0
+    _knockbackStrength: 0
+    _knockbackTime: 0
   shootingSettings:
+    playerIndex: 0
     _attackDamage: 1
+    _damageMultiplier: 1
     _attackHitbox: {fileID: 6933971389366429885, guid: 255d5ae0102663a4b925a01ced206b62, type: 3}
     _attackCooldown: 1
     _settingType: 4
-    _knockBackStrength: 0
+    _knockbackStrength: 0
+    _knockbackTime: 0
     _bullet: {fileID: 6933971389366429826, guid: 255d5ae0102663a4b925a01ced206b62, type: 3}
     bulletSpeed: 100
     _shootPosition: {fileID: 3308678847101665961}
@@ -201,6 +208,18 @@ MonoBehaviour:
     _timeToRevive: 0
     _timeUntilDeath: 0
     _isReviving: 0
+--- !u!114 &-3450734186199853848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3308678846968212343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdd71ceed5510d49a1bacaa47c12832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3308678847101665966
 GameObject:
   m_ObjectHideFlags: 0
