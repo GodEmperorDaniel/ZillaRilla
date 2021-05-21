@@ -30,4 +30,14 @@ public class PauseMenu : MonoBehaviour
     {
         GameManager.Instance.ExitToMainMenu();
     }
+
+    public void Accept()
+    {
+        // TODO Accept function
+    }
+
+    public void Cancel()
+    {
+        // TODO Cancel function
+    }
 }

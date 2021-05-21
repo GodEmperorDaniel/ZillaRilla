@@ -125,7 +125,7 @@ namespace Player.Scrips
                 float value = c.ReadValue<float>();
                 if (_useJumpInput)
                 {
-                    _playerAnimator.SetBool("Jump", true); //dessa två rader kan nog skapa problem
+                    _playerAnimator.SetBool("Jump", true); //dessa tvÃ¥ rader kan nog skapa problem
                     JumpButtonPressed = value == 1 ? true : false;
                     //_moveInput.Execute();
                 }
