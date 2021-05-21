@@ -56,11 +56,11 @@ public class ZillaAttacks : BaseAttack
         for (int i = 0; i < hitLayers.Count; i++)
         {
             float maxRayDistance = (lazorSettings._lazorMaxRange + 1.467f) * t.localScale.z;
-            int hitLayer = LayerMask.NameToLayer(hitLayers[i]);
+            int hitLayer = LayerMask.GetMask(hitLayers[i]);
             hit = Physics.SphereCast(ray, lazorSettings._sphereCastRadius, out rayHit, maxRayDistance, hitLayer);
             if (hit)
             {
-                Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name + " " + lazorSettings._attackHitbox.transform.lossyScale.z);
+                //Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name + " " + rayHit.collider.gameObject.layer + " " + LayerMask.GetMask(hitLayers[i]));
                 break;
             }
         }
