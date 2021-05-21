@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 6613114054487553846}
   - component: {fileID: 6613114054487553845}
   - component: {fileID: 670120131864494691}
+  - component: {fileID: -5947465041578934540}
   m_Layer: 6
   m_Name: EnemyXormite_Melee
   m_TagString: Untagged
@@ -238,15 +239,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: -3609913050599336262}
   punchSettings:
+    playerIndex: 0
     _attackDamage: 5
+    _damageMultiplier: 1
     _attackHitbox: {fileID: 6613114052974211131}
     _attackCooldown: 1
     _settingType: 0
+    _knockbackStrength: 0
+    _knockbackTime: 0
   shootingSettings:
+    playerIndex: 0
     _attackDamage: 0
+    _damageMultiplier: 1
     _attackHitbox: {fileID: 0}
     _attackCooldown: 0
     _settingType: 0
+    _knockbackStrength: 0
+    _knockbackTime: 0
     _bullet: {fileID: 0}
     bulletSpeed: 10
     _shootPosition: {fileID: 0}
@@ -267,7 +276,9 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _iFrames: 0.3
   _playerSettings:
-    respawnPoint: {fileID: 0}
+    _timeToRevive: 0
+    _timeUntilDeath: 0
+    _isReviving: 0
 --- !u!114 &6613114054487553846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +336,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOfSounds:
   - nameOfSound: event:/Ljud/Alien SFX/AlienDeath
+--- !u!114 &-5947465041578934540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6613114054487553999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdd71ceed5510d49a1bacaa47c12832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6613114054355255960
 PrefabInstance:
   m_ObjectHideFlags: 0
