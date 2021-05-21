@@ -204,8 +204,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 4}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 2, y: 3.3140829, z: 4}
+  m_Center: {x: 0, y: 1.6570414, z: 0}
 --- !u!95 &-3609913050599336262
 Animator:
   serializedVersion: 3
@@ -319,7 +319,7 @@ MonoBehaviour:
   _rotationSpeed: 5
   _stunTime: 3
   lookRadius: 60
-  attackRadius: 13.28
+  attackRadius: 9
   deSpawnTime: 0.2
   _playerAnimator: {fileID: 0}
 --- !u!114 &670120131864494691

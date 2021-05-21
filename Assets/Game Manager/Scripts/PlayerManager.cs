@@ -180,14 +180,16 @@ public class PlayerManager : Manager<PlayerManager>
             case 0:
                 if(c_zillaComboTimer != null)
                     StopCoroutine(c_zillaComboTimer);
-                _zillaMeterCounter++;
+                if(_zillaActualMeterPercent < 1)
+                    _zillaMeterCounter++;
                 _zillaCurrentComboCount++;
                 c_zillaComboTimer = StartCoroutine(ResetComboCounter(playerIndex));
                 break;
             case 1:
                 if(c_rillaComboTimer != null)
                     StopCoroutine(c_rillaComboTimer);
-                _rillaMeterCounter++;
+                if(_rillaActualMeterPercent < 1)
+                    _rillaMeterCounter++;
                 _rillaCurrentComboCount++;
                 c_rillaComboTimer = StartCoroutine(ResetComboCounter(playerIndex));
                 break;
@@ -201,14 +203,14 @@ public class PlayerManager : Manager<PlayerManager>
         switch (index)
         {
             case 0:
-                if (_zillaActualMeterPercent > 0)
+                if (_zillaActualMeterPercent > 0 && GameManager.Instance._zilla.GetHealthPercent() < 1)
                 {
                     GameManager.Instance._zilla.HealPlayer(_healAmountPerComboMeterUnit);
                     _zillaMeterCounter--;
                 }
                 break;
             case 1:
-                if (_rillaActualMeterPercent > 0)
+                if (_rillaActualMeterPercent > 0 && GameManager.Instance._rilla.GetHealthPercent() < 1)
                 {
                     GameManager.Instance._rilla.HealPlayer(_healAmountPerComboMeterUnit);
                     _rillaMeterCounter--;

@@ -179,6 +179,10 @@ public class Attackable : MonoBehaviour
 			}
 		}
     }
+	public float GetHealthPercent()
+	{
+		return (_currentHealth / _maxHealth);
+	}
 	private void QuickRevivePlayer()
 	{
 		PlayerManager.Instance.QuickRevivePlayer(this);
