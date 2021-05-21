@@ -45,7 +45,12 @@ public class PlayerManager : Manager<PlayerManager>
     private Coroutine c_rillaHealthDelay;
     [SerializeField] private float _healAmountPerComboMeterUnit = 1;
 
-    private void Start()
+    protected override void Awake()
+    {
+        base.Awake();
+        this.gameObject.SetActive(false);
+    }
+    private void OnEnable()
     {
         _zillaHealInput = GameManager.Instance._zilla.GetComponent<IHealInput>();
         _rillaHealInput = GameManager.Instance._rilla.GetComponent<IHealInput>();
@@ -90,8 +95,8 @@ public class PlayerManager : Manager<PlayerManager>
         }
         if (_zillaHealInput.IHealPressed && c_zillaHealthDelay == null)
         {
-            c_zillaHealthDelay = StartCoroutine(HealingDelay(0,0.3f));
             Debug.Log("HealingPlayer");
+            c_zillaHealthDelay = StartCoroutine(HealingDelay(0,0.3f));
             StartCoroutine(HealPlayer(0));
         }
         if (_rillaHealInput.IHealPressed && c_rillaHealthDelay == null)

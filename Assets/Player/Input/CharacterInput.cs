@@ -153,7 +153,7 @@ namespace Player.Scrips
         }
         public void Quit()
         {
-            //Application.Quit();
+            Application.Quit();
         }
         #region Movement
         public void OnMoveInput(InputAction.CallbackContext c)

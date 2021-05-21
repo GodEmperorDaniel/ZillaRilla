@@ -15,7 +15,7 @@ public class EnemyAttacks : BaseAttack
 
     private Coroutine c_attackCooldown;
     private HashSet<GameObject> _hashEnemyPunch = new HashSet<GameObject>();
-    public HashSet<GameObject> _hashEnemyShoot = new HashSet<GameObject>();
+    public List<GameObject> _listEnemyShoot = new List<GameObject>();
 
     // Start is called before the first frame update
     private void Awake()
@@ -29,11 +29,12 @@ public class EnemyAttacks : BaseAttack
 
     private void Update()
     {
-        foreach (GameObject player in _hashEnemyShoot)
+        foreach (GameObject player in _listEnemyShoot)
         {
-            CallEntityHit(player, shootingSettings);
+            if(player.layer == LayerMask.NameToLayer("Player"))
+                CallEntityHit(player, shootingSettings);
         }
-        _hashEnemyShoot.Clear(); //fuck you
+        _listEnemyShoot.Clear(); //fuck you
     }
 
     public void EnemyPunch()
@@ -121,7 +122,7 @@ public class EnemyAttacks : BaseAttack
                 _hashEnemyPunch.Add(other.gameObject);
                 break;
             case 2:
-                _hashEnemyShoot.Add(other.gameObject);
+                _listEnemyShoot.Add(other.gameObject);
                 break;
             default:
                 Debug.Log("Something whent wrong in CustomTriggerEnter!");
@@ -137,7 +138,7 @@ public class EnemyAttacks : BaseAttack
                 _hashEnemyPunch.Remove(other.gameObject);
                 break;
             case 2:
-                _hashEnemyShoot.Remove(other.gameObject);
+                _listEnemyShoot.Remove(other.gameObject);
                 break;
             default:
                 Debug.Log("Something whent wrong in CustomTriggerExit!");
@@ -157,9 +158,9 @@ public class EnemyAttacks : BaseAttack
 
                 break;
             case 2:
-                if (!_hashEnemyShoot.Contains(other.gameObject))
+                if (!_listEnemyShoot.Contains(other.gameObject))
                 {
-                    _hashEnemyShoot.Add(other.gameObject);
+                    _listEnemyShoot.Add(other.gameObject);
                 }
 
                 break;

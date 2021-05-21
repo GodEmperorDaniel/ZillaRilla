@@ -20,10 +20,14 @@ public class GameManager : Manager<GameManager>
     }
 
     // FIELDS
-    public SceneAsset mainLevel;
-    public SceneAsset cutScene;
-    public SceneAsset creditsScene;
-    
+    //public SceneAsset mainLevel;
+    //public SceneAsset cutScene;
+    //public SceneAsset creditsScene;
+
+    public string mainLevel;
+    public string cutScene;
+    public string creditsScene;
+
     public GameObject[] _systemPrefab;
     private List<GameObject> _instancedSystemPrefabs;
     private List<AsyncOperation> _loadOperations;
@@ -143,13 +147,13 @@ public class GameManager : Manager<GameManager>
     public void StartNewGame()
     {
         UnloadLevel("Main Menu");
-        LoadLevel(mainLevel.name);
+        LoadLevel(mainLevel);
         UpdateState(GameState.IN_GAME);
     }
 
     public void ExitToMainMenu()
     {
-        UnloadLevel(mainLevel.name);
+        UnloadLevel(mainLevel);
         LoadLevel("Main Menu");
         UpdateState(GameState.MAIN_MENU);
     }
@@ -306,6 +310,8 @@ public class GameManager : Manager<GameManager>
             {
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
                 FindPlayerCharacters();
+                if(_zilla && _rilla)
+                    PlayerManager.Instance.gameObject.SetActive(true);
             }
             // dispatch message
             // transition between scenes
