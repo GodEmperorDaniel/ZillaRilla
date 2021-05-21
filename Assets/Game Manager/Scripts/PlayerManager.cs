@@ -5,7 +5,6 @@ using Entities.Scripts;
 
 public class PlayerManager : Manager<PlayerManager>
 {
-    [SerializeField] private LayerMask test;
     [Header("Revive")]
     [Range(0f,1f)]
     [SerializeField] private float _percentHealthOnRespawn;
@@ -98,7 +97,7 @@ public class PlayerManager : Manager<PlayerManager>
         if (_rillaHealInput.IHealPressed && c_rillaHealthDelay == null)
         {
             c_rillaHealthDelay = StartCoroutine(HealingDelay(1,0.3f));
-            HealPlayer(1);
+            StartCoroutine(HealPlayer(1));
         }
     }
     //PLAYER MANAGEMENT

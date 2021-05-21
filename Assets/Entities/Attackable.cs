@@ -121,17 +121,19 @@ public class Attackable : MonoBehaviour
 			{
 				_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			}
+			Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
+			direction.y = 0.5f;
 			//Debug.Log("RemovedHealth");
 			switch (settings.playerIndex)
 			{
 				case 0:
 					if(settings._knockbackStrength > 0 && _knockBack)
-						_knockBack.ApplyKnockBack((gameObject.transform.position - GameManager.Instance._zilla.gameObject.transform.position).normalized, settings._knockbackStrength, settings._knockbackTime);
+						_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
 					PlayerManager.Instance.AddToPlayerCombo(0);
 					break;
 				case 1:
 					if (settings._knockbackStrength > 0 && _knockBack)
-						_knockBack.ApplyKnockBack((gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position).normalized, settings._knockbackStrength, settings._knockbackTime);
+						_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
 					PlayerManager.Instance.AddToPlayerCombo(1);
 					break;
 				default:
