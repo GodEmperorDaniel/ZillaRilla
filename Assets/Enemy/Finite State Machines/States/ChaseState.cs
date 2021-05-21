@@ -54,7 +54,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 _navMeshAgent.SetDestination(player.position);
 
                 // Test if player is in attack range and in view
-                if (_npc.ClosestPlayerDistance() <= _npc.attackRadius && _npc.GetEnemyAttack.IsPlayerInView(player, _npc))
+                if (_npc.ClosestPlayerDistance() <= _npc.attackRadius && _npc.enemyType != EnemyType.RANGE)
+                {
+                    _fsm.EnterState(FSMStateType.ATTACK);
+                }
+                else if (_npc.ClosestPlayerDistance() <= _npc.attackRadius && _npc.GetEnemyAttack.IsPlayerInView(player, _npc))
                 {
                     _fsm.EnterState(FSMStateType.ATTACK);
                 }

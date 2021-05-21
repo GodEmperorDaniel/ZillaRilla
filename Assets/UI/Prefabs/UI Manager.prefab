@@ -1018,6 +1018,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 922999215046610879, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_Text
+      value: 'I am objectivetext
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 1768194046913614086, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -721.7
@@ -1100,11 +1106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5939259904646493238, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 5939259904646493238, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 6658074662830611425, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_text

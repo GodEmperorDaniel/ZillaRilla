@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8011345652963454264}
   - component: {fileID: 8011345652963454270}
   - component: {fileID: 8011345652963454257}
+  - component: {fileID: -8902072843584134003}
   m_Layer: 6
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -124,6 +125,10 @@ MonoBehaviour:
   _currentHealth: 20
   _animator: {fileID: 0}
   _iFrames: 0.5
+  _playerSettings:
+    _timeToRevive: 0
+    _timeUntilDeath: 0
+    _isReviving: 0
 --- !u!114 &8011345652963454270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +172,18 @@ MonoBehaviour:
   attackRadius: 0
   deSpawnTime: 1
   _playerAnimator: {fileID: 0}
+--- !u!114 &-8902072843584134003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011345652963454256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdd71ceed5510d49a1bacaa47c12832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8011345651849699652
 PrefabInstance:
   m_ObjectHideFlags: 0

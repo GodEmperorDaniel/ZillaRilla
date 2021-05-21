@@ -71,7 +71,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             _npc.FaceTarget(_npc.PlayerTransform);
             //Debug.Log("UPDATING ATTACK STATE");
-            //StartChaseTarget();
+            if(_npc.enemyType == EnemyType.MELEE)
+                StartChaseTarget();
         }
 
         public override bool ExitState()

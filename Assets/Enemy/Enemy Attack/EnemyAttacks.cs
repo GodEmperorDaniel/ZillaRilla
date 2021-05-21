@@ -15,7 +15,7 @@ public class EnemyAttacks : BaseAttack
 
     private Coroutine c_attackCooldown;
     private HashSet<GameObject> _hashEnemyPunch = new HashSet<GameObject>();
-    private HashSet<GameObject> _hashEnemyShoot = new HashSet<GameObject>();
+    public HashSet<GameObject> _hashEnemyShoot = new HashSet<GameObject>();
 
     // Start is called before the first frame update
     private void Awake()
@@ -33,6 +33,7 @@ public class EnemyAttacks : BaseAttack
         {
             CallEntityHit(player, shootingSettings);
         }
+        _hashEnemyShoot.Clear(); //fuck you
     }
 
     public void EnemyPunch()
@@ -60,6 +61,7 @@ public class EnemyAttacks : BaseAttack
             Rigidbody bulletClone = (Rigidbody) Instantiate(shootingSettings._bullet,
                 shootingSettings._shootPosition.position, shootingSettings._bullet.transform.rotation);
             bulletClone.GetComponent<SendTriggerInfo>()._base = this;
+            bulletClone.GetComponent<Bullet>()._attacks = this;
 
             bulletClone.velocity = transform.forward * shootingSettings.bulletSpeed;
 
