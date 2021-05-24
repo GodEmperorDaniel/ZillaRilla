@@ -43,12 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd97df0bb237844e9564b5bee97985d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test:
-    serializedVersion: 2
-    m_Bits: 0
   _percentHealthOnRespawn: 0.4
   _maxDistanceToRevive: 20
-  _neededToFillComboMeter: 5
+  _neededToFillComboMeter: 20
   _timeToLoseCombo: 3
   _rageModeThreshhold: 1
   _newDamageMultiplier: 1.5
@@ -56,4 +53,4 @@ MonoBehaviour:
   _zillaOriginalFrame: {fileID: 21300000, guid: 559170a5a2be2f847aed4f21144715ee, type: 3}
   _rillaRageFrame: {fileID: 21300000, guid: c7cb287b2a8fc82429ef2ca68665d7be, type: 3}
   _rillaOriginalFrame: {fileID: 21300000, guid: 7ae0e485f57412b4084d76e0376e493f, type: 3}
-  _healAmountPerComboMeterUnit: 2
+  _healAmountPerComboMeterUnit: 3

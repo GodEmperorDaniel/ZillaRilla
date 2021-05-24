@@ -135,7 +135,7 @@ MonoBehaviour:
     _knockbackTime: 0
   shootingSettings:
     playerIndex: 0
-    _attackDamage: 1
+    _attackDamage: 10
     _damageMultiplier: 1
     _attackHitbox: {fileID: 6933971389366429885, guid: 255d5ae0102663a4b925a01ced206b62, type: 3}
     _attackCooldown: 1
@@ -145,6 +145,7 @@ MonoBehaviour:
     _bullet: {fileID: 6933971389366429826, guid: 255d5ae0102663a4b925a01ced206b62, type: 3}
     bulletSpeed: 100
     _shootPosition: {fileID: 3308678847101665961}
+  _listEnemyShoot: []
 --- !u!114 &3308678846968212350
 MonoBehaviour:
   m_ObjectHideFlags: 0
