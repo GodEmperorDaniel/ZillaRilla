@@ -83,7 +83,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (RandomWanderTarget(myTransform.position, wanderRange, out wanderTarget))
             {
-                myNavMeshAgent.SetDestination(wanderTarget);
+                if (myNavMeshAgent.isActiveAndEnabled)
+                    myNavMeshAgent.SetDestination(wanderTarget);
                 if (_npc.enemyType == EnemyType.SPAWNER && _spawnedEnemies != _nrEnemiesToSpawn)
                 { 
                     _fsm.EnterState(FSMStateType.SPAWNING);
