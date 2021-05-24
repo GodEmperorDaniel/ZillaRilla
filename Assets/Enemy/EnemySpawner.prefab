@@ -100,10 +100,10 @@ Animator:
   m_GameObject: {fileID: 8011345652963454256}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c038bfbfcab0d448962a41f1817d8fe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -171,7 +171,6 @@ MonoBehaviour:
   lookRadius: 30
   attackRadius: 0
   deSpawnTime: 1
-  _playerAnimator: {fileID: 0}
 --- !u!114 &-8902072843584134003
 MonoBehaviour:
   m_ObjectHideFlags: 0

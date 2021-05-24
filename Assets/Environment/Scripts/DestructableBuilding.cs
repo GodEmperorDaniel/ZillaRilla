@@ -34,7 +34,7 @@ public class DestructableBuilding : MonoBehaviour
             StartCoroutine(BuildingDestruction());
         }
 
-        StartCoroutine(SmokeTimer());
+        //StartCoroutine(SmokeTimer());
     }
 
     private IEnumerator SmokeTimer()
@@ -81,5 +81,6 @@ public class DestructableBuilding : MonoBehaviour
 
             _smokeParticleSystems.Add(pSystem);
         }
+        StartCoroutine(SmokeTimer());
     }
 }

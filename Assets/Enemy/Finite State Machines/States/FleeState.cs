@@ -53,8 +53,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 Vector3 newPos = _npc.transform.position + dirToPLayer;
 
                 _npc.FaceTarget(_npc.PlayerTransform);
-
-                _navMeshAgent.SetDestination(newPos);
+                if (_navMeshAgent.isActiveAndEnabled)
+                    _navMeshAgent.SetDestination(newPos);
             }
             else
             {

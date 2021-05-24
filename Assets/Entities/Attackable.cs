@@ -158,6 +158,7 @@ public class Attackable : MonoBehaviour
 				if (_currentHealth <= 0)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);
+					_animator.applyRootMotion = false;
 					_animator.SetTrigger("Dead");
 				}
 				else

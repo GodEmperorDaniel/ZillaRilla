@@ -19,8 +19,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
         }
         public override bool EnterState()
         {
-            _navMeshAgent.isStopped = true;
-            _navMeshAgent.SetDestination(_npc.transform.position);
+            if (_navMeshAgent.isActiveAndEnabled)
+            { 
+                _navMeshAgent.isStopped = true;
+                _navMeshAgent.SetDestination(_npc.transform.position);
+            }
             EnteredState = base.EnterState();
 
             if (EnteredState)

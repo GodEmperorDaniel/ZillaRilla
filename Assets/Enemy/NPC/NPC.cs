@@ -41,7 +41,7 @@ namespace Assets.Enemy.NPCCode
         public float deSpawnTime = 1;
         private LayerMask _coveringLayers;
 
-        public Animator _playerAnimator;
+        private Animator _animator;
         
 
         //public RillaPunchSettings punchSettings;
@@ -52,6 +52,7 @@ namespace Assets.Enemy.NPCCode
             _finiteStateMachine = GetComponent<FiniteStateMachine>();
             _enemyAttacks = GetComponent<EnemyAttacks>();
             enemyTransform = gameObject.transform;
+            _animator = GetComponent<Animator>();
         }
 
         public void Update()
@@ -116,7 +117,6 @@ namespace Assets.Enemy.NPCCode
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
         }
 
-        
         public Transform PlayerTransform
         {
             get { return playerTransform; }

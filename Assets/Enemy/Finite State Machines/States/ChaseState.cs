@@ -51,7 +51,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
             {
                 _npc.PlayerTransform = target;
                 _npc.FaceTarget(_npc.PlayerTransform);
-                _navMeshAgent.SetDestination(player.position);
+                if(_navMeshAgent.isActiveAndEnabled)
+                    _navMeshAgent.SetDestination(player.position);
 
                 // Test if player is in attack range and in view
                 if (_npc.ClosestPlayerDistance() <= _npc.attackRadius && _npc.enemyType != EnemyType.RANGE)
