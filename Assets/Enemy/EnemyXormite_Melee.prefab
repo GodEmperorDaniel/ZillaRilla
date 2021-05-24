@@ -240,7 +240,7 @@ MonoBehaviour:
   _playerAnimator: {fileID: -3609913050599336262}
   punchSettings:
     playerIndex: 0
-    _attackDamage: 5
+    _attackDamage: 10
     _damageMultiplier: 1
     _attackHitbox: {fileID: 6613114052974211131}
     _attackCooldown: 1
@@ -259,6 +259,7 @@ MonoBehaviour:
     _bullet: {fileID: 0}
     bulletSpeed: 10
     _shootPosition: {fileID: 0}
+  _listEnemyShoot: []
 --- !u!114 &6613114054487553840
 MonoBehaviour:
   m_ObjectHideFlags: 0
