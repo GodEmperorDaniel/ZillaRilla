@@ -118,62 +118,38 @@ public class Attackable : MonoBehaviour
 			else
 			{
 				_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
+				SpawnHitIcon(settings);
+				TestForKnockback(settings);
+				PlayerManager.Instance.AddToPlayerCombo(settings.playerIndex);
+				c_invincible = StartCoroutine(InvincibilityFrames());
 			}
-			//Debug.Log("RemovedHealth");
-			switch (settings.playerIndex)
-			{
-				case 0:
-					if (settings._knockbackStrength > 0 && _knockBack)
-					{
-						Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
-						direction.y = 0.5f;
-						_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
-					}
-					PlayerManager.Instance.AddToPlayerCombo(0);
-					break;
-				case 1:
-					if (settings._knockbackStrength > 0 && _knockBack)
-					{
-						Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
-						direction.y = 0.5f;
-						_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
-					}
-					PlayerManager.Instance.AddToPlayerCombo(1);
-					break;
-				default:
-					Debug.LogError("Game Breaking miss happend in attackable!!");
-					break;
-			}
-			UIManager.Instance.SpawnHitIcon(gameObject.transform.position, settings.playerIndex);
-			
-			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
 		//if it's in vuln-state (boss) then zilla lazor will dmg it
 		else if (c_invincible == null && _npc != null && _npc.enemyType == EnemyType.BOSS)
 		{
-				if (_currentShieldHealth <= 0)
+			if (_currentShieldHealth <= 0)
+			{
+				transform.GetChild(2).gameObject.SetActive(false);
+				if (_currentHealth <= 0)
 				{
-					transform.GetChild(2).gameObject.SetActive(false);
-					if (_currentHealth <= 0)
-					{
-						_fsm.EnterState(FSMStateType.DEATH);
-						_animator.SetTrigger("Dead");
-					}
-					else
-					{
-						//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
-						_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
-						_fsm.EnterState(FSMStateType.IDLE);
-					}
+					_fsm.EnterState(FSMStateType.DEATH);
+					_animator.SetTrigger("Dead");
 				}
 				else
 				{
-					_currentShieldHealth -= (settings._attackDamage * settings._damageMultiplier);
-					StartCoroutine(RegenShieldHealth());
+					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
+					_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
+					_fsm.EnterState(FSMStateType.IDLE);
 				}
-				UIManager.Instance.SpawnHitIcon(gameObject.transform.position, settings.playerIndex);
-				PlayerManager.Instance.AddToPlayerCombo(0);
-				c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!            
+			}
+			else
+			{
+				_currentShieldHealth -= (settings._attackDamage * settings._damageMultiplier);
+				StartCoroutine(RegenShieldHealth());
+			}
+			SpawnHitIcon(settings);
+			c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!            
+			PlayerManager.Instance.AddToPlayerCombo(settings.playerIndex);
 		}
 		else if (c_invincible == null && player != null)
 		{
@@ -191,6 +167,39 @@ public class Attackable : MonoBehaviour
 			}
 		}
     }
+
+	private void SpawnHitIcon(AttackSettings settings)
+	{
+		UIManager.Instance.SpawnHitIcon(gameObject.transform.position, settings.playerIndex);
+	}
+
+	private void TestForKnockback(AttackSettings settings)
+	{
+		switch (settings.playerIndex)
+		{
+			case 0:
+				if (settings._knockbackStrength > 0 && _knockBack)
+				{
+					Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
+					direction.y = 0.5f;
+					_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
+				}
+				break;
+			case 1:
+				if (settings._knockbackStrength > 0 && _knockBack)
+				{
+					Debug.Log("yes");
+					Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
+					direction.y = 0.5f;
+					_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
+				}
+				break;
+			default:
+				Debug.LogError("Game Breaking miss happend in attackable!!");
+				break;
+		}
+	}
+
 	public float GetHealthPercent()
 	{
 		return (_currentHealth / _maxHealth);

@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: DeathState
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _bugSplatDecal: {fileID: 3145398639600832644, guid: 5f353fa98f731a9478175e2e9e5b4762, type: 3}
+  _bugSplatDecal:
+  - {fileID: 2091869351554164354, guid: 6067052a57a47544181d72929518c9a3, type: 3}
+  - {fileID: 3145398639600832644, guid: 5f353fa98f731a9478175e2e9e5b4762, type: 3}
+  - {fileID: 7862337977498848379, guid: da5428cf9820a5d44bad70da808e3c5e, type: 3}
+  _offset: {x: 0, y: 0.2, z: 0}

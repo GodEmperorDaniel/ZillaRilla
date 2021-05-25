@@ -12,8 +12,13 @@ public class DestructibleGoal : Goal
 	private float _percentDestroyed;
 	private bool _goalCalled;
 
+	private void OnEnable()
+	{
+		
+	}
 	private void Awake()
 	{
+
 		_nrOfHousesToDestroyTotal = _listHousesToDestroy.Count;
 	}
 	private void Update()
