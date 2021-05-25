@@ -79,7 +79,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             _navMeshAgent.isStopped = false;
             base.ExitState();
-
+            _npc.RemoveTarget();
             Debug.Log("EXITING ATTACK STATE");
             return true;
         }

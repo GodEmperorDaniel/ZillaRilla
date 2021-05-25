@@ -12,7 +12,7 @@ public class HitTester : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            hitIconSpawner.SpawnHitIcon(transform.position);
+            hitIconSpawner.SpawnHitIcon(transform.position, 10);
         }
     }
 }

@@ -57,9 +57,9 @@ public class UIManager : Manager<UIManager>
         _inGameUI.SetRillaHealthOnUI(rillaHealth);
     }
 
-    public void SpawnHitIcon(Vector3 position)
+    public void SpawnHitIcon(Vector3 position, int player)
     {
-        _hitIconSpawner.SpawnHitIcon(position);
+        _hitIconSpawner.SpawnHitIcon(position, player);
     }
 
 
