@@ -10,9 +10,12 @@ using UnityEngine;
 public class Attackable : MonoBehaviour
 {
 	[SerializeField] private float _maxHealth;
+	[SerializeField] private float _maxShieldHealth;
 	[ContextMenuItem("Revive Player", "QuickRevivePlayer")]
 	[SerializeField] private float _currentHealth;
-	
+	[SerializeField] private float _currentShieldHealth;
+	[SerializeField] private float regenerationSpeed;
+
 	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
 	[SerializeField] public Player.Settings.IfPlayer _playerSettings;
@@ -33,6 +36,7 @@ public class Attackable : MonoBehaviour
 	private void Awake()
 	{
 		_currentHealth = _maxHealth;
+		_currentShieldHealth = _maxShieldHealth;
 	}
 	
 	public void Start()
@@ -85,13 +89,7 @@ public class Attackable : MonoBehaviour
 			case AttackSettings.SettingType.SLAM:
 				_rillaSlamSettings = settings as RillaSlamSettings;
 				if (_fsm != null && _rillaSlamSettings._stun)
-				{
 					_fsm.EnterState(FSMStateType.STUN);
-					if (_npc.enemyType == EnemyType.BOSS)
-					{ 
-						_fsm.EnterState(FSMStateType.VULNERABLE);
-					}
-				}
 				break;
 			case AttackSettings.SettingType.LAZOR:
 				_zillaLazorSettings = settings as ZillaLazorSettings;
@@ -151,26 +149,31 @@ public class Attackable : MonoBehaviour
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
 		//if it's in vuln-state (boss) then zilla lazor will dmg it
-		else if (_fsm != null && _fsm._currentState.StateType == FSMStateType.VULNERABLE)
+		else if (c_invincible == null && _npc != null && _npc.enemyType == EnemyType.BOSS)
 		{
-			if (_zillaLazorSettings != null && _zillaLazorSettings._settingType == AttackSettings.SettingType.LAZOR) // don't think the && is needed
-			{
-				if (_currentHealth <= 0)
+				if (_currentShieldHealth <= 0)
 				{
-					_fsm.EnterState(FSMStateType.DEATH);
-					_animator.applyRootMotion = false;
-					_animator.SetTrigger("Dead");
+					transform.GetChild(2).gameObject.SetActive(false);
+					if (_currentHealth <= 0)
+					{
+						_fsm.EnterState(FSMStateType.DEATH);
+						_animator.SetTrigger("Dead");
+					}
+					else
+					{
+						//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
+						_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
+						_fsm.EnterState(FSMStateType.IDLE);
+					}
 				}
 				else
 				{
-					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
-					_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
-					_fsm.EnterState(FSMStateType.IDLE);
+					_currentShieldHealth -= (settings._attackDamage * settings._damageMultiplier);
+					StartCoroutine(RegenShieldHealth());
 				}
 				UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
 				PlayerManager.Instance.AddToPlayerCombo(0);
-				c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!
-			}
+				c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!            
 		}
 		else if (c_invincible == null && player != null)
 		{
@@ -221,6 +224,15 @@ public class Attackable : MonoBehaviour
 		_currentHealth = healthResetPercent * _maxHealth;
 	}
 	#endregion
+	private IEnumerator RegenShieldHealth()
+	{
+		yield return new WaitForSeconds(regenerationSpeed);
+		while (_currentShieldHealth < _maxShieldHealth && _currentShieldHealth > 0)
+		{
+			_currentShieldHealth += _maxShieldHealth / 100;
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
 }
 
 namespace Player.Settings
