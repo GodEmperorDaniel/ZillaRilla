@@ -26,6 +26,7 @@ public class HitIcon : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(transform.position);
         if (_rectTransform.localScale.x < _maxScaling)
         {
             _rectTransform.localScale += Vector3.one * _scaling;  

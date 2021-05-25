@@ -40,7 +40,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             _navMeshAgent.isStopped = true;
             base.ExitState();
-            
+            _npc.RemoveTarget();
             //Debug.Log("EXITING Chaseing STATE");
             return true;
         }

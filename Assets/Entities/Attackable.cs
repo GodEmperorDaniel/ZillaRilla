@@ -146,7 +146,7 @@ public class Attackable : MonoBehaviour
 					Debug.LogError("Game Breaking miss happend in attackable!!");
 					break;
 			}
-			UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
+			UIManager.Instance.SpawnHitIcon(gameObject.transform.position, settings.playerIndex);
 			
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
@@ -167,7 +167,7 @@ public class Attackable : MonoBehaviour
 					_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 					_fsm.EnterState(FSMStateType.IDLE);
 				}
-				UIManager.Instance.SpawnHitIcon(gameObject.transform.position);
+				UIManager.Instance.SpawnHitIcon(gameObject.transform.position, settings.playerIndex);
 				PlayerManager.Instance.AddToPlayerCombo(0);
 				c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!
 			}

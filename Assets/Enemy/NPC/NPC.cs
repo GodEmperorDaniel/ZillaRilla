@@ -109,12 +109,25 @@ namespace Assets.Enemy.NPCCode
 
             return playerDistance;
         }
+        private bool _lookAtTarget;
+        private Transform _lookAtTransform;
 
-        public void FaceTarget(Transform target)
+        private void LateUpdate()
         {
-            Vector3 direction = (target.position - transform.position).normalized;
+            if (!_lookAtTarget) return;
+            Vector3 direction = (_lookAtTransform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
+        }
+        public void FaceTarget(Transform target)
+        {
+            _lookAtTarget = true;
+            _lookAtTransform = playerTransform;
+        }
+        public void RemoveTarget()
+        {
+            _lookAtTarget = false;
+            _lookAtTransform = null;
         }
 
         public Transform PlayerTransform

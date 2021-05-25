@@ -718,17 +718,73 @@ PrefabInstance:
     m_TransformParent: {fileID: 5503359539433743511}
     m_Modifications:
     - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: iconScaling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
       propertyPath: iconLifeTime
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
       propertyPath: iconMaxScaling
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
       propertyPath: iconMovement.y
-      value: 0.5
+      value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _enemyHitPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _rillaHitPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _zillaHitPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _enemyHitPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 585061209873189958, guid: c93e7624f9dee5b4dbda66fc456b178e, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _enemyHitPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3442374626559361752, guid: b0801deacb6998a4080f790e3107216b, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _enemyHitPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 1185670682191885971, guid: 37373cb4aef8ab544acdae4ad08c6960, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _enemyHitPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 8621993249322344966, guid: 0414e76221edf8344886de609fe29b7b, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _rillaHitPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 4838635340707709761, guid: d36b5628a1504874f9f55362225e5dae, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _rillaHitPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 9130247200895055345, guid: 0925a38b6d5b68e45b390609e567be2c, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _rillaHitPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 1245486045177218336, guid: 2496581486ed8284cbff1fcdceb96aed, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _zillaHitPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1525196732207076972, guid: e8b8ced21ad139d4ebded959b88e9321, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _zillaHitPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 6735379524385902249, guid: 82be52954620d1d42ad53a0aead6add8, type: 3}
+    - target: {fileID: 669400982252746937, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
+      propertyPath: _zillaHitPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 3724776392524075530, guid: 23e35df0fb193a441beefa2121fe8b23, type: 3}
     - target: {fileID: 669400982252746938, guid: bb06f6cf1f934c1468ddff44c585d83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
