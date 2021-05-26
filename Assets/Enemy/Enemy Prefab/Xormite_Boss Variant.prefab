@@ -114,7 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553840, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: regenerationSpeed
-      value: 2
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613114054487553841, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553842, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_Size.x
@@ -134,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553843, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_Speed
-      value: 3.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553843, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_Height
@@ -162,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553844, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.6
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553844, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -170,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553844, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.2
+      value: -28.7
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553844, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_LocalRotation.w
@@ -266,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553999, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_Name
-      value: Xormite_Boss Variant
+      value: Xormite_Boss
       objectReference: {fileID: 0}
     - target: {fileID: 6650753751156024691, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_LocalScale.x
