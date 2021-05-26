@@ -57,18 +57,14 @@ namespace Assets.Enemy.NPCCode
 
         public void Update()
         {
-            if (_playerList[0] == null)
-            {
-                SetPlayerReferences();
-            }
+            SetPlayerReferences();
             //SetChaseTarget();
         }
 
         private void SetPlayerReferences()
         {
             //Debug.Log(GameManager.Instance._rilla.gameObject.name);
-            _playerList[0] = GameManager.Instance._rilla.gameObject.transform;
-            _playerList[1] = GameManager.Instance._zilla.gameObject.transform;
+            _playerList = GameManager.Instance._attackableCharacters;
         }
 
         void OnDrawGizmosSelected()
@@ -84,12 +80,12 @@ namespace Assets.Enemy.NPCCode
         {
             float playerDistance = 0.0f;
             targetTransform = null;
-            foreach (Transform player in _playerList)
+            for (int i = 0; i < _playerList.Count; i++)
             {
-                if (playerDistance > Vector3.Distance(player.position, transform.position) || playerDistance == 0)
+                if (_playerList[i] != null && playerDistance > Vector3.Distance(_playerList[i].position, transform.position) || playerDistance == 0)
                 {
-                    playerDistance = Vector3.Distance(player.position, transform.position);
-                    targetTransform = player;
+                    playerDistance = Vector3.Distance(_playerList[i].position, transform.position);
+                    targetTransform = _playerList[i];
                 }
             }
 
@@ -99,16 +95,18 @@ namespace Assets.Enemy.NPCCode
         public float ClosestPlayerDistance()
         {
             float playerDistance = 0.0f;
-            foreach (Transform player in _playerList)
+            for (int i = 0; i < _playerList.Count; i++)
             {
-                if (playerDistance > Vector3.Distance(player.position, transform.position) || playerDistance == 0)
+                if (_playerList[i] != null && playerDistance > Vector3.Distance(_playerList[i].position, transform.position) || playerDistance == 0)
                 {
-                    playerDistance = Vector3.Distance(player.position, transform.position);
+                    playerDistance = Vector3.Distance(_playerList[i].position, transform.position);
                 }
             }
 
             return playerDistance;
         }
+
+        //fixed with help from andreas
         private bool _lookAtTarget;
         private Transform _lookAtTransform;
 

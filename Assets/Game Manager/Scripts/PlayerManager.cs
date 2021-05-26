@@ -111,6 +111,7 @@ public class PlayerManager : Manager<PlayerManager>
     {
         if (c_revivalInProgress == null)
         {
+            GameManager.Instance._attackableCharacters.Remove(revivalTarget.transform);
             if (revivalTarget == GameManager.Instance._zilla)
             {
                 _reviveInput = GameManager.Instance._rilla.GetComponent<IReviveInput>();
@@ -141,6 +142,7 @@ public class PlayerManager : Manager<PlayerManager>
                 if (percentageRevived >= 1)
                 {
                     revivalTarget.ResetHealth(_percentHealthOnRespawn);
+                    GameManager.Instance._attackableCharacters.Add(revivalTarget.transform);
                     c_revivalInProgress = null;
                     revivalTarget._playerSettings._isReviving = false;
                     break;

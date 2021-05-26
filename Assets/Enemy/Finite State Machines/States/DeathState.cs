@@ -11,7 +11,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
     [CreateAssetMenu(fileName = "DeathState", menuName = "ZillaRilla/States/Death", order = 3)]
     public class DeathState : AbstractFSMState
     {
-        [SerializeField] private GameObject _bugSplatDecal;
+        [SerializeField] private List<GameObject> _bugSplatDecal;
+        [SerializeField] private Vector3 _offset;
         private ZillaAttacks _zilla;
         private RillaAttacks _rilla;
 
@@ -33,7 +34,9 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 //Debug.Log("ENTERED DEATH STATE");
                 //_zilla.RemoveFromPlayerList(_fsm.gameObject); //think these can be removed now :p
                 //_rilla.RemoveFromPlayerList(_fsm.gameObject);
-                Instantiate(_bugSplatDecal,_fsm.gameObject.transform.position, _bugSplatDecal.transform.rotation);
+                GameObject randomDecal = _bugSplatDecal[Randomizer(0, _bugSplatDecal.Count - 1)];
+                //Debug.Log(_npc.transform.rotation);
+                Instantiate(randomDecal, _fsm.gameObject.transform.position + _offset, Quaternion.Euler(90, _npc.transform.rotation.y * Mathf.Rad2Deg, _npc.transform.rotation.z * Mathf.Rad2Deg));
                 Destroy(_npc.gameObject, _npc.deSpawnTime);
             }
             return EnteredState;
@@ -43,6 +46,16 @@ namespace Assets.Enemy.Finite_State_Machines.States
         public override void UpdateState()
         {
             //Debug.Log("UPDATING DEATH STATE");
+        }
+        /// <summary>
+        /// Is inclusive!!
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        private int Randomizer(float min, float max)
+        {
+            return (int)UnityEngine.Random.Range(min,max);
         }
     }
 }
