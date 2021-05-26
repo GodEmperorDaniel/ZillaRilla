@@ -35,7 +35,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 //_zilla.RemoveFromPlayerList(_fsm.gameObject); //think these can be removed now :p
                 //_rilla.RemoveFromPlayerList(_fsm.gameObject);
                 GameObject randomDecal = _bugSplatDecal[Randomizer(0, _bugSplatDecal.Count - 1)];
-                Debug.Log(_npc.transform.rotation);
+                //Debug.Log(_npc.transform.rotation);
                 Instantiate(randomDecal, _fsm.gameObject.transform.position + _offset, Quaternion.Euler(90, _npc.transform.rotation.y * Mathf.Rad2Deg, _npc.transform.rotation.z * Mathf.Rad2Deg));
                 Destroy(_npc.gameObject, _npc.deSpawnTime);
             }

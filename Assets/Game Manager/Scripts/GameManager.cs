@@ -39,6 +39,7 @@ public class GameManager : Manager<GameManager>
 
     public Attackable _zilla;
     public Attackable _rilla;
+    public List<Transform> _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
 
     public GameState CurrentGameState => _currentGameState;
 
@@ -275,8 +276,17 @@ public class GameManager : Manager<GameManager>
 
     private void FindPlayerCharacters()
     {
-        if (GameObject.Find("ZillaPlayer")) GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
-        if (GameObject.Find("RillaPlayer")) GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
+        if (GameObject.Find("ZillaPlayer"))
+        { 
+            GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
+            _attackableCharacters.Add(_zilla.transform);
+        }
+        if (GameObject.Find("RillaPlayer"))
+        { 
+            GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
+            _attackableCharacters.Add(_rilla.transform);
+        }
+
 
         //if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
         //if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
@@ -324,4 +334,10 @@ public class GameManager : Manager<GameManager>
     {
         Debug.Log("Unload Complete.");
     }
+
+    ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
+    //public List<Transform> GetAttackablePlayers()
+    //{
+    //    return _attackableCharacters;
+    //}
 }

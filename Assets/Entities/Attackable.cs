@@ -50,7 +50,7 @@ public class Attackable : MonoBehaviour
 	{
 		if (player != null)
 		{
-			if (_currentHealth == 0 && !_playerSettings._isReviving)
+			if (_currentHealth <= 0 && !_playerSettings._isReviving) //changed this to <= from ==, hope it still works
 			{
 				//Debug.Log("It starts 0 health");
 				//player.gameObject.SetActive(false);
@@ -58,6 +58,11 @@ public class Attackable : MonoBehaviour
 				//_playerSettings.respawnPoint.AddRespawnTarget(this);
 				_playerSettings._isReviving = true;
 				PlayerManager.Instance.PlayerNeedsReviving(this);
+				if (player.GetCharacter() == Player.Scrips.CharacterInput.character.ZILLA)
+				{
+					player.LazorButtonPressed = false;
+				}
+
 			}
 			else
 			{
@@ -104,6 +109,7 @@ public class Attackable : MonoBehaviour
 	//Maybe we should change to make the enemy take dmg first and then check if it's lower than 0 they die?? might be nitpicky tho
 	private void TestToRemoveHealth(AttackSettings settings)
 	{
+		TestForKnockback(settings);
 		//if not inv and it's not a boss --> die or take dmg
 		if (c_invincible == null && _npc != null && _npc.enemyType != EnemyType.BOSS)
 		{
@@ -119,7 +125,6 @@ public class Attackable : MonoBehaviour
 			{
 				_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 				SpawnHitIcon(settings);
-				TestForKnockback(settings);
 				PlayerManager.Instance.AddToPlayerCombo(settings.playerIndex);
 				c_invincible = StartCoroutine(InvincibilityFrames());
 			}
@@ -153,7 +158,7 @@ public class Attackable : MonoBehaviour
 		}
 		else if (c_invincible == null && player != null)
 		{
-			//Debug.Log(" THIS ENEMYS GOT HANDS"); 
+			//Debug.Log("THIS ENEMYS GOT HANDS"); 
 			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
@@ -180,7 +185,8 @@ public class Attackable : MonoBehaviour
 			case 0:
 				if (settings._knockbackStrength > 0 && _knockBack)
 				{
-					Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
+					Debug.Log("knockback");
+					Vector3 direction = gameObject.transform.position - GameManager.Instance._zilla.gameObject.transform.position;
 					direction.y = 0.5f;
 					_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
 				}
