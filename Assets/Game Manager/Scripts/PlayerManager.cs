@@ -170,6 +170,7 @@ public class PlayerManager : Manager<PlayerManager>
         c_revivalInProgress = null;
         UIManager.Instance.InGameUI.DeactivateReviveBar();
         UIManager.Instance.InGameUI.DeactivateReviveCountdown();
+        GameManager.Instance._attackableCharacters.Add(revivalTarget.transform);
         revivalTarget.ResetHealth(_percentHealthOnRespawn);
         revivalTarget._playerSettings._isReviving = false;
     }

@@ -34,38 +34,57 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 // else move towards target
                 List<Transform> targets = _npc.GetPlayerList;
                 EnemyAttacks enemyAttacks = _npc.GetEnemyAttack;
-                float distance0 = Vector3.Distance(targets[0].position, _npc.transform.position);
-                float distance1 = Vector3.Distance(targets[1].position, _npc.transform.position);
+                List<float> distance = new List<float>();
+                Debug.Log(targets.Count);
+                for (int i = 0; i < targets.Count; i++)
+                {
+                    distance.Add(Vector3.Distance(targets[i].position, _npc.transform.position));
+                }
+                //float distance0 = Vector3.Distance(targets[0].position, _npc.transform.position);
+                //float distance1 = Vector3.Distance(targets[1].position, _npc.transform.position);
 
                 //Debug.Log("Current target: " + _npc.PlayerTransform.name);
-
-                _npc.ClosestPlayerDistance(out Transform closestTarget);
-                if (closestTarget != _npc.PlayerTransform && enemyAttacks.IsPlayerInView(closestTarget, _npc))
+                if (targets.Count == 2)
                 {
-                    _npc.PlayerTransform = closestTarget;
-                }
-                if (enemyAttacks.IsPlayerInView(_npc.PlayerTransform, _npc))
-                {
-                    // Attacks if current target i visible
-                    enemyAttacks.EnemyShoot();
-                }
-                else if (distance0 < _npc.attackRadius && distance1 < _npc.attackRadius)
-                {
-                    //Switches target if the other is in range
-                    if (_npc.PlayerTransform == targets[1] && enemyAttacks.IsPlayerInView(targets[0], _npc))
-                        _npc.PlayerTransform = _npc.GetPlayerList[0];
-                    else if (enemyAttacks.IsPlayerInView(targets[1], _npc))
-                        _npc.PlayerTransform = _npc.GetPlayerList[1];
+                    _npc.ClosestPlayerDistance(out Transform closestTarget);
+                    if (closestTarget != _npc.PlayerTransform && enemyAttacks.IsPlayerInView(closestTarget, _npc))
+                    {
+                        _npc.PlayerTransform = closestTarget;
+                    }
+                    if (enemyAttacks.IsPlayerInView(_npc.PlayerTransform, _npc))
+                    {
+                        // Attacks if current target i visible
+                        _npc._animator.SetBool("Attack", true);
+                        //enemyAttacks.EnemyShoot();
+                    }
+                    else if (distance[0] < _npc.attackRadius && distance[1] < _npc.attackRadius)
+                    {
+                        //Switches target if the other is in range
+                        if (_npc.PlayerTransform == targets[1] && enemyAttacks.IsPlayerInView(targets[0], _npc))
+                            _npc.PlayerTransform = _npc.GetPlayerList[0];
+                        else if (enemyAttacks.IsPlayerInView(targets[1], _npc))
+                            _npc.PlayerTransform = _npc.GetPlayerList[1];
+                        else
+                            _fsm.EnterState(FSMStateType.CHASING);
+                    }
                     else
+                    {
                         _fsm.EnterState(FSMStateType.CHASING);
+                    }
                 }
                 else
                 {
-                    _fsm.EnterState(FSMStateType.IDLE);
+                    if (enemyAttacks.IsPlayerInView(targets[0], _npc))
+                    {
+                        _npc._animator.SetBool("Attack", true);
+                    }
+                    else
+                        _fsm.EnterState(FSMStateType.IDLE);
                 }
             }
             else
             {
+                //_npc._animator.SetTrigger("Attack");
                 _npc.GetEnemyAttack.EnemyPunch();
             }
 
