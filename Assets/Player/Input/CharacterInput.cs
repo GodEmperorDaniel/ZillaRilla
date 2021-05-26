@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI.Scripts.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,21 +8,28 @@ namespace Player.Scrips
 {
     using Entities.Scripts;
     using Entities.Commands;
-    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput, IReviveInput, IHealInput
+
+    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput, IReviveInput,
+        IHealInput, IPauseInput
     {
         [SerializeField] private Command _moveInput;
+        
 
         //[SerializeField] private PlayerInputActions _inputsActions;
-        [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")]
-        [SerializeField] private Animator _playerAnimator;
+        [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")] [SerializeField]
+        private Animator _playerAnimator;
+
         [SerializeField] private bool _useJumpInput;
         [SerializeField] private bool _useJumpAsRevive = true;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
+
         public enum character
         {
-            ZILLA, RILLA
+            ZILLA,
+            RILLA
         }
+
 
         [SerializeField] private character _character;
         private bool _attack1Pressed;
@@ -30,8 +38,10 @@ namespace Player.Scrips
 
         public bool JumpButtonPressed { get; set; }
         public bool LazorButtonPressed { get; set; }
-        public bool ReviveInputIsPressed{ get; set; }
+        public bool ReviveInputIsPressed { get; set; }
         public bool IHealPressed { get; set; }
+        public bool IsPressingPause { get; set; }
+
 
         private void Awake()
         {
@@ -40,11 +50,13 @@ namespace Player.Scrips
                 Debug.LogWarning("No animator is set in " + this.name + ", getting it through code");
                 TryGetComponent<Animator>(out _playerAnimator);
             }
+
             PlayerInput playerInput = GetComponent<PlayerInput>();
             _attackable = GetComponent<Attackable>();
         }
 
         #region Attacks
+
         public void OnAttack1Input(InputAction.CallbackContext c)
         {
             if (!_attackable._playerSettings._isReviving)
@@ -54,11 +66,13 @@ namespace Player.Scrips
                 switch (_character)
                 {
                     case character.ZILLA:
-                        if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") && _attack1Pressed)
+                        if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") &&
+                            _attack1Pressed)
                             _playerAnimator.SetBool("ZillaTail", true);
                         break;
                     case character.RILLA:
-                        if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") && _attack1Pressed)
+                        if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") &&
+                            _attack1Pressed)
                         {
                             _rillaLeftPunch = !_rillaLeftPunch;
                             _playerAnimator.SetBool("RillaPunch", true);
@@ -67,6 +81,7 @@ namespace Player.Scrips
                             else
                                 _playerAnimator.SetBool("Rilla_Right_Punch", true);
                         }
+
                         break;
                     default:
                         break;
@@ -75,6 +90,7 @@ namespace Player.Scrips
             else
                 _attack1Pressed = false;
         }
+
         public void OnAttack2Input(InputAction.CallbackContext c)
         {
             if (!_attackable._playerSettings._isReviving)
@@ -84,11 +100,13 @@ namespace Player.Scrips
                 {
                     case character.ZILLA:
                         LazorButtonPressed = value;
-                        if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") && LazorButtonPressed)
+                        if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") &&
+                            LazorButtonPressed)
                         {
                             _playerAnimator.SetBool("ZillaLazorWindup", true);
                             //_playerAnimator.SetBool("ZillaLazor", true);
                         }
+
                         break;
                     case character.RILLA:
                         if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
@@ -99,14 +117,17 @@ namespace Player.Scrips
                 }
             }
         }
-		#endregion
-		#region Aim
-		private void OnMouseAimInput(InputAction.CallbackContext c)
+
+        #endregion
+
+        #region Aim
+
+        private void OnMouseAimInput(InputAction.CallbackContext c)
         {
             //probably a little bit of match and coordinate conversions... will fix later
             //Vector2 value = c.ReadValue<Vector2>();
-
         }
+
         public void OnAnalogAimInput(InputAction.CallbackContext c)
         {
             if (!_attackable._playerSettings._isReviving)
@@ -117,7 +138,9 @@ namespace Player.Scrips
                     _moveInput.Execute();
             }
         }
+
         #endregion
+
         public void OnJumpInput(InputAction.CallbackContext c)
         {
             if (!_attackable._playerSettings._isReviving)
@@ -129,6 +152,7 @@ namespace Player.Scrips
                     JumpButtonPressed = value == 1 ? true : false;
                     //_moveInput.Execute();
                 }
+
                 if (_useJumpAsRevive)
                 {
                     ReviveInputIsPressed = value == 1 ? true : false;
@@ -138,9 +162,9 @@ namespace Player.Scrips
             {
                 JumpButtonPressed = false;
                 ReviveInputIsPressed = false;
-            }        
-            
+            }
         }
+
         public void Heal(InputAction.CallbackContext c)
         {
             if (!_attackable._playerSettings._isReviving)
@@ -151,11 +175,14 @@ namespace Player.Scrips
             else
                 IHealPressed = false;
         }
+
         public void Quit()
         {
             Application.Quit();
         }
+
         #region Movement
+
         public void OnMoveInput(InputAction.CallbackContext c)
         {
             if (!_attackable._playerSettings._isReviving)
@@ -181,11 +208,38 @@ namespace Player.Scrips
             else
                 MoveDirection = Vector3.zero;
         }
+
         #endregion
+
         public character GetCharacter()
         {
             return _character;
-        }  
-	}
-}
+        }
 
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (!context.started) return;
+
+            float value = context.ReadValue<float>();
+            IsPressingPause = value >= 0.15f;
+            if (IsPressingPause) GameManager.Instance.TogglePause();
+            
+            
+        }
+
+        public void OnUINavigate(InputAction.CallbackContext context)
+        {
+            UIManager.Instance.UIInput.OnNavigate(context);
+        }
+
+        public void OnUIAccept(InputAction.CallbackContext context)
+        {
+            UIManager.Instance.UIInput.OnAcceptPressed(context);
+        }
+
+        public void OnUICancel(InputAction.CallbackContext context)
+        {
+            UIManager.Instance.UIInput.OnCancelPressed(context);
+        }
+    }
+}

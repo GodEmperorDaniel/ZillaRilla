@@ -14,10 +14,7 @@ namespace UI.Scripts.Input
 
         public override void Execute()
         {
-            if (_navigate.NavigateDirection.y == 0.0f) return;
-            UIManager.Instance.MenuMovement(_navigate.NavigateDirection.y);
-
-
+            UIManager.Instance.MenuSelection(_navigate.NavigateDirection.y);
         }
     }
 }

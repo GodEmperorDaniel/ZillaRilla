@@ -13,5 +13,9 @@
     <title title="Third Test">
         <text>This is the third test in the disctionary!</text>
     </title>
-    
+	
+	<title title="Building Destroyed">
+		<text>A building was destroyed a lot!</text>
+    </title>
+	
 </news_banner_text>

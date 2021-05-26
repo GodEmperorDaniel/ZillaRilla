@@ -53,7 +53,7 @@ MonoBehaviour:
   - {fileID: 1525196732207076972, guid: e8b8ced21ad139d4ebded959b88e9321, type: 3}
   - {fileID: 6735379524385902249, guid: 82be52954620d1d42ad53a0aead6add8, type: 3}
   - {fileID: 3724776392524075530, guid: 23e35df0fb193a441beefa2121fe8b23, type: 3}
-  iconLifeTime: 1
+  iconLifeTime: 0.5
   iconScaling: 0.5
-  iconMaxScaling: 7
-  iconMovement: {x: 0, y: 0.001, z: 0}
+  iconMaxScaling: 8
+  iconMovement: {x: 0, y: 0.5, z: 0}

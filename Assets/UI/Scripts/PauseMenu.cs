@@ -1,43 +1,101 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+namespace UI.Scripts
 {
-    /*
-    [SerializeField] private Button _resumeButton;
-    [SerializeField] private Button _restartButton;
-    [SerializeField] private Button _quitButton;
+    public class PauseMenu : MonoBehaviour
+    {
+        private enum ArrowState
+        {
+            RESUME,
+            EXIT_TO_MENU
+        }
 
-    private void Start()
-    {
-        _resumeButton.onClick.AddListener(HandleResumeClicked);
-    }
+        [SerializeField] private RectTransform arrow;
+        [SerializeField] private Button resumeButton;
+        [SerializeField] private Button exitButton;
 
-    private void HandleResumeClicked()
-    {
-        GameManager.Instance.TogglePause();
-    }*/
-    
-    public void TogglePause()
-    {
-        GameManager.Instance.TogglePause();
-    }
+        public Vector3 arrowOffset;
+        
+        private ArrowState _arrowState;
 
-    public void ExitToMainMenu()
-    {
-        GameManager.Instance.ExitToMainMenu();
-    }
+        private void OnEnable()
+        {
+            SetArrowState(ArrowState.RESUME);
+        }
 
-    public void Accept()
-    {
-        // TODO Accept function
-    }
+        public void TogglePause()
+        {
+            GameManager.Instance.TogglePause();
+        }
 
-    public void Cancel()
-    {
-        // TODO Cancel function
+        private void Resume()
+        {
+            TogglePause();
+        }
+
+        private void ExitToMenu()
+        {
+            Debug.Log("Exit To Menu");
+            GameManager.Instance.ExitToMainMenu();
+        }
+        
+        public void Accept()
+        {
+            switch (_arrowState)
+            {
+                case ArrowState.RESUME:
+                    TogglePause();
+                    break;
+                case ArrowState.EXIT_TO_MENU:
+                    ExitToMenu();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public void Cancel()
+        {
+            TogglePause();
+        }
+
+        private void SetArrowState(ArrowState state)
+        {
+            _arrowState = state;
+
+            Vector3 buttonPosition = _arrowState switch
+            {
+                ArrowState.RESUME => resumeButton.transform.position,
+                ArrowState.EXIT_TO_MENU => exitButton.transform.position,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            Debug.Log("GameObject: " + gameObject.name + ", State: " + _arrowState);
+            arrow.transform.position = buttonPosition + arrowOffset;
+        }
+
+        private void SetArrowState(int state)
+        {
+            SetArrowState((ArrowState) state);
+        }
+
+        public void MoveArrow(float navigateDirection)
+        {
+            int enumLength = Enum.GetValues(typeof(ArrowState)).Length;
+
+            // Wraps index between 0 and length of Enum to allow the selection to loop both ways.
+            if (navigateDirection > 0.0f)
+            {
+                int newState = ((int) _arrowState - 1 + enumLength) % enumLength;
+                SetArrowState(newState);
+            }
+            else
+            {
+                int newState = ((int) _arrowState + 1) % enumLength;
+                SetArrowState(newState);
+            }
+        }
     }
 }

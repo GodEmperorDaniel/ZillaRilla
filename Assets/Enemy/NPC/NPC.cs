@@ -23,9 +23,6 @@ namespace Assets.Enemy.NPCCode
     [RequireComponent(typeof(NavMeshAgent), typeof(FiniteStateMachine), typeof(Transform))]
     public class NPC : MonoBehaviour
     {
-        //TODO: Ranged Enemy approaching player when no line of sight
-        //TODO: If there is another player in range prioritize the one it can shoot
-
         NavMeshAgent _navMeshAgent;
         private FiniteStateMachine _finiteStateMachine;
         EnemyAttacks _enemyAttacks;

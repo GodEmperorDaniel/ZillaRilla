@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace UI.Scripts.Input
 {
     public class AcceptCommand : Command
