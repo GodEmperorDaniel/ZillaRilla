@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6292049254572093164}
   - component: {fileID: 4368662603694798400}
   - component: {fileID: 6285365662767924861}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House_Q_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,11 @@ GameObject:
   - component: {fileID: 4880004497378739185}
   - component: {fileID: 6393350380163310298}
   - component: {fileID: 6393350380163310299}
-  m_Layer: 0
+  - component: {fileID: 536366378}
+  - component: {fileID: 536366377}
+  - component: {fileID: 536366375}
+  - component: {fileID: 536366376}
+  m_Layer: 12
   m_Name: House_Q_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +182,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 5957067749974302373, guid: e3eab2dc403666841bc136e076428aa7, type: 3}
+  m_Mesh: {fileID: 4470119493609901295, guid: e3eab2dc403666841bc136e076428aa7, type: 3}
 --- !u!205 &6393350380163310299
 LODGroup:
   m_ObjectHideFlags: 0
@@ -205,3 +209,77 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!54 &536366378
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6393350380163310116}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!111 &536366377
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6393350380163310116}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: f8a1c3826b27ee44db9a2936093d51fe, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &536366375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6393350380163310116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cddfa3e58ddf844c842325e0d2904c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _smokePrefab: {fileID: 3312276840990385156, guid: 54148358821020c498c73439b1cc7717, type: 3}
+  _rubblePrefab: {fileID: 7177515072581018778, guid: 0fd192440fc275a4585f4a3df1d1b1ba, type: 3}
+  smokeLifetime: 5
+  collapseDelay: 1
+  _rubbleMesh: {fileID: 0}
+  isRubble: 0
+--- !u!114 &536366376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6393350380163310116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _maxShieldHealth: 0
+  _currentHealth: 20
+  _currentShieldHealth: 0
+  regenerationSpeed: 0.1
+  regenHealthAmount: 1
+  _animator: {fileID: 0}
+  _iFrames: 0.5
+  _playerSettings:
+    _timeToRevive: 0
+    _timeUntilDeath: 0
+    _isReviving: 0
