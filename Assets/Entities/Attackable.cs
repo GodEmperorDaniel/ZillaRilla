@@ -14,7 +14,8 @@ public class Attackable : MonoBehaviour
 	[ContextMenuItem("Revive Player", "QuickRevivePlayer")]
 	[SerializeField] private float _currentHealth;
 	[SerializeField] private float _currentShieldHealth;
-	[SerializeField] private float regenerationSpeed;
+	[SerializeField] private float regenerationSpeed = 0.1f;
+	[SerializeField] private float regenHealthAmount = 1f;
 
 	[SerializeField] private Animator _animator;
 	[SerializeField] private float _iFrames;
@@ -22,6 +23,7 @@ public class Attackable : MonoBehaviour
 	private RillaSlamSettings _rillaSlamSettings;
 	private ZillaLazorSettings _zillaLazorSettings;
 	private Coroutine c_invincible;
+	private Coroutine c_regenerate;
 
 	private FiniteStateMachine _fsm;
 	private FSMStateType _fsmStateType;
@@ -151,6 +153,7 @@ public class Attackable : MonoBehaviour
 		//if it's in vuln-state (boss) then zilla lazor will dmg it
 		else if (c_invincible == null && _npc != null && _npc.enemyType == EnemyType.BOSS)
 		{
+			//c_regenerate = null;
 				if (_currentShieldHealth <= 0)
 				{
 					transform.GetChild(2).gameObject.SetActive(false);
@@ -166,11 +169,16 @@ public class Attackable : MonoBehaviour
 						_fsm.EnterState(FSMStateType.IDLE);
 					}
 				}
+				else if(c_regenerate == null)
+				{
+					_currentShieldHealth -= (settings._attackDamage * settings._damageMultiplier);
+					c_regenerate = StartCoroutine(RegenShieldHealth());
+				}
 				else
 				{
 					_currentShieldHealth -= (settings._attackDamage * settings._damageMultiplier);
-					StartCoroutine(RegenShieldHealth());
 				}
+
 				UIManager.Instance.SpawnHitIcon(gameObject.transform.position, settings.playerIndex);
 				PlayerManager.Instance.AddToPlayerCombo(0);
 				c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!            
@@ -226,12 +234,14 @@ public class Attackable : MonoBehaviour
 	#endregion
 	private IEnumerator RegenShieldHealth()
 	{
-		yield return new WaitForSeconds(regenerationSpeed);
+		//Debug.Log("NU KÖR VIII");
+		//yield return new WaitForSeconds(regenerationSpeed);
 		while (_currentShieldHealth < _maxShieldHealth && _currentShieldHealth > 0)
 		{
-			_currentShieldHealth += _maxShieldHealth / 100;
-			yield return new WaitForSeconds(0.1f);
+			_currentShieldHealth += regenHealthAmount;
+			yield return new WaitForSeconds(regenerationSpeed);
 		}
+		c_regenerate = null;
 	}
 }
 
