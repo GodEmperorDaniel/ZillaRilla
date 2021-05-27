@@ -75,7 +75,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Quit"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""56f72e34-317d-4c87-ae7c-4a4ccb65f7c5"",
                     ""expectedControlType"": ""Button"",
@@ -396,7 +396,18 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Quit"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85892c1a-833a-4262-96eb-59aeb5a52fa4"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -746,6 +757,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Blank"",
+            ""id"": ""05c3c9da-5366-4e05-8ef2-1801f349e858"",
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": [
@@ -820,7 +837,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Attack2 = m_Player.FindAction("Attack2", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_AnalogMove = m_Player.FindAction("AnalogMove", throwIfNotFound: true);
-        m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Heal = m_Player.FindAction("Heal", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -829,6 +846,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        // Blank
+        m_Blank = asset.FindActionMap("Blank", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -885,7 +904,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Attack2;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_AnalogMove;
-    private readonly InputAction m_Player_Quit;
+    private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Heal;
     public struct PlayerActions
     {
@@ -898,7 +917,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Attack2 => m_Wrapper.m_Player_Attack2;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @AnalogMove => m_Wrapper.m_Player_AnalogMove;
-        public InputAction @Quit => m_Wrapper.m_Player_Quit;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Heal => m_Wrapper.m_Player_Heal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -930,9 +949,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @AnalogMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogMove;
                 @AnalogMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogMove;
                 @AnalogMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogMove;
-                @Quit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
-                @Quit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
-                @Quit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Heal.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
                 @Heal.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
                 @Heal.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
@@ -961,9 +980,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @AnalogMove.started += instance.OnAnalogMove;
                 @AnalogMove.performed += instance.OnAnalogMove;
                 @AnalogMove.canceled += instance.OnAnalogMove;
-                @Quit.started += instance.OnQuit;
-                @Quit.performed += instance.OnQuit;
-                @Quit.canceled += instance.OnQuit;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
                 @Heal.started += instance.OnHeal;
                 @Heal.performed += instance.OnHeal;
                 @Heal.canceled += instance.OnHeal;
@@ -1036,6 +1055,31 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Blank
+    private readonly InputActionMap m_Blank;
+    private IBlankActions m_BlankActionsCallbackInterface;
+    public struct BlankActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public BlankActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_Blank; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BlankActions set) { return set.Get(); }
+        public void SetCallbacks(IBlankActions instance)
+        {
+            if (m_Wrapper.m_BlankActionsCallbackInterface != null)
+            {
+            }
+            m_Wrapper.m_BlankActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+            }
+        }
+    }
+    public BlankActions @Blank => new BlankActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1090,7 +1134,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnAttack2(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAnalogMove(InputAction.CallbackContext context);
-        void OnQuit(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
     }
     public interface IUIActions
@@ -1100,5 +1144,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
+    }
+    public interface IBlankActions
+    {
     }
 }

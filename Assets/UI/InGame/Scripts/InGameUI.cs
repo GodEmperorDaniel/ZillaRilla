@@ -9,7 +9,6 @@ using TMPro;
 public class InGameUI : MonoBehaviour
 {
     //TODO: Button Prompts (Tutorial and such)
-    //TODO: Kill-o-meter for Zilla and Rilla
 
     [SerializeField] private FillableBar _zillaHealthBar;
     [SerializeField] private FillableBar _rillaHealthBar;

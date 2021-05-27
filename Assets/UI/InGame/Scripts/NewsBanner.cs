@@ -45,6 +45,17 @@ public class NewsBanner : MonoBehaviour
         }
     
         // DEBUG
+        if (Keyboard.current.rKey.wasPressedThisFrame && debugMode)
+        {
+            Debug.Log("XML Reloaded");
+            if (!_bannerIsUp) _xmlNewsText = XMLLoader.GetXMLDictionary("xml_text_test.xml");;
+        }
+        if (Keyboard.current.rKey.wasPressedThisFrame && debugMode)
+        {
+            Debug.Log("XML Reloaded");
+            if (!_bannerIsUp) _xmlNewsText = XMLLoader.GetXMLDictionary("xml_text_test.xml");;
+        }
+        
         if (Keyboard.current.numpad1Key.wasPressedThisFrame && debugMode)
         {
             Debug.Log("Text 1");
@@ -59,6 +70,11 @@ public class NewsBanner : MonoBehaviour
         {
             Debug.Log("Text 3");
             if (!_bannerIsUp) ActivateBanner(2);
+        }
+        else if (Keyboard.current.numpad4Key.wasPressedThisFrame && debugMode)
+        {
+            Debug.Log("Text 4");
+            if (!_bannerIsUp) ActivateBanner(3);
         }
         
     }

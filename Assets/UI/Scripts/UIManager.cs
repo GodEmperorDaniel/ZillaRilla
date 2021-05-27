@@ -2,7 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UI.Main_Menu;
+using UI.Scripts;
+using UI.Scripts.Input;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class UIManager : Manager<UIManager>
 {
@@ -12,8 +16,24 @@ public class UIManager : Manager<UIManager>
 
     [SerializeField] private HitIconSpawner _hitIconSpawner;
     private Camera _dummyCamera;
+    private UIInput _uiInput;
+    private PlayerInput _playerInput;
+    private static PlayOneShot uiSounds;
 
     public InGameUI InGameUI => _inGameUI;
+
+
+    public UIInput UIInput
+    {
+        get => _uiInput;
+        private set => _uiInput = value;
+    }
+
+    public PlayOneShot UISounds
+    {
+        get => uiSounds;
+        private set => uiSounds = value;
+    }
 
     protected override void Awake()
     {
@@ -23,9 +43,10 @@ public class UIManager : Manager<UIManager>
         _dummyCamera.gameObject.SetActive(false);
         _mainMenu.gameObject.SetActive(false);
         _pauseMenu.gameObject.SetActive(false);
+        _uiInput = GetComponent<UIInput>();
+        UISounds = GetComponent<PlayOneShot>();
     }
 
-    
 
     private void Start()
     {
@@ -62,6 +83,16 @@ public class UIManager : Manager<UIManager>
         _hitIconSpawner.SpawnHitIcon(position, player);
     }
 
+
+    public void EnableUIInput()
+    {
+        _playerInput.SwitchCurrentActionMap("UI");
+    }
+
+    public void DisableUIInput()
+    {
+        _playerInput.SwitchCurrentActionMap("Blank");
+    }
 
     public void EnableInGameUI()
     {
@@ -103,9 +134,30 @@ public class UIManager : Manager<UIManager>
         _dummyCamera.gameObject.SetActive(false);
     }
 
-    public void MenuMovement(float navigateDirection)
+    public void MenuSelection(float navigateDirection)
     {
-        _mainMenu.MoveArrow(navigateDirection);
+        GameManager.GameState state = GameManager.Instance.CurrentGameState;
+        UISounds.PlaySound("Menu Selection");
+
+        switch (state)
+        {
+            case GameManager.GameState.BOOT:
+                break;
+            case GameManager.GameState.CUTSCENE:
+                break;
+            case GameManager.GameState.MAIN_MENU:
+                _mainMenu.MoveArrow(navigateDirection);
+                break;
+            case GameManager.GameState.LOADING:
+                break;
+            case GameManager.GameState.IN_GAME:
+                break;
+            case GameManager.GameState.PAUSED:
+                _pauseMenu.MoveArrow(navigateDirection);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public void PressAccept()
@@ -119,6 +171,7 @@ public class UIManager : Manager<UIManager>
             case GameManager.GameState.CUTSCENE:
                 break;
             case GameManager.GameState.MAIN_MENU:
+                Debug.Log("Menu Accept");
                 _mainMenu.Accept();
                 break;
             case GameManager.GameState.LOADING:
@@ -126,6 +179,7 @@ public class UIManager : Manager<UIManager>
             case GameManager.GameState.IN_GAME:
                 break;
             case GameManager.GameState.PAUSED:
+                Debug.Log("Paused Accept");
                 _pauseMenu.Accept();
                 break;
             default:

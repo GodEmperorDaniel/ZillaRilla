@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -82,6 +83,20 @@ public class GameManager : Manager<GameManager>
         {
             TogglePause();
         }
+
+        if (Keyboard.current.uKey.wasPressedThisFrame)
+        {
+            EnableUIControls();
+        }
+        else if (Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            EnableInGameControls();
+        }
+        else if (Keyboard.current.mKey.wasPressedThisFrame)
+        {
+            Debug.Log(_zilla.GetComponent<PlayerInput>().currentActionMap);
+            Debug.Log(_rilla.GetComponent<PlayerInput>().currentActionMap);    
+        }
     }
 
     #region LevelManagement
@@ -154,9 +169,21 @@ public class GameManager : Manager<GameManager>
 
     public void ExitToMainMenu()
     {
-        UnloadLevel(mainLevel);
+        _zilla = null;
+        _rilla = null;
+        DestroyInGameManagers();
+        UnloadLevel(_currentLevelName);
         LoadLevel("Main Menu");
         UpdateState(GameState.MAIN_MENU);
+    }
+
+    private void DestroyInGameManagers()
+    {
+        _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
+        _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
+        
+        Destroy(GoalManager.Instance.gameObject);
+        Destroy(PlayerManager.Instance.gameObject);
     }
 
 
@@ -233,7 +260,7 @@ public class GameManager : Manager<GameManager>
             case GameState.MAIN_MENU:
                 UIManager.Instance.EnableMainMenuUI();
                 UIManager.Instance.EnableDummyCamera();
-                //EnableMenuControls();
+                EnableUIControls();
                 break;
 
             case GameState.LOADING:
@@ -244,13 +271,13 @@ public class GameManager : Manager<GameManager>
 
             case GameState.IN_GAME:
                 UIManager.Instance.EnableInGameUI();
-                //EnableInGameControls();
+                EnableInGameControls();
                 break;
 
             case GameState.PAUSED:
                 Time.timeScale = 0.0f;
                 UIManager.Instance.EnablePauseUI();
-                //EnableMenuControls();
+                EnableUIControls();
                 break;
 
             default:
@@ -264,9 +291,9 @@ public class GameManager : Manager<GameManager>
 
     private void InstantiateSystemPrefabs()
     {
-        foreach (var go in _systemPrefab)
+        foreach (GameObject go in _systemPrefab)
         {
-            var prefabInstance = Instantiate(go);
+            GameObject prefabInstance = Instantiate(go);
             _instancedSystemPrefabs.Add(prefabInstance);
         }
 
@@ -276,12 +303,12 @@ public class GameManager : Manager<GameManager>
 
     private void FindPlayerCharacters()
     {
-        if (GameObject.Find("ZillaPlayer"))
+        if (GameObject.Find("ZillaPlayer"))
         { 
             GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
             _attackableCharacters.Add(_zilla.transform);
-        }
-        if (GameObject.Find("RillaPlayer"))
+        }
+        if (GameObject.Find("RillaPlayer"))
         { 
             GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
             _attackableCharacters.Add(_rilla.transform);
@@ -292,16 +319,32 @@ public class GameManager : Manager<GameManager>
         //if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
     }
 
-    private void EnableMenuControls()
+    private void EnableUIControls()
     {
-        _zilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
-        _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+        if (_zilla != null || _rilla != null)
+        {
+            _zilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+            _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+        }
+        else
+        {
+            UIManager.Instance.GetComponent<PlayerInput>().enabled = true;
+            UIManager.Instance.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+        }
     }
 
     private void EnableInGameControls()
     {
-        _zilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
-        _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        if (_zilla != null || _rilla != null)
+        {
+            _zilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+            _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        }
+        else
+        {
+            UIManager.Instance.GetComponent<PlayerInput>().enabled = false;
+            UIManager.Instance.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        }
     }
 
     //private void UpdateHealth() its an unused private
@@ -309,6 +352,7 @@ public class GameManager : Manager<GameManager>
     //    //UIManager.Instance.UpdateHealthOnUI();
     //}
 
+    // EVENT METHODS
     // EVENT METHODS
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
     {
@@ -318,7 +362,7 @@ public class GameManager : Manager<GameManager>
 
             if (_loadOperations.Count == 0)
             {
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
+                //SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
                 FindPlayerCharacters();
                 if(_zilla && _rilla)
                     PlayerManager.Instance.gameObject.SetActive(true);
@@ -336,8 +380,8 @@ public class GameManager : Manager<GameManager>
     }
 
     ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
-    //public List<Transform> GetAttackablePlayers()
-    //{
+    //public List<Transform> GetAttackablePlayers()
+    //{
     //    return _attackableCharacters;
     //}
 }

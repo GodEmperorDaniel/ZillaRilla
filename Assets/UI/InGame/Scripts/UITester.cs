@@ -14,5 +14,7 @@ public class UITester : MonoBehaviour
         UIManager.Instance.InGameUI.SetZillaHealthOnUI(zillaHealth);
         UIManager.Instance.InGameUI.SetRillaHealthOnUI(rillaHealth);
         UIManager.Instance.InGameUI.SetProgressOnUI(progress);
+        
+        
     }
 }

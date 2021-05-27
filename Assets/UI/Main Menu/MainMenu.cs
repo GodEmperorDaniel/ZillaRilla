@@ -32,7 +32,7 @@ namespace UI.Main_Menu
         private void SetArrowState(ArrowState state)
         {
             _arrowState = state;
-            
+
             Vector3 buttonPosition = _arrowState switch
             {
                 ArrowState.PLAY => _playButton.transform.position,
@@ -41,7 +41,7 @@ namespace UI.Main_Menu
                 _ => throw new ArgumentOutOfRangeException()
             };
 
-            Debug.Log(_arrowState.ToString());
+            Debug.Log("GameObject: " + gameObject.name + ", State: " + _arrowState);
             arrow.transform.position = buttonPosition + arrowOffset;
         }
 
@@ -53,7 +53,7 @@ namespace UI.Main_Menu
         public void MoveArrow(float navigateDirection)
         {
             int enumLength = Enum.GetValues(typeof(ArrowState)).Length;
-            
+
             // Wraps index between 0 and length of Enum to allow the selection to loop both ways.
             if (navigateDirection > 0.0f)
             {
@@ -62,7 +62,7 @@ namespace UI.Main_Menu
             }
             else
             {
-                int newState = ((int)_arrowState + 1) % enumLength;;
+                int newState = ((int) _arrowState + 1) % enumLength;
                 SetArrowState(newState);
             }
         }
@@ -93,6 +93,7 @@ namespace UI.Main_Menu
         private void Play()
         {
             Debug.Log("Start Game!");
+            UIManager.Instance.UISounds.PlaySound("Play");
             GameManager.Instance.StartNewGame();
         }
 

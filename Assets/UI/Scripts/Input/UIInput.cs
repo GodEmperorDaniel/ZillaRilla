@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 namespace UI.Scripts.Input
 {
     public class UIInput : MonoBehaviour, INavigate, IAccept, ICancel
     {
         [SerializeField] [Range(0, 1)] private float buttonThreshold = 0.15f;
-        private PlayerInputActions _playerInputActions;
+        public PlayerInputActions PlayerInputActions;
 
         [HideInInspector] public Command navigateInput;
         [HideInInspector] public Command acceptInput;
@@ -18,14 +19,14 @@ namespace UI.Scripts.Input
 
         private void Awake()
         {
-            _playerInputActions = new PlayerInputActions();
+            PlayerInputActions = new PlayerInputActions();
 
             navigateInput = gameObject.AddComponent<NavigateCommand>();
             acceptInput = gameObject.AddComponent<AcceptCommand>();
             cancelInput = gameObject.AddComponent<CancelCommand>();
         }
 
-        private void OnEnable()
+        /*private void OnEnable()
         {
             _playerInputActions.Enable();
 
@@ -41,42 +42,49 @@ namespace UI.Scripts.Input
             _playerInputActions.UI.Cancel.performed -= OnCancelPressed;
 
             _playerInputActions.Disable();
-        }
+        }*/
 
-    
-        private void OnNavigate(InputAction.CallbackContext context)
+
+        public void OnNavigate(InputAction.CallbackContext context)
         {
+            // Unity Events will trigger on both started and performed. This makes sure it only triggers on one of them.
+            if (!context.started) return;
+
             Vector2 value = context.ReadValue<Vector2>();
             NavigateDirection = new Vector2(0, value.y);
-            if (navigateInput == null && NavigateDirection == Vector2.zero) return;
+
+            if (NavigateDirection == Vector2.zero) return;
             navigateInput.Execute();
         }
 
         // Default setting and execution of a button press
         private bool OnPressedDefault(InputAction.CallbackContext context, Command command)
         {
+            // Unity Events will trigger on both started and performed. This makes sure it only triggers on one of them.
+            if (!context.started) return false;
+
             float value = context.ReadValue<float>();
             bool isPressing = value >= buttonThreshold;
             if (command != null && isPressing) command.Execute();
             return isPressing;
         }
 
-        private void OnAcceptPressed(InputAction.CallbackContext context)
+        public void OnAcceptPressed(InputAction.CallbackContext context)
         {
-            Debug.Log("Accept Pressed!");
             IsPressingAccept = OnPressedDefault(context, acceptInput);
+            if (IsPressingAccept) Debug.Log("Accept Pressed!");
         }
 
-        private void OnCancelPressed(InputAction.CallbackContext context)
+        public void OnCancelPressed(InputAction.CallbackContext context)
         {
-            Debug.Log("Cancel Pressed!");
             IsPressingCancel = OnPressedDefault(context, cancelInput);
+            if (IsPressingCancel) Debug.Log("Cancel Pressed!");
         }
-    
-        private void OnClickPressed(InputAction.CallbackContext context)
+
+        /*private void OnClickPressed(InputAction.CallbackContext context)
         {
             Debug.Log("Clicked!");
             //IsPressingClick = OnPressedDefault(context, cancelInput);
-        }
+        }*/
     }
 }
