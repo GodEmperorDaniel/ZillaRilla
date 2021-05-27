@@ -29,6 +29,9 @@ public class FillableBar : MonoBehaviour
     }
     public void ChangeFrame(Sprite newSprite)
     {
-        frame.sprite = newSprite;
+        if (frame)
+        { 
+            frame.sprite = newSprite;
+        }
     }
 }

@@ -169,6 +169,7 @@ namespace Player.Scrips
         {
             if (!_attackable._playerSettings._isReviving)
             {
+                Debug.Log("i press heal :(( " + IHealPressed);
                 IHealPressed = c.ReadValueAsButton();
                 //PlayerManager.Instance.HealPlayer((int)_character);
             }

@@ -52,9 +52,12 @@ namespace Assets.Enemy.Finite_State_Machines.States
                     }
                     if (enemyAttacks.IsPlayerInView(_npc.PlayerTransform, _npc))
                     {
-                        // Attacks if current target i visible
-                        _npc._animator.SetBool("Attack", true);
-                        //enemyAttacks.EnemyShoot();
+                        if (!_npc._isKnockedBack)
+                        {
+                            // Attacks if current target i visible
+                            _npc._animator.SetBool("Attack", true);
+                            //enemyAttacks.EnemyShoot();
+                        }
                     }
                     else if (distance[0] < _npc.attackRadius && distance[1] < _npc.attackRadius)
                     {
@@ -75,7 +78,10 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 {
                     if (enemyAttacks.IsPlayerInView(targets[0], _npc))
                     {
-                        _npc._animator.SetBool("Attack", true);
+                        if (!_npc._isKnockedBack)
+                        { 
+                            _npc._animator.SetBool("Attack", true);
+                        }
                     }
                     else
                         _fsm.EnterState(FSMStateType.IDLE);
@@ -83,8 +89,11 @@ namespace Assets.Enemy.Finite_State_Machines.States
             }
             else
             {
-                _npc._animator.SetTrigger("Attack");
-                //_npc.GetEnemyAttack.EnemyPunch();
+                if (!_npc._isKnockedBack)
+                {
+                    _npc._animator.SetBool("Attack", true);
+                    //_npc.GetEnemyAttack.EnemyPunch();
+                }
             }
 
             _npc.FaceTarget(_npc.PlayerTransform);

@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3308678846968212343, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3308678846968212349, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
       propertyPath: m_IsKinematic
@@ -817,6 +817,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -0.000034508237
       objectReference: {fileID: 0}
+    - target: {fileID: 8459539853637154227, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2494382007620102092, guid: 5a313167fefdf5b409ba3b1cb1b4c454, type: 3}
     - target: {fileID: 8628967640826941579, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -23.631342
@@ -1196,6 +1200,42 @@ PrefabInstance:
       propertyPath: _lazorRotationSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[0]._name
+      value: Footsteps
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[1]._name
+      value: Tailwhip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[2]._name
+      value: Roar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[3]._name
+      value: Lazor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[0]._fileLocation
+      value: event:/Ljud/Zilla SFX/ZillaWalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[1]._fileLocation
+      value: event:/Ljud/Zilla SFX/ZillaTailAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[2]._fileLocation
+      value: event:/Ljud/Zilla SFX/ZillaRoar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479121816, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: soundEntries.Array.data[3]._fileLocation
+      value: event:/Ljud/Zilla SFX/ZillaBeamAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 1605752104, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
       propertyPath: _maxHealth
       value: 10000
@@ -1279,6 +1319,10 @@ PrefabInstance:
     - target: {fileID: 2270291306907365177, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.799995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599255699767980125, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2643077005271201052, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1411,6 +1455,10 @@ PrefabInstance:
     - target: {fileID: 6847355385723774373, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -131.8907
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227438593615647616, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8276811211326429877, guid: 35000a1b089fd8347ac6180b366a650b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1796,6 +1844,34 @@ PrefabInstance:
     - target: {fileID: 191052408, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 934238885, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: soundEntries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 934238885, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: soundEntries.Array.data[0]._name
+      value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 934238885, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: soundEntries.Array.data[1]._name
+      value: Punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 934238885, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: soundEntries.Array.data[2]._name
+      value: Slam
+      objectReference: {fileID: 0}
+    - target: {fileID: 934238885, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: soundEntries.Array.data[0]._fileLocation
+      value: event:/Ljud/Rilla SFX/RillaWalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 934238885, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: soundEntries.Array.data[1]._fileLocation
+      value: event:/Ljud/Rilla SFX/RillaPunchAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 934238885, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: soundEntries.Array.data[2]._fileLocation
+      value: event:/Ljud/Rilla SFX/RillaGroundSmash
       objectReference: {fileID: 0}
     - target: {fileID: 4442516052479609664, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
       propertyPath: _maxHealth
@@ -3930,14 +4006,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3545230570166144907, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98021
-      objectReference: {fileID: 0}
-    - target: {fileID: 3545230570166144907, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 8.592991e-31
-      objectReference: {fileID: 0}
     - target: {fileID: 6613114054487553844, guid: f183e3728ac54c34080e08b44a62b7ee, type: 3}
       propertyPath: m_RootOrder
       value: 1

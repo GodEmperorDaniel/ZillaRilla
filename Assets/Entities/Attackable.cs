@@ -120,8 +120,8 @@ public class Attackable : MonoBehaviour
 				if (_fsm != null && _fsm._currentState.StateType != FSMStateType.DEATH)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);
+					_animator.SetTrigger("Dead");
 				}
-				_animator.SetTrigger("Dead");
 			}
 			else
 			{
@@ -138,7 +138,7 @@ public class Attackable : MonoBehaviour
 			if (_currentShieldHealth <= 0)
 			{
 				transform.GetChild(2).gameObject.SetActive(false);
-				if (_currentHealth <= 0)
+				if (_currentHealth <= 0 && _fsm._currentState.StateType != FSMStateType.DEATH)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);
 					_animator.SetTrigger("Dead");
@@ -194,21 +194,22 @@ public class Attackable : MonoBehaviour
 			case 0:
 				if (settings._knockbackStrength > 0 && _knockBack)
 				{
-					//Debug.Log("knockback");
+					_animator.SetBool("Attack", false);
+					_npc._isKnockedBack = true;
+					//Debug.Log(_animator.GetCurrentAnimatorStateInfo(1).IsName("Attack"));
 					Vector3 direction = gameObject.transform.position - GameManager.Instance._zilla.gameObject.transform.position;
 					direction.y = 0.5f;
 					_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
-					_animator.SetBool("Attack", false);
 				}
 				break;
 			case 1:
 				if (settings._knockbackStrength > 0 && _knockBack)
 				{
+					_animator.SetBool("Attack", false);
 					//Debug.Log("yes");
 					Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
 					direction.y = 0.5f;
 					_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
-					_animator.SetBool("Attack", false);
 				}
 				break;
 			default:

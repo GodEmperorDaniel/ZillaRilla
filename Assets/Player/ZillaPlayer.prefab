@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 30
+  _lazorMoveSpeed: 5
   _lazorRotationSpeed: 100
   _jumpStength: 50
   _jumpTime: 0.25
@@ -510,11 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listOfSounds:
-  - nameOfSound: event:/Ljud/Zilla SFX/ZillaWalk
-  - nameOfSound: event:/Ljud/Zilla SFX/ZillaBeamAttack
-  - nameOfSound: event:/Ljud/Zilla SFX/ZillaTailAttack
-  - nameOfSound: event:/Ljud/Zilla SFX/ZillaBeamAttack
+  soundEntries: []
 --- !u!114 &1605752104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +525,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 50
+  _maxShieldHealth: 0
   _currentHealth: 20
+  _currentShieldHealth: 0
+  regenerationSpeed: 0.1
+  regenHealthAmount: 1
   _animator: {fileID: 0}
   _iFrames: 1
   _playerSettings:
