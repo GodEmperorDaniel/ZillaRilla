@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a36243521c4ead24fb0c82d57daa10ee
+guid: cec41dcae172a754badd5cdac0fa9fd5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: mat_AlienPink
-    second: {fileID: 2100000, guid: be00c56cb86263948a02953ebc6bef4a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: mat_Xormite_Spawner
-    second: {fileID: 2100000, guid: 0c221230c249951489444db1001c1292, type: 2}
+      name: mat_Xormite_Melee_Dead
+    second: {fileID: 2100000, guid: 3981926e48625204b9edbb18147bc2ae, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
