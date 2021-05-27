@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class EnemyAttacks : BaseAttack
 {
-    [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private Animator _enemyAnimator;
 
     [SerializeField] private EnemyPunchSettings punchSettings;
     [SerializeField] private EnemyShootinghSettings shootingSettings;
@@ -20,10 +20,10 @@ public class EnemyAttacks : BaseAttack
     // Start is called before the first frame update
     private void Awake()
     {
-        if (_playerAnimator == null)
+        if (_enemyAnimator == null)
         {
             Debug.LogWarning("No animator is set in " + gameObject.name + ", getting it through code");
-            TryGetComponent<Animator>(out _playerAnimator);
+            TryGetComponent<Animator>(out _enemyAnimator);
         }
     }
 
@@ -34,7 +34,7 @@ public class EnemyAttacks : BaseAttack
             if(player.layer == LayerMask.NameToLayer("Player"))
                 CallEntityHit(player, shootingSettings);
         }
-        _listEnemyShoot.Clear(); //fuck you
+        _listEnemyShoot.Clear(); //fuck you or me 
     }
 
     public void EnemyPunch()
@@ -60,7 +60,7 @@ public class EnemyAttacks : BaseAttack
         if (c_attackCooldown == null)
         {
             Rigidbody bulletClone = (Rigidbody) Instantiate(shootingSettings._bullet,
-                shootingSettings._shootPosition.position, shootingSettings._bullet.transform.rotation);
+            shootingSettings._shootPosition.position, shootingSettings._bullet.transform.rotation);
             bulletClone.GetComponent<SendTriggerInfo>()._base = this;
             bulletClone.GetComponent<Bullet>()._attacks = this;
 
@@ -73,6 +73,7 @@ public class EnemyAttacks : BaseAttack
     private IEnumerator AttackCooldown(float resetTime)
     {
         yield return new WaitForSeconds(resetTime);
+        _enemyAnimator.SetBool("Attack", false);
         c_attackCooldown = null;
     }
 

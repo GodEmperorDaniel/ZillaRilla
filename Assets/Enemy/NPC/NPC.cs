@@ -41,7 +41,7 @@ namespace Assets.Enemy.NPCCode
         public float deSpawnTime = 1;
         private LayerMask _coveringLayers;
 
-        private Animator _animator;
+        [SerializeField] public Animator _animator;
         
 
         //public RillaPunchSettings punchSettings;
@@ -58,6 +58,15 @@ namespace Assets.Enemy.NPCCode
         public void Update()
         {
             SetPlayerReferences();
+            if (Vector3.Distance(_navMeshAgent.destination, transform.position) < 1)
+            {
+                Debug.Log("no dont do it witch");
+                _animator.SetFloat("Movement", 0);
+            }
+            else
+            {
+                _animator.SetFloat("Movement", 1);
+            }
             //SetChaseTarget();
         }
 

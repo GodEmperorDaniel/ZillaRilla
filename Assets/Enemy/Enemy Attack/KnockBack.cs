@@ -23,7 +23,8 @@ public class KnockBack : MonoBehaviour
     {
         //Vector3 lastDestination = nma.destination;
         nma.enabled = false;
-        ani.applyRootMotion = false;
+        rb.isKinematic = false;
+        //ani.applyRootMotion = false;
         //nma.isStopped = true;
         rb.AddForce(dir * str, ForceMode.Impulse);
         StartCoroutine(SetNavMeshAgentInfo(knockbackTimer));
@@ -33,6 +34,7 @@ public class KnockBack : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         nma.enabled = true;
-        ani.applyRootMotion = true;
+        rb.isKinematic = true;
+        //ani.applyRootMotion = true;
     }
 }
