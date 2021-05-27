@@ -113,13 +113,13 @@ public class ZillaAttacks : BaseAttack
                     CallEntityHit(_listCanHitListLazor[i], lazorSettings);
                 }
             }
-
             yield return null;
         }
 
         lazorSettings._attackHitbox.transform.localScale = new Vector3(1, 1, 0.5f);
         lazorSettings._attackHitbox.SetActive(false);
         _playerAnimator.SetBool("ZillaLazorAttack", false);
+        _listCanHitListLazor.Clear();
         c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
         c_lazorGrowth = null;
     }

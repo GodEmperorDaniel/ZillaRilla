@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Ljud/Alien SFX/AlienDeath
   guid: 81f2f6a1ef038a4eb4a06278e75fe876
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
   Path: event:/Ljud/Alien SFX/AlienClawAttack
   guid: 52defbc7ed1a104fb52a978dec917539
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -172,7 +172,7 @@ MonoBehaviour:
   Path: event:/Ljud/Rilla SFX/RillaGroundSmash
   guid: 9b856fa0a4925941b58951ab7ac1f1d6
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -180,6 +180,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-7646972977513371213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../NewFMOD29_4/zillarilla_musikspeltest/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637572110967012638
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1320
+  Exists: 1
 --- !u!114 &-7027209252338544101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +216,7 @@ MonoBehaviour:
   Path: event:/Ljud/Zilla SFX/ZillaRoar
   guid: 5f5e282f0bf3d141baa64defb90c9469
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -354,7 +375,7 @@ MonoBehaviour:
   Path: event:/Ljud/Zilla + Rilla SFX/Zilla+RillaLand
   guid: 4f682bca7e3bda41b39cb35b9137412e
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -377,7 +398,7 @@ MonoBehaviour:
   Path: event:/Musik/zilla_rilla_musik_bana
   guid: 49e8e7392635404d96f44b37f1beaa91
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -423,7 +444,7 @@ MonoBehaviour:
   Path: event:/Ljud/Zilla + Rilla SFX/Zilla+RillaJump
   guid: 5cb121750273a04390f2f9be812bd407
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -670,7 +691,7 @@ MonoBehaviour:
   Path: event:/Ljud/Zilla SFX/ZillaBeamAttack
   guid: 0c53687486aaee4d91e29d071323490a
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -693,7 +714,7 @@ MonoBehaviour:
   Path: event:/Ljud/Rilla SFX/RillaWalk
   guid: 18dc4b1f94b0c244964cb4260452477c
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -739,7 +760,7 @@ MonoBehaviour:
   Path: event:/Ljud/Zilla SFX/ZillaWalk
   guid: aa497fc69c03dc42a01c4a3373507223
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -913,8 +934,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 5329297537553315617}
-  - {fileID: -801834487329546426}
+  - {fileID: -7646972977513371213}
+  - {fileID: 5922027988608908642}
   EditorEvents:
   - {fileID: -2514412546692435361}
   - {fileID: -1888453617753514606}
@@ -930,10 +951,10 @@ MonoBehaviour:
   - {fileID: -1114563322996700579}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   StringsBanks:
-  - {fileID: 5329297537553315617}
-  stringsBankWriteTime: 637576403262537202
+  - {fileID: -7646972977513371213}
+  stringsBankWriteTime: 637572110967012638
   cacheVersion: 6
 --- !u!114 &269234021100380476
 MonoBehaviour:
@@ -996,7 +1017,7 @@ MonoBehaviour:
   Path: event:/Ljud/Rilla SFX/RillaPunchAttack
   guid: 76eb235ff9d1ff4f943f3439e382f73f
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1432,7 +1453,7 @@ MonoBehaviour:
   Path: event:/Ljud/Zilla SFX/ZillaTailAttack
   guid: 52bb7b86c8733743841d7510b389ef65
   Banks:
-  - {fileID: -801834487329546426}
+  - {fileID: 5922027988608908642}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1509,6 +1530,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &5922027988608908642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../NewFMOD29_4/zillarilla_musikspeltest/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637572110966982745
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5962025210229631619
 MonoBehaviour:
   m_ObjectHideFlags: 0

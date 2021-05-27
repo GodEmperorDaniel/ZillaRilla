@@ -126,6 +126,7 @@ public class Attackable : MonoBehaviour
 			else
 			{
 				_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
+				//_animator.SetBool("DamageTaken", true);
 				SpawnHitIcon(settings);
 				PlayerManager.Instance.AddToPlayerCombo(settings.playerIndex);
 				c_invincible = StartCoroutine(InvincibilityFrames());
@@ -151,6 +152,7 @@ public class Attackable : MonoBehaviour
 				{
 					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
 					_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
+					//_animator.SetBool("DamageTaken", true);
 					_fsm.EnterState(FSMStateType.IDLE);
 				}
 			}
@@ -192,19 +194,21 @@ public class Attackable : MonoBehaviour
 			case 0:
 				if (settings._knockbackStrength > 0 && _knockBack)
 				{
-					Debug.Log("knockback");
+					//Debug.Log("knockback");
 					Vector3 direction = gameObject.transform.position - GameManager.Instance._zilla.gameObject.transform.position;
 					direction.y = 0.5f;
 					_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
+					_animator.SetBool("Attack", false);
 				}
 				break;
 			case 1:
 				if (settings._knockbackStrength > 0 && _knockBack)
 				{
-					Debug.Log("yes");
+					//Debug.Log("yes");
 					Vector3 direction = gameObject.transform.position - GameManager.Instance._rilla.gameObject.transform.position;
 					direction.y = 0.5f;
 					_knockBack.ApplyKnockBack((direction).normalized, settings._knockbackStrength, settings._knockbackTime);
+					_animator.SetBool("Attack", false);
 				}
 				break;
 			default:
@@ -224,6 +228,7 @@ public class Attackable : MonoBehaviour
     private IEnumerator InvincibilityFrames()
 	{
 		yield return new WaitForSeconds(_iFrames);
+		//_animator.SetBool("DamageTaken", false);
 		c_invincible = null;
 	}
 	#region Heal

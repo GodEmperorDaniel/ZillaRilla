@@ -11,6 +11,7 @@ namespace Entities.Commands
 		#region Variables
 		[Header("Movement")]
         [SerializeField] private float _moveSpeed = 10;
+        [SerializeField] private float _lazorMoveSpeed = 5;
         [SerializeField] private float _lazorRotationSpeed;
         private Vector3 _mov;
 
@@ -102,13 +103,23 @@ namespace Entities.Commands
             //Debug.Log(gameObject.name);
             while (_move.MoveDirection != Vector3.zero || !_characterController.isGrounded)
             {
-                _mov.x = _move.MoveDirection.x;
-                _mov.z = _move.MoveDirection.z;
-                _characterController.Move(new Vector3(_mov.x * _moveSpeed, _mov.y, _mov.z * _moveSpeed) * Time.deltaTime);
-
-                if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero)
+                
+                if (_lazor.LazorButtonPressed)
                 {
+                    _mov.x = _move.MoveDirection.x;
+                    _mov.z = _move.MoveDirection.z;
+                    _characterController.Move(new Vector3(_mov.x * _lazorMoveSpeed, _mov.y, _mov.z * _lazorMoveSpeed) * Time.deltaTime);
+                    _animator.SetFloat("Speed", _move.MoveDirection.magnitude / 2);
+                }
+                else
+                {
+                    _mov.x = _move.MoveDirection.x;
+                    _mov.z = _move.MoveDirection.z;
+                    _characterController.Move(new Vector3(_mov.x * _moveSpeed, _mov.y, _mov.z * _moveSpeed) * Time.deltaTime);
                     _animator.SetFloat("Speed", _move.MoveDirection.magnitude);
+                }
+                if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero && !_lazor.LazorButtonPressed)
+                {
                     transform.forward = _move.MoveDirection;
                 }
                 yield return null;
