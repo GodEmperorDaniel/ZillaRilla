@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 5329380140783157217}
   - component: {fileID: 6225130580313016979}
   - component: {fileID: 2927547021559866464}
+  - component: {fileID: -7374108579507443382}
   m_Layer: 12
   m_Name: House_6A1
   m_TagString: Untagged
@@ -192,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3820654533052322251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.797279, y: 0.0000076293945, z: -37.669933}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2.5, z: 2}
   m_Children:
   - {fileID: 4566546533136476549}
@@ -233,7 +234,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d9816a380afffac47b3e301e510dbedc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -329,6 +330,14 @@ MonoBehaviour:
   collapseDelay: 1
   _rubbleMesh: {fileID: 0}
   isRubble: 0
+--- !u!33 &-7374108579507443382
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820654533052322251}
+  m_Mesh: {fileID: 1417462712173023719, guid: be01095a0011b5c4db44288e874d6206, type: 3}
 --- !u!1 &4012829750462085648
 GameObject:
   m_ObjectHideFlags: 0
