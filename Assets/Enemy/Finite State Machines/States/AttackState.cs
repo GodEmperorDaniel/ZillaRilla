@@ -35,7 +35,6 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 List<Transform> targets = _npc.GetPlayerList;
                 EnemyAttacks enemyAttacks = _npc.GetEnemyAttack;
                 List<float> distance = new List<float>();
-                Debug.Log(targets.Count);
                 for (int i = 0; i < targets.Count; i++)
                 {
                     distance.Add(Vector3.Distance(targets[i].position, _npc.transform.position));
@@ -84,8 +83,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
             }
             else
             {
-                //_npc._animator.SetTrigger("Attack");
-                _npc.GetEnemyAttack.EnemyPunch();
+                _npc._animator.SetTrigger("Attack");
+                //_npc.GetEnemyAttack.EnemyPunch();
             }
 
             _npc.FaceTarget(_npc.PlayerTransform);

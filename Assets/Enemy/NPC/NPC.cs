@@ -57,7 +57,6 @@ namespace Assets.Enemy.NPCCode
             SetPlayerReferences();
             if (Vector3.Distance(_navMeshAgent.destination, transform.position) < 1)
             {
-                Debug.Log("no dont do it witch");
                 _animator.SetFloat("Movement", 0);
             }
             else
