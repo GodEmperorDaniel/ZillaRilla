@@ -13,7 +13,11 @@ GameObject:
   - component: {fileID: 3882984980786730409}
   - component: {fileID: 3378788462145041538}
   - component: {fileID: 3378788462145041539}
-  m_Layer: 0
+  - component: {fileID: 2388347518662578996}
+  - component: {fileID: -1582340789085929147}
+  - component: {fileID: -3500500900575305057}
+  - component: {fileID: -6166100981516495025}
+  m_Layer: 12
   m_Name: House_Q_Purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +101,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 5957067749974302373, guid: e3eab2dc403666841bc136e076428aa7, type: 3}
+  m_Mesh: {fileID: 4470119493609901295, guid: e3eab2dc403666841bc136e076428aa7, type: 3}
 --- !u!205 &3378788462145041539
 LODGroup:
   m_ObjectHideFlags: 0
@@ -124,6 +128,80 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!54 &2388347518662578996
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378788462145041532}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!111 &-1582340789085929147
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378788462145041532}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: f8a1c3826b27ee44db9a2936093d51fe, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &-3500500900575305057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378788462145041532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _maxShieldHealth: 0
+  _currentHealth: 20
+  _currentShieldHealth: 0
+  regenerationSpeed: 0.1
+  regenHealthAmount: 1
+  _animator: {fileID: 0}
+  _iFrames: 0.2
+  _playerSettings:
+    _timeToRevive: 0
+    _timeUntilDeath: 0
+    _isReviving: 0
+--- !u!114 &-6166100981516495025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378788462145041532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cddfa3e58ddf844c842325e0d2904c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _smokePrefab: {fileID: 3312276840990385156, guid: 54148358821020c498c73439b1cc7717, type: 3}
+  _rubblePrefab: {fileID: 7590152206921086140, guid: 4eebb522a701b45448b509048a5a39b2, type: 3}
+  smokeLifetime: 5
+  collapseDelay: 1
+  _rubbleMesh: {fileID: 0}
+  isRubble: 0
 --- !u!1 &6823390820187075737
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +213,7 @@ GameObject:
   - component: {fileID: 2381200296424388788}
   - component: {fileID: 5402906704489422872}
   - component: {fileID: 2405057151770923045}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House_Q_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
