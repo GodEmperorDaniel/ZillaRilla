@@ -343,7 +343,7 @@ public class GameManager : Manager<GameManager>
         else
         {
             UIManager.Instance.GetComponent<PlayerInput>().enabled = false;
-            UIManager.Instance.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+            //UIManager.Instance.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
         }
     }
 

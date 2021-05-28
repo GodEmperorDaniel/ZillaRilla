@@ -95,7 +95,7 @@ public class PlayerManager : Manager<PlayerManager>
         }
         if (_zillaHealInput.IHealPressed && c_zillaHealthDelay == null)
         {
-            Debug.Log("HealingPlayer");
+            //Debug.Log("HealingPlayer");
             c_zillaHealthDelay = StartCoroutine(HealingDelay(0,0.3f));
             StartCoroutine(HealPlayer(0));
         }

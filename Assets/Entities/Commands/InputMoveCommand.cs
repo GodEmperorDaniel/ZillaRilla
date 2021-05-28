@@ -36,7 +36,7 @@ namespace Entities.Commands
         private Coroutine c_jumpCooldown;
 
         [Header("Interacting")]
-        [SerializeField] private float _objectKnockbackForce;
+        [SerializeField] private float _objectMoveForce = 2;
 
         [Header("Self generating")]
         [SerializeField] private Transform _transform;
@@ -81,7 +81,6 @@ namespace Entities.Commands
             JumpWhileStill();
             Debug.DrawLine(transform.position + new Vector3(0, 1, 0), (transform.position + rayCastLenght * Vector3.down), Color.red);
         }
-
         private void Gravity()
         {
             if (!_characterController.isGrounded)
@@ -202,7 +201,7 @@ namespace Entities.Commands
             if (hit.gameObject.layer == LayerMask.NameToLayer("Movable"))
             {
                 Rigidbody rb = hit.gameObject.GetComponent<Rigidbody>();
-                rb.AddForce(_move.MoveDirection, ForceMode.Impulse);
+                rb.AddForce(_move.MoveDirection * _objectMoveForce, ForceMode.Impulse);
             }
         }
         #endregion

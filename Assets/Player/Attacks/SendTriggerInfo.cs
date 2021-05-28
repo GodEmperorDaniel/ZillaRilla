@@ -46,7 +46,7 @@ public class SendTriggerInfo : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer(_targets[i]))
             {
-                Debug.Log(gameObject.name + " Removed " + other.name);
+                //Debug.Log(gameObject.name + " Removed " + other.name);
                 _base.CustomTriggerExit(other, _ID);
             }
         }
