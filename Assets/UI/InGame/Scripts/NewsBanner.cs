@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.WSA;
+using Random = UnityEngine.Random;
 
 public class NewsBanner : MonoBehaviour
 {
@@ -15,8 +19,8 @@ public class NewsBanner : MonoBehaviour
     private bool _bannerIsUp;
     private bool _textIsScrolling = false;
 
-    [SerializeField] private TextMeshProUGUI _newsText;
-    [SerializeField] private RectMask2D _textMask;
+    private TextMeshProUGUI _textMesh;
+    private RectMask2D _textMask;
     private RectTransform _textTransform;
     private int _currentLoop;
 
@@ -25,16 +29,25 @@ public class NewsBanner : MonoBehaviour
     public float bannerActivationSpeed;
     public bool debugMode = false;
 
-    private Dictionary<string, string> _xmlNewsText;
+    [SerializeField] private string xmlFileLocation;
+    [SerializeField] private string xmlFileLocationDebug;
+    private Dictionary<string, Dictionary<string, string>> _newsTextCategories;
 
-    
+    //[SerializeField] private 
+
+
     // UNITY METHODS
     private void Start()
     {
-        _xmlNewsText = XMLLoader.GetXMLDictionary("xml_text_test.xml");
-        
+#if DEBUG
+        _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocationDebug);
+#else
+        _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocation);
+#endif
         _animation = GetComponent<Animation>();
-        _textTransform = _newsText.GetComponent<RectTransform>();
+        _textMesh = GetComponentInChildren<TextMeshProUGUI>();
+        _textTransform = _textMesh.GetComponent<RectTransform>();
+        _textMask = GetComponentInChildren<RectMask2D>();
     }
 
     private void Update()
@@ -43,47 +56,62 @@ public class NewsBanner : MonoBehaviour
         {
             ScrollText();
         }
-    
+
         // DEBUG
         if (Keyboard.current.rKey.wasPressedThisFrame && debugMode)
         {
             Debug.Log("XML Reloaded");
-            if (!_bannerIsUp) _xmlNewsText = XMLLoader.GetXMLDictionary("xml_text_test.xml");;
+            _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocation);
         }
-        if (Keyboard.current.rKey.wasPressedThisFrame && debugMode)
-        {
-            Debug.Log("XML Reloaded");
-            if (!_bannerIsUp) _xmlNewsText = XMLLoader.GetXMLDictionary("xml_text_test.xml");;
-        }
-        
+
         if (Keyboard.current.numpad1Key.wasPressedThisFrame && debugMode)
         {
-            Debug.Log("Text 1");
-            if (!_bannerIsUp) ActivateBanner(0);
+            Debug.Log("Building Destruction Index");
+            if (!_bannerIsUp) ActivateBanner("Building Destruction", 0);
         }
         else if (Keyboard.current.numpad2Key.wasPressedThisFrame && debugMode)
         {
-            Debug.Log("text 2");
-            if (!_bannerIsUp) ActivateBanner(1);
+            Debug.Log("Building Destruction Title");
+            if (!_bannerIsUp) ActivateBanner("Building Destruction", "A lot!");
         }
         else if (Keyboard.current.numpad3Key.wasPressedThisFrame && debugMode)
         {
-            Debug.Log("Text 3");
-            if (!_bannerIsUp) ActivateBanner(2);
+            Debug.Log("Enemy Killed Random");
+            if (!_bannerIsUp) ActivateBannerRandom("Enemy Killed");
         }
         else if (Keyboard.current.numpad4Key.wasPressedThisFrame && debugMode)
         {
-            Debug.Log("Text 4");
-            if (!_bannerIsUp) ActivateBanner(3);
+            Debug.Log("Enemy Killed 1");
+            if (!_bannerIsUp) ActivateBanner("Enemy Killed", 1);
         }
-        
     }
 
+
     // PUBLIC METHODS
-    public void ActivateBanner(int textIndex)
+
+    public void ActivateBanner(string category, int index)
     {
-        StartCoroutine(InitializeText(_xmlNewsText.ElementAt(textIndex).Value));
+        
+        Dictionary<string, string> newsContent = _newsTextCategories[category];
+        StartCoroutine(InitializeText(newsContent.ElementAt(index).Value));
         _animation.Play("NewsBannerUp");
+    }
+
+    public void ActivateBanner(string category, string title)
+    {
+        Dictionary<string, string> newsContent = _newsTextCategories[category];
+        StartCoroutine(InitializeText(newsContent[title]));
+        _animation.Play("NewsBannerUp");
+    }
+
+    public void ActivateBannerRandom(string category)
+    {
+        // TODO Random chance to appear
+        
+        int max = _newsTextCategories[category].Count;
+        int index = Random.Range(0, max);
+        
+        ActivateBanner(category, index);
     }
 
     public void DeactivateBanner()
@@ -91,8 +119,9 @@ public class NewsBanner : MonoBehaviour
         _animation.Play("NewsBannerDown");
     }
 
-    
+
     // INTERNAL METHODS
+
     private void ActivateAnimationCompleted()
     {
         _bannerIsUp = true;
@@ -113,7 +142,7 @@ public class NewsBanner : MonoBehaviour
 
     private IEnumerator InitializeText(string text)
     {
-        _newsText.SetText(text);
+        _textMesh.SetText(text);
         Canvas.ForceUpdateCanvases();
 
         yield return new WaitForEndOfFrame();
@@ -134,7 +163,7 @@ public class NewsBanner : MonoBehaviour
             SetTextAtStartPosition();
             textPosition = _textTransform.localPosition; // Update position variable
         }
-        
+
         if (_currentLoop == textLoops)
         {
             _textIsScrolling = false;
@@ -158,4 +187,5 @@ public class NewsBanner : MonoBehaviour
         textPosition = new Vector3(textStartOffset, textPosition.y, textPosition.z);
         _textTransform.localPosition = textPosition;
     }
+
 }

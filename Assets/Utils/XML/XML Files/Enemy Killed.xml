@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<news_banner_text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <category category="Enemy Killed">
+
+        <title title="Splatted">
+            <text>That enemy got splatted!</text>
+        </title>
+
+        <title title="Crushed">
+            <text>That enemy got crushed!</text>
+        </title>
+
+    </category>
+
+</news_banner_text>

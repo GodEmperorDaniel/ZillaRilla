@@ -211,4 +211,20 @@ public class UIManager : Manager<UIManager>
                 throw new ArgumentOutOfRangeException();
         }
     }
+
+    public void ActivateBannerRandom(string category)
+    {
+        _inGameUI.ActivateNewsBannerRandom(category);
+    }
+    
+    public void ActivateBanner(string category, int index)
+    {
+        _inGameUI.ActivateNewsBanner(category, index);
+    }
+    
+    public void ActivateBanner(string category, string title)
+    {
+        _inGameUI.ActivateNewsBanner(category, title);
+    }
+    
 }

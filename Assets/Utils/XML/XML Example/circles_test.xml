@@ -2,50 +2,51 @@
 
 <chapter_1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<page number = "1">
+    <page number="1">
 
-<name>Mark</name>
+        <name>Mark</name>
 
-<dialogue>This is a test!</dialogue>
+        <dialogue>This is a test!</dialogue>
 
-</page>
+    </page>
 
-<page number = "2">
+    <page number="2">
 
-<name>Tony</name>
+        <name>Tony</name>
 
-<dialogue>This is a second test.</dialogue>
+        <dialogue>This is a second test.</dialogue>
 
-</page>
+    </page>
 
-<page number = "3">
+    <page number="3">
 
-<name>Carol</name>
+        <name>Carol</name>
 
-<dialogue>This is a third test.</dialogue>
+        <dialogue>This is a third test.</dialogue>
 
-</page>
+    </page>
 
-<page number = "4">
+    <page number="4">
 
-<name>Kristie</name>
+        <name>Kristie</name>
 
-<dialogue>This is a fourth test.</dialogue>
+        <dialogue>This is a fourth test.</dialogue>
 
-</page>
+    </page>
 
-<page number = "5">
+    <page number="5">
 
-<name>Jeff</name>
+        <name>Jeff</name>
 
-<dialogue>This is a fifth test.</dialogue>
+        <dialogue>This is a fifth test.</dialogue>
 
-</page>
+    </page>
 
-<page number = "6">
+    <page number="6">
 
-<name>Frank</name>
+        <name>Frank</name>
 
-<dialogue>This is a sixth test.</dialogue>
+        <dialogue>This is a sixth test.</dialogue>
 
-</page> </chapter_1>
+    </page>
+</chapter_1>

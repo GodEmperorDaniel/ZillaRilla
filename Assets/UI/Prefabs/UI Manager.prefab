@@ -777,7 +777,7 @@ PrefabInstance:
     - target: {fileID: 4083143466420140434, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: frame
       value: 
-      objectReference: {fileID: 6899586229161880831}
+      objectReference: {fileID: 0}
     - target: {fileID: 4083143466420140434, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: fillAmount
       value: 0.85
@@ -987,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 8021209499926719359, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: frame
       value: 
-      objectReference: {fileID: 7778756064434802920}
+      objectReference: {fileID: 0}
     - target: {fileID: 8710024430733547723, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_HorizontalFit
       value: 1

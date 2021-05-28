@@ -331,11 +331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2492353746850729193, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 288.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2492353746850729193, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 63.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2709992015417056321, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_IsActive
@@ -355,11 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3166097548169232223, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3352739862925874817, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 87.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5100141894755368391, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_SizeDelta.x
@@ -475,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7873176281980187762, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403688866606865537, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_IsActive
@@ -483,11 +483,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: debugMode
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: textLoops
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: textScrollSpeed
-      value: 0.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: xmlFileLocation
+      value: Assets/Utils/XML/XML Files
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _xmlFileLocation
+      value: '"Assets/Utils/XML/XML Files/"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: xmlFileLocationDebug
+      value: Assets/Utils/XML/XML Files
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _xmlFileNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _xmlFileNames.Array.data[0]
+      value: xml_text_test
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _xmlFileNames.Array.data[1]
+      value: xml_text_test 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[0]._category
+      value: House Destruction
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[1]._category
+      value: Enemy Killed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[0]._newsTitles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[1]._newsTitles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[0]._newsTitles.Array.data[0]
+      value: Destroyed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[0]._newsTitles.Array.data[1]
+      value: Coming Down
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[1]._newsTitles.Array.data[0]
+      value: Splatted
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835294203502081809, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
+      propertyPath: _newsCategories.Array.data[1]._newsTitles.Array.data[1]
+      value: Crushed
       objectReference: {fileID: 0}
     - target: {fileID: 8907175529459847758, guid: 6f0aa391d8d5334418f23807eeafe309, type: 3}
       propertyPath: m_Name

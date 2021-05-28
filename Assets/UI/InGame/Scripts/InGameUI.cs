@@ -71,9 +71,19 @@ public class InGameUI : MonoBehaviour
     }
     #endregion
     #region NewsBanner
-    public void ActivateNewsBanner(int index)
+    public void ActivateNewsBanner(string category, int index)
     {
-        _newsBanner.ActivateBanner(index);
+        _newsBanner.ActivateBanner(category, index);
+    }
+    
+    public void ActivateNewsBanner(string category, string title)
+    {
+        _newsBanner.ActivateBanner(category, title);
+    }
+    
+    public void ActivateNewsBannerRandom(string category)
+    {
+        _newsBanner.ActivateBannerRandom(category);
     }
 
     public void DeactivateNewsBanner()

@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class DestructableBuilding : MonoBehaviour
 {
+    private const string cBuildingCategory = "Building Destruction";
+    
     private Attackable _attackable;
     private Animation _animation;
     [SerializeField] private ParticleSystem _smokePrefab;
@@ -33,8 +35,6 @@ public class DestructableBuilding : MonoBehaviour
         {
             StartCoroutine(BuildingDestruction());
         }
-
-        //StartCoroutine(SmokeTimer());
     }
 
     private IEnumerator SmokeTimer()
@@ -55,9 +55,12 @@ public class DestructableBuilding : MonoBehaviour
         if (isRubble) yield return null;
         
         Debug.Log("Building Destroyed");
-        CreateSmokeAndRubble();
-        yield return new WaitForSeconds(collapseDelay); 
         
+        
+        CreateSmokeAndRubble();
+        yield return new WaitForSeconds(collapseDelay);
+
+        UIManager.Instance.ActivateBannerRandom(cBuildingCategory);
         _animation.Play("BuildingCollapse");
     }
 
