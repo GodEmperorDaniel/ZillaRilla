@@ -643,6 +643,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3308678846968212339, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
+      propertyPath: shootingSettings._attackCooldown
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3308678846968212342, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -657,7 +661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3308678846968212342, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.60014
+      value: -30.1
       objectReference: {fileID: 0}
     - target: {fileID: 3308678846968212342, guid: a09cd6eab381d5e419e42bc23e2eadf7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1248,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4442516052479609664, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
       propertyPath: _maxHealth
-      value: 1000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8538369396598117620, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
       propertyPath: m_RootOrder
