@@ -39,6 +39,8 @@ public class Attackable : MonoBehaviour
 	{
 		_currentHealth = _maxHealth;
 		_currentShieldHealth = _maxShieldHealth;
+		if (_npc && _npc.enemyType == EnemyType.BOSS)
+			UIManager.Instance.InGameUI.ActivateBossHealthOnUI();
 	}
 	
 	public void Start()
@@ -82,6 +84,11 @@ public class Attackable : MonoBehaviour
 				}
 			}
 		}
+		else if (_npc.enemyType == EnemyType.BOSS)
+		{
+			FixBossHealth();
+		}
+
 	}
 
 	// PUBLIC METHODS
@@ -262,6 +269,16 @@ public class Attackable : MonoBehaviour
 			yield return new WaitForSeconds(regenerationSpeed);
 		}
 		c_regenerate = null;
+	}
+
+	private void FixBossHealth()
+	{
+		UIManager.Instance.InGameUI.SetHealthOnBossHealthBar((_currentShieldHealth + _currentHealth) / (_maxHealth + _maxShieldHealth));
+	}
+	private void OnDestroy()
+	{
+		if (_npc && _npc.enemyType == EnemyType.BOSS)
+			UIManager.Instance.InGameUI.DeactivateBossHealthOnUI();
 	}
 }
 
