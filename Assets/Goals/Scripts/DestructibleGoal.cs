@@ -14,11 +14,10 @@ public class DestructibleGoal : Goal
 
 	private void OnEnable()
 	{
-		
+		UIManager.Instance.InGameUI.ActivateProgressBar();
 	}
 	private void Awake()
 	{
-
 		_nrOfHousesToDestroyTotal = _listHousesToDestroy.Count;
 	}
 	private void Update()
@@ -36,9 +35,9 @@ public class DestructibleGoal : Goal
 		if (!_goalCalled && _percentDestroyed >= _percentOfHousesToDestroy)
 		{
 			_goalCalled = true;
-			Debug.Log("done the thing");
 			GoalCompleted();
 		}
+		UIManager.Instance.InGameUI.SetProgressOnUI(_percentDestroyed);
 	}
 	private void HouseDestroyed()
 	{
