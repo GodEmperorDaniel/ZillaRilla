@@ -13,7 +13,10 @@ GameObject:
   - component: {fileID: 1543422585901338890}
   - component: {fileID: 1039111993062682845}
   - component: {fileID: 1039111993062682844}
-  m_Layer: 0
+  - component: {fileID: 7774042883352627985}
+  - component: {fileID: 4387561300303100136}
+  - component: {fileID: 4740343402892085625}
+  m_Layer: 12
   m_Name: House_W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,11 +96,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039111993062682847}
   serializedVersion: 2
-  m_Mass: 50000
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -114,6 +117,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.6069665, y: 1.2571838, z: 2.1512003}
   m_Center: {x: 0, y: 0.6285919, z: 0}
+--- !u!111 &7774042883352627985
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039111993062682847}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: f8a1c3826b27ee44db9a2936093d51fe, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &4387561300303100136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039111993062682847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cddfa3e58ddf844c842325e0d2904c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _smokePrefab: {fileID: 3312276840990385156, guid: 54148358821020c498c73439b1cc7717, type: 3}
+  _rubblePrefab: {fileID: 7177515072581018778, guid: 0fd192440fc275a4585f4a3df1d1b1ba, type: 3}
+  smokeLifetime: 5
+  collapseDelay: 1
+  _rubbleMesh: {fileID: 0}
+  isRubble: 0
+--- !u!114 &4740343402892085625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039111993062682847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _maxShieldHealth: 0
+  _currentHealth: 20
+  _currentShieldHealth: 0
+  regenerationSpeed: 0.1
+  regenHealthAmount: 1
+  _animator: {fileID: 0}
+  _iFrames: 0.5
+  _playerSettings:
+    _timeToRevive: 0
+    _timeUntilDeath: 0
+    _isReviving: 0
 --- !u!1 &1540354012096203573
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +189,7 @@ GameObject:
   - component: {fileID: 1540354012096203530}
   - component: {fileID: 1540354012096203531}
   - component: {fileID: 1540354012096203570}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Wimsy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +319,7 @@ GameObject:
   - component: {fileID: 1922453878988134608}
   - component: {fileID: 1922453878988134611}
   - component: {fileID: 1922453878988134609}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Sign_Whimsy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +448,7 @@ GameObject:
   - component: {fileID: 2453789995879754792}
   - component: {fileID: 2453789995879754795}
   - component: {fileID: 2453789995879754793}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Wimsy_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
