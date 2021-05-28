@@ -2,27 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Models/Egg.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Models/Egg.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Models/Xormite_Ranged.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Models/Xormite_Ranged.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy Models/Xormite_Spawner.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Models/Xormite_Spawner.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Goals/Scripts/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Goals/Scripts/Goal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Xormite_Ranged.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Enemies/Egg.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Enemies/Egg.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Enemies/Xormite_Spawner.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Enemies/Xormite_Spawner.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/Sprites/EFFECT_BAM_ALBEDO.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Hit Icons/Sprites/EFFECT_BAM_ALBEDO.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/Sprites/EFFECT_BLORB_ALBEDO.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Hit Icons/Sprites/EFFECT_BLORB_ALBEDO.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Main Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Main Menu/Main Menu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utils/XML/XML Example/circles_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utils/XML/XML Example/circles_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utils/XML/XML Files/xml_text_test.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utils/XML/XML Files/xml_text_test.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,8 +114,8 @@
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/Goal.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -160,10 +146,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27192">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="27192" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -234,6 +220,8 @@
       <workItem from="1622128564148" duration="1651000" />
       <workItem from="1622191730479" duration="1948000" />
       <workItem from="1622195062232" duration="7124000" />
+      <workItem from="1622208634430" duration="691000" />
+      <workItem from="1622209361134" duration="203000" />
     </task>
     <servers />
   </component>

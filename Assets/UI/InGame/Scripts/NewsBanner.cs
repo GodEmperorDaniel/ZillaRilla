@@ -27,7 +27,7 @@ public class NewsBanner : MonoBehaviour
     public float textScrollSpeed;
     public int textLoops;
     public float bannerActivationSpeed;
-    public bool debugMode = false;
+    [SerializeField] private bool debugMode;
 
     [SerializeField] private string xmlFileLocation;
     [SerializeField] private string xmlFileLocationDebug;
@@ -42,8 +42,10 @@ public class NewsBanner : MonoBehaviour
 #if DEBUG
         _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocationDebug);
 #else
+        debugMode = false
         _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocation);
 #endif
+        
         _animation = GetComponent<Animation>();
         _textMesh = GetComponentInChildren<TextMeshProUGUI>();
         _textTransform = _textMesh.GetComponent<RectTransform>();
@@ -78,11 +80,6 @@ public class NewsBanner : MonoBehaviour
         {
             Debug.Log("Enemy Killed Random");
             if (!_bannerIsUp) ActivateBannerRandom("Enemy Killed");
-        }
-        else if (Keyboard.current.numpad4Key.wasPressedThisFrame && debugMode)
-        {
-            Debug.Log("Enemy Killed 1");
-            if (!_bannerIsUp) ActivateBanner("Enemy Killed", 1);
         }
     }
 
