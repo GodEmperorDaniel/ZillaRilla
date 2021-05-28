@@ -142,11 +142,6 @@ public class Attackable : MonoBehaviour
 					_fsm.EnterState(FSMStateType.DEATH);
 					_animator.SetTrigger("Dead");
 				}
-				else if(c_regenerate == null)
-				{
-					_currentShieldHealth -= (settings._attackDamage * settings._damageMultiplier);
-					c_regenerate = StartCoroutine(RegenShieldHealth());
-				}
 				else
 				{
 					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
@@ -157,7 +152,10 @@ public class Attackable : MonoBehaviour
 			else
 			{
 				_currentShieldHealth -= (settings._attackDamage * settings._damageMultiplier);
-				StartCoroutine(RegenShieldHealth());
+                if (c_regenerate == null)
+                {
+					c_regenerate = StartCoroutine(RegenShieldHealth());
+				}
 			}
 			SpawnHitIcon(settings);
 			c_invincible = StartCoroutine(InvincibilityFrames()); //gave bosses inv-frames as well!            
@@ -248,7 +246,7 @@ public class Attackable : MonoBehaviour
 	#endregion
 	private IEnumerator RegenShieldHealth()
 	{
-		//Debug.Log("NU K�R VIII");
+		Debug.Log("NU KöR VIII");
 		//yield return new WaitForSeconds(regenerationSpeed);
 		while (_currentShieldHealth < _maxShieldHealth && _currentShieldHealth > 0)
 		{
