@@ -18,7 +18,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         public override bool EnterState()
         {
             base.EnterState();
-            Debug.Log("ENTERED ATTACK STATE");
+            //Debug.Log("ENTERED ATTACK STATE");
 
             EnteredState = true;
 
@@ -108,7 +108,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             _navMeshAgent.isStopped = false;
             base.ExitState();
             _npc.RemoveTarget();
-            Debug.Log("EXITING ATTACK STATE");
+            //Debug.Log("EXITING ATTACK STATE");
             return true;
         }
 

@@ -126,7 +126,7 @@ public class Attackable : MonoBehaviour
 			else
 			{
 				_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
-				//_animator.SetBool("DamageTaken", true);
+				_animator.SetTrigger("DamageTaken");
 				SpawnHitIcon(settings);
 				PlayerManager.Instance.AddToPlayerCombo(settings.playerIndex);
 				c_invincible = StartCoroutine(InvincibilityFrames());
@@ -152,7 +152,7 @@ public class Attackable : MonoBehaviour
 				{
 					//Debug.Log("Damage done " + damage + "Current health " + _currentHealth);
 					_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
-					//_animator.SetBool("DamageTaken", true);
+					_animator.SetTrigger("DamageTaken");
 					_fsm.EnterState(FSMStateType.IDLE);
 				}
 			}
