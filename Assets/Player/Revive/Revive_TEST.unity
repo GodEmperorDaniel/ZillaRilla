@@ -2085,9 +2085,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5621222456847799279, guid: 691c6136dafb1fb49975ad4530b70ca8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d6863dc9f3172d84ab38e5bfd7106d1b, type: 2}
+    - target: {fileID: 5621222456847799279, guid: 691c6136dafb1fb49975ad4530b70ca8, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6350949653042295392, guid: 691c6136dafb1fb49975ad4530b70ca8, type: 3}
       propertyPath: enemyType
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6350949653042295392, guid: 691c6136dafb1fb49975ad4530b70ca8, type: 3}
       propertyPath: attackRadius

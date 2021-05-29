@@ -14,7 +14,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private FillableBar _rillaHealthBar;
     [SerializeField] private FillableBar _progressBar;
     [SerializeField] private FillableBar _reviveMeter;
-    [SerializeField] private GameObject _reviveCountdownText;
+    [SerializeField] private TextMeshProUGUI _reviveCountdownText;
     [SerializeField] private FillableBar _zillaComboMeter;
     [SerializeField] private TextMeshProUGUI _zillaComboText;
     [SerializeField] private FillableBar _rillaComboMeter;
@@ -23,8 +23,8 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private NewsBanner _newsBanner;
     [SerializeField] private FillableBar _bossHealth;
 
-	#region HealthBar
-	public void ActivateHealthBars()
+    #region HealthBar
+    public void ActivateHealthBars()
     {
         _zillaHealthBar.gameObject.SetActive(true);
         _rillaHealthBar.gameObject.SetActive(true);
@@ -105,7 +105,11 @@ public class InGameUI : MonoBehaviour
     }
     public void SetCountdownTimeOnUI(string timeToShow)
     {
-        _reviveCountdownText.GetComponent<Text>().text = timeToShow;
+        _reviveCountdownText.SetText(timeToShow);
+    }
+    public void SetRevivePositionOnUI(Vector3 pos)
+    {
+        _reviveMeter.transform.position = pos;
     }
     #endregion
     #region ComboMeter

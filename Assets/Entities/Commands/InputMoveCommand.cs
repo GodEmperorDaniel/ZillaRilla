@@ -99,10 +99,8 @@ namespace Entities.Commands
 
         private IEnumerator Move()
         {
-            //Debug.Log(gameObject.name);
             while (_move.MoveDirection != Vector3.zero || !_characterController.isGrounded)
             {
-                
                 if (_lazor.LazorButtonPressed)
                 {
                     _mov.x = _move.MoveDirection.x;
