@@ -29,7 +29,7 @@ public class InGameUI : MonoBehaviour
         _zillaHealthBar.gameObject.SetActive(true);
         _rillaHealthBar.gameObject.SetActive(true);
     }
-    
+
     public void DeactivateHealthBars()
     {
         _zillaHealthBar.gameObject.SetActive(false);
@@ -50,13 +50,17 @@ public class InGameUI : MonoBehaviour
     {
         _zillaHealthBar.ChangeFrame(newSprite);
     }
+
     public void ChangeRillaFrame(Sprite newSprite)
     {
         _rillaHealthBar.ChangeFrame(newSprite);
     }
-	#endregion
-	#region ProgressBar
-	public void DeactivateProgressBar()
+
+    #endregion
+
+    #region ProgressBar
+
+    public void DeactivateProgressBar()
     {
         _progressBar.gameObject.SetActive(false);
     }
@@ -70,49 +74,65 @@ public class InGameUI : MonoBehaviour
     {
         _progressBar.fillAmount = Round(progress, 2);
     }
+
     #endregion
+
     #region NewsBanner
-    public void ActivateNewsBanner(string category, int index)
+
+    public void ActivateNewsBanner(string category, bool forced, int index)
     {
-        _newsBanner.ActivateBanner(category, index);
+        _newsBanner.ActivateBanner(category, forced, index);
+    }
+
+    public void ActivateNewsBanner(string category, bool forced, string title)
+    {
+        _newsBanner.ActivateBanner(category, forced, title);
     }
     
-    public void ActivateNewsBanner(string category, string title)
+    public void ActivateNewsBanner(string category, bool forced)
     {
-        _newsBanner.ActivateBanner(category, title);
+        _newsBanner.ActivateBanner(category, forced);
     }
-    
-    public void ActivateNewsBannerRandom(string category)
+
+    public void ActivateNewsBannerRandom(string category, bool forced)
     {
-        _newsBanner.ActivateBannerRandom(category);
+        _newsBanner.ActivateBannerRandom(category, forced);
     }
 
     public void DeactivateNewsBanner()
     {
         _newsBanner.DeactivateBanner();
     }
+
     #endregion
+
     #region Revive
+
     public void ActivateReviveBar()
     {
         _reviveMeter.gameObject.SetActive(true);
     }
+
     public void DeactivateReviveBar()
     {
         _reviveMeter.gameObject.SetActive(false);
     }
+
     public void ActivateReviveCountdown()
     {
         _reviveCountdownText.gameObject.SetActive(true);
     }
+
     public void DeactivateReviveCountdown()
     {
         _reviveCountdownText.gameObject.SetActive(false);
     }
+
     public void SetReviveMeterOnUI(float progress)
     {
         _reviveMeter.fillAmount = Round(progress, 2);
     }
+
     public void SetCountdownTimeOnUI(string timeToShow)
     {
         _reviveCountdownText.SetText(timeToShow);
@@ -122,19 +142,24 @@ public class InGameUI : MonoBehaviour
         _reviveMeter.transform.position = pos;
     }
     #endregion
+
     #region ComboMeter
+
     public void SetZillaComboMeter(float percentFilled)
     {
         _zillaComboMeter.fillAmount = Round(percentFilled, 2);
     }
+
     public void SetRillaComboMeter(float percentFilled)
     {
         _rillaComboMeter.fillAmount = percentFilled;
     }
+
     public void SetZillaComboCounter(string combo)
     {
         _zillaComboText.SetText(combo);
     }
+
     public void SetRillaComboCounter(string combo)
     {
         _rillaComboText.SetText(combo);
@@ -158,12 +183,12 @@ public class InGameUI : MonoBehaviour
     {
         _currentObjective.SetText(objectiveDescription);
     }
+
     // Should be moved to a Math Utility class
     // Rounds float to the amount of digits
     public static float Round(float value, int digits)
     {
-        float mult = Mathf.Pow(10.0f, (float)digits);
+        float mult = Mathf.Pow(10.0f, (float) digits);
         return Mathf.Round(value * mult) / mult;
     }
-    
 }

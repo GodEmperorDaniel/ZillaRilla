@@ -12,10 +12,14 @@ using UnityEngine.UI;
 using UnityEngine.WSA;
 using Random = UnityEngine.Random;
 
+
+public delegate void ExampleDelegate(string parameter, bool aBool);
+
 public class NewsBanner : MonoBehaviour
 {
     // FIELDS
     private Animation _animation;
+    private bool _bannerIsActivated;
     private bool _bannerIsUp;
     private bool _textIsScrolling = false;
 
@@ -26,14 +30,12 @@ public class NewsBanner : MonoBehaviour
 
     public float textScrollSpeed;
     public int textLoops;
-    public float bannerActivationSpeed;
-    [SerializeField] private bool debugMode;
+    [Range(0.0f, 100.0f)] public float activationChance = 50.0f;
 
-    [SerializeField] private string xmlFileLocation;
     [SerializeField] private string xmlFileLocationDebug;
-    private Dictionary<string, Dictionary<string, string>> _newsTextCategories;
 
-    //[SerializeField] private 
+    private const string cXMLFileLocation = ""; // TODO SET THIS BEFORE FINAL BUILD!!
+    private Dictionary<string, Dictionary<string, string>> _newsTextCategories;
 
 
     // UNITY METHODS
@@ -42,10 +44,9 @@ public class NewsBanner : MonoBehaviour
 #if DEBUG
         _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocationDebug);
 #else
-        debugMode = false
-        _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocation);
+        _newsTextCategories = XMLLoader.GetXMLDictionary(cXMLFileLocation);
 #endif
-        
+
         _animation = GetComponent<Animation>();
         _textMesh = GetComponentInChildren<TextMeshProUGUI>();
         _textTransform = _textMesh.GetComponent<RectTransform>();
@@ -54,71 +55,86 @@ public class NewsBanner : MonoBehaviour
 
     private void Update()
     {
-        if (_textIsScrolling)
+        if (_textIsScrolling && _bannerIsUp)
         {
             ScrollText();
         }
-
-        // DEBUG
-        if (Keyboard.current.rKey.wasPressedThisFrame && debugMode)
-        {
-            Debug.Log("XML Reloaded");
-            _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocation);
-        }
-
-        if (Keyboard.current.numpad1Key.wasPressedThisFrame && debugMode)
-        {
-            Debug.Log("Building Destruction Index");
-            if (!_bannerIsUp) ActivateBanner("Building Destruction", 0);
-        }
-        else if (Keyboard.current.numpad2Key.wasPressedThisFrame && debugMode)
-        {
-            Debug.Log("Building Destruction Title");
-            if (!_bannerIsUp) ActivateBanner("Building Destruction", "A lot!");
-        }
-        else if (Keyboard.current.numpad3Key.wasPressedThisFrame && debugMode)
-        {
-            Debug.Log("Enemy Killed Random");
-            if (!_bannerIsUp) ActivateBannerRandom("Enemy Killed");
-        }
     }
 
 
-    // PUBLIC METHODS
+#region Banner Activation
 
-    public void ActivateBanner(string category, int index)
+    // TODO Deactivate banner when forced
+    // TODO Allow for sending activationChance through parameters
+
+    // Banner Activation by index, title or just category.
+    // Forced will deactivate any activated banner and prioritize the next banner.
+    private IEnumerator ActivationHandler(string category, string title, bool forced)
     {
+        // Bug: If multiple forced try to activate while activating they will queue and play after each other
+        if (_bannerIsActivated && !forced) yield break;
+        if (_animation.isPlaying) yield return new WaitWhile(() => _animation.isPlaying);
+        if (_bannerIsUp) DeactivateBanner();
         
-        Dictionary<string, string> newsContent = _newsTextCategories[category];
-        StartCoroutine(InitializeText(newsContent.ElementAt(index).Value));
-        _animation.Play("NewsBannerUp");
-    }
+        yield return new WaitWhile(() => _animation.isPlaying);
 
-    public void ActivateBanner(string category, string title)
-    {
+        _bannerIsActivated = true;
         Dictionary<string, string> newsContent = _newsTextCategories[category];
         StartCoroutine(InitializeText(newsContent[title]));
         _animation.Play("NewsBannerUp");
     }
 
-    public void ActivateBannerRandom(string category)
+    // Activate by category and title
+    public void ActivateBanner(string category, bool forced, string title)
     {
-        // TODO Random chance to appear
-        
+        StartCoroutine(ActivationHandler(category, title, forced));
+    }
+
+    // Activate by category and index
+    public void ActivateBanner(string category, bool forced, int index)
+    {
+        Dictionary<string, string> newsContent = _newsTextCategories[category];
+        string title = newsContent.ElementAt(index).Key;
+        StartCoroutine(ActivationHandler(category, title, forced));
+    }
+
+    // Activate category and use string from the category
+    public void ActivateBanner(string category, bool forced)
+    {
         int max = _newsTextCategories[category].Count;
         int index = Random.Range(0, max);
-        
-        ActivateBanner(category, index);
+
+        ActivateBanner(category, forced, index);
+    }
+
+    // Activate with a chance
+    public void ActivateBannerRandom(string category, float chance, bool forced)
+    {
+        // Activate if randomized number is under the chance to activate
+        float random = Random.Range(0.0f, 100.0f);
+        if (chance < random) return;
+
+        int max = _newsTextCategories[category].Count;
+        int index = Random.Range(0, max);
+
+        ActivateBanner(category, forced, index);
+    }
+
+    // Activate with default chance value
+    public void ActivateBannerRandom(string category, bool forced)
+    {
+        ActivateBannerRandom(category, activationChance, forced);
     }
 
     public void DeactivateBanner()
     {
         _animation.Play("NewsBannerDown");
     }
+    
+#endregion
 
 
     // INTERNAL METHODS
-
     private void ActivateAnimationCompleted()
     {
         _bannerIsUp = true;
@@ -129,6 +145,7 @@ public class NewsBanner : MonoBehaviour
     private void DeactivateAnimationCompleted()
     {
         _bannerIsUp = false;
+        _bannerIsActivated = false;
         Debug.Log("Banner Deactivated");
     }
 
@@ -185,4 +202,15 @@ public class NewsBanner : MonoBehaviour
         _textTransform.localPosition = textPosition;
     }
 
+
+    void TestStart(ExampleDelegate activationDelegate, string s, bool b)
+    {
+        DelegateHandler(activationDelegate, s, b);
+    }
+
+    void DelegateHandler(ExampleDelegate activationDelegate, string s, bool b)
+    {
+        activationDelegate(s, b);
+    }
+    
 }

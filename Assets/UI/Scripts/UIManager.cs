@@ -137,7 +137,6 @@ public class UIManager : Manager<UIManager>
     public void MenuSelection(float navigateDirection)
     {
         GameManager.GameState state = GameManager.Instance.CurrentGameState;
-        UISounds.PlaySound("Menu Selection");
 
         switch (state)
         {
@@ -212,19 +211,24 @@ public class UIManager : Manager<UIManager>
         }
     }
 
-    public void ActivateBannerRandom(string category)
+    public void ActivateBannerRandom(string category, bool forced)
     {
-        _inGameUI.ActivateNewsBannerRandom(category);
+        _inGameUI.ActivateNewsBannerRandom(category, forced);
+    }
+ 
+    public void ActivateBanner(string category, bool forced)
+    {
+        _inGameUI.ActivateNewsBanner(category, forced);
     }
     
-    public void ActivateBanner(string category, int index)
+    public void ActivateBanner(string category, bool forced, int index)
     {
-        _inGameUI.ActivateNewsBanner(category, index);
+        _inGameUI.ActivateNewsBanner(category, forced, index);
     }
     
-    public void ActivateBanner(string category, string title)
+    public void ActivateBanner(string category, bool forced, string title)
     {
-        _inGameUI.ActivateNewsBanner(category, title);
+        _inGameUI.ActivateNewsBanner(category, forced, title);
     }
     
 }

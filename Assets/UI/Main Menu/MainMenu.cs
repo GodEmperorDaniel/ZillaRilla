@@ -53,7 +53,8 @@ namespace UI.Main_Menu
         public void MoveArrow(float navigateDirection)
         {
             int enumLength = Enum.GetValues(typeof(ArrowState)).Length;
-
+            UIManager.Instance.UISounds.PlaySound("Menu Selection");
+            
             // Wraps index between 0 and length of Enum to allow the selection to loop both ways.
             if (navigateDirection > 0.0f)
             {

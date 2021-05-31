@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class DestructableBuilding : MonoBehaviour
 {
-    private const string cBuildingCategory = "Building Destruction";
+    private const string cNewsCategory = "Building Destruction";
     
     private Attackable _attackable;
     private Animation _animation;
@@ -29,14 +29,6 @@ public class DestructableBuilding : MonoBehaviour
         TryGetComponent(out _animation);
     }
 
-    private void Update()
-    {
-        if (Keyboard.current.numpad1Key.wasPressedThisFrame)
-        {
-            StartCoroutine(BuildingDestruction());
-        }
-    }
-
     private IEnumerator SmokeTimer()
     {
         if (_smokeParticleSystems.Count <= 0) yield return null;
@@ -47,20 +39,16 @@ public class DestructableBuilding : MonoBehaviour
         {
             pSystem.Stop();
         }
-
     }
 
     private IEnumerator BuildingDestruction()
     {
         if (isRubble) yield return null;
         
-        Debug.Log("Building Destroyed");
-        
-        
         CreateSmokeAndRubble();
         yield return new WaitForSeconds(collapseDelay);
 
-        UIManager.Instance.ActivateBannerRandom(cBuildingCategory);
+        UIManager.Instance.ActivateBannerRandom(cNewsCategory, false);
         _animation.Play("BuildingCollapse");
     }
 

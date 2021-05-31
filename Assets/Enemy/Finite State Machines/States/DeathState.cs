@@ -11,6 +11,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
     [CreateAssetMenu(fileName = "DeathState", menuName = "ZillaRilla/States/Death", order = 3)]
     public class DeathState : AbstractFSMState
     {
+        private const string cNewsCategory = "Enemy Killed";
+        
         [SerializeField] private List<GameObject> _bugSplatDecal;
         [SerializeField] private Vector3 _offset;
         private ZillaAttacks _zilla;
