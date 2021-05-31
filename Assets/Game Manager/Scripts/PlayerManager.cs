@@ -6,12 +6,14 @@ using Entities.Scripts;
 public class PlayerManager : Manager<PlayerManager>
 {
     [Header("Revive")]
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     [SerializeField] private float _percentHealthOnRespawn;
     [SerializeField] private float _maxDistanceToRevive = 20;
     private float _distancePlayers;
     private Coroutine c_revivalInProgress;
     private IReviveInput _reviveInput;
+    private Transform _reviveTarget;
+    [SerializeField] private Vector3 _offset;
     [Header("Combo-Meter")]
     [SerializeField] private float _neededToFillComboMeter = 1;
     [SerializeField] private float _timeToLoseCombo = 3;
@@ -104,6 +106,11 @@ public class PlayerManager : Manager<PlayerManager>
             c_rillaHealthDelay = StartCoroutine(HealingDelay(1,0.3f));
             StartCoroutine(HealPlayer(1));
         }
+
+        if (_reviveTarget)
+        {
+            UIManager.Instance.InGameUI.SetRevivePositionOnUI(Camera.main.WorldToScreenPoint(_reviveTarget.position + _offset));
+        }
     }
     //PLAYER MANAGEMENT
     #region Revive
@@ -111,6 +118,7 @@ public class PlayerManager : Manager<PlayerManager>
     {
         if (c_revivalInProgress == null)
         {
+            _reviveTarget = revivalTarget.transform;
             GameManager.Instance._attackableCharacters.Remove(revivalTarget.transform);
             if (revivalTarget == GameManager.Instance._zilla)
             {
@@ -123,7 +131,10 @@ public class PlayerManager : Manager<PlayerManager>
             c_revivalInProgress = StartCoroutine(RevivalCountdown(revivalTarget));
         }
         else
+        { 
             UIManager.Instance.UpdateObjectiveOnUI("", "YOU LOST");
+            _reviveTarget = null;
+        }
     }
     private IEnumerator RevivalCountdown(Attackable revivalTarget)
     {
@@ -144,6 +155,7 @@ public class PlayerManager : Manager<PlayerManager>
                     revivalTarget.ResetHealth(_percentHealthOnRespawn);
                     GameManager.Instance._attackableCharacters.Add(revivalTarget.transform);
                     c_revivalInProgress = null;
+                    _reviveTarget = null;
                     revivalTarget._playerSettings._isReviving = false;
                     break;
                 }
@@ -159,6 +171,7 @@ public class PlayerManager : Manager<PlayerManager>
         if (i <= 0)
         {
             UIManager.Instance.UpdateObjectiveOnUI("","YOU LOST");
+            _reviveTarget = null;
         }
         UIManager.Instance.InGameUI.DeactivateReviveBar();
         UIManager.Instance.InGameUI.DeactivateReviveCountdown();

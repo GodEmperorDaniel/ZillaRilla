@@ -14,17 +14,17 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private FillableBar _rillaHealthBar;
     [SerializeField] private FillableBar _progressBar;
     [SerializeField] private FillableBar _reviveMeter;
-    [SerializeField] private GameObject _reviveCountdownText;
+    [SerializeField] private TextMeshProUGUI _reviveCountdownText;
     [SerializeField] private FillableBar _zillaComboMeter;
     [SerializeField] private TextMeshProUGUI _zillaComboText;
     [SerializeField] private FillableBar _rillaComboMeter;
     [SerializeField] private TextMeshProUGUI _rillaComboText;
-    [SerializeField] private GameObject _currentObjective;
+    [SerializeField] private TextMeshProUGUI _currentObjective;
     [SerializeField] private NewsBanner _newsBanner;
     [SerializeField] private FillableBar _bossHealth;
 
-	#region HealthBar
-	public void ActivateHealthBars()
+    #region HealthBar
+    public void ActivateHealthBars()
     {
         _zillaHealthBar.gameObject.SetActive(true);
         _rillaHealthBar.gameObject.SetActive(true);
@@ -105,7 +105,11 @@ public class InGameUI : MonoBehaviour
     }
     public void SetCountdownTimeOnUI(string timeToShow)
     {
-        _reviveCountdownText.GetComponent<Text>().text = timeToShow;
+        _reviveCountdownText.SetText(timeToShow);
+    }
+    public void SetRevivePositionOnUI(Vector3 pos)
+    {
+        _reviveMeter.transform.position = pos;
     }
     #endregion
     #region ComboMeter
@@ -142,7 +146,7 @@ public class InGameUI : MonoBehaviour
 	#endregion
 	public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
-        _currentObjective.GetComponent<Text>().text = objectiveDescription;
+        _currentObjective.SetText(objectiveDescription);
     }
     // Should be moved to a Math Utility class
     // Rounds float to the amount of digits

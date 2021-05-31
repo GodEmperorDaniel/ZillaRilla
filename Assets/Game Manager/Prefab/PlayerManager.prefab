@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _percentHealthOnRespawn: 0.4
   _maxDistanceToRevive: 20
+  _offset: {x: -2.5, y: 16.87, z: 0}
   _neededToFillComboMeter: 20
   _timeToLoseCombo: 3
   _rageModeThreshhold: 1
