@@ -29,14 +29,6 @@ public class DestructableBuilding : MonoBehaviour
         TryGetComponent(out _animation);
     }
 
-    private void Update()
-    {
-        if (Keyboard.current.numpad1Key.wasPressedThisFrame)
-        {
-            StartCoroutine(BuildingDestruction());
-        }
-    }
-
     private IEnumerator SmokeTimer()
     {
         if (_smokeParticleSystems.Count <= 0) yield return null;
@@ -47,7 +39,6 @@ public class DestructableBuilding : MonoBehaviour
         {
             pSystem.Stop();
         }
-
     }
 
     private IEnumerator BuildingDestruction()

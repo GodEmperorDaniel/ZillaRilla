@@ -138,8 +138,7 @@ public class PlayerManager : Manager<PlayerManager>
     }
     private IEnumerator RevivalCountdown(Attackable revivalTarget)
     {
-        UIManager.Instance.InGameUI.ActivateReviveBar();
-        UIManager.Instance.InGameUI.ActivateReviveCountdown();
+        UIManager.Instance.InGameUI.ActivateReviveElements();
         float percentageRevived = 0;
         UIManager.Instance.InGameUI.SetReviveMeterOnUI(percentageRevived);
         float i = revivalTarget._playerSettings._timeUntilDeath;
@@ -173,16 +172,16 @@ public class PlayerManager : Manager<PlayerManager>
             UIManager.Instance.UpdateObjectiveOnUI("","YOU LOST");
             _reviveTarget = null;
         }
-        UIManager.Instance.InGameUI.DeactivateReviveBar();
-        UIManager.Instance.InGameUI.DeactivateReviveCountdown();
+        UIManager.Instance.InGameUI.DeactivateReviveElements();
+        //UIManager.Instance.InGameUI.DeactivateReviveCountdown();
         yield return null;
     }
     public void QuickRevivePlayer(Attackable revivalTarget)
     {
         StopCoroutine(c_revivalInProgress);
         c_revivalInProgress = null;
-        UIManager.Instance.InGameUI.DeactivateReviveBar();
-        UIManager.Instance.InGameUI.DeactivateReviveCountdown();
+        UIManager.Instance.InGameUI.DeactivateReviveElements();
+        //UIManager.Instance.InGameUI.DeactivateReviveCountdown();
         GameManager.Instance._attackableCharacters.Add(revivalTarget.transform);
         revivalTarget.ResetHealth(_percentHealthOnRespawn);
         revivalTarget._playerSettings._isReviving = false;
