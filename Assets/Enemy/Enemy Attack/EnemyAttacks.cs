@@ -96,9 +96,6 @@ public class EnemyAttacks : BaseAttack
         if (Physics.Raycast(targetingOrigin, direction, out  hit, npc.lookRadius, hitLayers))
         {
             playerInView = hit.collider.gameObject.layer == LayerMask.NameToLayer("Player");
-
-            //Debug.Log("Object Name: " + hit.collider.name
-            //                          + "Hit Layer: " + LayerMask.LayerToName(hit.collider.gameObject.layer));
         }
 
         return playerInView;

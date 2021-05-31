@@ -11,21 +11,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: EggRange Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3015116948692928936, guid: 08ef553e9868ecc43a0369edf1b320ac, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8048870288576412449, guid: b38eee638f6c5784f9ab19ff5db92b1e, type: 3}
     - target: {fileID: 3863961433099705099, guid: 08ef553e9868ecc43a0369edf1b320ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3863961433099705099, guid: 08ef553e9868ecc43a0369edf1b320ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.388992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3863961433099705099, guid: 08ef553e9868ecc43a0369edf1b320ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5000038
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3863961433099705099, guid: 08ef553e9868ecc43a0369edf1b320ac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.801823
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3863961433099705099, guid: 08ef553e9868ecc43a0369edf1b320ac, type: 3}
       propertyPath: m_LocalRotation.w

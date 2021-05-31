@@ -33,10 +33,10 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             EnteredState = base.EnterState();
 
-            if (EnteredState)
-            {
-                Debug.Log("ENTERED WANDER STATE");
-            }
+            //if (EnteredState)
+            //{
+            //    Debug.Log("ENTERED WANDER STATE");
+            //}
             return EnteredState;
         }
 
@@ -60,7 +60,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             base.ExitState();
 
-            Debug.Log("EXITING WANDER STATE");
+            //Debug.Log("EXITING WANDER STATE");
             return true;
         }
 
