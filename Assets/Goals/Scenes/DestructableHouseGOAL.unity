@@ -341,8 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d20103ca399f4a4aa9f155d4f9187ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goalName: '[Default Name]'
-  _goalDescription: '[Default Text]'
+  goalName: '[Default Name]'
+  goalDescription: '[Default Text]'
+  newsTitle: 
   _progressAmount: 0.001
 --- !u!54 &653628091
 Rigidbody:

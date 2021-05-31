@@ -84,7 +84,7 @@ public class Attackable : MonoBehaviour
 				}
 			}
 		}
-		else if (_npc.enemyType == EnemyType.BOSS)
+		else if (_npc && _npc.enemyType == EnemyType.BOSS)
 		{
 			FixBossHealth();
 		}

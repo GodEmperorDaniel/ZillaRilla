@@ -109,7 +109,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  m_text: yes, I am objective!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac1200e561b5c4648aa089b095aac018, type: 2}
   m_sharedMaterial: {fileID: 7338227106562657792, guid: ac1200e561b5c4648aa089b095aac018, type: 2}
@@ -1206,6 +1206,10 @@ PrefabInstance:
       propertyPath: _bossHealth
       value: 
       objectReference: {fileID: 6101365339997119658}
+    - target: {fileID: 922999214848486517, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: _currentObjective
+      value: 
+      objectReference: {fileID: 1028228280}
     - target: {fileID: 922999214848486517, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: _reviveCountdownText
       value: 
