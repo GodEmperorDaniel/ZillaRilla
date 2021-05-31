@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6250916998155011846}
   - component: {fileID: 265807764860326988}
   - component: {fileID: 265807764860326989}
-  - component: {fileID: 1664494535}
+  - component: {fileID: 8612162380663479277}
   m_Layer: 0
   m_Name: Tire_BR
   m_TagString: Untagged
@@ -136,8 +136,8 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!135 &1664494535
-SphereCollider:
+--- !u!64 &8612162380663479277
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,9 +146,10 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: 441503b1aea067444bc44502a8474481, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.13
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6587054264181074641, guid: 86101e2a927e36d4a8a6150dabb59001, type: 3}
 --- !u!1 &2928906547258288330
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ GameObject:
   - component: {fileID: 6168941061331459609}
   - component: {fileID: 2928906547258288372}
   - component: {fileID: 2928906547258288373}
-  - component: {fileID: 1893218629}
+  - component: {fileID: 742348498418420241}
   m_Layer: 0
   m_Name: Tire_FR
   m_TagString: Untagged
@@ -285,8 +286,8 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!135 &1893218629
-SphereCollider:
+--- !u!64 &742348498418420241
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -295,9 +296,10 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: 441503b1aea067444bc44502a8474481, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.13
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6587054264181074641, guid: 86101e2a927e36d4a8a6150dabb59001, type: 3}
 --- !u!1 &3162453396747451627
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +313,7 @@ GameObject:
   - component: {fileID: 2156887857025037645}
   - component: {fileID: 3162453396747451669}
   - component: {fileID: 3162453396747451626}
-  - component: {fileID: 581100488}
+  - component: {fileID: 695885570760133083}
   m_Layer: 0
   m_Name: Tire_FL
   m_TagString: Untagged
@@ -434,8 +436,8 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!135 &581100488
-SphereCollider:
+--- !u!64 &695885570760133083
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -444,9 +446,10 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: 441503b1aea067444bc44502a8474481, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.13
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6587054264181074641, guid: 86101e2a927e36d4a8a6150dabb59001, type: 3}
 --- !u!1 &3835440942650647869
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +580,7 @@ GameObject:
   - component: {fileID: 5985831392914329293}
   - component: {fileID: 7249193668778838566}
   - component: {fileID: 7249193668778838567}
-  - component: {fileID: 134355274}
+  - component: {fileID: 669622646611118673}
   m_Layer: 0
   m_Name: Tire_BL
   m_TagString: Untagged
@@ -700,8 +703,8 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!135 &134355274
-SphereCollider:
+--- !u!64 &669622646611118673
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -710,6 +713,7 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: 441503b1aea067444bc44502a8474481, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.13
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6587054264181074641, guid: 86101e2a927e36d4a8a6150dabb59001, type: 3}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 78bcfc80ef248924693e5efb60670424
+guid: 252064898e5f61740ac46649ecbf2ad9
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: mat_Crane
-    second: {fileID: 2100000, guid: 8721e291176c4fe46b4b46a2c1dcabe0, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: 24d77fee661301b4ba9125ed51e59797, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

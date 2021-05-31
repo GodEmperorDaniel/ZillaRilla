@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 78bcfc80ef248924693e5efb60670424
+guid: 6ef9406d09898f746acf89fa40713a36
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: mat_Crane
-    second: {fileID: 2100000, guid: 8721e291176c4fe46b4b46a2c1dcabe0, type: 2}
+      name: mat_House_Food_Extras
+    second: {fileID: 2100000, guid: 5877515b8fd50ba469f2bf9fbfb9b6e3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
