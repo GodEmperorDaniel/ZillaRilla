@@ -20,27 +20,27 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             EnteredState = base.EnterState();
 
-            if (EnteredState)
-            {
-                Debug.Log("ENTERED VULNERABLE STATE");
-            }
+            //if (EnteredState)
+            //{
+            //    Debug.Log("ENTERED VULNERABLE STATE");
+            //}
             return EnteredState;
         }
 
         public override void UpdateState()
         {
-            if (EnteredState)
-            {
-                Debug.Log("UPDATING VULNERABLE STATE");
+            //if (EnteredState)
+            //{
+            //    Debug.Log("UPDATING VULNERABLE STATE");
 
-            }
+            //}
         }
 
         public override bool ExitState()
         {
             base.ExitState();
 
-            Debug.Log("EXITING VULNERABLE STATE");
+            //Debug.Log("EXITING VULNERABLE STATE");
             return true;
         }
     }

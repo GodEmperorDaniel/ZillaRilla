@@ -28,7 +28,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             if (EnteredState)
             {
-                Debug.Log("ENTERED STUN STATE");
+                //Debug.Log("ENTERED STUN STATE");
                 _totalDuration = 0f;
             }
             return EnteredState;
@@ -62,7 +62,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
             _navMeshAgent.isStopped = false;
             base.ExitState();
 
-            Debug.Log("EXITING STUN STATE");
+            //Debug.Log("EXITING STUN STATE");
             return true;
         }
     }

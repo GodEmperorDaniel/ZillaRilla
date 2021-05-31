@@ -19,10 +19,10 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             EnteredState = base.EnterState();
 
-            if (EnteredState)
-            {
-                Debug.Log("ENTERED FLEE STATE");
-            }
+            //if (EnteredState)
+            //{
+            //    Debug.Log("ENTERED FLEE STATE");
+            //}
             return EnteredState;
         }
 
@@ -30,7 +30,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
-                Debug.Log("UPDATING FLEE STATE");
+                //Debug.Log("UPDATING FLEE STATE");
                 SetFleeFromTarget(_npc.PlayerTransform);
             }
         }
@@ -39,7 +39,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             base.ExitState();
             _npc.RemoveTarget();
-            Debug.Log("EXITING FLEE STATE");
+            //Debug.Log("EXITING FLEE STATE");
             return true;
         }
 

@@ -813,6 +813,7 @@ MonoBehaviour:
   lookRadius: 150
   attackRadius: 150
   deSpawnTime: 1
+  _isKnockedBack: 0
   _animator: {fileID: 0}
 --- !u!114 &3308678846968212348
 MonoBehaviour:
@@ -1788,7 +1789,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 2494382007620102092, guid: 2538d1fc091848a4d8f7420eee0c78d9, type: 3}
+  m_Mesh: {fileID: 2494382007620102092, guid: 5a313167fefdf5b409ba3b1cb1b4c454, type: 3}
   m_Bones:
   - {fileID: 5289815557882042865}
   - {fileID: 1482141090863778638}
