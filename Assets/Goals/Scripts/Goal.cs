@@ -8,7 +8,7 @@ using UnityEngine.Events;
 [Serializable]
 public class Goal : MonoBehaviour
 {
-    private const string cGoalCategory = "Goal";
+    private const string cNewsCategory = "Goal";
     
     [SerializeField] protected string goalName = "[Default Name]";
     [SerializeField] protected string goalDescription = "[Default Text]";
@@ -36,10 +36,14 @@ public class Goal : MonoBehaviour
     
     public virtual void GoalCompleted()
     {
-        Debug.Log("Goal Completed");
-        
         // TODO Create Goal XML script
-        // if (newsTitle != "") UIManager.Instance.ActivateBanner(cGoalCategory, newsTitle);
+
+        // Will override current news banner
+        if (newsTitle == "")
+            UIManager.Instance.ActivateBanner(cNewsCategory, true); 
+        else
+            UIManager.Instance.ActivateBanner(cNewsCategory, true, newsTitle);
+        
         GetComponentInParent<GoalManager>().GoalCompleted();
     } 
 }
