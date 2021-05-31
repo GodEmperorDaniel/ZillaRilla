@@ -39,8 +39,6 @@ public class Attackable : MonoBehaviour
 	{
 		_currentHealth = _maxHealth;
 		_currentShieldHealth = _maxShieldHealth;
-		if (_npc && _npc.enemyType == EnemyType.BOSS)
-			UIManager.Instance.InGameUI.ActivateBossHealthOnUI();
 	}
 	
 	public void Start()
@@ -49,7 +47,9 @@ public class Attackable : MonoBehaviour
 		TryGetComponent<Player.Scrips.CharacterInput>(out player);
 		TryGetComponent<NPC>(out _npc);
 		TryGetComponent<KnockBack>(out _knockBack);
-    }
+		if (_npc && _npc.enemyType == EnemyType.BOSS)
+			UIManager.Instance.InGameUI.ActivateBossHealthOnUI();
+	}
 	private void Update()
 	{
 		if (player != null)
@@ -174,6 +174,7 @@ public class Attackable : MonoBehaviour
 		{
 			//Debug.Log("THIS ENEMYS GOT HANDS"); 
 			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
+			_animator.SetTrigger("DamageTaken");
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
 		else if (_currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))

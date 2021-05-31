@@ -107,27 +107,22 @@ public class InGameUI : MonoBehaviour
     #endregion
 
     #region Revive
-
-    public void ActivateReviveBar()
+    public void ActivateReviveElements()
     {
         _reviveMeter.gameObject.SetActive(true);
     }
-
-    public void DeactivateReviveBar()
+    public void DeactivateReviveElements()
     {
         _reviveMeter.gameObject.SetActive(false);
     }
-
-    public void ActivateReviveCountdown()
-    {
-        _reviveCountdownText.gameObject.SetActive(true);
-    }
-
-    public void DeactivateReviveCountdown()
-    {
-        _reviveCountdownText.gameObject.SetActive(false);
-    }
-
+    //public void ActivateReviveCountdown()
+    //{
+    //    _reviveCountdownText.gameObject.SetActive(true);
+    //}
+    //public void DeactivateReviveCountdown()
+    //{
+    //    _reviveCountdownText.gameObject.SetActive(false);
+    //}
     public void SetReviveMeterOnUI(float progress)
     {
         _reviveMeter.fillAmount = Round(progress, 2);

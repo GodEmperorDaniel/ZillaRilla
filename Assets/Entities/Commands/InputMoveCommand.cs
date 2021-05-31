@@ -13,6 +13,7 @@ namespace Entities.Commands
         [SerializeField] private float _moveSpeed = 10;
         [SerializeField] private float _lazorMoveSpeed = 5;
         [SerializeField] private float _lazorRotationSpeed;
+        [SerializeField] private bool _rillaStillOnSlam = true;
         private Vector3 _mov;
 
         private IMoveInput _move;
@@ -22,28 +23,17 @@ namespace Entities.Commands
         private Coroutine c_moving;
         private Coroutine c_rotate;
 
-        [Header("Jump")]
-        [SerializeField] private float _jumpStength = 3;
-        [SerializeField] private float _jumpTime = 0.25F;
+        [Header("Other")]
         [SerializeField] private float _gravity = 8;
-
-        private IJumpInput _jump;
-
-        private Coroutine c_jump;
-        private bool _isJumping = false;
-
-        [SerializeField] private float _jumpCooldownTime = 0;
-        private Coroutine c_jumpCooldown;
 
         [Header("Interacting")]
         [SerializeField] private float _objectMoveForce = 2;
 
-        [Header("Self generating")]
-        [SerializeField] private Transform _transform;
-        [SerializeField] private CharacterController _characterController;
-        [SerializeField] private float rayCastLenght = 0.2f;
-        [SerializeField] private Animator _animator;
-        [SerializeField] private Player.Scrips.CharacterInput.character _character;
+
+         private Transform _transform;
+         private CharacterController _characterController;
+         private Animator _animator;
+         private Player.Scrips.CharacterInput.character _character;
         #endregion
 
         private void Awake()
@@ -57,11 +47,11 @@ namespace Entities.Commands
                 _characterController = GetComponent<CharacterController>();
             _move = GetComponent<IMoveInput>();
             _rotate = GetComponent<IRotationInput>();
-            _jump = GetComponent<IJumpInput>();
             _lazor = GetComponent<IZillaLazorInput>();
             if(_transform == null)
                 _transform = transform;
             _character = GetComponent<Player.Scrips.CharacterInput>().GetCharacter();
+            _mov.y = -_gravity;
         }
 
         public override void Execute()
@@ -70,50 +60,41 @@ namespace Entities.Commands
                 c_moving = StartCoroutine(Move());
             if (c_rotate == null)
                 c_rotate = StartCoroutine(Rotate());
-            if (c_jump == null && _jump.JumpButtonPressed)
-                c_jump = StartCoroutine(Jump());
-            if (c_jumpCooldown == null && _isJumping == true)
-                c_jumpCooldown = StartCoroutine(JumpCooldown());
-        }
-        private void Update()
-        {
-            Gravity();
-            JumpWhileStill();
-            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), (transform.position + rayCastLenght * Vector3.down), Color.red);
-        }
-        private void Gravity()
-        {
-            if (!_characterController.isGrounded)
-            {
-                _mov.y -= _gravity * Time.deltaTime;
-            }
-        }
-
-        private void JumpWhileStill()
-        {
-            if (c_moving == null && _mov.y != 0)
-            {
-                c_moving = StartCoroutine(Move());
-            }
         }
 
         private IEnumerator Move()
         {
-            while (_move.MoveDirection != Vector3.zero || !_characterController.isGrounded)
+            while (_move.MoveDirection != Vector3.zero)
             {
-                if (_lazor.LazorButtonPressed)
+                switch (_character)
                 {
-                    _mov.x = _move.MoveDirection.x;
-                    _mov.z = _move.MoveDirection.z;
-                    _characterController.Move(new Vector3(_mov.x * _lazorMoveSpeed, _mov.y, _mov.z * _lazorMoveSpeed) * Time.deltaTime);
-                    _animator.SetFloat("Speed", _move.MoveDirection.magnitude / 2);
-                }
-                else
-                {
-                    _mov.x = _move.MoveDirection.x;
-                    _mov.z = _move.MoveDirection.z;
-                    _characterController.Move(new Vector3(_mov.x * _moveSpeed, _mov.y, _mov.z * _moveSpeed) * Time.deltaTime);
-                    _animator.SetFloat("Speed", _move.MoveDirection.magnitude);
+                    case Player.Scrips.CharacterInput.character.ZILLA:
+                        if (_lazor.LazorButtonPressed)
+                        {
+                            _mov.x = _move.MoveDirection.x;
+                            _mov.z = _move.MoveDirection.z;
+                            _characterController.Move(new Vector3(_mov.x * _lazorMoveSpeed, _mov.y, _mov.z * _lazorMoveSpeed) * Time.deltaTime);
+                            _animator.SetFloat("Speed", _move.MoveDirection.magnitude / 2);
+                        }
+                        else
+                        {
+                            _mov.x = _move.MoveDirection.x;
+                            _mov.z = _move.MoveDirection.z;
+                            _characterController.Move(new Vector3(_mov.x * _moveSpeed, _mov.y, _mov.z * _moveSpeed) * Time.deltaTime);
+                            _animator.SetFloat("Speed", _move.MoveDirection.magnitude);
+                        }
+                        break;
+                    case Player.Scrips.CharacterInput.character.RILLA:
+                        if (!(_animator.GetBool("RillaSlam") && _rillaStillOnSlam))
+                        {
+                            _mov.x = _move.MoveDirection.x;
+                            _mov.z = _move.MoveDirection.z;
+                            _characterController.Move(new Vector3(_mov.x * _moveSpeed, _mov.y, _mov.z * _moveSpeed) * Time.deltaTime);
+                            _animator.SetFloat("Speed", _move.MoveDirection.magnitude);
+                        }
+                        break;
+                    default:
+                        break;
                 }
                 if (_rotate.RotationDirection == Vector3.zero && _move.MoveDirection != Vector3.zero && !_lazor.LazorButtonPressed)
                 {
@@ -164,35 +145,6 @@ namespace Entities.Commands
                     break;
             }
         }
-
-        private IEnumerator Jump() //make this move more smooth with lerp
-        {
-            float count = 0;
-            while (count < _jumpTime && _jump.JumpButtonPressed)
-            {
-                _mov.y = _jumpStength;
-                count = count + Time.deltaTime;
-                yield return null;
-            }
-            _isJumping = true;
-            yield return null;
-        }
-
-        private IEnumerator JumpCooldown()
-        {
-            bool raycast = Physics.Raycast(transform.position + new Vector3(0,1,0),Vector3.down, rayCastLenght); 
-            while (!raycast) 
-            {
-                raycast = Physics.Raycast(transform.position + new Vector3(0, 1, 0), Vector3.down, rayCastLenght);
-                yield return new WaitForSeconds(0.3f); 
-            }
-            _animator.SetBool("Jump", false);
-            yield return new WaitForSeconds(_jumpCooldownTime);
-            _jump.JumpButtonPressed = false;
-            _isJumping = false;
-            c_jump = null;
-            c_jumpCooldown = null;
-        }
 		#region CustomCollision
 		private void OnControllerColliderHit(ControllerColliderHit hit)
         {
@@ -205,8 +157,6 @@ namespace Entities.Commands
         #endregion
         private void OnDisable()
         {
-            c_jump = null;
-            c_jumpCooldown = null;
             c_moving = null;
             c_rotate = null;
         }
