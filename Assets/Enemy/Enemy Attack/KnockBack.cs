@@ -7,13 +7,11 @@ public class KnockBack : MonoBehaviour
 {
     private Rigidbody rb;
     private NavMeshAgent nma;
-    private Animator ani;
     private Assets.Enemy.NPCCode.NPC npc;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         nma = GetComponent<NavMeshAgent>();
-        ani = GetComponent<Animator>();
         npc = GetComponent<Assets.Enemy.NPCCode.NPC>();
     }
     /// <summary>

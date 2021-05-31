@@ -1570,13 +1570,21 @@ PrefabInstance:
       value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 4638964583522388056, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638964583522388056, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 1a7e178ff26290842918854be7a6ed17, type: 2}
+      objectReference: {fileID: 11400000, guid: 15965aa8b77b3d943a3cd03e32ab3743, type: 2}
+    - target: {fileID: 4638964583522388056, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4638964583522388056, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -8207407088264705027, guid: 1a7e178ff26290842918854be7a6ed17, type: 2}
+      objectReference: {fileID: 2131446694843403552, guid: 15965aa8b77b3d943a3cd03e32ab3743, type: 2}
     - target: {fileID: 5118837790315854555, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_RootOrder
       value: 9

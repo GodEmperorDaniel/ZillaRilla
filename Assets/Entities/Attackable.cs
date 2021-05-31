@@ -21,16 +21,15 @@ public class Attackable : MonoBehaviour
 	[SerializeField] private float _iFrames;
 	[SerializeField] public Player.Settings.IfPlayer _playerSettings;
 	private RillaSlamSettings _rillaSlamSettings;
-	private ZillaLazorSettings _zillaLazorSettings;
 	private Coroutine c_invincible;
 	private Coroutine c_regenerate;
 
 	private FiniteStateMachine _fsm;
-	private FSMStateType _fsmStateType;
+	//private FSMStateType _fsmStateType;
 	private NPC _npc;
 	private KnockBack _knockBack;
 
-	private AttackSettings _settings;
+	//private AttackSettings _settings;
 
 	private Player.Scrips.CharacterInput player;
 
@@ -56,13 +55,9 @@ public class Attackable : MonoBehaviour
 		{
 			if (_currentHealth <= 0 && !_playerSettings._isReviving) //changed this to <= from ==, hope it still works
 			{
-				//Debug.Log("It starts 0 health");
-				//player.gameObject.SetActive(false);
-				//Debug.Log("It sets inactive");
-				//_playerSettings.respawnPoint.AddRespawnTarget(this);
 				_playerSettings._isReviving = true;
 				PlayerManager.Instance.PlayerNeedsReviving(this);
-				if (player.GetCharacter() == Player.Scrips.CharacterInput.character.ZILLA)
+				if (player.GetCharacter() == Player.Scrips.CharacterInput.Character.ZILLA)
 				{
 					player.LazorButtonPressed = false;
 				}
@@ -73,10 +68,10 @@ public class Attackable : MonoBehaviour
 				float healthPercent = _currentHealth / _maxHealth;
 				switch (player.GetCharacter())
 				{
-					case Player.Scrips.CharacterInput.character.ZILLA:
+					case Player.Scrips.CharacterInput.Character.ZILLA:
 						UIManager.Instance.UpdateZillaHealthOnUI(healthPercent);
 						break;
-					case Player.Scrips.CharacterInput.character.RILLA:
+					case Player.Scrips.CharacterInput.Character.RILLA:
 						UIManager.Instance.UpdateRillaHealthOnUI(healthPercent);
 						break;
 					default:
@@ -95,23 +90,15 @@ public class Attackable : MonoBehaviour
 	public void EntitiyHit(AttackSettings settings)
 	{
 		_rillaSlamSettings = null;
-		_zillaLazorSettings = null;
 		_animator = GetComponent<Animator>();
-		
-		switch (settings._settingType)
+
+		if (settings._settingType == AttackSettings.SettingType.SLAM)
 		{
-			case AttackSettings.SettingType.SLAM:
-				_rillaSlamSettings = settings as RillaSlamSettings;
-				if (_fsm != null && _rillaSlamSettings._stun)
-					_fsm.EnterState(FSMStateType.STUN);
-				break;
-			case AttackSettings.SettingType.LAZOR:
-				_zillaLazorSettings = settings as ZillaLazorSettings;
-				break;
-			default:
-				break;
-		}
-		TestToRemoveHealth(settings); //should the slam do dmg to bosses? in this case it does!
+			_rillaSlamSettings = settings as RillaSlamSettings;
+			if (_fsm != null && _rillaSlamSettings._stun)
+				_fsm.EnterState(FSMStateType.STUN);
+		}	
+		TestToRemoveHealth(settings);
 	}
 	
 	// INTERNAL METHODS
@@ -228,7 +215,7 @@ public class Attackable : MonoBehaviour
 	{
 		return (_currentHealth / _maxHealth);
 	}
-	private void QuickRevivePlayer()
+	private void QuickRevivePlayer() //used as contextmenuItem
 	{
 		PlayerManager.Instance.QuickRevivePlayer(this);
 	}

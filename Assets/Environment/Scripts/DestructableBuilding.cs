@@ -9,15 +9,12 @@ public class DestructableBuilding : MonoBehaviour
 {
     private const string cNewsCategory = "Building Destruction";
     
-    private Attackable _attackable;
     private Animation _animation;
     [SerializeField] private ParticleSystem _smokePrefab;
     [SerializeField] private GameObject _rubblePrefab;
     private List<ParticleSystem> _smokeParticleSystems;
     public float smokeLifetime = 5.0f;
     public float collapseDelay = 1.0f;
-    
-    [SerializeField] private Mesh _rubbleMesh;
 
     [HideInInspector] public bool isRubble = false;
 
@@ -25,7 +22,6 @@ public class DestructableBuilding : MonoBehaviour
     {
         _smokeParticleSystems = new List<ParticleSystem>();
         
-        TryGetComponent(out _attackable);
         TryGetComponent(out _animation);
     }
 
@@ -41,10 +37,10 @@ public class DestructableBuilding : MonoBehaviour
         }
     }
 
-    private IEnumerator BuildingDestruction()
+    private IEnumerator BuildingDestruction() //is used in sendmessage
     {
         if (isRubble) yield return null;
-        
+
         CreateSmokeAndRubble();
         yield return new WaitForSeconds(collapseDelay);
 

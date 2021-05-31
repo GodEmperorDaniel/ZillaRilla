@@ -15,7 +15,7 @@ public class EnemyAttacks : BaseAttack
 
     private Coroutine c_attackCooldown;
     private HashSet<GameObject> _hashEnemyPunch = new HashSet<GameObject>();
-    public List<GameObject> _listEnemyShoot = new List<GameObject>();
+    private List<GameObject> _listEnemyShoot = new List<GameObject>();
 
     // Start is called before the first frame update
     private void Awake()

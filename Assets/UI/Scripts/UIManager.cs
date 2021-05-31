@@ -47,12 +47,6 @@ public class UIManager : Manager<UIManager>
         UISounds = GetComponent<PlayOneShot>();
     }
 
-
-    private void Start()
-    {
-        //GameManager.Instance._onGameStateChanged.AddListener(HandleGameStateChange);
-    }
-
     /*private void HandleGameStateChange(GameManager.GameState currentState, GameManager.GameState previousState)
     {
         _pauseMenu.gameObject.SetActive(currentState == GameManager.GameState.PAUSED);

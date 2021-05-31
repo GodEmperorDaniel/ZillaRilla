@@ -24,14 +24,14 @@ namespace Player.Scrips
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
 
-        public enum character
+        public enum Character
         {
             ZILLA,
             RILLA
         }
 
 
-        [SerializeField] private character _character;
+        [SerializeField] private Character _character;
         private bool _attack1Pressed;
         private bool _rillaLeftPunch;
         private Attackable _attackable;
@@ -50,8 +50,6 @@ namespace Player.Scrips
                 Debug.LogWarning("No animator is set in " + this.name + ", getting it through code");
                 TryGetComponent<Animator>(out _playerAnimator);
             }
-
-            PlayerInput playerInput = GetComponent<PlayerInput>();
             _attackable = GetComponent<Attackable>();
         }
 
@@ -65,12 +63,12 @@ namespace Player.Scrips
                 //Debug.Log(_attack1Pressed);
                 switch (_character)
                 {
-                    case character.ZILLA:
+                    case Character.ZILLA:
                         if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") &&
                             _attack1Pressed)
                             _playerAnimator.SetBool("ZillaTail", true);
                         break;
-                    case character.RILLA:
+                    case Character.RILLA:
                         if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") &&
                             _attack1Pressed)
                         {
@@ -98,7 +96,7 @@ namespace Player.Scrips
                 bool value = c.ReadValueAsButton();
                 switch (_character)
                 {
-                    case character.ZILLA:
+                    case Character.ZILLA:
                         LazorButtonPressed = value;
                         if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") &&
                             LazorButtonPressed)
@@ -108,7 +106,7 @@ namespace Player.Scrips
                         }
 
                         break;
-                    case character.RILLA:
+                    case Character.RILLA:
                         if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
                             _playerAnimator.SetBool("RillaSlam", true);
                         break;
@@ -121,13 +119,6 @@ namespace Player.Scrips
         #endregion
 
         #region Aim
-
-        private void OnMouseAimInput(InputAction.CallbackContext c)
-        {
-            //probably a little bit of match and coordinate conversions... will fix later
-            //Vector2 value = c.ReadValue<Vector2>();
-        }
-
         public void OnAnalogAimInput(InputAction.CallbackContext c)
         {
             if (!_attackable._playerSettings._isReviving)
@@ -138,7 +129,6 @@ namespace Player.Scrips
                     _moveInput.Execute();
             }
         }
-
         #endregion
 
         public void OnJumpInput(InputAction.CallbackContext c)
@@ -212,7 +202,7 @@ namespace Player.Scrips
 
         #endregion
 
-        public character GetCharacter()
+        public Character GetCharacter()
         {
             return _character;
         }

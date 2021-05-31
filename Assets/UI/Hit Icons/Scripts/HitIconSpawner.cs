@@ -32,7 +32,7 @@ public class HitIconSpawner : MonoBehaviour
 
     public void SpawnHitIcon(Vector3 position, int playerIndex)
     {
-        GameObject hitIcon = null;
+        GameObject hitIcon;
         switch (playerIndex)
         {
             case 0:

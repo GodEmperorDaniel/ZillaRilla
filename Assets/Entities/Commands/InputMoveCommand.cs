@@ -33,7 +33,7 @@ namespace Entities.Commands
          private Transform _transform;
          private CharacterController _characterController;
          private Animator _animator;
-         private Player.Scrips.CharacterInput.character _character;
+         private Player.Scrips.CharacterInput.Character _character;
         #endregion
 
         private void Awake()
@@ -68,7 +68,7 @@ namespace Entities.Commands
             {
                 switch (_character)
                 {
-                    case Player.Scrips.CharacterInput.character.ZILLA:
+                    case Player.Scrips.CharacterInput.Character.ZILLA:
                         if (_lazor.LazorButtonPressed)
                         {
                             _mov.x = _move.MoveDirection.x;
@@ -84,7 +84,7 @@ namespace Entities.Commands
                             _animator.SetFloat("Speed", _move.MoveDirection.magnitude);
                         }
                         break;
-                    case Player.Scrips.CharacterInput.character.RILLA:
+                    case Player.Scrips.CharacterInput.Character.RILLA:
                         if (!(_animator.GetBool("RillaSlam") && _rillaStillOnSlam))
                         {
                             _mov.x = _move.MoveDirection.x;
@@ -111,7 +111,7 @@ namespace Entities.Commands
         {
             switch (_character)
             {
-                case Player.Scrips.CharacterInput.character.ZILLA:
+                case Player.Scrips.CharacterInput.Character.ZILLA:
                     if (_rotate.RotationDirection != Vector3.zero && _lazor.LazorButtonPressed)
                     {
                         //Debug.Log(_character.ToString() + " USING FIRST");
@@ -130,7 +130,7 @@ namespace Entities.Commands
                     }
                     c_rotate = null;
                     break;
-                case Player.Scrips.CharacterInput.character.RILLA:
+                case Player.Scrips.CharacterInput.Character.RILLA:
                    if (_rotate.RotationDirection != Vector3.zero)
                     {
                         //Debug.Log(_character.ToString() + " USING FIRST");

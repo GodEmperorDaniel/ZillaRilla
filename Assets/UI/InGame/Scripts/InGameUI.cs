@@ -174,7 +174,7 @@ public class InGameUI : MonoBehaviour
         _bossHealth.fillAmount = Round(progress, 2);
     }
 	#endregion
-	public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
+	public void SetObjectiveOnUI(string objectiveName, string objectiveDescription) //I guess objectiveName Could be used somehow??
     {
         _currentObjective.SetText(objectiveDescription);
     }

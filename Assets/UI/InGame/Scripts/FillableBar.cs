@@ -11,7 +11,6 @@ public class FillableBar : MonoBehaviour
     //[HideInInspector]
     public float fillAmount;
     [SerializeField] private Image frame;
-    [SerializeField] private Image backgroundImage;
     [SerializeField] private Image fillImage;
     
     [SerializeField] private bool useText;
