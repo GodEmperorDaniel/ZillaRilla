@@ -19,7 +19,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _zillaComboText;
     [SerializeField] private FillableBar _rillaComboMeter;
     [SerializeField] private TextMeshProUGUI _rillaComboText;
-    [SerializeField] private GameObject _currentObjective;
+    [SerializeField] private TextMeshProUGUI _currentObjective;
     [SerializeField] private NewsBanner _newsBanner;
     [SerializeField] private FillableBar _bossHealth;
 
@@ -146,7 +146,7 @@ public class InGameUI : MonoBehaviour
 	#endregion
 	public void SetObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
-        _currentObjective.GetComponent<Text>().text = objectiveDescription;
+        _currentObjective.SetText(objectiveDescription);
     }
     // Should be moved to a Math Utility class
     // Rounds float to the amount of digits
