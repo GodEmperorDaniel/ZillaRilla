@@ -37,7 +37,6 @@ namespace Assets.Enemy.NPCCode
         public float attackRadius = 5f;
         public float deSpawnTime = 1;
         [HideInInspector] public bool _isKnockedBack;
-        private LayerMask _coveringLayers;
 
         [SerializeField] public Animator _animator;
         
