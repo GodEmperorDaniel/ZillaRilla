@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<news_banner_text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <category category="Building Destruction">
+        <title title="Coming Down">
+            <text>The building is coming down!</text>
+        </title>
+
+        <title title="A lot!">
+            <text>A building was destroyed a lot!</text>
+        </title>
+        
+    </category>
+
+</news_banner_text>

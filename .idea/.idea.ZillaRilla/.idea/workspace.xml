@@ -2,53 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Menu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Menu.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Main Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Input/CharacterInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Input/CharacterInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Input/PlayerInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Input/PlayerInputActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Input/ZillaRilla.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Input/ZillaRilla.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayOneShot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayOneShot.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/RillaPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/RillaPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/ZillaPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/ZillaPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boot.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boot.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RikardMain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RikardMain.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Hit Icons/Prefabs/Hit Icon Spawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Hit Icons/Prefabs/Hit Icon Spawner.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Prefabs/InGame UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/UITester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/UITester.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Main Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Main Menu/Main Menu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Main Menu/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_ARROW.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_ARROW.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_BG.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_BG.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_OPTIONS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_OPTIONS.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_PLAY.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_PLAY.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_QUIT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_QUIT.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_TITLE.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Main Menu/Sprites/MENU_TITLE.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Pause Menu.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scenes/UI Testing Implementation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/AcceptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/AcceptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/NavigateCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/NavigateCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utils/XML/XML Files/xml_text_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utils/XML/XML Files/xml_text_test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,15 +40,18 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8D3A4CBA-CDAE-45B3-84E0-E80B376938E1/76/54facd92/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/f9/222c96ed/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/0a/5192a5d6/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EAE584CE-26BC-4022-9C1B-1AA476BFA589/d3/f4609f95/Timer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/7c/3a548426/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Devices/Keyboard.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EAE584CE-26BC-4022-9C1B-1AA476BFA589/f9/bfe202ac/Environment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EAE584CE-26BC-4022-9C1B-1AA476BFA589/39/8e9c32ea/WaitHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.4/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44209BCD-7418-4A0B-9C8C-852DAB7B6817/4f/d318d84b/IInputActionCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.4.0/Runtime/Debugging/DebugManager.Actions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A9EF27D6-0E31-4451-9C07-41B6584BA229/e4/9a22904c/XObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/ac/cc8fce28/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/ac/0b026a7b/Directory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/Unit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10564ED1-54D6-47E1-94BE-F4AEF8878649/45/928dc1f0/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utils/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
@@ -102,13 +65,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Objectives/Objective.cs" />
-      <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/Spawner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Goals/GoalArea.cs" />
-      <option value="$PROJECT_DIR$/Assets/Goals/WaveSpawnerGoal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Goals/Goal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Goals/AreaGoal.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/GoalManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Hit Icons/Scripts/HitIconSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml" />
@@ -121,7 +77,6 @@
       <option value="$PROJECT_DIR$/Assets/Player/Attacks/Rilla/RillaAttacks.cs" />
       <option value="$PROJECT_DIR$/Assets/Entities/Attackable.cs" />
       <option value="$PROJECT_DIR$/Assets/Environment/Scripts/SmokeLauncher.cs" />
-      <option value="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/xml_text_test.xml" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/XMLLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/XML/ExampleLoader.cs" />
@@ -141,18 +96,26 @@
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Menu.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/UITester.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/AcceptCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Entities/Commands/PauseCommand.cs" />
       <option value="$PROJECT_DIR$/Assets/Player/Input/CharacterInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/NPC/NPC.cs" />
-      <option value="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Utils/PlayOneShot.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Main Menu/MainMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/XML Example/circles_test.xml" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/XML Files/xml_text_test 1.xml" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/XML Files/xml_text_test.xml" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/XML Files/Enemy Killed.xml" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/XML Files/Building Destroyed.xml" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/NewsSelector.cs" />
+      <option value="$PROJECT_DIR$/Assets/Utils/XML/XMLLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" />
+      <option value="$PROJECT_DIR$/Assets/Goals/Scripts/Goal.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -167,8 +130,9 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -182,10 +146,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28308">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="28308" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -252,6 +216,12 @@
       <workItem from="1621947281800" duration="8359000" />
       <workItem from="1622017553183" duration="2466000" />
       <workItem from="1622021911737" duration="14387000" />
+      <workItem from="1622107930456" duration="15058000" />
+      <workItem from="1622128564148" duration="1651000" />
+      <workItem from="1622191730479" duration="1948000" />
+      <workItem from="1622195062232" duration="7124000" />
+      <workItem from="1622208634430" duration="691000" />
+      <workItem from="1622209361134" duration="203000" />
     </task>
     <servers />
   </component>
@@ -291,21 +261,14 @@
           </properties>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs</url>
-          <line>310</line>
-          <properties documentPath="C:\dev\Unity\ZillaRilla\Assets\Game Manager\Scripts\GameManager.cs" initialLine="310" containingFunctionPresentation="method 'EnableUIControls'">
-            <startOffsets>
-              <option value="8126" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8163" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#XMLLoader.GetXMLDictionary" memberName="xmlElements" />
+        <PinnedItemInfo parentTag="Frame#XMLLoader.GetXMLDictionary" memberName="elements" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="currentTarget.name" />

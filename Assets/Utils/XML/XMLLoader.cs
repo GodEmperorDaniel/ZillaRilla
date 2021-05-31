@@ -11,33 +11,51 @@ public static class XMLLoader
 {
     // TODO: Add build XML file location
     
-#if DEBUG
-    private static string xmlFileLocation = "Assets/Utils/XML/XML Files/";
-#else
-    private static string xmlFileLocation = "";
-#endif
-    
-    private static IEnumerable<XElement> LoadXML(string fileName)
+    private static IEnumerable<XElement> OldLoadXML(string fileName)
     {
+        
+        
         XDocument xmlDocument = XDocument.Load(fileName);
         IEnumerable<XElement> xmlElements = xmlDocument.Descendants("title").Elements();
         return xmlElements;
     }
 
-    public static Dictionary<string, string> GetXMLDictionary(string fileName)
+    private static IEnumerable<XAttribute> LoadXML(string fileName)
     {
-        Dictionary<string, string> dictionary = new Dictionary<string, string>();
+        XDocument xmlDocument = XDocument.Load(fileName);
+        IEnumerable<XAttribute> xmlAttribute = xmlDocument.Descendants("category").Attributes();
+        return xmlAttribute;
+    }
 
-        IEnumerable<XElement> xmlElements = LoadXML($"{xmlFileLocation}{fileName}");
-
-        foreach (XElement element in xmlElements)
+    public static Dictionary<string, Dictionary<string, string>> GetXMLDictionary(string filePath)
+    {
+        Dictionary<string, Dictionary<string, string>> categoryDictionary = new Dictionary<string, Dictionary<string, string>>();
+        string[] files = Directory.GetFiles(filePath, "*.xml");
+        
+        foreach (string file in files)
         {
-            if (element.Parent == null) continue;
-            string title = element.Parent.Attribute("title")?.Value;
-            string text = element.Parent.Element("text")?.Value.Trim();
-            dictionary.Add(title, text);
-        }
+            IEnumerable<XAttribute> xmlAttributes = LoadXML(file);
 
-        return dictionary;
+            // Loop that creates a dictionary of categories 
+            foreach (XAttribute attribute in xmlAttributes)
+            {
+                Dictionary<string, string> elements = new Dictionary<string, string>();
+
+                if (attribute.Name != "category" || attribute.Parent == null) continue;
+                string category = attribute.Value;
+                
+                // Loop that creates a dictionary for every Title-Text pairing in the category 
+                foreach (XElement element in attribute.Parent.Elements())
+                {
+                    string title = element.Attribute("title")?.Value;
+                    string text = element.Element("text")?.Value.Trim();
+                    elements.Add(title, text);
+                }
+                
+                categoryDictionary.Add(category, elements);
+            }
+        }
+        
+        return categoryDictionary;
     }
 }
