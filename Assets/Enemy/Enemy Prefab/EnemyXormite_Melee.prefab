@@ -1496,8 +1496,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 6613114054487553999}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.28
-  m_Speed: 15
+  m_Radius: 1.9
+  m_Speed: 50
   m_Acceleration: 999
   avoidancePriority: 50
   m_AngularSpeed: 999
@@ -1575,7 +1575,7 @@ MonoBehaviour:
     _attackDamage: 10
     _damageMultiplier: 1
     _attackHitbox: {fileID: 6613114052974211131}
-    _attackCooldown: 1
+    _attackCooldown: 0.2
     _settingType: 0
     _knockbackStrength: 0
     _knockbackTime: 0

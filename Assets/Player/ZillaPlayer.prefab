@@ -186,22 +186,23 @@ MonoBehaviour:
     _attackHitbox: {fileID: 4460215269216205231}
     _attackCooldown: 1
     _settingType: 2
-    _knockbackStrength: 10
-    _knockbackTime: 0.2
+    _knockbackStrength: 50
+    _knockbackTime: 3
   lazorSettings:
     playerIndex: 0
     _attackDamage: 10
     _damageMultiplier: 1
     _attackHitbox: {fileID: 8227438593615647616}
-    _attackCooldown: 1
+    _attackCooldown: 0
     _settingType: 3
-    _knockbackStrength: 10
-    _knockbackTime: 0.1
-    _lazorMaxRange: 40
-    _lazorGrowthPerSec: 30
+    _knockbackStrength: 0.5
+    _knockbackTime: 0
+    _lazorMaxRange: 25
+    _lazorGrowthPerSec: 150
     _layersThatInterup:
     - Enemy
-    _sphereCastRadius: 3
+    - Destructible
+    _sphereCastRadius: 5
 --- !u!114 &1205055680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,9 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2bb9d832c7b484ca2777a2b85c92da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 30
-  _lazorMoveSpeed: 5
-  _lazorRotationSpeed: 100
+  _moveSpeed: 60
+  _lazorMoveSpeed: 30
+  _lazorRotationSpeed: 10
   _jumpStength: 50
   _jumpTime: 0.25
   _gravity: 200
@@ -524,14 +525,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  _maxHealth: 100
   _maxShieldHealth: 0
-  _currentHealth: 20
+  _currentHealth: 100
   _currentShieldHealth: 0
   regenerationSpeed: 0.1
   regenHealthAmount: 1
   _animator: {fileID: 0}
-  _iFrames: 1
+  _iFrames: 0
   _playerSettings:
     _timeToRevive: 2
     _timeUntilDeath: 10
@@ -838,6 +839,7 @@ MonoBehaviour:
   _ID: 2
   _targets:
   - Enemy
+  - Destructible
 --- !u!1 &2599255701387354215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,8 +1080,8 @@ GameObject:
   m_Component:
   - component: {fileID: 650776527177878218}
   - component: {fileID: 2386466180740022549}
-  - component: {fileID: 1053437600552141189}
   - component: {fileID: 4428440750782312150}
+  - component: {fileID: 2062944215073896489}
   m_Layer: 0
   m_Name: ZillaTailHitBox
   m_TagString: Untagged
@@ -1095,7 +1097,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4460215269216205231}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.81, z: -3.78}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 381463971055927896}
@@ -1108,20 +1110,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4460215269216205231}
-  m_Mesh: {fileID: 1026077058679496997, guid: dc570dec6f897a04e85eda5ac853d621, type: 3}
---- !u!64 &1053437600552141189
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4460215269216205231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
   m_Mesh: {fileID: 1026077058679496997, guid: dc570dec6f897a04e85eda5ac853d621, type: 3}
 --- !u!114 &4428440750782312150
 MonoBehaviour:
@@ -1140,6 +1128,19 @@ MonoBehaviour:
   _targets:
   - Enemy
   - Movable
+--- !u!135 &2062944215073896489
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460215269216205231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5048259435796888841
 GameObject:
   m_ObjectHideFlags: 0

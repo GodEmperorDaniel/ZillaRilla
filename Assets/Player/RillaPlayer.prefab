@@ -72,6 +72,7 @@ MonoBehaviour:
   _targets:
   - Enemy
   - Movable
+  - Destructible
 --- !u!1 &197583548
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +145,8 @@ MonoBehaviour:
   _targets:
   - Enemy
   - Movable
---- !u!1 &160121612750606648
+  - Destructible
+--- !u!1 &133824083603545219
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3069,22 +3071,22 @@ MonoBehaviour:
   _playerAnimator: {fileID: 191052409}
   punchSettings:
     playerIndex: 0
-    _attackDamage: 10
+    _attackDamage: 25
     _damageMultiplier: 1
     _attackHitbox: {fileID: 70674030}
-    _attackCooldown: 0.1
+    _attackCooldown: 0
     _settingType: 0
-    _knockbackStrength: 0
-    _knockbackTime: 0
+    _knockbackStrength: 100
+    _knockbackTime: 0.2
   slamSettings:
     playerIndex: 0
     _attackDamage: 5
     _damageMultiplier: 1
     _attackHitbox: {fileID: 197583548}
-    _attackCooldown: 1
+    _attackCooldown: 0
     _settingType: 1
-    _knockbackStrength: 0
-    _knockbackTime: 0
+    _knockbackStrength: 50
+    _knockbackTime: 3
     _stun: 1
     _knockBack: 0
     _knockBackRange: 0
@@ -3100,7 +3102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2bb9d832c7b484ca2777a2b85c92da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 50
+  _moveSpeed: 60
   _lazorMoveSpeed: 5
   _lazorRotationSpeed: 0
   _rillaStillOnSlam: 1
@@ -3113,7 +3115,7 @@ MonoBehaviour:
   _characterController: {fileID: 191052404}
   rayCastLenght: 1.25
   _animator: {fileID: 191052409}
-  _character: 0
+  _character: 1
 --- !u!114 &191052408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3417,14 +3419,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10000
+  _maxHealth: 100
   _maxShieldHealth: 0
-  _currentHealth: 20
+  _currentHealth: 100
   _currentShieldHealth: 0
   regenerationSpeed: 0.1
   regenHealthAmount: 1
   _animator: {fileID: 0}
-  _iFrames: 1
+  _iFrames: 0
   _playerSettings:
     _timeToRevive: 2
     _timeUntilDeath: 10

@@ -121,7 +121,7 @@ FixedJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2252516471885516789}
-  m_ConnectedBody: {fileID: 406336884843060455}
+  m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_BreakForce: 5000
   m_BreakTorque: 5000
@@ -140,8 +140,6 @@ GameObject:
   - component: {fileID: 3063163977586105531}
   - component: {fileID: 6987824595488631059}
   - component: {fileID: 3077535939949173850}
-  - component: {fileID: 3463339497211425181}
-  - component: {fileID: 406336884843060455}
   m_Layer: 9
   m_Name: Hedge_Wall
   m_TagString: Untagged
@@ -213,32 +211,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3463339497211425181
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6110620034800299730}
-  m_Material: {fileID: 13400000, guid: c2dca99d9a6e4d44398fd98aa0363b32, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4824897, y: 0.20021655, z: 0.32560012}
-  m_Center: {x: 0, y: 0.10010824, z: 0}
---- !u!54 &406336884843060455
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6110620034800299730}
-  serializedVersion: 2
-  m_Mass: 200
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
