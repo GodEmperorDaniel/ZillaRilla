@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Entities.Scripts;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : Manager<PlayerManager>
 {
@@ -9,6 +10,8 @@ public class PlayerManager : Manager<PlayerManager>
     [Range(0f, 1f)]
     [SerializeField] private float _percentHealthOnRespawn;
     [SerializeField] private float _maxDistanceToRevive = 20;
+    [SerializeField] private Sprite _xSprite;
+    [SerializeField] private Sprite _aSprite;
     private float _distancePlayers;
     private Coroutine c_revivalInProgress;
     private IReviveInput _reviveInput;
@@ -123,10 +126,34 @@ public class PlayerManager : Manager<PlayerManager>
             if (revivalTarget == GameManager.Instance._zilla)
             {
                 _reviveInput = GameManager.Instance._rilla.GetComponent<IReviveInput>();
+                PlayerInput input = GameManager.Instance._rilla.GetComponent<PlayerInput>();
+                for (int i = 0; i < input.devices.Count; i++)
+                {
+                    if (input.devices[i].device.ToString() == "XInputControllerWindows:/XInputControllerWindows")
+                    {
+                        UIManager.Instance.InGameUI.ChangeButtonPromptOnRevive(_aSprite);
+                    }
+                    else
+                    {
+                        UIManager.Instance.InGameUI.ChangeButtonPromptOnRevive(_xSprite);
+                    }
+                }
             }
             else
             {
                 _reviveInput = GameManager.Instance._zilla.GetComponent<IReviveInput>();
+                PlayerInput input = GameManager.Instance._zilla.GetComponent<PlayerInput>();
+                for (int i = 0; i < input.devices.Count; i++)
+                {
+                    if (input.devices[i].device.ToString() == "XInputControllerWindows:/XInputControllerWindows")
+                    {
+                        UIManager.Instance.InGameUI.ChangeButtonPromptOnRevive(_aSprite);
+                    }
+                    else
+                    {  
+                        UIManager.Instance.InGameUI.ChangeButtonPromptOnRevive(_xSprite);
+                    }
+                }
             }
             c_revivalInProgress = StartCoroutine(RevivalCountdown(revivalTarget));
         }

@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _percentHealthOnRespawn: 0.4
   _maxDistanceToRevive: 20
+  _xSprite: {fileID: 21300000, guid: 3ceaf390c90ff574baf90ccac54ec8f9, type: 3}
+  _aSprite: {fileID: 21300000, guid: 6d7dda41821b03e44bee5014ea57d76e, type: 3}
   _offset: {x: -2.5, y: 16.87, z: 0}
   _neededToFillComboMeter: 20
   _timeToLoseCombo: 3

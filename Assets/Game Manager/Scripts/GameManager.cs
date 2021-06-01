@@ -296,9 +296,6 @@ public class GameManager : Manager<GameManager>
             GameObject prefabInstance = Instantiate(go);
             _instancedSystemPrefabs.Add(prefabInstance);
         }
-
-        GoalManager goalManager = FindObjectOfType<GoalManager>();
-        if (goalManager != null) _instancedSystemPrefabs.Add(goalManager.gameObject);
     }
 
     private void FindPlayerCharacters()
@@ -364,7 +361,10 @@ public class GameManager : Manager<GameManager>
             {
                 //SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
                 FindPlayerCharacters();
-                if(_zilla && _rilla)
+                GoalManager goalManager = FindObjectOfType<GoalManager>();
+                if (goalManager != null) 
+                    _instancedSystemPrefabs.Add(goalManager.gameObject);
+                if (_zilla && _rilla)
                     PlayerManager.Instance.gameObject.SetActive(true);
             }
             // dispatch message

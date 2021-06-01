@@ -14,7 +14,8 @@ public class RillaAttacks : BaseAttack
 
 	private List<GameObject> _listPunch = new List<GameObject>();
 	private List<GameObject> _listSlam = new List<GameObject>();
-	private Coroutine c_attackCooldown;
+	private Coroutine c_punchCoolDown;
+	private Coroutine c_slamCoolDown;
 	private void Awake()
 	{
 		punchSettings.playerIndex = 1;
@@ -28,7 +29,7 @@ public class RillaAttacks : BaseAttack
 	#region Attacks
 	public void RillaPunch()
 	{
-		if (c_attackCooldown != null) return;
+		if (c_punchCoolDown != null) return;
 		
 		for (int i = 0; i < _listPunch.Count; i++)
 		{
@@ -43,12 +44,12 @@ public class RillaAttacks : BaseAttack
 				ApplyForceToMovable(_listPunch[i], (_listPunch[i].transform.position - transform.position).normalized);
 			}
 		}
-		c_attackCooldown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown));
+		c_punchCoolDown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown, 0));
 	}
 
 	public void RillaGroundSlam()
 	{
-		if (c_attackCooldown == null)
+		if (c_slamCoolDown == null)
 		{
 			for (int i = 0; i < _listSlam.Count; i++)
 			{
@@ -64,17 +65,20 @@ public class RillaAttacks : BaseAttack
 					}
 				}
 			}
-			c_attackCooldown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown));
+			c_slamCoolDown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown, 1));
 		}
 	}
-	private IEnumerator AttackCooldown(float resetTime)
+	private IEnumerator AttackCooldown(float resetTime, int attackIndex)
 	{
-		yield return new WaitForSeconds(resetTime);
 		_playerAnimator.SetBool("RillaPunch", false);
 		_playerAnimator.SetBool("RillaSlam", false);
 		_playerAnimator.SetBool("Rilla_Left_Punch", false);
 		_playerAnimator.SetBool("Rilla_Right_Punch", false);
-		c_attackCooldown = null;
+		yield return new WaitForSeconds(resetTime);
+		if (attackIndex == 0)
+			c_punchCoolDown = null;
+		else
+			c_slamCoolDown = null;
 	}
 	#endregion
 	#region TriggerData
@@ -162,9 +166,6 @@ namespace Attacks.Rilla
 	public class RillaSlamSettings : AttackSettings
 	{
 		public bool _stun;
-		[Header("Knockback")]
-		public bool _knockBack;
-		public float _knockBackRange;
 	}
 }
 ////[System.Serializable]

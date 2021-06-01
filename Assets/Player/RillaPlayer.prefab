@@ -168,7 +168,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160121612750606648}
+  m_GameObject: {fileID: 133824083603545219}
   m_LocalRotation: {x: 0.47757477, y: 0.0035607642, z: 0.04347304, w: 0.8775077}
   m_LocalPosition: {x: 0.000000004470348, y: 0.010003223, z: -2.2351741e-10}
   m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 0.9999998}
@@ -3106,16 +3106,8 @@ MonoBehaviour:
   _lazorMoveSpeed: 5
   _lazorRotationSpeed: 0
   _rillaStillOnSlam: 1
-  _jumpStength: 50
-  _jumpTime: 0.25
   _gravity: 200
-  _jumpCooldownTime: 0
   _objectMoveForce: 2
-  _transform: {fileID: 8538369396598117620}
-  _characterController: {fileID: 191052404}
-  rayCastLenght: 1.25
-  _animator: {fileID: 191052409}
-  _character: 1
 --- !u!114 &191052408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3330,7 +3322,7 @@ MonoBehaviour:
     m_ActionId: ebeb99c8-d1e9-4e78-a43b-430f1140f40c
     m_ActionName: UI/Accept[/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -3368,7 +3360,7 @@ CharacterController:
   m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2.25, z: 0}
+  m_Center: {x: 0, y: 2.14, z: 0}
 --- !u!95 &191052409
 Animator:
   serializedVersion: 3

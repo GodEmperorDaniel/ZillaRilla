@@ -11,6 +11,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
     public class StunState : AbstractFSMState
     {
         float _totalDuration;
+        [SerializeField] private GameObject StunIcon; 
 
         public override void OnEnable()
         {

@@ -54,6 +54,14 @@ namespace Entities.Commands
             _mov.y = -_gravity;
         }
 
+        private void Update()
+        {
+            //yes this is gravity
+            if (c_moving == null)
+            {
+                _characterController.Move(new Vector3(0,_mov.y * Time.deltaTime,0));
+            }
+        }
         public override void Execute()
         {
             if (c_moving == null)
