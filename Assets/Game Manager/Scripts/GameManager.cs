@@ -7,7 +7,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-//TODO: FIX STARTGAME SO YOU CAN INSERT AND START YOUR OWN SCENE INSTEAD OF ONLY DEV_BANA
+//TODO: Add Loading Completed state-functionality int enter, exit and OnLoaded transition
+//TODO: Maybe rename OnLoaded since we already have OnLoadedComplete
+
 public class GameManager : Manager<GameManager>
 {
     public enum GameState
@@ -16,6 +18,7 @@ public class GameManager : Manager<GameManager>
         CUTSCENE,
         MAIN_MENU,
         LOADING,
+        LOADING_COMPLETE,
         IN_GAME,
         PAUSED
     }
@@ -40,7 +43,9 @@ public class GameManager : Manager<GameManager>
 
     public Attackable _zilla;
     public Attackable _rilla;
-    public List<Transform> _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
+
+    public List<Transform>
+        _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
 
     public GameState CurrentGameState => _currentGameState;
 
@@ -62,6 +67,7 @@ public class GameManager : Manager<GameManager>
     private void Start()
     {
         DeactivateAllUI();
+        UIManager.Instance.EnableLoadUI();
         LoadMainMenu();
     }
 
@@ -77,29 +83,7 @@ public class GameManager : Manager<GameManager>
         _instancedSystemPrefabs.Clear();
     }
 
-    private void Update()
-    {
-        if (Keyboard.current.pKey.wasPressedThisFrame)
-        {
-            TogglePause();
-        }
-
-        if (Keyboard.current.uKey.wasPressedThisFrame)
-        {
-            EnableUIControls();
-        }
-        else if (Keyboard.current.iKey.wasPressedThisFrame)
-        {
-            EnableInGameControls();
-        }
-        else if (Keyboard.current.mKey.wasPressedThisFrame)
-        {
-            Debug.Log(_zilla.GetComponent<PlayerInput>().currentActionMap);
-            Debug.Log(_rilla.GetComponent<PlayerInput>().currentActionMap);    
-        }
-    }
-
-    #region LevelManagement
+#region LevelManagement
 
     // PUBLIC METHODS
     /*Loads scene and the completed event calls the OnLoadComplete
@@ -107,6 +91,7 @@ public class GameManager : Manager<GameManager>
     Loading multiple scenes is possible*/
     public void LoadLevel(string levelName)
     {
+        UIManager.Instance.EnableLoadUI();
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
         {
@@ -134,25 +119,35 @@ public class GameManager : Manager<GameManager>
         ao.completed += OnUnloadOperationComplete;
     }
 
-    #endregion
-
-    public void UpdateObjective(Goal objective)
+    private void OnLoadOperationComplete(AsyncOperation asyncOperation)
     {
-        _currentObjective = objective;
-        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
+        if (_loadOperations.Contains(asyncOperation))
+        {
+            _loadOperations.Remove(asyncOperation);
+
+            if (_loadOperations.Count == 0)
+            {
+                FindPlayerCharacters();
+                if (_zilla && _rilla)
+                    PlayerManager.Instance.gameObject.SetActive(true);
+                UIManager.Instance.DisableLoadUI();
+            }
+            // dispatch message
+            // transition between scenes
+        }
+
+        Debug.Log("Load Complete.");
     }
 
-    public void TogglePause()
+    private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
     {
-        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+        Debug.Log("Unload Complete.");
     }
+    
+#endregion
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-
+#region Levels
+    
     // SPECIFIC SCENE LOADERS
     public void LoadMainMenu()
     {
@@ -177,11 +172,30 @@ public class GameManager : Manager<GameManager>
         UpdateState(GameState.MAIN_MENU);
     }
 
+#endregion
+
+    public void UpdateObjective(Goal objective)
+    {
+        _currentObjective = objective;
+        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
+    }
+
+    public void TogglePause()
+    {
+        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void DestroyInGameManagers()
     {
+        // TODO Check if exists first
         _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
         _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
-        
+
         Destroy(GoalManager.Instance.gameObject);
         Destroy(PlayerManager.Instance.gameObject);
     }
@@ -202,7 +216,7 @@ public class GameManager : Manager<GameManager>
         EnterNewState(state);
     }
 
-    #region StateManagement
+#region StateManagement
 
     private void ExitCurrentState()
     {
@@ -227,6 +241,8 @@ public class GameManager : Manager<GameManager>
                 UIManager.Instance.DisableDummyCamera();
                 break;
 
+            case GameState.LOADING_COMPLETE:
+                break;
             case GameState.IN_GAME:
                 UIManager.Instance.DisableInGameUI();
                 break;
@@ -269,6 +285,8 @@ public class GameManager : Manager<GameManager>
                 UIManager.Instance.EnableDummyCamera();
                 break;
 
+            case GameState.LOADING_COMPLETE:
+                break;
             case GameState.IN_GAME:
                 UIManager.Instance.EnableInGameUI();
                 EnableInGameControls();
@@ -287,7 +305,7 @@ public class GameManager : Manager<GameManager>
         Debug.Log("Entered state: " + state);
     }
 
-    #endregion
+#endregion
 
     private void InstantiateSystemPrefabs()
     {
@@ -303,13 +321,16 @@ public class GameManager : Manager<GameManager>
 
     private void FindPlayerCharacters()
     {
-        if (GameObject.Find("ZillaPlayer"))
-        { 
+        if (GameObject.Find("ZillaPlayer"))
+
+        {
             GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
             _attackableCharacters.Add(_zilla.transform);
-        }
-        if (GameObject.Find("RillaPlayer"))
-        { 
+        }
+
+        if (GameObject.Find("RillaPlayer"))
+
+        {
             GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
             _attackableCharacters.Add(_rilla.transform);
         }
@@ -354,34 +375,13 @@ public class GameManager : Manager<GameManager>
 
     // EVENT METHODS
     // EVENT METHODS
-    private void OnLoadOperationComplete(AsyncOperation asyncOperation)
-    {
-        if (_loadOperations.Contains(asyncOperation))
-        {
-            _loadOperations.Remove(asyncOperation);
 
-            if (_loadOperations.Count == 0)
-            {
-                //SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
-                FindPlayerCharacters();
-                if(_zilla && _rilla)
-                    PlayerManager.Instance.gameObject.SetActive(true);
-            }
-            // dispatch message
-            // transition between scenes
-        }
-
-        Debug.Log("Load Complete.");
-    }
-
-    private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
-    {
-        Debug.Log("Unload Complete.");
-    }
 
     ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
-    //public List<Transform> GetAttackablePlayers()
-    //{
+    //public List<Transform> GetAttackablePlayers()
+
+    //{
+
     //    return _attackableCharacters;
     //}
 }
