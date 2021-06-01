@@ -161,13 +161,15 @@ public class Attackable : MonoBehaviour
 		{
 			//Debug.Log("THIS ENEMYS GOT HANDS"); 
 			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
-			_animator.SetTrigger("DamageTaken");
+			if(!(player.GetCharacter() == Player.Scrips.CharacterInput.Character.RILLA && _animator.GetBool("RillaSlam")))
+				_animator.SetTrigger("DamageTaken");
 			c_invincible = StartCoroutine(InvincibilityFrames());
 		}
-		else if (_currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
+		else if (c_invincible == null && _currentHealth > 0.0f && gameObject.layer == LayerMask.NameToLayer("Destructible"))
 		{
-			Debug.Log("Destructible Damaged for " + settings._attackDamage + "HP");
+			//Debug.Log("Destructible Damaged for " + settings._attackDamage + "HP");
 			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
+			c_invincible = StartCoroutine(InvincibilityFrames());
 			if (_currentHealth <= 0.0f)
 			{
 				SendMessage("BuildingDestruction");
@@ -210,7 +212,6 @@ public class Attackable : MonoBehaviour
 				break;
 		}
 	}
-
 	public float GetHealthPercent()
 	{
 		return (_currentHealth / _maxHealth);
@@ -247,7 +248,7 @@ public class Attackable : MonoBehaviour
 	#endregion
 	private IEnumerator RegenShieldHealth()
 	{
-		Debug.Log("NU KöR VIII");
+		//Debug.Log("NU KöR VIII");
 		//yield return new WaitForSeconds(regenerationSpeed);
 		while (_currentShieldHealth < _maxShieldHealth && _currentShieldHealth > 0)
 		{
