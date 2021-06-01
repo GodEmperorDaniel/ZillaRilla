@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace UI.Scripts.Input
 {
@@ -24,6 +25,7 @@ namespace UI.Scripts.Input
             navigateInput = gameObject.AddComponent<NavigateCommand>();
             acceptInput = gameObject.AddComponent<AcceptCommand>();
             cancelInput = gameObject.AddComponent<CancelCommand>();
+            
         }
 
         /*private void OnEnable()
@@ -62,6 +64,7 @@ namespace UI.Scripts.Input
         {
             // Unity Events will trigger on both started and performed. This makes sure it only triggers on one of them.
             if (!context.started) return false;
+            print(context);
 
             float value = context.ReadValue<float>();
             bool isPressing = value >= buttonThreshold;
@@ -71,8 +74,14 @@ namespace UI.Scripts.Input
 
         public void OnAcceptPressed(InputAction.CallbackContext context)
         {
-            IsPressingAccept = OnPressedDefault(context, acceptInput);
-            if (IsPressingAccept) Debug.Log("Accept Pressed!");
+            if (!context.started) return;
+            print(context);
+
+            float value = context.ReadValue<float>();
+            IsPressingAccept = value >= buttonThreshold;
+            if (acceptInput != null && IsPressingAccept) acceptInput.Execute();
+            
+            //if (IsPressingAccept) Debug.Log("Accept Pressed!");
         }
 
         public void OnCancelPressed(InputAction.CallbackContext context)

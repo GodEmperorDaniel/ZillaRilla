@@ -26,17 +26,18 @@ public class GameManager : Manager<GameManager>
     //public SceneAsset creditsScene;
 
     public string mainLevel;
-    public string cutScene;
+    public string cutscene;
     public string creditsScene;
 
     public GameObject[] _systemPrefab;
+    public GameObject _cutsceneManagerPrefab;
     private List<GameObject> _instancedSystemPrefabs;
     private List<AsyncOperation> _loadOperations;
 
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
     private Goal _currentObjective;
-
+    
 
     public Attackable _zilla;
     public Attackable _rilla;
@@ -62,7 +63,7 @@ public class GameManager : Manager<GameManager>
     private void Start()
     {
         DeactivateAllUI();
-        LoadMainMenu();
+        IntroCutScene();
     }
 
     protected override void OnDestroy()
@@ -77,29 +78,7 @@ public class GameManager : Manager<GameManager>
         _instancedSystemPrefabs.Clear();
     }
 
-    private void Update()
-    {
-        if (Keyboard.current.pKey.wasPressedThisFrame)
-        {
-            TogglePause();
-        }
-
-        if (Keyboard.current.uKey.wasPressedThisFrame)
-        {
-            EnableUIControls();
-        }
-        else if (Keyboard.current.iKey.wasPressedThisFrame)
-        {
-            EnableInGameControls();
-        }
-        else if (Keyboard.current.mKey.wasPressedThisFrame)
-        {
-            Debug.Log(_zilla.GetComponent<PlayerInput>().currentActionMap);
-            Debug.Log(_rilla.GetComponent<PlayerInput>().currentActionMap);    
-        }
-    }
-
-    #region LevelManagement
+#region LevelManagement
 
     // PUBLIC METHODS
     /*Loads scene and the completed event calls the OnLoadComplete
@@ -107,6 +86,9 @@ public class GameManager : Manager<GameManager>
     Loading multiple scenes is possible*/
     public void LoadLevel(string levelName)
     {
+        // Controls need to be disabled when loading a level or the event will trigger multiple times
+        DisableAllControls();
+        
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
         {
@@ -124,6 +106,9 @@ public class GameManager : Manager<GameManager>
     method when the unload operation is completed*/
     public void UnloadLevel(string levelName)
     {
+        // Controls might need to be disabled when unloading a level or the event might trigger multiple times
+        DisableAllControls();
+        
         AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
         if (ao == null)
         {
@@ -154,8 +139,15 @@ public class GameManager : Manager<GameManager>
 
 
     // SPECIFIC SCENE LOADERS
+    public void IntroCutScene()
+    {
+        LoadLevel(cutscene);
+        UpdateState(GameState.CUTSCENE);
+    }
+    
     public void LoadMainMenu()
     {
+        UnloadLevel(_currentLevelName);
         LoadLevel("Main Menu");
         UpdateState(GameState.MAIN_MENU);
     }
@@ -212,9 +204,9 @@ public class GameManager : Manager<GameManager>
                 break;
 
             case GameState.CUTSCENE:
-                // Disable cutscene UI
-                // Disable skip cutscene controls?
                 UIManager.Instance.DisableDummyCamera();
+                _instancedSystemPrefabs.Remove(CutsceneManager.Instance.gameObject);
+                Destroy(CutsceneManager.Instance.gameObject);
                 break;
 
             case GameState.MAIN_MENU:
@@ -253,25 +245,22 @@ public class GameManager : Manager<GameManager>
 
                 break;
             case GameState.CUTSCENE:
-                // Enable cutscene UI
-                // Enable skip cutscene controls?
+                UIManager.Instance.EnableDummyCamera();
+                _instancedSystemPrefabs.Add(Instantiate(_cutsceneManagerPrefab));
                 break;
 
             case GameState.MAIN_MENU:
                 UIManager.Instance.EnableMainMenuUI();
                 UIManager.Instance.EnableDummyCamera();
-                EnableUIControls();
                 break;
 
             case GameState.LOADING:
                 // Enable loading UI
-                // Disable all controls
                 UIManager.Instance.EnableDummyCamera();
                 break;
 
             case GameState.IN_GAME:
                 UIManager.Instance.EnableInGameUI();
-                EnableInGameControls();
                 break;
 
             case GameState.PAUSED:
@@ -285,6 +274,31 @@ public class GameManager : Manager<GameManager>
         }
 
         Debug.Log("Entered state: " + state);
+    }
+
+    private void OnLevelLoaded(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.BOOT:
+                break;
+            case GameState.CUTSCENE:
+                EnableUIControls();
+                break;
+            case GameState.MAIN_MENU:
+                EnableUIControls();
+                break;
+            case GameState.LOADING:
+                break;
+            case GameState.IN_GAME:
+                FindPlayerCharacters();
+                EnableInGameControls();
+                break;
+            case GameState.PAUSED:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
     }
 
     #endregion
@@ -303,20 +317,19 @@ public class GameManager : Manager<GameManager>
 
     private void FindPlayerCharacters()
     {
-        if (GameObject.Find("ZillaPlayer"))
+        if (GameObject.Find("ZillaPlayer"))
         { 
             GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
             _attackableCharacters.Add(_zilla.transform);
-        }
-        if (GameObject.Find("RillaPlayer"))
+        }
+
+        if (GameObject.Find("RillaPlayer"))
         { 
             GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
             _attackableCharacters.Add(_rilla.transform);
         }
 
-
-        //if (_zilla == null) Debug.LogError("[" + name + "] No reference to Zilla");
-        //if (_rilla == null) Debug.LogError("[" + name + "] No reference to Rilla");
+        if(_zilla && _rilla) PlayerManager.Instance.gameObject.SetActive(true);
     }
 
     private void EnableUIControls()
@@ -343,7 +356,32 @@ public class GameManager : Manager<GameManager>
         else
         {
             UIManager.Instance.GetComponent<PlayerInput>().enabled = false;
-            //UIManager.Instance.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        }
+    }
+
+    public void DisableAllControls()
+    {
+        if (_zilla != null || _rilla != null)
+        {
+            _rilla.GetComponent<PlayerInput>().enabled = false;
+            _zilla.GetComponent<PlayerInput>().enabled = false;
+        }
+        else
+        {
+            UIManager.Instance.GetComponent<PlayerInput>().enabled = false;
+        }
+    }
+    
+    public void EnableAllControls()
+    {
+        if (_zilla != null || _rilla != null)
+        {
+            _rilla.GetComponent<PlayerInput>().enabled = true;
+            _zilla.GetComponent<PlayerInput>().enabled = true;
+        }
+        else
+        {
+            UIManager.Instance.GetComponent<PlayerInput>().enabled = true;
         }
     }
 
@@ -362,10 +400,7 @@ public class GameManager : Manager<GameManager>
 
             if (_loadOperations.Count == 0)
             {
-                //SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
-                FindPlayerCharacters();
-                if(_zilla && _rilla)
-                    PlayerManager.Instance.gameObject.SetActive(true);
+                OnLevelLoaded(_currentGameState);
             }
             // dispatch message
             // transition between scenes
@@ -380,8 +415,10 @@ public class GameManager : Manager<GameManager>
     }
 
     ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
-    //public List<Transform> GetAttackablePlayers()
-    //{
+    //public List<Transform> GetAttackablePlayers()
+
+    //{
+
     //    return _attackableCharacters;
     //}
 }
