@@ -483,7 +483,6 @@ MonoBehaviour:
   _rubblePrefab: {fileID: 7177515072581018778, guid: 0fd192440fc275a4585f4a3df1d1b1ba, type: 3}
   smokeLifetime: 5
   collapseDelay: 1
-  _rubbleMesh: {fileID: 0}
   isRubble: 0
 --- !u!114 &536171989072435740
 MonoBehaviour:
@@ -497,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 50
   _maxShieldHealth: 0
   _currentHealth: 20
   _currentShieldHealth: 0
