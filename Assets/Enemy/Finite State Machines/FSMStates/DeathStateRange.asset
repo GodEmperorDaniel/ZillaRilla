@@ -19,7 +19,8 @@ MonoBehaviour:
   - {fileID: 2091869351554164354, guid: b225abdc2075f3e44a754390e1591c5b, type: 3}
   _offset: {x: 0, y: 0, z: 0}
   _particalList:
-  - {fileID: 1387432511507715255, guid: e929211093e9c7046bd4c95830725fbe, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 6206639256208598218, guid: 5c39e32a43030564aa04a962bbce638e, type: 3}
+  - {fileID: 1387432511507715255, guid: e929211093e9c7046bd4c95830725fbe, type: 3}
+  - {fileID: 7311221129451905704, guid: 21dab599a2548754c8e781a234271556, type: 3}
+  - {fileID: 4748516234966836392, guid: 027224360303eb74c9049a49f1584617, type: 3}
+  - {fileID: 6484508574131033852, guid: c984aff3c0e18884bbe457d837d44121, type: 3}
