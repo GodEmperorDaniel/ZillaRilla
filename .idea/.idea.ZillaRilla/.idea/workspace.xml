@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LoadScreen.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LoadScreen.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Prefab/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/Prefab/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Cut Scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Cut Scene.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Input/PlayerInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Input/PlayerInputActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Input/ZillaRilla.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Input/ZillaRilla.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +67,7 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/circles_test.xml" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" />
@@ -119,10 +114,8 @@
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/Goal.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Cutscene/Cutscene Manager.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/LoadUI.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Cutscene/CutsceneManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
     </changedPaths>
   </component>
@@ -155,10 +148,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15824">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15824" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -232,8 +225,7 @@
       <workItem from="1622208634430" duration="691000" />
       <workItem from="1622209361134" duration="203000" />
       <workItem from="1622451050333" duration="19411000" />
-      <workItem from="1622537631857" duration="2436000" />
-      <workItem from="1622541449787" duration="7004000" />
+      <workItem from="1622555066769" duration="3553000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-//TODO: FIX STARTGAME SO YOU CAN INSERT AND START YOUR OWN SCENE INSTEAD OF ONLY DEV_BANA
+//TODO: Add Loading Completed state-functionality int enter, exit and OnLoaded transition
+//TODO: Maybe rename OnLoaded since we already have OnLoadedComplete
+
 public class GameManager : Manager<GameManager>
 {
     public enum GameState
@@ -16,6 +18,7 @@ public class GameManager : Manager<GameManager>
         CUTSCENE,
         MAIN_MENU,
         LOADING,
+        LOADING_COMPLETE,
         IN_GAME,
         PAUSED
     }
@@ -41,7 +44,9 @@ public class GameManager : Manager<GameManager>
 
     public Attackable _zilla;
     public Attackable _rilla;
-    public List<Transform> _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
+
+    public List<Transform>
+        _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
 
     public GameState CurrentGameState => _currentGameState;
 
@@ -63,7 +68,9 @@ public class GameManager : Manager<GameManager>
     private void Start()
     {
         DeactivateAllUI();
-        IntroCutScene();
+        UIManager.Instance.EnableLoadUI();
+        LoadMainMenu();
+        IntroCutScene(); //added in merge!!
     }
 
     protected override void OnDestroy()
@@ -89,6 +96,7 @@ public class GameManager : Manager<GameManager>
         // Controls need to be disabled when loading a level or the event will trigger multiple times
         DisableAllControls();
         
+        UIManager.Instance.EnableLoadUI(); //added in merge!!
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
         {
@@ -119,25 +127,35 @@ public class GameManager : Manager<GameManager>
         ao.completed += OnUnloadOperationComplete;
     }
 
-    #endregion
-
-    public void UpdateObjective(Goal objective)
+    private void OnLoadOperationComplete(AsyncOperation asyncOperation)
     {
-        _currentObjective = objective;
-        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
+        if (_loadOperations.Contains(asyncOperation))
+        {
+            _loadOperations.Remove(asyncOperation);
+
+            if (_loadOperations.Count == 0)
+            {
+                FindPlayerCharacters();
+                if (_zilla && _rilla)
+                    PlayerManager.Instance.gameObject.SetActive(true);
+                UIManager.Instance.DisableLoadUI();
+            }
+            // dispatch message
+            // transition between scenes
+        }
+
+        Debug.Log("Load Complete.");
     }
 
-    public void TogglePause()
+    private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
     {
-        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+        Debug.Log("Unload Complete.");
     }
+    
+#endregion
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-
+#region Levels
+    
     // SPECIFIC SCENE LOADERS
     public void IntroCutScene()
     {
@@ -169,11 +187,30 @@ public class GameManager : Manager<GameManager>
         UpdateState(GameState.MAIN_MENU);
     }
 
+#endregion
+
+    public void UpdateObjective(Goal objective)
+    {
+        _currentObjective = objective;
+        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
+    }
+
+    public void TogglePause()
+    {
+        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void DestroyInGameManagers()
     {
+        // TODO Check if exists first
         _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
         _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
-        
+
         Destroy(GoalManager.Instance.gameObject);
         Destroy(PlayerManager.Instance.gameObject);
     }
@@ -194,7 +231,7 @@ public class GameManager : Manager<GameManager>
         EnterNewState(state);
     }
 
-    #region StateManagement
+#region StateManagement
 
     private void ExitCurrentState()
     {
@@ -219,6 +256,8 @@ public class GameManager : Manager<GameManager>
                 UIManager.Instance.DisableDummyCamera();
                 break;
 
+            case GameState.LOADING_COMPLETE:
+                break;
             case GameState.IN_GAME:
                 UIManager.Instance.DisableInGameUI();
                 break;
@@ -259,6 +298,8 @@ public class GameManager : Manager<GameManager>
                 UIManager.Instance.EnableDummyCamera();
                 break;
 
+            case GameState.LOADING_COMPLETE:
+                break;
             case GameState.IN_GAME:
                 UIManager.Instance.EnableInGameUI();
                 break;
@@ -389,11 +430,6 @@ public class GameManager : Manager<GameManager>
 
     // EVENT METHODS
     // EVENT METHODS
-    private void OnLoadOperationComplete(AsyncOperation asyncOperation)
-    {
-        if (_loadOperations.Contains(asyncOperation))
-        {
-            _loadOperations.Remove(asyncOperation);
 
             if (_loadOperations.Count == 0)
             {
@@ -408,14 +444,6 @@ public class GameManager : Manager<GameManager>
             // dispatch message
             // transition between scenes
         }
-
-        Debug.Log("Load Complete.");
-    }
-
-    private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
-    {
-        Debug.Log("Unload Complete.");
-    }
 
     ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
     //public List<Transform> GetAttackablePlayers()

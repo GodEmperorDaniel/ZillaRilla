@@ -5,7 +5,6 @@ using UI.Main_Menu;
 using UI.Scripts;
 using UI.Scripts.Input;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class UIManager : Manager<UIManager>
@@ -13,6 +12,7 @@ public class UIManager : Manager<UIManager>
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private InGameUI _inGameUI;
+    [SerializeField] private LoadScreen _loadUI;
 
     [SerializeField] private HitIconSpawner _hitIconSpawner;
     private Camera _dummyCamera;
@@ -48,11 +48,6 @@ public class UIManager : Manager<UIManager>
         _uiInput = GetComponent<UIInput>();
         UISounds = GetComponent<PlayOneShot>();
     }
-
-    /*private void HandleGameStateChange(GameManager.GameState currentState, GameManager.GameState previousState)
-    {
-        _pauseMenu.gameObject.SetActive(currentState == GameManager.GameState.PAUSED);
-    }*/
 
     public void UpdateObjectiveOnUI(string objectiveName, string objectiveDescription)
     {
@@ -118,6 +113,16 @@ public class UIManager : Manager<UIManager>
     public void DisableMainMenuUI()
     {
         _mainMenu.gameObject.SetActive(false);
+    }
+
+    public void EnableLoadUI()
+    {
+        _loadUI.gameObject.SetActive(true);
+    }
+    
+    public void DisableLoadUI()
+    {
+        _loadUI.gameObject.SetActive(false);
     }
 
     public void EnableDummyCamera()
