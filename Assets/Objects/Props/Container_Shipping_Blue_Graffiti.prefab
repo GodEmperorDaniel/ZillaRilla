@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5228906095463913869}
   - component: {fileID: 6868371796888266687}
   - component: {fileID: 6868371796888266686}
-  m_Layer: 0
-  m_Name: Container_Shipping
+  m_Layer: 9
+  m_Name: Container_Shipping_Blue_Graffiti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
