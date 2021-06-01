@@ -23,6 +23,8 @@ public class UIManager : Manager<UIManager>
     public InGameUI InGameUI => _inGameUI;
 
 
+    public Camera DummyCamera => _dummyCamera;
+
     public UIInput UIInput
     {
         get => _uiInput;
@@ -40,7 +42,7 @@ public class UIManager : Manager<UIManager>
         base.Awake();
 
         _dummyCamera = GetComponentInChildren<Camera>();
-        _dummyCamera.gameObject.SetActive(false);
+        DummyCamera.gameObject.SetActive(false);
         _mainMenu.gameObject.SetActive(false);
         _pauseMenu.gameObject.SetActive(false);
         _uiInput = GetComponent<UIInput>();
@@ -120,12 +122,12 @@ public class UIManager : Manager<UIManager>
 
     public void EnableDummyCamera()
     {
-        _dummyCamera.gameObject.SetActive(true);
+        DummyCamera.gameObject.SetActive(true);
     }
 
     public void DisableDummyCamera()
     {
-        _dummyCamera.gameObject.SetActive(false);
+        DummyCamera.gameObject.SetActive(false);
     }
 
     public void MenuSelection(float navigateDirection)
@@ -162,9 +164,9 @@ public class UIManager : Manager<UIManager>
             case GameManager.GameState.BOOT:
                 break;
             case GameManager.GameState.CUTSCENE:
+                CutsceneManager.Instance.ClipDonePlaying(null);
                 break;
             case GameManager.GameState.MAIN_MENU:
-                Debug.Log("Menu Accept");
                 _mainMenu.Accept();
                 break;
             case GameManager.GameState.LOADING:
@@ -172,7 +174,6 @@ public class UIManager : Manager<UIManager>
             case GameManager.GameState.IN_GAME:
                 break;
             case GameManager.GameState.PAUSED:
-                Debug.Log("Paused Accept");
                 _pauseMenu.Accept();
                 break;
             default:
