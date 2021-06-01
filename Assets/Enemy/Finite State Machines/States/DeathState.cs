@@ -35,22 +35,15 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             if (EnteredState)
             {
-
-                //Debug.Log("ENTERED DEATH STATE");
-                //_zilla.RemoveFromPlayerList(_fsm.gameObject); //think these can be removed now :p
-                //_rilla.RemoveFromPlayerList(_fsm.gameObject);
                 GameObject randomDecal = _bugSplatDecal[Randomizer(0, _bugSplatDecal.Count - 1)];
-                //Debug.Log(_npc.transform.rotation);
                 Instantiate(randomDecal, _fsm.gameObject.transform.position + _offset, Quaternion.Euler(90, _npc.transform.rotation.y * Mathf.Rad2Deg, _npc.transform.rotation.z * Mathf.Rad2Deg));
                 foreach (ParticleSystem partical in _particalList)
                 {
-                    Instantiate(partical, _fsm.gameObject.transform.position + new Vector3(0, 8, 0), _npc.PlayerTransform.rotation);
+                    Instantiate(partical, _fsm.gameObject.transform.position + new Vector3(0, 8, 0), _npc.PlayerTransform?_npc.PlayerTransform.rotation:Quaternion.identity);
                 }
-                
                 Destroy(_npc.gameObject, _npc.deSpawnTime);
             }
             return EnteredState;
-
         }
 
         public override void UpdateState()
