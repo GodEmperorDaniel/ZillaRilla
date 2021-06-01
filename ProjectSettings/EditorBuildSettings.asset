@@ -35,8 +35,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game Manager/Scenes/In Game.unity
     guid: e90d1850548ed0941ad8dd9fd6423e85
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RikardMain.unity
     guid: 2bbacdea57662b64981d6eceff0b8a18
+  - enabled: 1
+    path: Assets/Scenes/Kopia av Main.unity
+    guid: b633b53031f4e614ba061b3f4529f37e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ddc7449c5c095b14995a4af93f1664ee, type: 2}

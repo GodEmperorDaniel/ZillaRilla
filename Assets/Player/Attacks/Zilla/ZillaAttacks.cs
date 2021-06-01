@@ -75,7 +75,7 @@ public class ZillaAttacks : BaseAttack
     {
         while (_lazorInput.LazorButtonPressed)
         {
-            yield return new WaitForFixedUpdate();
+            //yield return new WaitForFixedUpdate();
 
             Vector3 hitBoxLocalScale = lazorSettings._attackHitbox.transform.localScale;
             Vector3 hitBoxLossyScale = lazorSettings._attackHitbox.transform.lossyScale;

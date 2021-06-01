@@ -15,6 +15,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private FillableBar _progressBar;
     [SerializeField] private FillableBar _reviveMeter;
     [SerializeField] private TextMeshProUGUI _reviveCountdownText;
+    [SerializeField] private Image _reviveButtonPrompt;
     [SerializeField] private FillableBar _zillaComboMeter;
     [SerializeField] private TextMeshProUGUI _zillaComboText;
     [SerializeField] private FillableBar _rillaComboMeter;
@@ -115,14 +116,12 @@ public class InGameUI : MonoBehaviour
     {
         _reviveMeter.gameObject.SetActive(false);
     }
-    //public void ActivateReviveCountdown()
-    //{
-    //    _reviveCountdownText.gameObject.SetActive(true);
-    //}
-    //public void DeactivateReviveCountdown()
-    //{
-    //    _reviveCountdownText.gameObject.SetActive(false);
-    //}
+
+    public void ChangeButtonPromptOnRevive(Sprite newSprite)
+    {
+        _reviveButtonPrompt.sprite = newSprite;
+    }
+
     public void SetReviveMeterOnUI(float progress)
     {
         _reviveMeter.fillAmount = Round(progress, 2);
