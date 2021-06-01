@@ -17,6 +17,7 @@ public class GameManager : Manager<GameManager>
         BOOT,
         CUTSCENE,
         MAIN_MENU,
+        CREDITS,
         LOADING,
         LOADING_COMPLETE,
         IN_GAME,
@@ -70,7 +71,7 @@ public class GameManager : Manager<GameManager>
         DeactivateAllUI();
         UIManager.Instance.EnableLoadUI();
         LoadMainMenu();
-        IntroCutScene(); //added in merge!!
+        //IntroCutScene(); //added in merge!!
     }
 
     protected override void OnDestroy()
@@ -114,17 +115,24 @@ public class GameManager : Manager<GameManager>
     method when the unload operation is completed*/
     public void UnloadLevel(string levelName)
     {
-        // Controls might need to be disabled when unloading a level or the event might trigger multiple times
-        DisableAllControls();
-        
-        AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
-        if (ao == null)
+        if (!string.IsNullOrEmpty(levelName))
         {
-            Debug.LogError("[" + name + "] Unable to unload level " + levelName);
-            return;
-        }
+            // Controls might need to be disabled when unloading a level or the event might trigger multiple times
+            DisableAllControls();
 
-        ao.completed += OnUnloadOperationComplete;
+            AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
+            if (ao == null)
+            {
+                Debug.LogError("[" + name + "] Unable to unload level " + levelName);
+                return;
+            }
+
+            ao.completed += OnUnloadOperationComplete;
+        }
+        else
+        {
+            Debug.Log("Nothing To Unload");
+        }
     }
 
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
@@ -136,9 +144,13 @@ public class GameManager : Manager<GameManager>
             if (_loadOperations.Count == 0)
             {
                 FindPlayerCharacters();
+                GoalManager goalManager = FindObjectOfType<GoalManager>();
+                if (goalManager != null)
+                    _instancedSystemPrefabs.Add(goalManager.gameObject);
                 if (_zilla && _rilla)
                     PlayerManager.Instance.gameObject.SetActive(true);
                 UIManager.Instance.DisableLoadUI();
+                EnableAllControls();
             }
             // dispatch message
             // transition between scenes
@@ -161,6 +173,13 @@ public class GameManager : Manager<GameManager>
     {
         LoadLevel(cutscene);
         UpdateState(GameState.CUTSCENE);
+    }
+
+    public void Credits()
+    {
+        UnloadLevel(_currentLevelName);
+        LoadLevel("Credits");
+        UpdateState(GameState.CREDITS);
     }
     
     public void LoadMainMenu()
@@ -250,6 +269,8 @@ public class GameManager : Manager<GameManager>
                 UIManager.Instance.DisableMainMenuUI();
                 UIManager.Instance.DisableDummyCamera();
                 break;
+            case GameState.CREDITS:
+                break;
 
             case GameState.LOADING:
                 // Disable loading UI
@@ -291,6 +312,9 @@ public class GameManager : Manager<GameManager>
             case GameState.MAIN_MENU:
                 UIManager.Instance.EnableMainMenuUI();
                 UIManager.Instance.EnableDummyCamera();
+                break;
+
+            case GameState.CREDITS:
                 break;
 
             case GameState.LOADING:
@@ -430,20 +454,6 @@ public class GameManager : Manager<GameManager>
 
     // EVENT METHODS
     // EVENT METHODS
-
-            if (_loadOperations.Count == 0)
-            {
-                //SceneManager.SetActiveScene(SceneManager.GetSceneByName(_currentLevelName));
-                FindPlayerCharacters();
-                GoalManager goalManager = FindObjectOfType<GoalManager>();
-                if (goalManager != null) 
-                    _instancedSystemPrefabs.Add(goalManager.gameObject);
-                if (_zilla && _rilla)
-                    PlayerManager.Instance.gameObject.SetActive(true);
-            }
-            // dispatch message
-            // transition between scenes
-        }
 
     ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
     //public List<Transform> GetAttackablePlayers()

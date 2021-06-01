@@ -18,8 +18,7 @@ public class HitIconSpawner : MonoBehaviour
 
     private void Start()
     {
-        _camera = Camera.main;
-        _UICamera = _camera.transform.GetChild(0).GetComponent<Camera>();
+        //_UICamera = _camera.transform.GetChild(0).GetComponent<Camera>();
     }
 
     private void Update()
@@ -32,6 +31,11 @@ public class HitIconSpawner : MonoBehaviour
 
     public void SpawnHitIcon(Vector3 position, int playerIndex)
     {
+        if (_UICamera == null)
+        {
+            _camera = Camera.main;
+            _UICamera = _camera.transform.GetChild(0).GetComponent<Camera>();
+        }
         GameObject hitIcon;
         switch (playerIndex)
         {

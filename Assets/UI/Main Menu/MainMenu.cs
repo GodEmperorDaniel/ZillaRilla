@@ -101,7 +101,7 @@ namespace UI.Main_Menu
         private void Credits()
         {
             Debug.Log("Show Credits!");
-            //GameManager.Instance.Credits();
+            GameManager.Instance.Credits();
         }
 
         private void Quit()

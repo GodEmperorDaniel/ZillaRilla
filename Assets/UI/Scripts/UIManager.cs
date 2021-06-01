@@ -148,6 +148,9 @@ public class UIManager : Manager<UIManager>
             case GameManager.GameState.MAIN_MENU:
                 _mainMenu.MoveArrow(navigateDirection);
                 break;
+            case GameManager.GameState.CREDITS:
+                
+                break;
             case GameManager.GameState.LOADING:
                 break;
             case GameManager.GameState.IN_GAME:
@@ -170,6 +173,9 @@ public class UIManager : Manager<UIManager>
                 break;
             case GameManager.GameState.CUTSCENE:
                 CutsceneManager.Instance.ClipDonePlaying(null);
+                break;
+            case GameManager.GameState.CREDITS:
+                CreditsManager.Instance.SpeedUp();
                 break;
             case GameManager.GameState.MAIN_MENU:
                 _mainMenu.Accept();
