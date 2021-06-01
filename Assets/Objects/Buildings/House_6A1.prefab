@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 50
   _maxShieldHealth: 0
   _currentHealth: 20
   _currentShieldHealth: 0
@@ -325,10 +325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _smokePrefab: {fileID: 3312276840990385156, guid: 54148358821020c498c73439b1cc7717, type: 3}
-  _rubblePrefab: {fileID: 7177515072581018778, guid: 0fd192440fc275a4585f4a3df1d1b1ba, type: 3}
+  _rubblePrefab: {fileID: 3325636701986718952, guid: 375e67ea618c1104593a54f12c218bc1, type: 3}
   smokeLifetime: 5
   collapseDelay: 1
-  _rubbleMesh: {fileID: 0}
   isRubble: 0
 --- !u!33 &-7374108579507443382
 MeshFilter:
