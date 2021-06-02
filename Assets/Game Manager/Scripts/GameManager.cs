@@ -24,11 +24,12 @@ public class GameManager : Manager<GameManager>
         PAUSED
     }
 
-    // FIELDS
+#region Fields
+
     private const string cBoot = "Boot";
     private const string cMainMenu = "Main Menu";
     private const string cCutscene = "Cutscene";
-    public const string cCredits = "Credits";
+    private const string cCredits = "Credits";
     public string mainLevel;
 
     public GameObject[] _systemPrefab;
@@ -44,6 +45,8 @@ public class GameManager : Manager<GameManager>
 
     public List<Transform>
         _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
+
+#endregion
 
     public GameState CurrentGameState => _currentGameState;
 
@@ -174,13 +177,13 @@ public class GameManager : Manager<GameManager>
     public void LoadMainMenu()
     {
         UnloadLevel(_currentLevelName);
-        LoadLevel("Main Menu");
+        LoadLevel(cMainMenu);
         UpdateState(GameState.MAIN_MENU);
     }
 
     public void StartNewGame()
     {
-        UnloadLevel("Main Menu");
+        UnloadLevel(cMainMenu);
         LoadLevel(mainLevel);
         UpdateState(GameState.IN_GAME);
     }
@@ -191,48 +194,11 @@ public class GameManager : Manager<GameManager>
         _rilla = null;
         DestroyInGameManagers();
         UnloadLevel(_currentLevelName);
-        LoadLevel("Main Menu");
+        LoadLevel(cMainMenu);
         UpdateState(GameState.MAIN_MENU);
     }
 
 #endregion
-
-
-    public void TogglePause()
-    {
-        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    private void DestroyInGameManagers()
-    {
-        // TODO Check if exists first
-        _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
-        _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
-
-        Destroy(GoalManager.Instance.gameObject);
-        Destroy(PlayerManager.Instance.gameObject);
-    }
-
-
-    // INTERNAL METHODS
-    private void DeactivateAllUI()
-    {
-        UIManager.Instance.DisableDummyCamera();
-        UIManager.Instance.DisableMainMenuUI();
-        UIManager.Instance.DisableInGameUI();
-        UIManager.Instance.DisablePauseUI();
-    }
-
-    private void UpdateState(GameState state)
-    {
-        ExitCurrentState();
-        EnterNewState(state);
-    }
 
 #region StateManagement
 
@@ -272,7 +238,6 @@ public class GameManager : Manager<GameManager>
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
     }
 
     private void EnterNewState(GameState state)
@@ -317,7 +282,6 @@ public class GameManager : Manager<GameManager>
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
-
     }
 
     private void OnLevelLoaded(GameState state)
@@ -350,6 +314,44 @@ public class GameManager : Manager<GameManager>
     }
 
 #endregion
+
+
+    public void TogglePause()
+    {
+        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private void DestroyInGameManagers()
+    {
+        // TODO Check if exists first
+        _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
+        _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
+
+        Destroy(GoalManager.Instance.gameObject);
+        Destroy(PlayerManager.Instance.gameObject);
+    }
+
+
+    // INTERNAL METHODS
+
+    private void DeactivateAllUI()
+    {
+        UIManager.Instance.DisableDummyCamera();
+        UIManager.Instance.DisableMainMenuUI();
+        UIManager.Instance.DisableInGameUI();
+        UIManager.Instance.DisablePauseUI();
+    }
+
+    private void UpdateState(GameState state)
+    {
+        ExitCurrentState();
+        EnterNewState(state);
+    }
 
     private void InstantiateSystemPrefabs()
     {
@@ -426,7 +428,7 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    public void EnableAllControls()
+    private void EnableAllControls()
     {
         if (_zilla != null || _rilla != null)
         {
@@ -438,20 +440,20 @@ public class GameManager : Manager<GameManager>
             UIManager.Instance.GetComponent<PlayerInput>().enabled = true;
         }
     }
-    
+
 #region Debug
-    
+
     [HideInInspector] public bool startedFromBoot;
 
     // Debugging method for use when 
     private void DebugLevelFix()
     {
         string levelBuffer = SceneManager.GetActiveScene().name;
-        if (levelBuffer == "Boot") return;
+        if (levelBuffer == cBoot) return;
         mainLevel = levelBuffer;
         print("Active level on Boot: " + mainLevel);
 
-        SceneManager.LoadScene("Boot");
+        SceneManager.LoadScene(cBoot);
 
         if (FindObjectOfType<GoalManager>() != null)
             Destroy(FindObjectOfType<GoalManager>().gameObject);

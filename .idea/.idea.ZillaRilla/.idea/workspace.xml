@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="579b305d-5ae1-4440-92ac-9f98bbc14271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Models.meta~Alex.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy Models.meta~HEAD.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZillaRilla/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Cutscene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Cutscene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/In Game.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/In Game.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Main Menu.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scenes/Main Menu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cutscene/Cutscene Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cutscene/Cutscene Manager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Cutscene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Cutscene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Master.bank" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master.bank.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Master.bank.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master.strings.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Master.strings.bank" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master.strings.bank.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Master.strings.bank.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/UI Manager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +74,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/XML/Loader.cs" />
       <option value="$PROJECT_DIR$/Assets/Enemy/Enemy Spawner/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/AreaGoal.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/InfiniteSpawner.cs" />
@@ -118,12 +118,13 @@
       <option value="$PROJECT_DIR$/Assets/Environment/Scripts/DestructableBuilding.cs" />
       <option value="$PROJECT_DIR$/Assets/Goals/Scripts/Goal.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/InGameUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/LoadUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/DebugLevelFixer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/Scripts/Input/UIInput.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/InGame/Scripts/NewsBanner.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/LoadScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/Scripts/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Game Manager/Scripts/GameManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rA6BatmclNr47MTV7Aj1RWjKMk" />
@@ -145,6 +146,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$ Build\ZillaRilla.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\dev\Unity\ZillaRilla Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -235,7 +244,7 @@
       <workItem from="1622555066769" duration="3553000" />
       <workItem from="1622624536974" duration="173000" />
       <workItem from="1622624796056" duration="4759000" />
-      <workItem from="1622638370312" duration="2908000" />
+      <workItem from="1622638370312" duration="6317000" />
     </task>
     <servers />
   </component>

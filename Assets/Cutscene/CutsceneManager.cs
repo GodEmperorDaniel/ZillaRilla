@@ -13,6 +13,8 @@ public class CutsceneManager : Manager<CutsceneManager>
         _videoPlayer = GetComponent<VideoPlayer>();
         _videoPlayer.targetCamera = UIManager.Instance.DummyCamera;
         _videoPlayer.loopPointReached += ClipDonePlaying;
+
+        GetComponentInChildren<Canvas>().worldCamera = UIManager.Instance.DummyCamera;
     }
     
     
