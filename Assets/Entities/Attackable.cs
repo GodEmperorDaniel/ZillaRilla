@@ -114,7 +114,6 @@ public class Attackable : MonoBehaviour
 				if (_fsm != null && _fsm._currentState.StateType != FSMStateType.DEATH)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);
-					_animator.SetTrigger("Dead");
 				}
 			}
 			else
@@ -170,6 +169,7 @@ public class Attackable : MonoBehaviour
 			//Debug.Log("Destructible Damaged for " + settings._attackDamage + "HP");
 			_currentHealth -= (settings._attackDamage * settings._damageMultiplier);
 			c_invincible = StartCoroutine(InvincibilityFrames());
+			GetComponent<PlayOneShot>().PlaySound("Impact");
 			if (_currentHealth <= 0.0f)
 			{
 				SendMessage("BuildingDestruction");

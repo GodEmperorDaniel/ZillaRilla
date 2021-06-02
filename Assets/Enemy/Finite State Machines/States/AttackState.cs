@@ -105,7 +105,8 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         public override bool ExitState()
         {
-            _navMeshAgent.isStopped = false;
+            if (_navMeshAgent.isActiveAndEnabled)
+                _navMeshAgent.isStopped = false;
             base.ExitState();
             _npc.RemoveTarget();
             //Debug.Log("EXITING ATTACK STATE");

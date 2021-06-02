@@ -1673,9 +1673,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEntries:
   - _name: Death
-    _fileLocation: event:/Ljud/Alien SFX/AlienDeath
+    _fileLocation: event:/Ljud/Alien Melee SFX/Alien Melee Death
   - _name: Attack
-    _fileLocation: event:/Ljud/Alien SFX/AlienClawAttack
+    _fileLocation: event:/Ljud/Alien Melee SFX/Alien Melee Attack
+  - _name: Walk
+    _fileLocation: event:/Ljud/Alien Melee SFX/Alien Melee Walk
 --- !u!114 &80097577
 MonoBehaviour:
   m_ObjectHideFlags: 0

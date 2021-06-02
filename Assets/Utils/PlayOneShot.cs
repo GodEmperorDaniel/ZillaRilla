@@ -30,7 +30,7 @@ public class PlayOneShot : MonoBehaviour
     {
         if (soundIndex >= _dictionaryOfSounds.Count)
         {
-            Debug.LogError("soundIndex was out of range!");
+            Debug.LogError("soundIndex was out of range on " + gameObject.name);
             return;
         }
         FMODUnity.RuntimeManager.PlayOneShot(_dictionaryOfSounds.ElementAt(soundIndex).Value);

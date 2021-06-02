@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8011345652963454270}
   - component: {fileID: 8011345652963454257}
   - component: {fileID: -8902072843584134003}
+  - component: {fileID: 4614461310167928077}
   m_Layer: 6
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -189,6 +190,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bdd71ceed5510d49a1bacaa47c12832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4614461310167928077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011345652963454256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - _name: Death
+    _fileLocation: event:/Ljud/Alien Spawner SFX/Alien Spawner Death
+  - _name: Spawn
+    _fileLocation: event:/Ljud/Alien Spawner SFX/Alien Spawner
 --- !u!1001 &3396452590507120458
 PrefabInstance:
   m_ObjectHideFlags: 0

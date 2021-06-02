@@ -49,6 +49,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
         private void SpawnEnemy()
         {
+            _npc.GetComponent<PlayOneShot>().PlaySound("Spawn");
             Instantiate(_npc.GetEnemyObject, _npc.ThisTransform.position + new Vector3(0, 1, 0), Quaternion.identity);
         }
     }

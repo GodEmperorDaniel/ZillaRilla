@@ -41,6 +41,7 @@ public class DestructableBuilding : MonoBehaviour
     {
         if (isRubble) yield return null;
 
+        GetComponent<PlayOneShot>().PlaySound("Collapse");
         CreateSmokeAndRubble();
         yield return new WaitForSeconds(collapseDelay);
 

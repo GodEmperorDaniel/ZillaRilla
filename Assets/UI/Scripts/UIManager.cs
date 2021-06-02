@@ -11,6 +11,8 @@ public class UIManager : Manager<UIManager>
 {
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
+    [SerializeField] private VictoryOrLoseMenu _victoryMenu;
+    [SerializeField] private VictoryOrLoseMenu _loseMenu;
     [SerializeField] private InGameUI _inGameUI;
     [SerializeField] private LoadScreen _loadUI;
 
@@ -105,6 +107,23 @@ public class UIManager : Manager<UIManager>
         _pauseMenu.gameObject.SetActive(false);
     }
 
+    public void EnableVictoryUI()
+    {
+        _victoryMenu.gameObject.SetActive(true);
+    }
+    public void DisableVictoryUI()
+    {
+        _victoryMenu.gameObject.SetActive(false);
+    }
+    public void EnableLoseUI()
+    {
+        _loseMenu.gameObject.SetActive(true);
+    }
+    public void DisableLoseUI()
+    {
+        _loseMenu.gameObject.SetActive(false);
+    }
+
     public void EnableMainMenuUI()
     {
         _mainMenu.gameObject.SetActive(true);
@@ -158,6 +177,12 @@ public class UIManager : Manager<UIManager>
             case GameManager.GameState.PAUSED:
                 _pauseMenu.MoveArrow(navigateDirection);
                 break;
+            case GameManager.GameState.VICTORY:
+                _victoryMenu.MoveArrow(navigateDirection);
+                break;
+            case GameManager.GameState.LOSE:
+                _loseMenu.MoveArrow(navigateDirection);
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -187,6 +212,12 @@ public class UIManager : Manager<UIManager>
             case GameManager.GameState.PAUSED:
                 _pauseMenu.Accept();
                 break;
+            case GameManager.GameState.VICTORY:
+                _victoryMenu.Accept();
+                break;
+            case GameManager.GameState.LOSE:
+                _loseMenu.Accept();
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -211,6 +242,10 @@ public class UIManager : Manager<UIManager>
                 break;
             case GameManager.GameState.PAUSED:
                 _pauseMenu.Cancel();
+                break;
+            case GameManager.GameState.VICTORY:
+                break;
+            case GameManager.GameState.LOSE:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

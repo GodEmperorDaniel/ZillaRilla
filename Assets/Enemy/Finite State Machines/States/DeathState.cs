@@ -41,6 +41,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
                 {
                     Instantiate(partical, _fsm.gameObject.transform.position + new Vector3(0, 8, 0), _npc.PlayerTransform?_npc.PlayerTransform.rotation:Quaternion.identity);
                 }
+                _npc.GetComponent<PlayOneShot>().PlaySound("Death");
                 Destroy(_npc.gameObject, _npc.deSpawnTime);
             }
             return EnteredState;

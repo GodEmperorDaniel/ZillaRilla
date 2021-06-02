@@ -158,8 +158,9 @@ public class PlayerManager : Manager<PlayerManager>
             c_revivalInProgress = StartCoroutine(RevivalCountdown(revivalTarget));
         }
         else
-        { 
-            UIManager.Instance.UpdateObjectiveOnUI("", "YOU LOST");
+        {
+            GameManager.Instance.LoseState();
+            UIManager.Instance.InGameUI.DeactivateReviveElements();
             _reviveTarget = null;
         }
     }
@@ -196,7 +197,8 @@ public class PlayerManager : Manager<PlayerManager>
         }
         if (i <= 0)
         {
-            UIManager.Instance.UpdateObjectiveOnUI("","YOU LOST");
+            GameManager.Instance.LoseState();
+            UIManager.Instance.InGameUI.DeactivateReviveElements();
             _reviveTarget = null;
         }
         UIManager.Instance.InGameUI.DeactivateReviveElements();

@@ -21,7 +21,9 @@ public class GameManager : Manager<GameManager>
         LOADING,
         LOADING_COMPLETE,
         IN_GAME,
-        PAUSED
+        PAUSED,
+        VICTORY,
+        LOSE
     }
 
 #region Fields
@@ -46,7 +48,10 @@ public class GameManager : Manager<GameManager>
     public List<Transform>
         _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
 
-#endregion
+    public delegate void OnvictoryOrLoseEvent();
+    public static OnvictoryOrLoseEvent victoryOrLoseDelegate;
+
+    #endregion
 
     public GameState CurrentGameState => _currentGameState;
 
@@ -198,6 +203,13 @@ public class GameManager : Manager<GameManager>
         UpdateState(GameState.MAIN_MENU);
     }
 
+    public void RestartLevel()
+    {
+        UnloadLevel(_currentLevelName);
+        LoadLevel(mainLevel);
+        UpdateState(GameState.IN_GAME);
+    }
+
 #endregion
 
 #region StateManagement
@@ -232,6 +244,14 @@ public class GameManager : Manager<GameManager>
 
             case GameState.PAUSED:
                 UIManager.Instance.DisablePauseUI();
+                Time.timeScale = 1.0f;
+                break;
+            case GameState.VICTORY:
+                UIManager.Instance.DisableVictoryUI();
+                Time.timeScale = 1.0f;
+                break;
+            case GameState.LOSE:
+                UIManager.Instance.DisableLoseUI();
                 Time.timeScale = 1.0f;
                 break;
 
@@ -271,11 +291,24 @@ public class GameManager : Manager<GameManager>
                 break;
             case GameState.IN_GAME:
                 UIManager.Instance.EnableInGameUI();
+                EnableInGameControls();
                 break;
 
             case GameState.PAUSED:
                 Time.timeScale = 0.0f;
                 UIManager.Instance.EnablePauseUI();
+                EnableUIControls();
+                break;
+            case GameState.VICTORY:
+                Time.timeScale = 0.0f;
+                victoryOrLoseDelegate();
+                UIManager.Instance.EnableVictoryUI();
+                EnableUIControls();
+                break;
+            case GameState.LOSE:
+                Time.timeScale = 0.0f;
+                victoryOrLoseDelegate();
+                UIManager.Instance.EnableLoseUI();
                 EnableUIControls();
                 break;
 
@@ -311,6 +344,10 @@ public class GameManager : Manager<GameManager>
                 break;
             case GameState.PAUSED:
                 break;
+            case GameState.VICTORY:
+                break;
+            case GameState.LOSE:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
@@ -324,6 +361,16 @@ public class GameManager : Manager<GameManager>
         UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
     }
 
+    public void VictoryState()
+    {
+        UpdateState(GameState.VICTORY);
+    }
+
+    public void LoseState()
+    {
+        UpdateState(GameState.LOSE);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -333,10 +380,10 @@ public class GameManager : Manager<GameManager>
     {
         // TODO Check if exists first
         _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
-        _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
+        //_instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
 
         Destroy(GoalManager.Instance.gameObject);
-        Destroy(PlayerManager.Instance.gameObject);
+        //Destroy(PlayerManager.Instance.gameObject);
     }
 
 
@@ -367,21 +414,34 @@ public class GameManager : Manager<GameManager>
 
     private void FindPlayerCharacters()
     {
+        FixAttackableCharacterList();
         if (GameObject.Find("ZillaPlayer"))
         {
             GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
-            _attackableCharacters.Add(_zilla.transform);
+            if(!_attackableCharacters.Contains(_zilla.transform))
+                _attackableCharacters.Add(_zilla.transform);
         }
 
         if (GameObject.Find("RillaPlayer"))
         {
             GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
-            _attackableCharacters.Add(_rilla.transform);
+            if (!_attackableCharacters.Contains(_rilla.transform))
+                _attackableCharacters.Add(_rilla.transform);
         }
-
         // Activate the PLayer Manager
         if (_zilla && _rilla)
             PlayerManager.Instance.gameObject.SetActive(true);
+    }
+
+    private void FixAttackableCharacterList()
+    {
+        for (int i = 0; i < _attackableCharacters.Count; i++)
+        {
+            if (_attackableCharacters[i] == null)
+            {
+                _attackableCharacters.RemoveAt(i);
+            }
+        }
     }
 
     private void InitializeGoalManager()

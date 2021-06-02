@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1114816599381566702}
   - component: {fileID: 1114816599381566704}
   - component: {fileID: 1114816599381566703}
+  - component: {fileID: 7010792427832317186}
   m_Layer: 12
   m_Name: Destructable House Prefab
   m_TagString: Untagged
@@ -282,3 +283,20 @@ MonoBehaviour:
   smokeLifetime: 5
   collapseDelay: 1
   isRubble: 0
+--- !u!114 &7010792427832317186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323372211270245706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - _name: Collapse
+    _fileLocation: event:/Ljud/Enviroment SFX/Building Collapsing
+  - _name: Impact
+    _fileLocation: event:/Ljud/Impact SFX/Impact 1

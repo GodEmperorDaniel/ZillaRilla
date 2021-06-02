@@ -3088,8 +3088,6 @@ MonoBehaviour:
     _knockbackStrength: 50
     _knockbackTime: 3
     _stun: 1
-    _knockBack: 0
-    _knockBackRange: 0
 --- !u!114 &191052406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3277,8 +3275,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 191052407}
         m_TargetAssemblyTypeName: Player.Scrips.CharacterInput, Assembly-CSharp
-        m_MethodName: Quit
-        m_Mode: 1
+        m_MethodName: OnPause
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3321,8 +3319,12 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ebeb99c8-d1e9-4e78-a43b-430f1140f40c
     m_ActionName: UI/Accept[/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77b10c03-04ec-48d8-92af-9d6e7c3c2e34
+    m_ActionName: UI/SkipCredits[/DualShock4GamepadHID/start,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
