@@ -24,14 +24,13 @@ public class GameManager : Manager<GameManager>
         PAUSED
     }
 
-    // FIELDS
-    //public SceneAsset mainLevel;
-    //public SceneAsset cutScene;
-    //public SceneAsset creditsScene;
+#region Fields
 
+    private const string cBoot = "Boot";
+    private const string cMainMenu = "Main Menu";
+    private const string cCutscene = "Cutscene";
+    private const string cCredits = "Credits";
     public string mainLevel;
-    public string cutscene;
-    public string creditsScene;
 
     public GameObject[] _systemPrefab;
     public GameObject _cutsceneManagerPrefab;
@@ -40,8 +39,6 @@ public class GameManager : Manager<GameManager>
 
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
-    private Goal _currentObjective;
-
 
     public Attackable _zilla;
     public Attackable _rilla;
@@ -49,37 +46,9 @@ public class GameManager : Manager<GameManager>
     public List<Transform>
         _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
 
+#endregion
+
     public GameState CurrentGameState => _currentGameState;
-
-
-    // DEBUG
-    // TODO Remove this before final build
-    public bool startedFromBoot;
-
-    //private void DebugLevelFix()
-    /*{
-        if (DebugLevelFixer.Instance == null) return;
-        if (startedFromBoot)
-        {
-            Destroy(FindObjectOfType<DebugLevelFixer>().gameObject);
-            return;
-        }
-    
-        mainLevel = DebugLevelFixer.LevelNameBuffer;
-    }*/
-
-    private void DebugLevelFix()
-    {
-        string levelBuffer = SceneManager.GetActiveScene().name;
-        if (levelBuffer == "Boot") return;
-        mainLevel = levelBuffer;
-        print("Active level on Boot: " + mainLevel);
-
-        SceneManager.LoadScene("Boot");
-
-        Destroy(FindObjectOfType<GoalManager>().gameObject);
-        print("Boot Loaded");
-    }
 
 
     // UNITY METHODS
@@ -158,7 +127,7 @@ public class GameManager : Manager<GameManager>
         }
         else
         {
-            Debug.Log("Nothing To Unload");
+            Debug.LogError("Nothing To Unload");
         }
     }
 
@@ -194,27 +163,27 @@ public class GameManager : Manager<GameManager>
     // SPECIFIC SCENE LOADERS
     public void IntroCutScene()
     {
-        LoadLevel(cutscene);
+        LoadLevel(cCutscene);
         UpdateState(GameState.CUTSCENE);
     }
 
     public void Credits()
     {
         UnloadLevel(_currentLevelName);
-        LoadLevel("Credits");
+        LoadLevel(cCredits);
         UpdateState(GameState.CREDITS);
     }
 
     public void LoadMainMenu()
     {
         UnloadLevel(_currentLevelName);
-        LoadLevel("Main Menu");
+        LoadLevel(cMainMenu);
         UpdateState(GameState.MAIN_MENU);
     }
 
     public void StartNewGame()
     {
-        UnloadLevel("Main Menu");
+        UnloadLevel(cMainMenu);
         LoadLevel(mainLevel);
         UpdateState(GameState.IN_GAME);
     }
@@ -225,53 +194,11 @@ public class GameManager : Manager<GameManager>
         _rilla = null;
         DestroyInGameManagers();
         UnloadLevel(_currentLevelName);
-        LoadLevel("Main Menu");
+        LoadLevel(cMainMenu);
         UpdateState(GameState.MAIN_MENU);
     }
 
 #endregion
-
-    public void UpdateObjective(Goal objective)
-    {
-        _currentObjective = objective;
-        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
-    }
-
-    public void TogglePause()
-    {
-        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    private void DestroyInGameManagers()
-    {
-        // TODO Check if exists first
-        _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
-        _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
-
-        Destroy(GoalManager.Instance.gameObject);
-        Destroy(PlayerManager.Instance.gameObject);
-    }
-
-
-    // INTERNAL METHODS
-    private void DeactivateAllUI()
-    {
-        UIManager.Instance.DisableDummyCamera();
-        UIManager.Instance.DisableMainMenuUI();
-        UIManager.Instance.DisableInGameUI();
-        UIManager.Instance.DisablePauseUI();
-    }
-
-    private void UpdateState(GameState state)
-    {
-        ExitCurrentState();
-        EnterNewState(state);
-    }
 
 #region StateManagement
 
@@ -311,8 +238,6 @@ public class GameManager : Manager<GameManager>
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
-        Debug.Log("Exited state: " + CurrentGameState);
     }
 
     private void EnterNewState(GameState state)
@@ -357,8 +282,6 @@ public class GameManager : Manager<GameManager>
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
-
-        Debug.Log("Entered state: " + state);
     }
 
     private void OnLevelLoaded(GameState state)
@@ -391,6 +314,44 @@ public class GameManager : Manager<GameManager>
     }
 
 #endregion
+
+
+    public void TogglePause()
+    {
+        UpdateState(CurrentGameState == GameState.IN_GAME ? GameState.PAUSED : GameState.IN_GAME);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private void DestroyInGameManagers()
+    {
+        // TODO Check if exists first
+        _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
+        _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
+
+        Destroy(GoalManager.Instance.gameObject);
+        Destroy(PlayerManager.Instance.gameObject);
+    }
+
+
+    // INTERNAL METHODS
+
+    private void DeactivateAllUI()
+    {
+        UIManager.Instance.DisableDummyCamera();
+        UIManager.Instance.DisableMainMenuUI();
+        UIManager.Instance.DisableInGameUI();
+        UIManager.Instance.DisablePauseUI();
+    }
+
+    private void UpdateState(GameState state)
+    {
+        ExitCurrentState();
+        EnterNewState(state);
+    }
 
     private void InstantiateSystemPrefabs()
     {
@@ -467,7 +428,7 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    public void EnableAllControls()
+    private void EnableAllControls()
     {
         if (_zilla != null || _rilla != null)
         {
@@ -480,19 +441,25 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    //private void UpdateHealth() its an unused private
-    //{
-    //    //UIManager.Instance.UpdateHealthOnUI();
-    //}
+#region Debug
 
-    // EVENT METHODS
-    // EVENT METHODS
+    [HideInInspector] public bool startedFromBoot;
 
-    ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
-    //public List<Transform> GetAttackablePlayers()
+    // Debugging method for use when 
+    private void DebugLevelFix()
+    {
+        string levelBuffer = SceneManager.GetActiveScene().name;
+        if (levelBuffer == cBoot) return;
+        mainLevel = levelBuffer;
+        print("Active level on Boot: " + mainLevel);
 
-    //{
+        SceneManager.LoadScene(cBoot);
 
-    //    return _attackableCharacters;
-    //}
+        if (FindObjectOfType<GoalManager>() != null)
+            Destroy(FindObjectOfType<GoalManager>().gameObject);
+
+        print("Boot Loaded");
+    }
+
+#endregion
 }
