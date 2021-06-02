@@ -127,7 +127,7 @@ MonoBehaviour:
     _attackHitbox: {fileID: 4460215269216205231}
     _attackCooldown: 1
     _settingType: 2
-    _knockbackStrength: 100
+    _knockbackStrength: 50
     _knockbackTime: 3
   lazorSettings:
     playerIndex: 0
@@ -138,11 +138,12 @@ MonoBehaviour:
     _settingType: 3
     _knockbackStrength: 0.5
     _knockbackTime: 0
-    _lazorMaxRange: 25
-    _lazorGrowthPerSec: 30
+    _lazorMaxRange: 30
+    _lazorGrowthPerSec: 150
     _layersThatInterup:
     - Enemy
     - House
+    - Destructible
     _sphereCastRadius: 5
 --- !u!114 &1205055680
 MonoBehaviour:
@@ -158,10 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 60
   _lazorMoveSpeed: 30
-  _lazorRotationSpeed: 3
+  _lazorRotationSpeed: 10
   _rillaStillOnSlam: 1
   _gravity: 200
-  _objectMoveForce: 2
+  _objectMoveForce: 50
 --- !u!114 &1205055676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,9 +468,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10000
+  _maxHealth: 500
   _maxShieldHealth: 0
-  _currentHealth: 100
+  _currentHealth: 500
   _currentShieldHealth: 0
   regenerationSpeed: 0.1
   regenHealthAmount: 1

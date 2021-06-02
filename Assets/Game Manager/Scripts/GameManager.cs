@@ -150,13 +150,14 @@ public class GameManager : Manager<GameManager>
                 if (_zilla && _rilla)
                     PlayerManager.Instance.gameObject.SetActive(true);
                 UIManager.Instance.DisableLoadUI();
-                EnableAllControls();
+                
             }
             // dispatch message
             // transition between scenes
         }
 
         Debug.Log("Load Complete.");
+        EnableAllControls();
     }
 
     private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
