@@ -204,8 +204,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../NewFMOD29_4/zillarilla_musikspeltest/zillarilla_musik.fspro
-  sourceBankPath: ..\NewFMOD29_4\zillarilla_musikspeltest\Build
+  sourceProjectPath: ../zillarilla_musik/zillarilla_musik.fspro
+  sourceBankPath: ..\zillarilla_musik\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
