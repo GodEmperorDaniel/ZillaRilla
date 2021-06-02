@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -617, y: -1820}
+  m_AnchoredPosition: {x: -617, y: -1886}
   m_SizeDelta: {x: 761.7, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &39394453
@@ -226,7 +226,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Artist / 2D graphics
+  m_Text: 2D Artist
 --- !u!222 &39394456
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -774, y: -1369}
+  m_AnchoredPosition: {x: -841, y: -1332}
   m_SizeDelta: {x: 856, y: 856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133874392
@@ -337,14 +337,14 @@ RectTransform:
   m_GameObject: {fileID: 177924215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -440.31964}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children: []
   m_Father: {fileID: 1944460999}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 399, y: -1136}
+  m_AnchoredPosition: {x: 389, y: -1115}
   m_SizeDelta: {x: 856, y: 856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177924217
@@ -774,7 +774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game writing / story
+  m_Text: Game Writer
 --- !u!222 &266413306
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -809,7 +809,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315556462}
   m_LocalRotation: {x: 0.005697807, y: -0.010248637, z: 0.06037408, w: 0.99810696}
-  m_LocalPosition: {x: 0, y: 0, z: -437}
+  m_LocalPosition: {x: 0, y: 0, z: -427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1944460999}
@@ -817,7 +817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0.723, y: -1.133, z: 6.916}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 305, y: -2307}
+  m_AnchoredPosition: {x: 425, y: -1710}
   m_SizeDelta: {x: 856, y: 856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &315556464
@@ -1105,16 +1105,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470134089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 8.258212e-10, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -440}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1944460999}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: -1702}
+  m_AnchoredPosition: {x: -831, y: -2338}
   m_SizeDelta: {x: 428, y: 428}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470134091
@@ -1419,7 +1419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -617, y: -2067}
+  m_AnchoredPosition: {x: -617, y: -2133}
   m_SizeDelta: {x: 761.7, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639539485
@@ -1485,7 +1485,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Artist / animator
+  m_Text: Animator
 --- !u!222 &639539488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1597,7 +1597,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game design / level
+  m_Text: Game designer
 --- !u!222 &662292532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -617, y: -2190}
+  m_AnchoredPosition: {x: -617, y: -2256}
   m_SizeDelta: {x: 761.7, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692266067
@@ -1709,7 +1709,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Artist / animator
+  m_Text: Animator
 --- !u!222 &692266070
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1898,6 +1898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _creditsAnimation: {fileID: 1944461000}
+  DoubleClickMenuTime: 1
 --- !u!4 &793617095
 Transform:
   m_ObjectHideFlags: 0
@@ -2093,9 +2094,9 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Thanks for playing our game!
+  m_Text: 'Thanks for playing our game! '
 --- !u!222 &840064044
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2849,7 +2850,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Rikard Nordstr\xF6m"
@@ -2964,7 +2965,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Music by
+  m_Text: Music
 --- !u!222 &1016695408
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3262,7 +3263,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game design / level
+  m_Text: Game designer
 --- !u!222 &1201415728
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3285,7 +3286,7 @@ GameObject:
   - component: {fileID: 1212019323}
   - component: {fileID: 1212019322}
   m_Layer: 5
-  m_Name: Graphics Lead
+  m_Name: Original Pitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3371,10 +3372,10 @@ MonoBehaviour:
     m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Graphic lead
+  m_Text: Original Pitch
 --- !u!222 &1212019325
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3632,14 +3633,14 @@ RectTransform:
   m_GameObject: {fileID: 1488697730}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -286}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 1944460999}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -676, y: -527}
+  m_AnchoredPosition: {x: -854, y: -536}
   m_SizeDelta: {x: 856, y: 856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488697732
@@ -4452,7 +4453,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game sounds by
+  m_Text: Sound Engineer
 --- !u!222 &1748183028
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4838,15 +4839,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953583675}
   m_LocalRotation: {x: 0.028312301, y: -0.050925296, z: 0.29999772, w: 0.95215887}
-  m_LocalPosition: {x: 0, y: 0, z: -457}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -372}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1944460999}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 4.846, y: -4.605, z: 34.781}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -781, y: -2433}
+  m_AnchoredPosition: {x: 503, y: -2642}
   m_SizeDelta: {x: 428, y: 428}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1953583677
@@ -5035,7 +5036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -617, y: -1939}
+  m_AnchoredPosition: {x: -617, y: -2005}
   m_SizeDelta: {x: 761.7, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072615876
@@ -5101,7 +5102,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Artist / 3D graphics
+  m_Text: 3D Artist
 --- !u!222 &2072615879
 CanvasRenderer:
   m_ObjectHideFlags: 0
