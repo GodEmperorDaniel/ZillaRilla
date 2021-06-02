@@ -179,6 +179,7 @@ public class GameManager : Manager<GameManager>
         }
 
         Debug.Log("Load Complete.");
+        EnableAllControls();
     }
 
     private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
