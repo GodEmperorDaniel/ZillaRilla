@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b71bd1952d3061c48b666b4f260cfda4, type: 3}
-  m_Name: DeathStateRange
+  m_Name: DeathStateBoss
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _bugSplatDecal:
@@ -19,9 +19,6 @@ MonoBehaviour:
   - {fileID: 2091869351554164354, guid: b225abdc2075f3e44a754390e1591c5b, type: 3}
   _offset: {x: 0, y: 0, z: 0}
   _particalList:
-  - {fileID: 6206639256208598218, guid: 5c39e32a43030564aa04a962bbce638e, type: 3}
-  - {fileID: 1387432511507715255, guid: e929211093e9c7046bd4c95830725fbe, type: 3}
-  - {fileID: 4492264727050895208, guid: 21dab599a2548754c8e781a234271556, type: 3}
-  - {fileID: 4209372497194754228, guid: 027224360303eb74c9049a49f1584617, type: 3}
-  - {fileID: 479849435473075745, guid: c984aff3c0e18884bbe457d837d44121, type: 3}
-  - {fileID: 6206639256208598218, guid: 5c39e32a43030564aa04a962bbce638e, type: 3}
+  - {fileID: 7992450310787315358, guid: b68254916a36fb44790d65c10ea71ff1, type: 3}
+  - {fileID: -2612728906081564810, guid: a69bc90f1be4d8c42b0320999ae95fe9, type: 3}
+  - {fileID: 8885645385879313432, guid: a64b8c8b9d549ec4aaf6a0029ae77fcd, type: 3}
