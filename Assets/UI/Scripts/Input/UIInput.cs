@@ -27,26 +27,7 @@ namespace UI.Scripts.Input
             cancelInput = gameObject.AddComponent<CancelCommand>();
             
         }
-
-        /*private void OnEnable()
-        {
-            _playerInputActions.Enable();
-
-            _playerInputActions.UI.Navigate.started += OnNavigate;
-            _playerInputActions.UI.Accept.performed += OnAcceptPressed;
-            _playerInputActions.UI.Cancel.performed += OnCancelPressed;
-        }
-
-        private void OnDisable()
-        {
-            _playerInputActions.UI.Navigate.started -= OnNavigate;
-            _playerInputActions.UI.Accept.performed -= OnAcceptPressed;
-            _playerInputActions.UI.Cancel.performed -= OnCancelPressed;
-
-            _playerInputActions.Disable();
-        }*/
-
-
+        
         public void OnNavigate(InputAction.CallbackContext context)
         {
             // Unity Events will trigger on both started and performed. This makes sure it only triggers on one of them.
@@ -64,7 +45,6 @@ namespace UI.Scripts.Input
         {
             // Unity Events will trigger on both started and performed. This makes sure it only triggers on one of them.
             if (!context.started) return false;
-            print(context);
 
             float value = context.ReadValue<float>();
             bool isPressing = value >= buttonThreshold;
@@ -75,7 +55,6 @@ namespace UI.Scripts.Input
         public void OnAcceptPressed(InputAction.CallbackContext context)
         {
             if (!context.started) return;
-            print(context);
 
             float value = context.ReadValue<float>();
             IsPressingAccept = value >= buttonThreshold;

@@ -41,7 +41,7 @@ public class GameManager : Manager<GameManager>
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
     private Goal _currentObjective;
-    
+
 
     public Attackable _zilla;
     public Attackable _rilla;
@@ -52,13 +52,41 @@ public class GameManager : Manager<GameManager>
     public GameState CurrentGameState => _currentGameState;
 
 
-    // GETTERS/SETTERS
+    // DEBUG
+    // TODO Remove this before final build
+    public bool startedFromBoot;
+
+    //private void DebugLevelFix()
+    /*{
+        if (DebugLevelFixer.Instance == null) return;
+        if (startedFromBoot)
+        {
+            Destroy(FindObjectOfType<DebugLevelFixer>().gameObject);
+            return;
+        }
+    
+        mainLevel = DebugLevelFixer.LevelNameBuffer;
+    }*/
+
+    private void DebugLevelFix()
+    {
+        string levelBuffer = SceneManager.GetActiveScene().name;
+        if (levelBuffer == "Boot") return;
+        mainLevel = levelBuffer;
+        print("Active level on Boot: " + mainLevel);
+
+        SceneManager.LoadScene("Boot");
+
+        Destroy(FindObjectOfType<GoalManager>().gameObject);
+        print("Boot Loaded");
+    }
 
 
     // UNITY METHODS
     protected override void Awake()
     {
         base.Awake();
+        DebugLevelFix();
 
         _instancedSystemPrefabs = new List<GameObject>();
         _loadOperations = new List<AsyncOperation>();
@@ -70,8 +98,7 @@ public class GameManager : Manager<GameManager>
     {
         DeactivateAllUI();
         UIManager.Instance.EnableLoadUI();
-        LoadMainMenu();
-        //IntroCutScene(); //added in merge!!
+        IntroCutScene();
     }
 
     protected override void OnDestroy()
@@ -96,7 +123,7 @@ public class GameManager : Manager<GameManager>
     {
         // Controls need to be disabled when loading a level or the event will trigger multiple times
         DisableAllControls();
-        
+
         UIManager.Instance.EnableLoadUI(); //added in merge!!
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
         if (ao == null)
@@ -143,17 +170,12 @@ public class GameManager : Manager<GameManager>
 
             if (_loadOperations.Count == 0)
             {
-                FindPlayerCharacters();
-                GoalManager goalManager = FindObjectOfType<GoalManager>();
-                if (goalManager != null)
-                    _instancedSystemPrefabs.Add(goalManager.gameObject);
-                if (_zilla && _rilla)
-                    PlayerManager.Instance.gameObject.SetActive(true);
+                OnLevelLoaded(_currentGameState);
                 UIManager.Instance.DisableLoadUI();
-                EnableAllControls();
             }
-            // dispatch message
-            // transition between scenes
+
+            // Dispatch message
+            // Transition between scenes
         }
 
         Debug.Log("Load Complete.");
@@ -163,11 +185,11 @@ public class GameManager : Manager<GameManager>
     {
         Debug.Log("Unload Complete.");
     }
-    
+
 #endregion
 
 #region Levels
-    
+
     // SPECIFIC SCENE LOADERS
     public void IntroCutScene()
     {
@@ -181,7 +203,7 @@ public class GameManager : Manager<GameManager>
         LoadLevel("Credits");
         UpdateState(GameState.CREDITS);
     }
-    
+
     public void LoadMainMenu()
     {
         UnloadLevel(_currentLevelName);
@@ -267,14 +289,11 @@ public class GameManager : Manager<GameManager>
 
             case GameState.MAIN_MENU:
                 UIManager.Instance.DisableMainMenuUI();
-                UIManager.Instance.DisableDummyCamera();
                 break;
             case GameState.CREDITS:
                 break;
 
             case GameState.LOADING:
-                // Disable loading UI
-                UIManager.Instance.DisableDummyCamera();
                 break;
 
             case GameState.LOADING_COMPLETE:
@@ -343,6 +362,8 @@ public class GameManager : Manager<GameManager>
 
     private void OnLevelLoaded(GameState state)
     {
+        FindPlayerCharacters();
+
         switch (state)
         {
             case GameState.BOOT:
@@ -356,7 +377,9 @@ public class GameManager : Manager<GameManager>
             case GameState.LOADING:
                 break;
             case GameState.IN_GAME:
+                UIManager.Instance.DisableDummyCamera();
                 FindPlayerCharacters();
+                InitializeGoalManager();
                 EnableInGameControls();
                 break;
             case GameState.PAUSED:
@@ -366,7 +389,7 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    #endregion
+#endregion
 
     private void InstantiateSystemPrefabs()
     {
@@ -380,18 +403,27 @@ public class GameManager : Manager<GameManager>
     private void FindPlayerCharacters()
     {
         if (GameObject.Find("ZillaPlayer"))
-        { 
+        {
             GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
             _attackableCharacters.Add(_zilla.transform);
         }
 
         if (GameObject.Find("RillaPlayer"))
-        { 
+        {
             GameObject.Find("RillaPlayer").TryGetComponent(out _rilla);
             _attackableCharacters.Add(_rilla.transform);
         }
 
-        if(_zilla && _rilla) PlayerManager.Instance.gameObject.SetActive(true);
+        // Activate the PLayer Manager
+        if (_zilla && _rilla)
+            PlayerManager.Instance.gameObject.SetActive(true);
+    }
+
+    private void InitializeGoalManager()
+    {
+        GoalManager goalManager = FindObjectOfType<GoalManager>();
+        if (goalManager != null)
+            _instancedSystemPrefabs.Add(goalManager.gameObject);
     }
 
     private void EnableUIControls()
@@ -433,7 +465,7 @@ public class GameManager : Manager<GameManager>
             UIManager.Instance.GetComponent<PlayerInput>().enabled = false;
         }
     }
-    
+
     public void EnableAllControls()
     {
         if (_zilla != null || _rilla != null)
