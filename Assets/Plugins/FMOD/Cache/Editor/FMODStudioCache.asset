@@ -736,7 +736,7 @@ MonoBehaviour:
   Path: ../zillarilla_musik/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637582759297129844
+  lastModified: 637582765377996990
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1834,7 +1834,7 @@ MonoBehaviour:
   - {fileID: 2289610037604037304}
   StringsBanks:
   - {fileID: -5658183381081280540}
-  stringsBankWriteTime: 637582759297129844
+  stringsBankWriteTime: 637582765377996990
   cacheVersion: 6
 --- !u!114 &45144812845301944
 MonoBehaviour:
@@ -2118,15 +2118,15 @@ MonoBehaviour:
   m_Name: "event:/Musik/sp2_f\xF6rlorar_stinger_klar_2"
   m_EditorClassIdentifier: 
   Path: "event:/Musik/sp2_f\xF6rlorar_stinger_klar_2"
-  guid: 6d04b32b8186f54c92c473ac09fd7251
+  guid: c4fece83d4e8254da0984ed706152477
   Banks:
   - {fileID: 2289610037604037304}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 9512
 --- !u!114 &1131601956978769851
 MonoBehaviour:
@@ -2273,15 +2273,15 @@ MonoBehaviour:
   m_Name: event:/Musik/sp2_win_stinger_4
   m_EditorClassIdentifier: 
   Path: event:/Musik/sp2_win_stinger_4
-  guid: d9ccab3bd292744a9a862c4c46b414c6
+  guid: 2280951b3e47f740911d15c747bf954b
   Banks:
   - {fileID: 2289610037604037304}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 15357
 --- !u!114 &2102730881399182630
 MonoBehaviour:
@@ -2344,7 +2344,7 @@ MonoBehaviour:
   Path: ../zillarilla_musik/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637582759297079968
+  lastModified: 637582765377966832
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2438,6 +2438,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &3039445927412222148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &3438846795661684912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2903,7 +2923,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -7179990220175930829}
+  - {fileID: 3039445927412222148}
   MinDistance: 1
   MaxDistance: 20
   Length: 10000

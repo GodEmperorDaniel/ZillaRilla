@@ -2923,9 +2923,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEntries:
   - _name: Menu Selection
-    _fileLocation: event:/Ljud/Zilla + Rilla SFX/Zilla+RillaLand
+    _fileLocation: event:/Ljud/Menu SFX/ButtonMouseOverMenu
   - _name: Play
-    _fileLocation: event:/Ljud/Zilla SFX/ZillaRoar
+    _fileLocation: event:/Ljud/Menu SFX/ButtonPushMenu
 --- !u!1001 &1420134347242812306
 PrefabInstance:
   m_ObjectHideFlags: 0

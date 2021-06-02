@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: -7036535302706110477}
   - component: {fileID: -6334392451804669981}
   - component: {fileID: 2355012952452592117}
+  - component: {fileID: -3325198268555258037}
   m_Layer: 12
   m_Name: House_Q_Orange
   m_TagString: Untagged
@@ -281,5 +282,21 @@ MonoBehaviour:
   _rubblePrefab: {fileID: 890759611778150942, guid: 39e036e3b7b4f124d88ae0fe10a1957e, type: 3}
   smokeLifetime: 5
   collapseDelay: 1
-  _rubbleMesh: {fileID: 0}
   isRubble: 0
+--- !u!114 &-3325198268555258037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5902958210436128684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - _name: Impact
+    _fileLocation: event:/Ljud/Impact SFX/Impact 1
+  - _name: Collapse
+    _fileLocation: event:/Ljud/Enviroment SFX/Building Collapsing
