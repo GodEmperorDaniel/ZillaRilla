@@ -54,25 +54,13 @@ namespace UI.Scripts.Input
 
         public void OnAcceptPressed(InputAction.CallbackContext context)
         {
-            if (!context.started) return;
-
-            float value = context.ReadValue<float>();
-            IsPressingAccept = value >= buttonThreshold;
-            if (acceptInput != null && IsPressingAccept) acceptInput.Execute();
-            
-            //if (IsPressingAccept) Debug.Log("Accept Pressed!");
+            IsPressingAccept = OnPressedDefault(context, acceptInput);
         }
 
         public void OnCancelPressed(InputAction.CallbackContext context)
         {
             IsPressingCancel = OnPressedDefault(context, cancelInput);
-            if (IsPressingCancel) Debug.Log("Cancel Pressed!");
         }
 
-        /*private void OnClickPressed(InputAction.CallbackContext context)
-        {
-            Debug.Log("Clicked!");
-            //IsPressingClick = OnPressedDefault(context, cancelInput);
-        }*/
     }
 }

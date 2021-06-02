@@ -25,13 +25,11 @@ public class GameManager : Manager<GameManager>
     }
 
     // FIELDS
-    //public SceneAsset mainLevel;
-    //public SceneAsset cutScene;
-    //public SceneAsset creditsScene;
-
+    private const string cBoot = "Boot";
+    private const string cMainMenu = "Main Menu";
+    private const string cCutscene = "Cutscene";
+    public const string cCredits = "Credits";
     public string mainLevel;
-    public string cutscene;
-    public string creditsScene;
 
     public GameObject[] _systemPrefab;
     public GameObject _cutsceneManagerPrefab;
@@ -40,8 +38,6 @@ public class GameManager : Manager<GameManager>
 
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
-    private Goal _currentObjective;
-
 
     public Attackable _zilla;
     public Attackable _rilla;
@@ -50,36 +46,6 @@ public class GameManager : Manager<GameManager>
         _attackableCharacters = new List<Transform>(); //THIS IS USED SO THAT ENEMIES DONT ATTACK PLAYERS WHO ARE DOWNED
 
     public GameState CurrentGameState => _currentGameState;
-
-
-    // DEBUG
-    // TODO Remove this before final build
-    public bool startedFromBoot;
-
-    //private void DebugLevelFix()
-    /*{
-        if (DebugLevelFixer.Instance == null) return;
-        if (startedFromBoot)
-        {
-            Destroy(FindObjectOfType<DebugLevelFixer>().gameObject);
-            return;
-        }
-    
-        mainLevel = DebugLevelFixer.LevelNameBuffer;
-    }*/
-
-    private void DebugLevelFix()
-    {
-        string levelBuffer = SceneManager.GetActiveScene().name;
-        if (levelBuffer == "Boot") return;
-        mainLevel = levelBuffer;
-        print("Active level on Boot: " + mainLevel);
-
-        SceneManager.LoadScene("Boot");
-
-        Destroy(FindObjectOfType<GoalManager>().gameObject);
-        print("Boot Loaded");
-    }
 
 
     // UNITY METHODS
@@ -158,7 +124,7 @@ public class GameManager : Manager<GameManager>
         }
         else
         {
-            Debug.Log("Nothing To Unload");
+            Debug.LogError("Nothing To Unload");
         }
     }
 
@@ -194,14 +160,14 @@ public class GameManager : Manager<GameManager>
     // SPECIFIC SCENE LOADERS
     public void IntroCutScene()
     {
-        LoadLevel(cutscene);
+        LoadLevel(cCutscene);
         UpdateState(GameState.CUTSCENE);
     }
 
     public void Credits()
     {
         UnloadLevel(_currentLevelName);
-        LoadLevel("Credits");
+        LoadLevel(cCredits);
         UpdateState(GameState.CREDITS);
     }
 
@@ -231,11 +197,6 @@ public class GameManager : Manager<GameManager>
 
 #endregion
 
-    public void UpdateObjective(Goal objective)
-    {
-        _currentObjective = objective;
-        UIManager.Instance.UpdateObjectiveOnUI(objective.GoalName, objective.GoalDescription);
-    }
 
     public void TogglePause()
     {
@@ -312,7 +273,6 @@ public class GameManager : Manager<GameManager>
                 throw new ArgumentOutOfRangeException();
         }
 
-        Debug.Log("Exited state: " + CurrentGameState);
     }
 
     private void EnterNewState(GameState state)
@@ -358,7 +318,6 @@ public class GameManager : Manager<GameManager>
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
 
-        Debug.Log("Entered state: " + state);
     }
 
     private void OnLevelLoaded(GameState state)
@@ -479,20 +438,26 @@ public class GameManager : Manager<GameManager>
             UIManager.Instance.GetComponent<PlayerInput>().enabled = true;
         }
     }
+    
+#region Debug
+    
+    [HideInInspector] public bool startedFromBoot;
 
-    //private void UpdateHealth() its an unused private
-    //{
-    //    //UIManager.Instance.UpdateHealthOnUI();
-    //}
+    // Debugging method for use when 
+    private void DebugLevelFix()
+    {
+        string levelBuffer = SceneManager.GetActiveScene().name;
+        if (levelBuffer == "Boot") return;
+        mainLevel = levelBuffer;
+        print("Active level on Boot: " + mainLevel);
 
-    // EVENT METHODS
-    // EVENT METHODS
+        SceneManager.LoadScene("Boot");
 
-    ////USED TO UPDATE ENEMYS LIST ON WHICH PLAYERS CAN BE ATTACKED!
-    //public List<Transform> GetAttackablePlayers()
+        if (FindObjectOfType<GoalManager>() != null)
+            Destroy(FindObjectOfType<GoalManager>().gameObject);
 
-    //{
+        print("Boot Loaded");
+    }
 
-    //    return _attackableCharacters;
-    //}
+#endregion
 }
