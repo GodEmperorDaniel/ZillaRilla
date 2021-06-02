@@ -69,6 +69,15 @@ namespace UI.Scripts.Input
             if (IsPressingCancel) Debug.Log("Cancel Pressed!");
         }
 
+        //inte satt in command structure på denna, skrik på mig sedan!!
+        public void OnSkipCredits(InputAction.CallbackContext context)
+        {
+            if (CreditsManager.Instance && context.started)
+            {
+                CreditsManager.Instance.GoBackToMainMenu();
+            }
+        }
+
         /*private void OnClickPressed(InputAction.CallbackContext context)
         {
             Debug.Log("Clicked!");

@@ -199,7 +199,7 @@ public class GameManager : Manager<GameManager>
 
     public void Credits()
     {
-        UnloadLevel(_currentLevelName);
+        UnloadLevel("Main Menu");
         LoadLevel("Credits");
         UpdateState(GameState.CREDITS);
     }
@@ -372,6 +372,9 @@ public class GameManager : Manager<GameManager>
                 EnableUIControls();
                 break;
             case GameState.MAIN_MENU:
+                EnableUIControls();
+                break;
+            case GameState.CREDITS:
                 EnableUIControls();
                 break;
             case GameState.LOADING:

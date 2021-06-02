@@ -467,6 +467,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SkipCredits"",
+                    ""type"": ""Button"",
+                    ""id"": ""77b10c03-04ec-48d8-92af-9d6e7c3c2e34"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -766,6 +774,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18d56f05-141b-4fd1-bbcb-e3805daae58c"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SkipCredits"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -857,6 +876,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        m_UI_SkipCredits = m_UI.FindAction("SkipCredits", throwIfNotFound: true);
         // Blank
         m_Blank = asset.FindActionMap("Blank", throwIfNotFound: true);
     }
@@ -1010,6 +1030,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_Click;
+    private readonly InputAction m_UI_SkipCredits;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1019,6 +1040,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputAction @Click => m_Wrapper.m_UI_Click;
+        public InputAction @SkipCredits => m_Wrapper.m_UI_SkipCredits;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1043,6 +1065,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
+                @SkipCredits.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipCredits;
+                @SkipCredits.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipCredits;
+                @SkipCredits.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipCredits;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1062,6 +1087,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
+                @SkipCredits.started += instance.OnSkipCredits;
+                @SkipCredits.performed += instance.OnSkipCredits;
+                @SkipCredits.canceled += instance.OnSkipCredits;
             }
         }
     }
@@ -1155,6 +1183,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
+        void OnSkipCredits(InputAction.CallbackContext context);
     }
     public interface IBlankActions
     {

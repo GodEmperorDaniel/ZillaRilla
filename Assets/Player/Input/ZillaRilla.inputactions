@@ -454,6 +454,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SkipCredits",
+                    "type": "Button",
+                    "id": "77b10c03-04ec-48d8-92af-9d6e7c3c2e34",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -751,6 +759,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18d56f05-141b-4fd1-bbcb-e3805daae58c",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SkipCredits",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

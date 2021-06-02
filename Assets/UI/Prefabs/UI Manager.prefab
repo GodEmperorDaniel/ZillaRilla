@@ -1359,6 +1359,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ae26900f-3e73-4c4a-821f-f4c8b7a5137e
     m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4083063294830315907}
+        m_TargetAssemblyTypeName: UI.Scripts.Input.UIInput, Assembly-CSharp
+        m_MethodName: OnSkipCredits
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 77b10c03-04ec-48d8-92af-9d6e7c3c2e34
+    m_ActionName: UI/SkipCredits[/DualShock4GamepadHID/start,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

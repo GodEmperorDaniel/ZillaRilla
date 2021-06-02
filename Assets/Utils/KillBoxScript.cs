@@ -22,7 +22,7 @@ public class KillBoxScript : MonoBehaviour
         }
         else
         {
-            Debug.Log(other.name + " destroyed by killbox");
+            Debug.Log(other.name + " destroyed by killbox");    
             Destroy(other.gameObject);
         }
     }
