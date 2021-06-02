@@ -49,7 +49,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 20
+  m_Speed: 0
   m_Acceleration: 999
   avoidancePriority: 50
   m_AngularSpeed: 999
@@ -89,7 +89,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6431842, y: 2.5044186, z: 1.4662482}
-  m_Center: {x: 0.029566357, y: 1.2522093, z: 0.030753648}
+  m_Center: {x: 0.029566357, y: 1.3, z: 0.030753648}
 --- !u!95 &8011345652963454271
 Animator:
   serializedVersion: 3
@@ -150,7 +150,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63980e4a564ac2048a2713feeafea2d5, type: 2}
   - {fileID: 11400000, guid: ec1083afd39285e4eacdac03656a34a1, type: 2}
   - {fileID: 11400000, guid: 85ebe87b041326d4183f825e0494724f, type: 2}
-  - {fileID: 11400000, guid: ffb71bdc82c8e014294d05cf39566e41, type: 2}
+  - {fileID: 11400000, guid: f30408a998b92544e81f3fae073d5468, type: 2}
   - {fileID: 11400000, guid: 5ecfe906b14339f4498f7955dd648e9a, type: 2}
   - {fileID: 11400000, guid: 8340a9654cc639c4c8d0d56dba5913cc, type: 2}
 --- !u!114 &8011345652963454257
@@ -174,7 +174,7 @@ MonoBehaviour:
   _stunTime: 3
   lookRadius: 30
   attackRadius: 0
-  deSpawnTime: 1
+  deSpawnTime: 0.1
   _isKnockedBack: 0
   _animator: {fileID: 0}
 --- !u!114 &-8902072843584134003
@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -6334309450652171803, guid: b38eee638f6c5784f9ab19ff5db92b1e, type: 3}
+    - target: {fileID: 4315420763561216101, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4315420763804369623, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -340,7 +344,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Xormite_Spawner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4315420763968528666, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420763804369625, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420764705702783, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420765198625304, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420765317824632, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420764997578296, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420764189446877, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420764787283551, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420765131793292, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
+    - {fileID: 4315420764844744509, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caa9d2c5a51596a4b9897403d978e500, type: 3}
 --- !u!4 &7843920534880882154 stripped
 Transform:

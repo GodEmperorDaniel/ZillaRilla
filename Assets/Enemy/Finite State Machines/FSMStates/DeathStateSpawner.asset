@@ -20,6 +20,8 @@ MonoBehaviour:
   _offset: {x: 0, y: 0, z: 0}
   _particalList:
   - {fileID: 1387432511507715255, guid: e929211093e9c7046bd4c95830725fbe, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2496240374299302433, guid: 436bfc4b7f642d14689c7653cf448613, type: 3}
+  - {fileID: 3477453546781329078, guid: 820e463c67d69ce47bcc334230db6f6f, type: 3}
+  - {fileID: 7262320688237473190, guid: 475e03ddddd1e25459966f0e23cf0fac, type: 3}
+  - {fileID: 2202459493511852720, guid: 70f200d9b59ce8f4c82e408244c73de7, type: 3}
   - {fileID: 6206639256208598218, guid: 5c39e32a43030564aa04a962bbce638e, type: 3}

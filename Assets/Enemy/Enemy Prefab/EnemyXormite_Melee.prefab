@@ -301,7 +301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531882523992727892}
   m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6613114054487553844}
@@ -1400,7 +1400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6613114052974211131}
   m_LocalRotation: {x: -0.73194855, y: 0, z: 0, w: 0.6813599}
-  m_LocalPosition: {x: 0, y: 2.1, z: 4.49}
+  m_LocalPosition: {x: 0, y: 2.09, z: 4.34}
   m_LocalScale: {x: 2.58, y: 1.12, z: 1.64}
   m_Children: []
   m_Father: {fileID: 6613114054487553844}
@@ -1478,7 +1478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6613114054487553999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6613114052974211132}
@@ -1496,7 +1496,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6613114054487553999}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.9
+  m_Radius: 1.2
   m_Speed: 50
   m_Acceleration: 999
   avoidancePriority: 50
@@ -1505,8 +1505,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.9
-  m_BaseOffset: -0.3
+  m_Height: 3.71
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &6613114054487553841
@@ -1536,8 +1536,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.664681, y: 3.6028574, z: 2.851845}
-  m_Center: {x: -0.0056204796, y: 1.8014287, z: 0.56590664}
+  m_Size: {x: 2.5, y: 3.86, z: 2.5}
+  m_Center: {x: 0, y: 1.78, z: 0}
 --- !u!95 &-3609913050599336262
 Animator:
   serializedVersion: 3
@@ -1591,7 +1591,6 @@ MonoBehaviour:
     _bullet: {fileID: 0}
     bulletSpeed: 10
     _shootPosition: {fileID: 0}
-  _listEnemyShoot: []
 --- !u!114 &6613114054487553840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1656,7 +1655,7 @@ MonoBehaviour:
   _rotationSpeed: 5
   _stunTime: 3
   lookRadius: 60
-  attackRadius: 9.22
+  attackRadius: 9
   deSpawnTime: 0.1
   _isKnockedBack: 0
   _animator: {fileID: 0}
@@ -1835,7 +1834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7957354756461346630}
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.43}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4964805065187853629}
