@@ -1656,7 +1656,7 @@ MonoBehaviour:
   - {fileID: 0}
   _rotationSpeed: 5
   _stunTime: 3
-  lookRadius: 60
+  lookRadius: 100
   attackRadius: 9.22
   deSpawnTime: 0.1
   _isKnockedBack: 0
