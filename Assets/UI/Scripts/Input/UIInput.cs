@@ -62,5 +62,19 @@ namespace UI.Scripts.Input
             IsPressingCancel = OnPressedDefault(context, cancelInput);
         }
 
+        //inte satt in command structure p� denna, skrik p� mig sedan!!
+        public void OnSkipCredits(InputAction.CallbackContext context)
+        {
+            if (CreditsManager.Instance && context.started)
+            {
+                CreditsManager.Instance.GoBackToMainMenu();
+            }
+        }
+
+        /*private void OnClickPressed(InputAction.CallbackContext context)
+        {
+            Debug.Log("Clicked!");
+            //IsPressingClick = OnPressedDefault(context, cancelInput);
+        }*/
     }
 }

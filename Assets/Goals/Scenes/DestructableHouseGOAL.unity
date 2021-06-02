@@ -246,9 +246,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1114816599381566705, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851748878756634031, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6323372211270245706, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
       propertyPath: m_Name
       value: Destructable House Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323372211270245706, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323372211270245812, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668407363548383216, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
       propertyPath: m_RootOrder
@@ -985,9 +1001,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1114816599381566705, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851748878756634031, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6323372211270245706, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
       propertyPath: m_Name
       value: Destructable House Prefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323372211270245706, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323372211270245812, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668407363548383216, guid: 667a4a3e0b0aeec44b53807ed7187460, type: 3}
       propertyPath: m_RootOrder

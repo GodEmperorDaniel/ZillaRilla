@@ -40,7 +40,6 @@ namespace Entities.Commands
         {
             if (_animator == null)
             {
-                Debug.Log("Getting Animator");
                 _animator = GetComponent<Animator>();
             }
             if(_characterController == null)
