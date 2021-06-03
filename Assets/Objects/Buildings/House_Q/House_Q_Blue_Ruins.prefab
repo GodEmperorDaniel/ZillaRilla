@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7552667703497227808}
   - component: {fileID: 6881408799149355397}
   - component: {fileID: 8690640640534086991}
-  - component: {fileID: 3541476533296136746}
   m_Layer: 0
   m_Name: House_Q_Blue_Ruins
   m_TagString: Untagged
@@ -83,17 +82,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3541476533296136746
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7177515072581018778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6384521028749193586, guid: 939ea9b19615e0c4cb83535b60a3abf9, type: 3}

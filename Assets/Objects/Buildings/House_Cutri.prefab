@@ -389,7 +389,10 @@ GameObject:
   - component: {fileID: 1837629669}
   - component: {fileID: 1837629668}
   - component: {fileID: -944037627949235284}
-  m_Layer: 0
+  - component: {fileID: 3844455125556948924}
+  - component: {fileID: -3935130088601604758}
+  - component: {fileID: 1152013119138272373}
+  m_Layer: 12
   m_Name: House_Cutri
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,6 +557,63 @@ MonoBehaviour:
     _fileLocation: event:/Ljud/Impact SFX/Impact 1
   - _name: Collapse
     _fileLocation: event:/Ljud/Enviroment SFX/Building Collapsing
+--- !u!111 &3844455125556948924
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434413649299450415}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: f8a1c3826b27ee44db9a2936093d51fe, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &-3935130088601604758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434413649299450415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cddfa3e58ddf844c842325e0d2904c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _smokePrefab: {fileID: 3312276840990385156, guid: 54148358821020c498c73439b1cc7717, type: 3}
+  _rubblePrefab: {fileID: 3325636701986718952, guid: 375e67ea618c1104593a54f12c218bc1, type: 3}
+  smokeLifetime: 5
+  collapseDelay: 1
+  isRubble: 0
+--- !u!114 &1152013119138272373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434413649299450415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _maxShieldHealth: 0
+  _currentHealth: 20
+  _currentShieldHealth: 0
+  regenerationSpeed: 0.1
+  regenHealthAmount: 1
+  _animator: {fileID: 0}
+  _iFrames: 0.5
+  _playerSettings:
+    _timeToRevive: 0
+    _timeUntilDeath: 0
+    _isReviving: 0
 --- !u!1 &4736409797545371630
 GameObject:
   m_ObjectHideFlags: 0
