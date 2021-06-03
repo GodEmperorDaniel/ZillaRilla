@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e3ce86d20b7ace344b23d9fa2e75f611
+guid: 72898e35d43f10345b81de4da0201f30
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,7 +7,12 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: mat_House_W
+      name: mat_Debris
+    second: {fileID: 2100000, guid: 084be1d1b7b2e4b48999695131831623, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_TEST
     second: {fileID: 2100000, guid: 78ff0c4a5511419439fe872cd1046f77, type: 2}
   materials:
     materialImportMode: 2
