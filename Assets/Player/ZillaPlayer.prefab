@@ -474,7 +474,7 @@ MonoBehaviour:
   _currentShieldHealth: 0
   regenerationSpeed: 0.1
   regenHealthAmount: 1
-  _animator: {fileID: 0}
+  _animator: {fileID: 1205055677}
   _iFrames: 0
   _playerSettings:
     _timeToRevive: 2

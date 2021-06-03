@@ -63,6 +63,14 @@ namespace Assets.Enemy.NPCCode
             {
                 _animator.SetFloat("Movement", 1);
             }
+            if (_navMeshAgent.isOnNavMesh)
+            {
+                _navMeshAgent.enabled = true;
+            }
+            else
+            {
+                _navMeshAgent.enabled = false;
+            }
             //SetChaseTarget();
         }
 

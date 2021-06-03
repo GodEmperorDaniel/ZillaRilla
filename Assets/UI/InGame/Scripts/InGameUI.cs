@@ -23,6 +23,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentObjective;
     [SerializeField] private NewsBanner _newsBanner;
     [SerializeField] private FillableBar _bossHealth;
+    [SerializeField] private FillableBar _bossShield;
 
     #region HealthBar
     public void ActivateHealthBars()
@@ -159,7 +160,7 @@ public class InGameUI : MonoBehaviour
         _rillaComboText.SetText(combo);
     }
     #endregion
-    #region BossHealth
+    #region BossHealthShield
     public void ActivateBossHealthOnUI()
     {
         _bossHealth.gameObject.SetActive(true);
@@ -167,6 +168,10 @@ public class InGameUI : MonoBehaviour
     public void DeactivateBossHealthOnUI()
     {
         _bossHealth.gameObject.SetActive(false);
+    }
+    public void SetHealthOnBossShieldBar(float progress)
+    {
+        _bossShield.fillAmount = Round(progress, 2);
     }
     public void SetHealthOnBossHealthBar(float progress)
     {
