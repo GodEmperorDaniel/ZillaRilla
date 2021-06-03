@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 1837629670}
   - component: {fileID: 1837629669}
   - component: {fileID: 1837629668}
+  - component: {fileID: -944037627949235284}
   m_Layer: 0
   m_Name: House_Cutri
   m_TagString: Untagged
@@ -536,6 +537,23 @@ CapsuleCollider:
   m_Height: 1.08
   m_Direction: 0
   m_Center: {x: 1.01, y: 0.55, z: 0.96}
+--- !u!114 &-944037627949235284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434413649299450415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - _name: Impact
+    _fileLocation: event:/Ljud/Impact SFX/Impact 1
+  - _name: Collapse
+    _fileLocation: event:/Ljud/Enviroment SFX/Building Collapsing
 --- !u!1 &4736409797545371630
 GameObject:
   m_ObjectHideFlags: 0

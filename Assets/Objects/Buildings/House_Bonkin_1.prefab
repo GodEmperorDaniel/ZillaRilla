@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 4163587153898439711}
   - component: {fileID: 4738637160584999517}
   - component: {fileID: 6723967727217995084}
+  - component: {fileID: -1749732658572041471}
   m_Layer: 0
   m_Name: House_Bonkin_1
   m_TagString: Untagged
@@ -403,6 +404,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.45528537, z: 0.24138275}
   m_Center: {x: 0, y: 1.3823473, z: 0.23822048}
+--- !u!114 &-1749732658572041471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8149089653480578728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - _name: Impact
+    _fileLocation: event:/Ljud/Impact SFX/Impact 1
+  - _name: Collapse
+    _fileLocation: event:/Ljud/Enviroment SFX/Building Collapsing
 --- !u!1 &8707458455792702765
 GameObject:
   m_ObjectHideFlags: 0
