@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7774042883352627985}
   - component: {fileID: 4387561300303100136}
   - component: {fileID: 4740343402892085625}
+  - component: {fileID: -3735827836080815526}
   m_Layer: 12
   m_Name: House_W
   m_TagString: Untagged
@@ -174,6 +175,23 @@ MonoBehaviour:
     _timeToRevive: 0
     _timeUntilDeath: 0
     _isReviving: 0
+--- !u!114 &-3735827836080815526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039111993062682847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - _name: Impact
+    _fileLocation: event:/Ljud/Impact SFX/Impact 1
+  - _name: Collapse
+    _fileLocation: event:/Ljud/Enviroment SFX/Building Collapsing
 --- !u!1 &1540354012096203573
 GameObject:
   m_ObjectHideFlags: 0

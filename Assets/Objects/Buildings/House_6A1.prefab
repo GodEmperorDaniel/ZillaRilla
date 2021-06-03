@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 6225130580313016979}
   - component: {fileID: 2927547021559866464}
   - component: {fileID: -7374108579507443382}
+  - component: {fileID: 576432783889119556}
   m_Layer: 12
   m_Name: House_6A1
   m_TagString: Untagged
@@ -337,6 +338,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3820654533052322251}
   m_Mesh: {fileID: 1417462712173023719, guid: be01095a0011b5c4db44288e874d6206, type: 3}
+--- !u!114 &576432783889119556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820654533052322251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d14d9379c6c0d448fb72f402547ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - _name: Impact
+    _fileLocation: event:/Ljud/Impact SFX/Impact 1
+  - _name: Collapse
+    _fileLocation: event:/Ljud/Enviroment SFX/Building Collapsing
 --- !u!1 &4012829750462085648
 GameObject:
   m_ObjectHideFlags: 0
