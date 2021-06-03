@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class Goal : MonoBehaviour
 {
-    private const string cNewsCategory = "Goal";
+    public enum NewsCategory { HarbourGoal, BossAppearing, BossDefeated }
     
     [SerializeField] protected string goalName = "[Default Name]";
     [SerializeField] protected string goalDescription = "[Default Text]";
+    [SerializeField] private NewsCategory newsCategory;
     [SerializeField] private string newsTitle;
 
     protected bool _completed = false;
@@ -36,14 +38,25 @@ public class Goal : MonoBehaviour
     
     public virtual void GoalCompleted()
     {
-        // TODO Create Goal XML script
-
+        string category = GetCategoryName(newsCategory);
+        
         // Will override current news banner
         if (newsTitle == "")
-            UIManager.Instance.ActivateBanner(cNewsCategory, true); 
+            UIManager.Instance.ActivateBanner(category, true); 
         else
-            UIManager.Instance.ActivateBanner(cNewsCategory, true, newsTitle);
+            UIManager.Instance.ActivateBanner(category, true, newsTitle);
         
         GetComponentInParent<GoalManager>().GoalCompleted();
-    } 
+    }
+
+    public string GetCategoryName(NewsCategory category)
+    {
+        return category switch
+        {
+            NewsCategory.HarbourGoal => "Harbour Goal",
+            NewsCategory.BossAppearing => "Boss Goal",
+            NewsCategory.BossDefeated => "Victory",
+            _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
+        };
+    }
 }

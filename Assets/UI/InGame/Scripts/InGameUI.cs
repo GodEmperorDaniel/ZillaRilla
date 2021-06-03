@@ -25,20 +25,25 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private FillableBar _bossHealth;
     [SerializeField] private FillableBar _bossShield;
 
-    [Range(0.0f, 100.0f)] public float bannerChancePerSecond;
-    private Coroutine randomNewsActivatorCoroutine;
+    [Range(0.0f, 100.0f)] [SerializeField] private float bannerChancePerSecond;
+    [Range(0.0f, 100.0f)] [SerializeField] private float newsChanceEnemy;
+    [Range(0.0f, 100.0f)] [SerializeField] private float newsChanceBuilding;
+    private Coroutine _randomNewsActivatorCoroutine;
 
 
     public NewsBanner NewsBanner => _newsBanner;
+    public float NewsChanceEnemy => newsChanceEnemy;
+    public float NewsChanceBuilding => newsChanceBuilding;
+
 
     private void OnEnable()
     {
-        randomNewsActivatorCoroutine = StartCoroutine(RandomNewsActivator());
+        _randomNewsActivatorCoroutine = StartCoroutine(RandomNewsActivator());
     }
 
     private void OnDisable()
     {
-        StopCoroutine(randomNewsActivatorCoroutine);
+        StopCoroutine(_randomNewsActivatorCoroutine);
     }
 
 #region HealthBar
@@ -106,7 +111,7 @@ public class InGameUI : MonoBehaviour
         ActivateNewsBannerRandom("News Blurb", false, bannerChancePerSecond);
         yield return new WaitForSeconds(1.0f);
 
-        randomNewsActivatorCoroutine = StartCoroutine(RandomNewsActivator());
+        _randomNewsActivatorCoroutine = StartCoroutine(RandomNewsActivator());
     }
 
     public void ActivateNewsBanner(string category, bool forced, int index)
