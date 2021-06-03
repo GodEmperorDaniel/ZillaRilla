@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9183562551252669270}
   - component: {fileID: 5250435129095085299}
   - component: {fileID: 8014645538918049849}
-  - component: {fileID: 2776253794189913948}
   m_Layer: 0
   m_Name: House_Q_Lime_Ruins
   m_TagString: Untagged
@@ -83,17 +82,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2776253794189913948
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8374797375042914796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6384521028749193586, guid: 939ea9b19615e0c4cb83535b60a3abf9, type: 3}
