@@ -33,18 +33,16 @@ public class NewsBanner : MonoBehaviour
 
     [SerializeField] private string xmlFileLocationDebug;
 
-    private const string cXMLFileLocation = ""; // TODO SET THIS BEFORE FINAL BUILD!!
+    
     private Dictionary<string, Dictionary<string, string>> _newsTextCategories;
 
 
     // UNITY METHODS
     private void Start()
     {
-#if DEBUG
-        _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocationDebug);
-#else
-        _newsTextCategories = XMLLoader.GetXMLDictionary(cXMLFileLocation);
-#endif
+        string xmlFileLocation = Application.streamingAssetsPath + "/XML";
+        _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocation);
+
 
         _animation = GetComponent<Animation>();
         _textMesh = GetComponentInChildren<TextMeshProUGUI>();
