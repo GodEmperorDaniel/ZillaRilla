@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b71bd1952d3061c48b666b4f260cfda4, type: 3}
+  m_Name: DeathStateBoss
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _bugSplatDecal: []
+  _offset: {x: 0, y: 0, z: 0}
+  _particalList:
+  - {fileID: 1413480676606057188, guid: 9ed98b47942537a45baecad57d71e014, type: 3}
+  - {fileID: 5175555771489284406, guid: 7bf6cbbbba31f7b4eb5fc5d0784a02c9, type: 3}
+  - {fileID: 4529212181973039276, guid: 7c151e20e368cf34e84984dc39365706, type: 3}
+  - {fileID: 6237193227338270164, guid: dc7df0a946cd8874aab382bfdadf0a86, type: 3}
+  - {fileID: 5570114256934607943, guid: 9d69fe763f9b7f546bf6d1ddfdadab4d, type: 3}
+  - {fileID: 3315677853662892739, guid: 75857c1fdecaea0459749a55a8b079e9, type: 3}
+  - {fileID: 5509686329130737979, guid: 16695fbc865c9e3468015840d2e4b55e, type: 3}
