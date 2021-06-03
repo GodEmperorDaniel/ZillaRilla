@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3b2c45a1ab6be43a9c1041a430c78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyAnimator: {fileID: 0}
+  _enemyAnimator: {fileID: -3609913050599336262}
   punchSettings:
     playerIndex: 0
     _attackDamage: 10

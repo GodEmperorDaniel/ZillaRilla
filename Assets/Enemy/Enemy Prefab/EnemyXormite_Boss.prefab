@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 5126738557843807941}
   - component: {fileID: 5650165112431783311}
   m_Layer: 6
-  m_Name: EnemyXormite_Boss_Test
+  m_Name: EnemyXormite_Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3b2c45a1ab6be43a9c1041a430c78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyAnimator: {fileID: 0}
+  _enemyAnimator: {fileID: 256256642456341020}
   punchSettings:
     playerIndex: 0
     _attackDamage: 10
@@ -797,7 +797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9176747591647417133}
   m_Layer: 0
-  m_Name: Xormite_Boss_Armature
+  m_Name: Xormite_Melee_Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

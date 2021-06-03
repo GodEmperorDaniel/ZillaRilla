@@ -18,8 +18,9 @@ public class ZillaAttacks : BaseAttack
 
     private List<GameObject> _listCanHitListTail = new List<GameObject>();
     private List<GameObject> _listCanHitListLazor = new List<GameObject>();
-    private Coroutine c_attackCooldown;
-    private Coroutine c_lazorGrowth;
+    [HideInInspector] public Coroutine c_tailCooldown;
+    [HideInInspector] public Coroutine c_lazorCooldown;
+    [HideInInspector] public Coroutine c_lazorGrowth;
     Ray ray;
     RaycastHit rayHit = new RaycastHit();
     bool hit = false;
@@ -33,17 +34,12 @@ public class ZillaAttacks : BaseAttack
 
     public void ZillaLazor()
     {
-        if (c_attackCooldown == null)
-        {
             _playerAnimator.SetBool("ZillaLazorAttack", true);
             lazorSettings._attackHitbox.SetActive(true);
-
             if (c_lazorGrowth == null)
             {
-                //doTheUpdateStuff = true;
                 c_lazorGrowth = StartCoroutine(LazorAttack());
             }
-        }
     }
 
     private void FixedUpdate()
@@ -60,23 +56,15 @@ public class ZillaAttacks : BaseAttack
             hit = Physics.SphereCast(ray, lazorSettings._sphereCastRadius, out rayHit, maxRayDistance, hitLayer);
             if (hit)
             {
-                //Debug.Log(hit + " " + rayHit.distance + " " + rayHit.collider.name + " " + rayHit.collider.gameObject.layer + " " + LayerMask.GetMask(hitLayers[i]));
                 break;
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(ray);
     }
 
     private IEnumerator LazorAttack()
     {
         while (_lazorInput.LazorButtonPressed)
         {
-            //yield return new WaitForFixedUpdate();
-
             Vector3 hitBoxLocalScale = lazorSettings._attackHitbox.transform.localScale;
             Vector3 hitBoxLossyScale = lazorSettings._attackHitbox.transform.lossyScale;
             Vector3 growthVector = new Vector3(0, 0, lazorSettings._lazorGrowthPerSec * Time.deltaTime);
@@ -109,7 +97,6 @@ public class ZillaAttacks : BaseAttack
             {
                 if (_listCanHitListLazor[i] != null)
                 {
-                    //_listCanHitListLazor[i].GetComponent<Attackable>().EntitiyHit(lazorSettings);
                     CallEntityHit(_listCanHitListLazor[i], lazorSettings);
                 }
             }
@@ -120,26 +107,18 @@ public class ZillaAttacks : BaseAttack
         lazorSettings._attackHitbox.SetActive(false);
         _playerAnimator.SetBool("ZillaLazorAttack", false);
         _listCanHitListLazor.Clear();
-        c_attackCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown));
+        c_lazorCooldown = StartCoroutine(AttackCooldown(lazorSettings._attackCooldown, 1));
         c_lazorGrowth = null;
     }
 
     public void ZillaTailWhip()
     {
-        if (c_attackCooldown != null) return;
-
         for (int i = 0; i < _listCanHitListTail.Count; i++)
         {
             if (_listCanHitListTail[i] == null) continue;
 
             if (_listCanHitListTail[i].layer == LayerMask.NameToLayer("Enemy"))
             { 
-                //if (tailSettings._knockbackStrength > 0)
-                //{
-                //    Vector3 normDirection =
-                //        (_listCanHitListTail[i].transform.position - transform.position).normalized;
-                //    _listCanHitListTail[i].GetComponent<KnockBack>().ApplyKnockBack(normDirection, tailSettings._knockbackStrength, tailSettings._knockbackTime);   
-                //}
                 CallEntityHit(_listCanHitListTail[i], tailSettings);
             }
             else if (_listCanHitListTail[i].layer == LayerMask.NameToLayer("Destructible"))
@@ -152,7 +131,7 @@ public class ZillaAttacks : BaseAttack
             }
         }
 
-        c_attackCooldown = StartCoroutine(AttackCooldown(tailSettings._attackCooldown));
+        c_tailCooldown = StartCoroutine(AttackCooldown(tailSettings._attackCooldown, 0));
     }
 
     private void CallEntityHit(GameObject enemy, AttackSettings settings)
@@ -220,15 +199,23 @@ public class ZillaAttacks : BaseAttack
 
     #endregion
 
-    private IEnumerator AttackCooldown(float resetTime)
+    private IEnumerator AttackCooldown(float resetTime, int attackIndex)
     {
         if (c_lazorGrowth != null)
             c_lazorGrowth = null;
         yield return new WaitForSeconds(resetTime);
-        _playerAnimator.SetBool("ZillaTail", false);
-        _playerAnimator.SetBool("ZillaLazor", false);
-        _playerAnimator.SetBool("ZillaLazorWindup", false);
-        c_attackCooldown = null;
+
+        if (attackIndex == 0)
+        {
+            _playerAnimator.SetBool("ZillaTail", false);
+            c_tailCooldown = null;
+        }
+        else
+        {
+            _playerAnimator.SetBool("ZillaLazor", false);
+            _playerAnimator.SetBool("ZillaLazorWindup", false);
+            c_lazorCooldown = null;
+        }
     }
 
     public override void RemoveFromPlayerList(GameObject enemy)

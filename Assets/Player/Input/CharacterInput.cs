@@ -9,7 +9,7 @@ namespace Player.Scrips
     using Entities.Scripts;
     using Entities.Commands;
 
-    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IJumpInput, IZillaLazorInput, IReviveInput,
+    public class CharacterInput : MonoBehaviour, IMoveInput, IRotationInput, IZillaLazorInput, IReviveInput,
         IHealInput, IPauseInput
     {
         [SerializeField] private Command _moveInput;
@@ -19,7 +19,6 @@ namespace Player.Scrips
         [Tooltip("Sometimes i lose the reference for this so i just slap it in here i guess")] [SerializeField]
         private Animator _playerAnimator;
 
-        [SerializeField] private bool _useJumpInput;
         [SerializeField] private bool _useJumpAsRevive = true;
         public Vector3 MoveDirection { get; private set; }
         public Vector3 RotationDirection { get; set; }
@@ -32,11 +31,11 @@ namespace Player.Scrips
 
 
         [SerializeField] private Character _character;
+        private RillaAttacks _rillaAttacks;
+        private ZillaAttacks _zillaAttacks;
         private bool _attack1Pressed;
         private bool _rillaLeftPunch;
         private Attackable _attackable;
-
-        public bool JumpButtonPressed { get; set; }
         public bool LazorButtonPressed { get; set; }
         public bool ReviveInputIsPressed { get; set; }
         public bool IHealPressed { get; set; }
@@ -51,6 +50,14 @@ namespace Player.Scrips
                 TryGetComponent<Animator>(out _playerAnimator);
             }
             _attackable = GetComponent<Attackable>();
+            if (_character == Character.ZILLA)
+            {
+                _zillaAttacks = GetComponent<ZillaAttacks>();
+            }
+            else
+            {
+                _rillaAttacks = GetComponent<RillaAttacks>();
+            }
         }
 
         #region Attacks
@@ -59,18 +66,14 @@ namespace Player.Scrips
         {
             if (!_attackable._playerSettings._isReviving)
             {
-                _attack1Pressed = c.ReadValueAsButton();
-                //Debug.Log(_attack1Pressed);
                 switch (_character)
                 {
                     case Character.ZILLA:
-                        if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") &&
-                            _attack1Pressed)
+                        if (_zillaAttacks.c_tailCooldown == null && !_playerAnimator.GetBool("ZillaLazorWindup") && c.started)
                             _playerAnimator.SetBool("ZillaTail", true);
                         break;
                     case Character.RILLA:
-                        if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam") &&
-                            _attack1Pressed)
+                        if (_rillaAttacks.c_punchCoolDown == null && !_playerAnimator.GetBool("RillaSlam") && c.started)
                         {
                             _rillaLeftPunch = !_rillaLeftPunch;
                             _playerAnimator.SetBool("RillaPunch", true);
@@ -98,16 +101,14 @@ namespace Player.Scrips
                 {
                     case Character.ZILLA:
                         LazorButtonPressed = value;
-                        if (!_playerAnimator.GetBool("ZillaTail") && !_playerAnimator.GetBool("ZillaLazorWindup") &&
+                        if (_zillaAttacks.c_lazorCooldown == null /*&& !_playerAnimator.GetBool("ZillaTail")*/ &&
                             LazorButtonPressed)
                         {
                             _playerAnimator.SetBool("ZillaLazorWindup", true);
-                            //_playerAnimator.SetBool("ZillaLazor", true);
                         }
-
                         break;
                     case Character.RILLA:
-                        if (!_playerAnimator.GetBool("RillaPunch") && !_playerAnimator.GetBool("RillaSlam"))
+                        if (_rillaAttacks.c_slamCoolDown == null && !_playerAnimator.GetBool("RillaPunch"))
                             _playerAnimator.SetBool("RillaSlam", true);
                         break;
                     default:
@@ -136,21 +137,10 @@ namespace Player.Scrips
             if (!_attackable._playerSettings._isReviving)
             {
                 float value = c.ReadValue<float>();
-                if (_useJumpInput)
-                {
-                    _playerAnimator.SetBool("Jump", true); //dessa två rader kan nog skapa problem
-                    JumpButtonPressed = value == 1 ? true : false;
-                    //_moveInput.Execute();
-                }
-
-                if (_useJumpAsRevive)
-                {
-                    ReviveInputIsPressed = value == 1 ? true : false;
-                }
+                ReviveInputIsPressed = value == 1 ? true : false;
             }
             else
             {
-                JumpButtonPressed = false;
                 ReviveInputIsPressed = false;
             }
         }
@@ -159,9 +149,7 @@ namespace Player.Scrips
         {
             if (!_attackable._playerSettings._isReviving)
             {
-                Debug.Log("i press heal :(( " + IHealPressed);
                 IHealPressed = c.ReadValueAsButton();
-                //PlayerManager.Instance.HealPlayer((int)_character);
             }
             else
                 IHealPressed = false;

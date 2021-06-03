@@ -14,8 +14,8 @@ public class RillaAttacks : BaseAttack
 
 	private List<GameObject> _listPunch = new List<GameObject>();
 	private List<GameObject> _listSlam = new List<GameObject>();
-	private Coroutine c_punchCoolDown;
-	private Coroutine c_slamCoolDown;
+	[HideInInspector] public Coroutine c_punchCoolDown;
+	[HideInInspector] public Coroutine c_slamCoolDown;
 	private void Awake()
 	{
 		punchSettings.playerIndex = 1;
@@ -29,12 +29,10 @@ public class RillaAttacks : BaseAttack
 	#region Attacks
 	public void RillaPunch()
 	{
-		if (c_punchCoolDown != null) return;
-		
 		for (int i = 0; i < _listPunch.Count; i++)
 		{
-			if (_listPunch[i] == null) continue; 
-			
+			if (_listPunch[i] == null) continue;
+
 			if (_listPunch[i].layer == LayerMask.NameToLayer("Enemy"))
 				CallEntityHit(_listPunch[i], punchSettings);
 			else if (_listPunch[i].layer == LayerMask.NameToLayer("Destructible"))
@@ -49,36 +47,38 @@ public class RillaAttacks : BaseAttack
 
 	public void RillaGroundSlam()
 	{
-		if (c_slamCoolDown == null)
+		Instantiate(slamSettings._slamEffect, (transform.position + (transform.forward * 10)), Quaternion.identity);
+		for (int i = 0; i < _listSlam.Count; i++)
 		{
-			for (int i = 0; i < _listSlam.Count; i++)
+			if (_listSlam[i] != null)
 			{
-				if (_listSlam[i] != null)
+				if (_listSlam[i].layer == LayerMask.NameToLayer("Enemy"))
+					CallEntityHit(_listSlam[i], slamSettings);
+				else if (_listSlam[i].layer == LayerMask.NameToLayer("Destructible"))
+					CallEntityHit(_listSlam[i], slamSettings);
+				else
 				{
-					if (_listSlam[i].layer == LayerMask.NameToLayer("Enemy"))
-						CallEntityHit(_listSlam[i], slamSettings);
-					else if (_listSlam[i].layer == LayerMask.NameToLayer("Destructible"))
-						CallEntityHit(_listSlam[i], slamSettings);
-					else
-					{
-						ApplyForceToMovable(_listSlam[i], (_listSlam[i].transform.position - transform.position).normalized * slamSettings._knockbackStrength);
-					}
+					ApplyForceToMovable(_listSlam[i], (_listSlam[i].transform.position - transform.position).normalized * slamSettings._knockbackStrength);
 				}
 			}
-			c_slamCoolDown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown, 1));
 		}
+		c_slamCoolDown = StartCoroutine(AttackCooldown(slamSettings._attackCooldown, 1));
 	}
 	private IEnumerator AttackCooldown(float resetTime, int attackIndex)
 	{
-		_playerAnimator.SetBool("RillaPunch", false);
-		_playerAnimator.SetBool("RillaSlam", false);
-		_playerAnimator.SetBool("Rilla_Left_Punch", false);
-		_playerAnimator.SetBool("Rilla_Right_Punch", false);
 		yield return new WaitForSeconds(resetTime);
 		if (attackIndex == 0)
+		{
+			_playerAnimator.SetBool("RillaPunch", false);
+			_playerAnimator.SetBool("Rilla_Left_Punch", false);
+			_playerAnimator.SetBool("Rilla_Right_Punch", false);
 			c_punchCoolDown = null;
+		}
 		else
+		{
+			_playerAnimator.SetBool("RillaSlam", false);
 			c_slamCoolDown = null;
+		}
 	}
 	#endregion
 	#region TriggerData
@@ -170,20 +170,9 @@ namespace Attacks.Rilla
 	[System.Serializable]
 	public class RillaSlamSettings : AttackSettings
 	{
+		public GameObject _slamEffect;
 		public bool _stun;
 	}
 }
-////[System.Serializable]
-//public class AttackSettings
-//{
-//	public float _attackDamage;
-//	public GameObject _attackHitbox;
-//	public float _attackCooldown;
-//	public enum SettingType
-//	{
-//		PUNCH, SLAM
-//	}
-//	public SettingType _settingType;
-//}
 
 #endregion

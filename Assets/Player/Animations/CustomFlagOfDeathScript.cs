@@ -13,10 +13,6 @@ public class CustomFlagOfDeathScript : MonoBehaviour
 
 	public void RemoveFlagOfDeath()
 	{
-		if (_flagPrefab)
-		{
-			_flagPrefab = null;
-			Destroy(_flagPrefab);
-		}
+		Destroy(_flagObject);
 	}
 }
