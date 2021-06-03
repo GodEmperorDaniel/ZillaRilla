@@ -35,6 +35,10 @@ namespace Assets.Enemy.Finite_State_Machines.States
 
             if (EnteredState)
             {
+                // Activate news prompt
+                float activationChance = UIManager.Instance.InGameUI.NewsChanceEnemy;
+                UIManager.Instance.ActivateBannerRandom("Enemy Killed", false, activationChance);
+                
                 GameObject randomDecal = _bugSplatDecal[Randomizer(0, _bugSplatDecal.Count - 1)];
                 Instantiate(randomDecal, _fsm.gameObject.transform.position + _offset, Quaternion.Euler(90, _npc.transform.rotation.y * Mathf.Rad2Deg, _npc.transform.rotation.z * Mathf.Rad2Deg));
                 foreach (ParticleSystem partical in _particalList)

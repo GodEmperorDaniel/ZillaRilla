@@ -45,7 +45,10 @@ public class DestructableBuilding : MonoBehaviour
         CreateSmokeAndRubble();
         yield return new WaitForSeconds(collapseDelay);
 
-        UIManager.Instance.ActivateBannerRandom(cNewsCategory, false);
+        // Activate news prompt
+        float activationChance = UIManager.Instance.InGameUI.NewsChanceBuilding;
+        UIManager.Instance.ActivateBannerRandom(cNewsCategory, false, activationChance);
+        
         _animation.Play("BuildingCollapse");
     }
 
