@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 [System.Serializable]
 public enum EnemyType
@@ -164,6 +165,10 @@ namespace Assets.Enemy.NPCCode
         public EnemyAttacks GetEnemyAttack
         {
             get { return _enemyAttacks; }
+        }
+
+        public Animator GetenemyAnimatior {
+            get { return _animator;  }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         }
         public override bool EnterState()
         {
+            
             _navMeshAgent.isStopped = false;
             EnteredState = base.EnterState();
 
@@ -51,6 +53,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             _npc.GetComponent<PlayOneShot>().PlaySound("Spawn");
             Instantiate(_npc.GetEnemyObject, _npc.ThisTransform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        
         }
     }
 }

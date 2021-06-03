@@ -4,9 +4,6 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 5098421366653204199
-    second: Xormite_Spawner_Armature|Armature.004Action
-  - first:
       74: 8835156858697770503
     second: Xormite_Spawner_Armature|Spawner_Idle
   - first:
@@ -58,7 +55,7 @@ ModelImporter:
       takeName: Xormite_Spawner_Armature|Spawner_Idle
       internalID: 0
       firstFrame: 17
-      lastFrame: 41
+      lastFrame: 47
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
