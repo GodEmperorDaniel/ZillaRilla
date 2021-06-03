@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UI.Main_Menu;
 using UI.Scripts;
 using UI.Scripts.Input;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,9 +24,11 @@ public class UIManager : Manager<UIManager>
     private PlayerInput _playerInput;
     private static PlayOneShot uiSounds;
 
+
+    public MainMenu MainMenu => _mainMenu;
+    public PauseMenu PauseMenu => _pauseMenu;
     public InGameUI InGameUI => _inGameUI;
-
-
+    public LoadScreen LoadScreen => _loadUI;
     public Camera DummyCamera => _dummyCamera;
 
     public UIInput UIInput
@@ -38,6 +42,7 @@ public class UIManager : Manager<UIManager>
         get => uiSounds;
         private set => uiSounds = value;
     }
+
 
     protected override void Awake()
     {
@@ -111,14 +116,17 @@ public class UIManager : Manager<UIManager>
     {
         _victoryMenu.gameObject.SetActive(true);
     }
+
     public void DisableVictoryUI()
     {
         _victoryMenu.gameObject.SetActive(false);
     }
+
     public void EnableLoseUI()
     {
         _loseMenu.gameObject.SetActive(true);
     }
+
     public void DisableLoseUI()
     {
         _loseMenu.gameObject.SetActive(false);
@@ -138,7 +146,7 @@ public class UIManager : Manager<UIManager>
     {
         _loadUI.gameObject.SetActive(true);
     }
-    
+
     public void DisableLoadUI()
     {
         _loadUI.gameObject.SetActive(false);
@@ -168,7 +176,7 @@ public class UIManager : Manager<UIManager>
                 _mainMenu.MoveArrow(navigateDirection);
                 break;
             case GameManager.GameState.CREDITS:
-                
+
                 break;
             case GameManager.GameState.LOADING:
                 break;
@@ -256,20 +264,24 @@ public class UIManager : Manager<UIManager>
     {
         _inGameUI.ActivateNewsBannerRandom(category, forced);
     }
- 
+
+    public void ActivateBannerRandom(string category, bool forced, float chance)
+    {
+        _inGameUI.ActivateNewsBannerRandom(category, forced, chance);
+    }
+
     public void ActivateBanner(string category, bool forced)
     {
         _inGameUI.ActivateNewsBanner(category, forced);
     }
-    
+
     public void ActivateBanner(string category, bool forced, int index)
     {
         _inGameUI.ActivateNewsBanner(category, forced, index);
     }
-    
+
     public void ActivateBanner(string category, bool forced, string title)
     {
         _inGameUI.ActivateNewsBanner(category, forced, title);
     }
-    
 }

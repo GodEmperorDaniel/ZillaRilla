@@ -3571,6 +3571,10 @@ PrefabInstance:
       propertyPath: _reviveCountdownText
       value: 
       objectReference: {fileID: 271725318}
+    - target: {fileID: 922999214848486517, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: bannerChancePerSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 922999214848486520, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_Name
       value: InGame UI
@@ -3898,6 +3902,10 @@ PrefabInstance:
       value: '
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747060002077385782, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: textScrollSpeed
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6789949370772227149, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_IsActive
@@ -4241,7 +4249,7 @@ PrefabInstance:
     - target: {fileID: 5788578766585671443, guid: cc844992dd87b3e43acf16cc05c08146, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 78a2af3b753b88447a19b9f59a3e3212, type: 3}
+      objectReference: {fileID: 21300000, guid: a708bfea1f45f75479fbc8e4cf3252d8, type: 3}
     - target: {fileID: 7608159386227897168, guid: cc844992dd87b3e43acf16cc05c08146, type: 3}
       propertyPath: m_Pivot.x
       value: 0

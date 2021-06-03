@@ -25,7 +25,24 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private FillableBar _bossHealth;
     [SerializeField] private FillableBar _bossShield;
 
-    #region HealthBar
+    [Range(0.0f, 100.0f)] public float bannerChancePerSecond;
+    private Coroutine randomNewsActivatorCoroutine;
+
+
+    public NewsBanner NewsBanner => _newsBanner;
+
+    private void OnEnable()
+    {
+        randomNewsActivatorCoroutine = StartCoroutine(RandomNewsActivator());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(randomNewsActivatorCoroutine);
+    }
+
+#region HealthBar
+
     public void ActivateHealthBars()
     {
         _zillaHealthBar.gameObject.SetActive(true);
@@ -58,9 +75,9 @@ public class InGameUI : MonoBehaviour
         _rillaHealthBar.ChangeFrame(newSprite);
     }
 
-    #endregion
+#endregion
 
-    #region ProgressBar
+#region ProgressBar
 
     public void DeactivateProgressBar()
     {
@@ -77,9 +94,20 @@ public class InGameUI : MonoBehaviour
         _progressBar.fillAmount = Round(progress, 2);
     }
 
-    #endregion
+#endregion
 
-    #region NewsBanner
+#region NewsBanner
+
+    private IEnumerator RandomNewsActivator()
+    {
+        print("RandomNewsActivator Coroutine started");
+        yield return new WaitWhile(() => _newsBanner.BannerIsActivated);
+        yield return new WaitWhile(() => GameManager.Instance.GameIsPaused);
+        ActivateNewsBannerRandom("News Blurb", false, bannerChancePerSecond);
+        yield return new WaitForSeconds(1.0f);
+
+        randomNewsActivatorCoroutine = StartCoroutine(RandomNewsActivator());
+    }
 
     public void ActivateNewsBanner(string category, bool forced, int index)
     {
@@ -90,7 +118,7 @@ public class InGameUI : MonoBehaviour
     {
         _newsBanner.ActivateBanner(category, forced, title);
     }
-    
+
     public void ActivateNewsBanner(string category, bool forced)
     {
         _newsBanner.ActivateBanner(category, forced);
@@ -101,18 +129,25 @@ public class InGameUI : MonoBehaviour
         _newsBanner.ActivateBannerRandom(category, forced);
     }
 
+    public void ActivateNewsBannerRandom(string category, bool forced, float chance)
+    {
+        _newsBanner.ActivateBannerRandom(category, forced, chance);
+    }
+
     public void DeactivateNewsBanner()
     {
         _newsBanner.DeactivateBanner();
     }
 
-    #endregion
+#endregion
 
-    #region Revive
+#region Revive
+
     public void ActivateReviveElements()
     {
         _reviveMeter.gameObject.SetActive(true);
     }
+
     public void DeactivateReviveElements()
     {
         _reviveMeter.gameObject.SetActive(false);
@@ -132,13 +167,15 @@ public class InGameUI : MonoBehaviour
     {
         _reviveCountdownText.SetText(timeToShow);
     }
+
     public void SetRevivePositionOnUI(Vector3 pos)
     {
         _reviveMeter.transform.position = pos;
     }
-    #endregion
 
-    #region ComboMeter
+#endregion
+
+#region ComboMeter
 
     public void SetZillaComboMeter(float percentFilled)
     {
@@ -165,6 +202,7 @@ public class InGameUI : MonoBehaviour
     {
         _bossHealth.gameObject.SetActive(true);
     }
+
     public void DeactivateBossHealthOnUI()
     {
         _bossHealth.gameObject.SetActive(false);
@@ -177,8 +215,12 @@ public class InGameUI : MonoBehaviour
     {
         _bossHealth.fillAmount = Round(progress, 2);
     }
-	#endregion
-	public void SetObjectiveOnUI(string objectiveName, string objectiveDescription) //I guess objectiveName Could be used somehow??
+
+#endregion
+
+    public void
+        SetObjectiveOnUI(string objectiveName,
+            string objectiveDescription) //I guess objectiveName Could be used somehow??
     {
         _currentObjective.SetText(objectiveDescription);
     }

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<news_banner_text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <category category="Harbour Goal">
+
+        <title title="no crossing">
+            <text>Why can't you cross? Well for plot reasons of course! You can find said plot west of here.</text>
+        </title>
+
+        <title title="hear harbour">
+            <text>Not that these two can hear me but I think you need to head to the harbour.</text>
+        </title>
+
+        <title title="harbour surge">
+            <text>This just in, a surge of aliens spotted at the harbour!</text>
+        </title>
+
+        <title title="duo needed">
+            <text>Zilla and Rilla needed at the harbour, since our military seems to be utterly incompetent.</text>
+        </title>
+
+        <title title="harbour aliens">
+            <text>Aliens at the harbour...do Zilla and Rilla even know what or where that is?</text>
+        </title>
+    </category>
+
+    <category category="Boss Goal">
+
+        <title title="big boss">
+            <text>A HUGE alien dropped in the area. Killing it is recommended.</text>
+        </title>
+
+        <title title="more boss">
+            <text>Even MORE giant creatures? Two is enough! Let's hope Zilla and Rilla can take care of it.</text>
+        </title>
+
+        <title title="powerful boss">
+            <text>Danger! A powerful alien has drop- oh who are we kidding, once Zilla and Rilla find it, it's
+                already dead.
+            </text>
+        </title>
+
+        <title title="spotted boss">
+            <text>Alien spotted northeast! Here's hoping these two have a good sense of direction!</text>
+        </title>
+
+        <title title="spawned boss">
+            <text>I should send my cats on the big guy that just spawned in the area.</text>
+        </title>
+    </category>
+
+    <category category="Victory">
+
+        <title title="saved?">
+            <text>They did it! They saved the city- no wait...</text>
+        </title>
+
+        <title title="not good">
+            <text>Great. Now everything can go back to normal!...though I doubt that's a good thing.</text>
+        </title>
+
+        <title title="debatable win">
+            <text>The city might be in shambles but at least those two took care of the aliens. Yay?</text>
+        </title>
+
+        <title title="woo">
+            <text>WOOOOOOOOOOOO!!- Ahem I mean, oh no. Now nothing stands in their path toward mass
+                destruction.
+            </text>
+        </title>
+
+        <title title="delivery">
+            <text>They did it! They stopped the invasion! Maybe now the mailman can deliver those figures to my
+                house at last.
+            </text>
+        </title>
+
+    </category>
+
+</news_banner_text>
+            
+            
