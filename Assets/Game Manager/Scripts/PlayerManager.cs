@@ -184,6 +184,8 @@ public class PlayerManager : Manager<PlayerManager>
                     c_revivalInProgress = null;
                     _reviveTarget = null;
                     revivalTarget._playerSettings._isReviving = false;
+                    if (revivalTarget == GameManager.Instance._rilla)
+                        revivalTarget.GetComponent<CustomFlagOfDeathScript>().RemoveFlagOfDeath();
                     break;
                 }
                 yield return null;
