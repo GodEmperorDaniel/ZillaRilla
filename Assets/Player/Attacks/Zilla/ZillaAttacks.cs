@@ -148,7 +148,7 @@ public class ZillaAttacks : BaseAttack
             {
                 Vector3 normalizedDirection =
                     (_listCanHitListTail[i].transform.position - transform.position).normalized;
-                ApplyForceToMovable(_listCanHitListTail[i], normalizedDirection);
+                ApplyForceToMovable(_listCanHitListTail[i], normalizedDirection * tailSettings._knockbackStrength);
             }
         }
 

@@ -662,6 +662,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 191052405, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: slamSettings._attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 191052405, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
+      propertyPath: punchSettings._attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 191052406, guid: da5bac8c8091f764a96460285d0b32df, type: 3}
       propertyPath: _gravity
       value: 200

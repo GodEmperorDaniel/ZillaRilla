@@ -13,6 +13,6 @@ public abstract class BaseAttack : MonoBehaviour
 	protected void ApplyForceToMovable(GameObject GO, Vector3 direction)
 	{
 		Rigidbody rb = GO.GetComponent<Rigidbody>();
-		rb.AddForce(direction * 10, ForceMode.Impulse);
+		rb.AddForce(direction * 100, ForceMode.Impulse);
 	}
 }
