@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<news_banner_text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <category category="Building Destruction">
+        
+        <title title="gone building">
+            <text>There goes a building, hope those guys had insurance.</text>
+        </title>
+
+        <title title="demolishing work">
+            <text>They should consider these two for demolishing work.</text>
+        </title>
+
+        <title title="millions">
+            <text>There goes millions of dollars worth of work. Shame.</text>
+        </title>
+
+        <title title="familiar">
+            <text>Is that the house of someone I knew? Good, didn't like them anyways.</text>
+        </title>
+
+        <title title="ugly">
+            <text>At least that building was ugly.</text>
+        </title>
+    </category>
+
+    <category category="Enemy Killed">
+        
+        <title title="billy">
+            <text>Oh gods they killed Billy!</text>
+        </title>
+
+        <title title="screw them">
+            <text>Screw that one in particular!</text>
+        </title>
+
+        <title title="xormite dead">
+            <text>Xormite population -1</text>
+        </title>
+
+        <title title="stress-relief">
+            <text>Researchers say killing Xormites has proven to be a great stress-relief.</text>
+        </title>
+
+        <title title="book">
+            <text>Zilla and Rilla publish their first ever book titled "How to make a specie go extinct 101."</text>
+        </title>
+    </category>
+
+    <category category="News Blurb">
+        
+        <title title="interesting">
+            <text>Make sure to put something interesting here, Steve.</text>
+        </title>
+
+        <title title="violence">
+            <text>No I am not obsessed with violence, JOE.</text>
+        </title>
+
+        <title title="anyone?">
+            <text>Does anyone actually read this?</text>
+        </title>
+
+        <title title="nutjobs">
+            <text>Something something the nutjobs were right.</text>
+        </title>
+
+        <title title="distraction">
+            <text>This is an exciting newsblurb to distract you from the terror of town. Wow!</text>
+        </title>
+        
+    </category>
+    
+</news_banner_text>
+
+        

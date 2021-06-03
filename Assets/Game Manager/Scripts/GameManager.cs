@@ -41,6 +41,7 @@ public class GameManager : Manager<GameManager>
 
     private string _currentLevelName = string.Empty;
     private GameState _currentGameState;
+    private bool _gameIsPaused = false;
 
     public Attackable _zilla;
     public Attackable _rilla;
@@ -51,9 +52,10 @@ public class GameManager : Manager<GameManager>
     public delegate void OnvictoryOrLoseEvent();
     public static OnvictoryOrLoseEvent victoryOrLoseDelegate;
 
-    #endregion
+#endregion
 
     public GameState CurrentGameState => _currentGameState;
+    public bool GameIsPaused => _gameIsPaused;
 
 
     // UNITY METHODS
@@ -239,12 +241,17 @@ public class GameManager : Manager<GameManager>
             case GameState.LOADING_COMPLETE:
                 break;
             case GameState.IN_GAME:
+                UIManager.Instance.InGameUI.NewsBanner.PauseBannerAnimation();
                 UIManager.Instance.DisableInGameUI();
                 break;
 
             case GameState.PAUSED:
                 UIManager.Instance.DisablePauseUI();
+                UIManager.Instance.EnableInGameUI();
+                
+                UIManager.Instance.InGameUI.NewsBanner.ResumeBannerAnimation();
                 Time.timeScale = 1.0f;
+                _gameIsPaused = false;
                 break;
             case GameState.VICTORY:
                 UIManager.Instance.DisableVictoryUI();
@@ -283,7 +290,6 @@ public class GameManager : Manager<GameManager>
                 break;
 
             case GameState.LOADING:
-                // Enable loading UI
                 UIManager.Instance.EnableDummyCamera();
                 break;
 
@@ -295,6 +301,7 @@ public class GameManager : Manager<GameManager>
                 break;
 
             case GameState.PAUSED:
+                _gameIsPaused = true;
                 Time.timeScale = 0.0f;
                 UIManager.Instance.EnablePauseUI();
                 EnableUIControls();

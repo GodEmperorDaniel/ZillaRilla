@@ -3289,15 +3289,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 408002996815290318, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 325.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 408002996815290318, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 700390225484154278, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 87.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 922999214848486516, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_Pivot.x
@@ -3407,13 +3407,17 @@ PrefabInstance:
       propertyPath: _reviveCountdownText
       value: 
       objectReference: {fileID: 271725318}
+    - target: {fileID: 922999214848486517, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: bannerChancePerSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 922999214848486520, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_Name
       value: InGame UI
       objectReference: {fileID: 0}
     - target: {fileID: 922999214848486520, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 922999215046610879, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_Text
@@ -3694,6 +3698,10 @@ PrefabInstance:
       value: '
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747060002077385782, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
+      propertyPath: textScrollSpeed
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6789949370772227149, guid: 6e6633356e04f8c4c8e90358adfe5f10, type: 3}
       propertyPath: m_IsActive

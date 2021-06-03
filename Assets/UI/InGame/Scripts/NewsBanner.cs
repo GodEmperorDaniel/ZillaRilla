@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,12 +9,14 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
-public delegate void ExampleDelegate(string parameter, bool aBool);
-
 public class NewsBanner : MonoBehaviour
 {
-    // FIELDS
+#region Fields
+
     private Animation _animation;
+    private string _animationCurrentlyPlaying;
+    private float _animationTimeOnPause;
+    private bool _animationPlaying;
     private bool _bannerIsActivated;
     private bool _bannerIsUp;
     private bool _textIsScrolling = false;
@@ -29,20 +28,26 @@ public class NewsBanner : MonoBehaviour
 
     public float textScrollSpeed;
     public int textLoops;
-    [Range(0.0f, 100.0f)] public float activationChance = 50.0f;
+    [Range(0.0f, 100.0f)] public float defaultActivationChance = 50.0f;
 
     [SerializeField] private string xmlFileLocationDebug;
 
-    
     private Dictionary<string, Dictionary<string, string>> _newsTextCategories;
 
+#endregion
 
-    // UNITY METHODS
+#region Getters/Setters
+
+    public bool BannerIsActivated => _bannerIsActivated;
+
+#endregion
+
+#region Unity Methods
+
     private void Start()
     {
         string xmlFileLocation = Application.streamingAssetsPath + "/XML";
         _newsTextCategories = XMLLoader.GetXMLDictionary(xmlFileLocation);
-
 
         _animation = GetComponent<Animation>();
         _textMesh = GetComponentInChildren<TextMeshProUGUI>();
@@ -56,13 +61,32 @@ public class NewsBanner : MonoBehaviour
         {
             ScrollText();
         }
+
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            Time.timeScale = 0.0f;
+
+
+            foreach (AnimationState animationState in _animation)
+            {
+                animationState.speed = 0.0f;
+                animationState.time = 0.0f;
+            }
+        }
+        else if (Keyboard.current.oKey.wasPressedThisFrame)
+        {
+            Time.timeScale = 1.0f;
+
+            foreach (AnimationState animationState in _animation)
+            {
+                animationState.speed = 1.0f;
+            }
+        }
     }
 
+#endregion
 
 #region Banner Activation
-
-    // TODO Deactivate banner when forced
-    // TODO Allow for sending activationChance through parameters
 
     // Banner Activation by index, title or just category.
     // Forced will deactivate any activated banner and prioritize the next banner.
@@ -72,13 +96,15 @@ public class NewsBanner : MonoBehaviour
         if (_bannerIsActivated && !forced) yield break;
         if (_animation.isPlaying) yield return new WaitWhile(() => _animation.isPlaying);
         if (_bannerIsUp) DeactivateBanner();
-        
+
         yield return new WaitWhile(() => _animation.isPlaying);
 
         _bannerIsActivated = true;
         Dictionary<string, string> newsContent = _newsTextCategories[category];
         StartCoroutine(InitializeText(newsContent[title]));
         _animation.Play("NewsBannerUp");
+        _animationPlaying = true;
+        _animationCurrentlyPlaying = "NewsBannerUp";
     }
 
     // Activate by category and title
@@ -104,36 +130,59 @@ public class NewsBanner : MonoBehaviour
         ActivateBanner(category, forced, index);
     }
 
+    // Activate with default chance value
+    public void ActivateBannerRandom(string category, bool forced)
+    {
+        ActivateBannerRandom(category, forced, defaultActivationChance);
+    }
+
     // Activate with a chance
-    public void ActivateBannerRandom(string category, float chance, bool forced)
+    public void ActivateBannerRandom(string category, bool forced, float chance)
     {
         // Activate if randomized number is under the chance to activate
         float random = Random.Range(0.0f, 100.0f);
         if (chance < random) return;
 
+        if (category == "News Blurb") print("News Blurb Activated!");
         int max = _newsTextCategories[category].Count;
         int index = Random.Range(0, max);
 
         ActivateBanner(category, forced, index);
     }
 
-    // Activate with default chance value
-    public void ActivateBannerRandom(string category, bool forced)
-    {
-        ActivateBannerRandom(category, activationChance, forced);
-    }
-
     public void DeactivateBanner()
     {
         _animation.Play("NewsBannerDown");
+        _animationPlaying = true;
+        _animationCurrentlyPlaying = "NewsBannerDown";
     }
-    
+
+    // Fix for banner animation on pause. Saves the animation position (time)
+    // on pause and set it again on unpause.
+    public void PauseBannerAnimation()
+    {
+        if (_animationPlaying)
+        {
+            _animationTimeOnPause = _animation[_animationCurrentlyPlaying].time;
+        }
+    }
+
+    public void ResumeBannerAnimation()
+    {
+        if (_animationPlaying)
+        {
+            _animation.Play(_animationCurrentlyPlaying);
+            _animation[_animationCurrentlyPlaying].time = _animationTimeOnPause;
+        }
+    }
+
 #endregion
 
+#region Internal Methods
 
-    // INTERNAL METHODS
     private void ActivateAnimationCompleted()
     {
+        _animationPlaying = false;
         _bannerIsUp = true;
         _textIsScrolling = true;
         Debug.Log("Banner Activated");
@@ -141,6 +190,7 @@ public class NewsBanner : MonoBehaviour
 
     private void DeactivateAnimationCompleted()
     {
+        _animationPlaying = false;
         _bannerIsUp = false;
         _bannerIsActivated = false;
         Debug.Log("Banner Deactivated");
@@ -183,7 +233,7 @@ public class NewsBanner : MonoBehaviour
             return;
         }
 
-        float newXPos = textPosition.x - textScrollSpeed;
+        float newXPos = textPosition.x - textScrollSpeed * Time.timeScale;
         textPosition.Set(newXPos, textPosition.y, textPosition.z);
         _textTransform.localPosition = textPosition;
     }
@@ -199,15 +249,5 @@ public class NewsBanner : MonoBehaviour
         _textTransform.localPosition = textPosition;
     }
 
-
-    void TestStart(ExampleDelegate activationDelegate, string s, bool b)
-    {
-        DelegateHandler(activationDelegate, s, b);
-    }
-
-    void DelegateHandler(ExampleDelegate activationDelegate, string s, bool b)
-    {
-        activationDelegate(s, b);
-    }
-    
+#endregion
 }
