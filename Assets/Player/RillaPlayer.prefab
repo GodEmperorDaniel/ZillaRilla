@@ -3031,6 +3031,7 @@ GameObject:
   - component: {fileID: 191052409}
   - component: {fileID: 934238885}
   - component: {fileID: 4442516052479609664}
+  - component: {fileID: 765308930875722485}
   m_Layer: 7
   m_Name: RillaPlayer
   m_TagString: Untagged
@@ -3425,6 +3426,19 @@ MonoBehaviour:
     _timeToRevive: 2
     _timeUntilDeath: 10
     _isReviving: 0
+--- !u!114 &765308930875722485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022312139909254734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1bc610f4e19e2428b1c371513e6dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flagPrefab: {fileID: 508346777865913793, guid: 3d191665fb004d849ac5afb8de7a09c3, type: 3}
 --- !u!1 &9043596133708684921
 GameObject:
   m_ObjectHideFlags: 0

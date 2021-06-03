@@ -85,7 +85,6 @@ public class GameManager : Manager<GameManager>
         {
             Destroy(_instancedSystemPrefabs[i]);
         }
-
         _instancedSystemPrefabs.Clear();
     }
 
@@ -134,7 +133,7 @@ public class GameManager : Manager<GameManager>
         }
         else
         {
-            Debug.LogError("Nothing To Unload");
+            //Debug.LogError("Nothing To Unload");
         }
     }
 
@@ -209,6 +208,7 @@ public class GameManager : Manager<GameManager>
     public void RestartLevel()
     {
         UnloadLevel(_currentLevelName);
+        DestroyInGameManagers();
         LoadLevel(mainLevel);
         UpdateState(GameState.IN_GAME);
     }
@@ -337,6 +337,7 @@ public class GameManager : Manager<GameManager>
                 EnableUIControls();
                 break;
             case GameState.MAIN_MENU:
+                UIManager.Instance.InGameUI.DeactivateReviveElements();
                 EnableUIControls();
                 break;
             case GameState.CREDITS:
@@ -388,15 +389,14 @@ public class GameManager : Manager<GameManager>
     {
         // TODO Check if exists first
         _instancedSystemPrefabs.Remove(GoalManager.Instance.gameObject);
-        //_instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
+        _instancedSystemPrefabs.Remove(PlayerManager.Instance.gameObject);
 
         Destroy(GoalManager.Instance.gameObject);
-        //Destroy(PlayerManager.Instance.gameObject);
+        Destroy(PlayerManager.Instance.gameObject);
     }
 
 
     // INTERNAL METHODS
-
     private void DeactivateAllUI()
     {
         UIManager.Instance.DisableDummyCamera();

@@ -41,7 +41,7 @@ public class RillaAttacks : BaseAttack
 				CallEntityHit(_listPunch[i], punchSettings);
 			else
 			{
-				ApplyForceToMovable(_listPunch[i], (_listPunch[i].transform.position - transform.position).normalized);
+				ApplyForceToMovable(_listPunch[i], (_listPunch[i].transform.position - transform.position).normalized * punchSettings._knockbackStrength);
 			}
 		}
 		c_punchCoolDown = StartCoroutine(AttackCooldown(punchSettings._attackCooldown, 0));
@@ -61,7 +61,7 @@ public class RillaAttacks : BaseAttack
 						CallEntityHit(_listSlam[i], slamSettings);
 					else
 					{
-						ApplyForceToMovable(_listSlam[i], (_listSlam[i].transform.position - transform.position).normalized);
+						ApplyForceToMovable(_listSlam[i], (_listSlam[i].transform.position - transform.position).normalized * slamSettings._knockbackStrength);
 					}
 				}
 			}
@@ -139,6 +139,11 @@ public class RillaAttacks : BaseAttack
 	{
 		//AddToComboMeter(1);
 		enemy.GetComponent<Attackable>().EntitiyHit(settings);
+	}
+
+	public void ResetSlamAnim()
+	{
+		_playerAnimator.SetBool("RillaSlam", false);
 	}
 
 	public override void RemoveFromPlayerList(GameObject enemy) //this can be removed and all its referenses!!
