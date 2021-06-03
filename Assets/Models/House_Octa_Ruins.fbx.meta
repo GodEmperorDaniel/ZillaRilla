@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2ce900c0b82c5b6489c4c01741f4feeb
+guid: 796360c4f2c69414091509c9d147d55c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 9ed9d2b9f3f76a64abb88e73aec2ed74, type: 2}
+      name: mat_Debris
+    second: {fileID: 2100000, guid: 084be1d1b7b2e4b48999695131831623, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_TEST
+    second: {fileID: 2100000, guid: 4924d3bf76d4d82418cd9c6a2db27e7c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
