@@ -146,6 +146,7 @@ public class GameManager : Manager<GameManager>
             {
                 OnLevelLoaded(_currentGameState);
                 UIManager.Instance.DisableLoadUI();
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(cBoot));
             }
 
             // Dispatch message

@@ -7,7 +7,7 @@ public class KillBoxScript : MonoBehaviour
     [SerializeField] private Vector3 _respawnOffset;
     private bool _fixZillaPos;
     private bool _fixRillaPos;
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
@@ -22,7 +22,6 @@ public class KillBoxScript : MonoBehaviour
         }
         else
         {
-            Debug.Log(other.name + " destroyed by killbox");    
             Destroy(other.gameObject);
         }
     }

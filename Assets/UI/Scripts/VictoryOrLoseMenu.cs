@@ -51,11 +51,6 @@ namespace UI.Scripts
             }
         }
 
-        //public void Cancel()
-        //{
-        //    Restart();
-        //}
-
         private void SetArrowState(ArrowState state)
         {
             _arrowState = state;

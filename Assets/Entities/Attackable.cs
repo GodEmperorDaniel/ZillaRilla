@@ -55,6 +55,7 @@ public class Attackable : MonoBehaviour
 		{
 			if (_currentHealth <= 0 && !_playerSettings._isReviving) //changed this to <= from ==, hope it still works
 			{
+				_animator.SetBool("Dead", true);
 				_playerSettings._isReviving = true;
 				PlayerManager.Instance.PlayerNeedsReviving(this);
 				if (player.GetCharacter() == Player.Scrips.CharacterInput.Character.ZILLA)
@@ -239,10 +240,15 @@ public class Attackable : MonoBehaviour
 	{
 		if (healthResetPercent == 0)
 		{
-			Debug.LogWarning("Because parameter was left at 0 health is reset to 100%");
 			healthResetPercent = 1;
 		}
-		//Debug.Log("reseting health");
+		CustomFlagOfDeathScript flagOfDeathScript;
+		_animator.SetBool("Dead", false);
+		if (TryGetComponent<CustomFlagOfDeathScript>(out flagOfDeathScript))
+		{
+			Debug.Log("Im In");
+			flagOfDeathScript.RemoveFlagOfDeath();
+		}
 		_currentHealth = healthResetPercent * _maxHealth;
 	}
 	#endregion
@@ -260,7 +266,8 @@ public class Attackable : MonoBehaviour
 
 	private void FixBossHealth()
 	{
-		UIManager.Instance.InGameUI.SetHealthOnBossHealthBar((_currentShieldHealth + _currentHealth) / (_maxHealth + _maxShieldHealth));
+		UIManager.Instance.InGameUI.SetHealthOnBossShieldBar(_currentShieldHealth / _maxShieldHealth);
+		UIManager.Instance.InGameUI.SetHealthOnBossHealthBar(_currentHealth / _maxHealth );
 	}
 	private void OnDestroy()
 	{
