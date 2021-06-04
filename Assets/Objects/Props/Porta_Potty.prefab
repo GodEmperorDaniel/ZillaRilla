@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 775008527707126491}
   - component: {fileID: 938428903154633557}
   - component: {fileID: 4486568261753426307}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Porta_Potty
   m_TagString: Untagged
   m_Icon: {fileID: 0}

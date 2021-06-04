@@ -144,6 +144,7 @@ MonoBehaviour:
     - Enemy
     - House
     - Destructible
+    - Terrain
     _sphereCastRadius: 5
 --- !u!114 &1205055680
 MonoBehaviour:
@@ -395,7 +396,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 1205055680}
   _playerAnimator: {fileID: 1205055677}
-  _useJumpInput: 0
   _useJumpAsRevive: 1
   _character: 0
 --- !u!143 &1205055678
