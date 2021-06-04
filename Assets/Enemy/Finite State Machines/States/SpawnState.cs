@@ -36,6 +36,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (EnteredState)
             {
+                
                 SpawnEnemy();
                 _fsm.EnterState(FSMStateType.IDLE);
             }

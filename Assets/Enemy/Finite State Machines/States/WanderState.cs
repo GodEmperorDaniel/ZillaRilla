@@ -83,13 +83,15 @@ namespace Assets.Enemy.Finite_State_Machines.States
         {
             if (RandomWanderTarget(myTransform.position, wanderRange, out wanderTarget))
             {
-                if (myNavMeshAgent.isActiveAndEnabled)
-                    myNavMeshAgent.SetDestination(wanderTarget);
                 if (_npc.enemyType == EnemyType.SPAWNER && _spawnedEnemies != _nrEnemiesToSpawn)
-                { 
+                {
+                    _npc.GetenemyAnimatior.SetTrigger("Spawning");
                     _fsm.EnterState(FSMStateType.SPAWNING);
                     _spawnedEnemies++;
                 }
+                if (myNavMeshAgent.isActiveAndEnabled)
+                    myNavMeshAgent.SetDestination(wanderTarget);
+                
             }
         }
         private bool RandomWanderTarget(Vector3 center, float range, out Vector3 result)
