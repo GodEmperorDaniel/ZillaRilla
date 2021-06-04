@@ -243,7 +243,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -354,7 +355,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -500,6 +502,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-7679020970569484855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637584026000000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2372
+  Exists: 1
 --- !u!114 &-7654718843746387099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,7 +653,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -784,7 +808,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Spawner SFX/Alien Spawner Death
   guid: d006786fcf60264a9f00393e73836cac
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -809,7 +834,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -998,7 +1024,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 2372
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5921419896496471885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,7 +1130,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Ranged SFX/Alien Ranged Death
   guid: 2163845d501607498903ec34c0b56ebd
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1127,7 +1154,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Melee SFX/Alien Melee Death
   guid: 81f2f6a1ef038a4eb4a06278e75fe876
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1600,7 +1628,8 @@ MonoBehaviour:
   Path: event:/Ljud/Rilla SFX/RillaRoar
   guid: accc7a6cb9fc2e4e8912549390291bb5
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1881,6 +1910,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &-3231503610625938079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637584026000000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3055020135895969159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1986,7 +2034,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Ranged SFX/Alien Ranged Walk
   guid: 20315b16d9d2ea4f922b68d692357eed
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2011,7 +2060,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -2034,7 +2084,8 @@ MonoBehaviour:
   Path: event:/Musik/MenyMusik
   guid: 181fb6ea06663a439d12778386c749c9
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2126,7 +2177,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Ranged SFX/Alien Ranged Attack
   guid: b1daacc021585846abc7d77b570d6d26
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2423,7 +2475,7 @@ MonoBehaviour:
   lastModified: 637582765377966832
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1253392807467138832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2642,7 +2694,8 @@ MonoBehaviour:
   Path: event:/Ljud/Impact SFX/Impact 2
   guid: 9a105bb6e0f0ab46b7ee8d244030d51f
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2761,6 +2814,26 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-273306564869046852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-76057424835144940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,7 +2849,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Spawner SFX/Alien Spawner
   guid: 238e99ffa5e3a9438a2d2fe7f68483cb
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2843,8 +2917,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -5947263266379197150}
-  - {fileID: -1303975029550620745}
+  - {fileID: 6293585422188384887}
+  - {fileID: -3231503610625938079}
   EditorEvents:
   - {fileID: 4064949564869738014}
   - {fileID: 5626644033845651158}
@@ -2880,10 +2954,10 @@ MonoBehaviour:
   - {fileID: 6596659365389831316}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -1303975029550620745}
+  - {fileID: -3231503610625938079}
   StringsBanks:
-  - {fileID: -5947263266379197150}
-  stringsBankWriteTime: 637582765377996990
+  - {fileID: 6293585422188384887}
+  stringsBankWriteTime: 637584026000000000
   cacheVersion: 6
 --- !u!114 &45144812845301944
 MonoBehaviour:
@@ -3109,7 +3183,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3265,7 +3340,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3374,7 +3450,8 @@ MonoBehaviour:
   Path: event:/Ljud/Enviroment SFX/Car Alarm
   guid: 0f33f2c1b602ea4ea75af8dc871ac889
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3710,7 +3787,8 @@ MonoBehaviour:
   Path: event:/Ljud/Impact SFX/Impact 3
   guid: cca99ad72e36194d9306c173e5bd1af5
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3756,7 +3834,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Melee SFX/Alien Melee Attack
   guid: 52defbc7ed1a104fb52a978dec917539
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3810,6 +3889,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &3567088223504912475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637584026000000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &3573144072638345461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4000,12 +4098,13 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 5175089277731000885}
+  - {fileID: -273306564869046852}
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
@@ -4320,7 +4419,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4362,7 +4462,8 @@ MonoBehaviour:
   Path: event:/Ljud/Enviroment SFX/Building Collapsing
   guid: 902bf95a2771674dae291e07e8bfc7fc
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4657,7 +4758,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4816744460971202453}
   - {fileID: 6862586790176575336}
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4680,7 +4782,8 @@ MonoBehaviour:
   Path: event:/Ljud/Menu SFX/ButtonMouseOverMenu
   guid: 9ab35183ee1b7e44b2c30dbb413cbea5
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4979,6 +5082,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &6293585422188384887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637584026000000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2372
+  Exists: 1
 --- !u!114 &6305632438694730000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5083,7 +5207,8 @@ MonoBehaviour:
   Path: event:/Musik/cutscene_main_theme_edit_klar_1
   guid: 008f292990f3d541a96e6cb3f9f3393e
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5106,7 +5231,8 @@ MonoBehaviour:
   Path: event:/Ljud/Menu SFX/ButtonPushMenu
   guid: ef733f1dac568244a9f9fff2adcea544
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5129,7 +5255,8 @@ MonoBehaviour:
   Path: "event:/Musik/sp2_f\xF6rlorar_stinger_klar_2"
   guid: c4fece83d4e8254da0984ed706152477
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5192,7 +5319,8 @@ MonoBehaviour:
   Path: event:/Ljud/Impact SFX/Impact 1
   guid: dabf2695896966418b8f54b48f652590
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5215,7 +5343,8 @@ MonoBehaviour:
   Path: event:/Ljud/Rilla SFX/RillaGroundSmashJump
   guid: 887c0a9aaeb1e84ab8a541a6d1067d1c
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5283,7 +5412,8 @@ MonoBehaviour:
   Path: event:/Ljud/Alien Melee SFX/Alien Melee Walk
   guid: e97c96ebf8cc6f46a781111baf068eb5
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5360,6 +5490,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &7413442279605391790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &7444764794753182716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5375,7 +5525,8 @@ MonoBehaviour:
   Path: event:/Ljud/Impact SFX/Impact 4
   guid: de94572b71d55649a06258b187e717d8
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5669,7 +5820,8 @@ MonoBehaviour:
   Path: event:/Musik/sp2_win_stinger_4
   guid: 2280951b3e47f740911d15c747bf954b
   Banks:
-  - {fileID: -1303975029550620745}
+  - {fileID: 3567088223504912475}
+  - {fileID: -3231503610625938079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
