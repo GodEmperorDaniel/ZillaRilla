@@ -1572,7 +1572,7 @@ MonoBehaviour:
   _enemyAnimator: {fileID: -3609913050599336262}
   punchSettings:
     playerIndex: 0
-    _attackDamage: 10
+    _attackDamage: 25
     _damageMultiplier: 1
     _attackHitbox: {fileID: 6613114052974211131}
     _attackCooldown: 0.2
