@@ -4483,11 +4483,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2837518982625172486, guid: ee0d6f8ba361da04ca794f24ff341ad5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0024332858
+      value: -0.0024332872
       objectReference: {fileID: 0}
     - target: {fileID: 2837518982625172486, guid: ee0d6f8ba361da04ca794f24ff341ad5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0012364683
+      value: 0.001236469
       objectReference: {fileID: 0}
     - target: {fileID: 2837518982977485640, guid: ee0d6f8ba361da04ca794f24ff341ad5, type: 3}
       propertyPath: m_Targets.Array.data[0].target
@@ -4633,6 +4633,14 @@ PrefabInstance:
       propertyPath: field of view
       value: 44.236706
       objectReference: {fileID: 0}
+    - target: {fileID: 1619981671038474500, guid: b915d2bf7740073489fb586205cf6cf0, type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619981671038474500, guid: b915d2bf7740073489fb586205cf6cf0, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1619981671038474503, guid: b915d2bf7740073489fb586205cf6cf0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4659,11 +4667,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1619981671038474503, guid: b915d2bf7740073489fb586205cf6cf0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0024332858
+      value: -0.0024332872
       objectReference: {fileID: 0}
     - target: {fileID: 1619981671038474503, guid: b915d2bf7740073489fb586205cf6cf0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0012364683
+      value: 0.001236469
       objectReference: {fileID: 0}
     - target: {fileID: 1619981671038474503, guid: b915d2bf7740073489fb586205cf6cf0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

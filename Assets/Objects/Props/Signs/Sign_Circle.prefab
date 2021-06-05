@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6082944282745204179}
-  - component: {fileID: 7920727429698230734}
+  - component: {fileID: 1609520073625322375}
   m_Layer: 0
   m_Name: Sign_Circle
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &7920727429698230734
+--- !u!54 &1609520073625322375
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 7438239003337366021}
   - component: {fileID: 8402693217839023890}
   - component: {fileID: 9045230291323621761}
-  - component: {fileID: 3395452046350703299}
+  - component: {fileID: 8400977350125359634}
   m_Layer: 9
   m_Name: Pole
   m_TagString: Untagged
@@ -163,17 +163,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!138 &3395452046350703299
+--- !u!138 &8400977350125359634
 FixedJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3035143952995447869}
-  m_ConnectedBody: {fileID: 7920727429698230734}
+  m_ConnectedBody: {fileID: 1609520073625322375}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: 2000
-  m_BreakTorque: 2000
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1

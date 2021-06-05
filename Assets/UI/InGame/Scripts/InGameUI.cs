@@ -5,13 +5,18 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class InGameUI : MonoBehaviour
 {
     //TODO: Button Prompts (Tutorial and such)
 
     [SerializeField] private FillableBar _zillaHealthBar;
+    [SerializeField] private Image _zillaHealPrompt;
     [SerializeField] private FillableBar _rillaHealthBar;
+    [SerializeField] private Image _rillaHealPrompt;
+    [SerializeField] private Sprite _ySprite;
+    [SerializeField] private Sprite _triSprite;
     [SerializeField] private FillableBar _progressBar;
     [SerializeField] private FillableBar _reviveMeter;
     [SerializeField] private TextMeshProUGUI _reviveCountdownText;
@@ -63,11 +68,13 @@ public class InGameUI : MonoBehaviour
     public void SetZillaHealthOnUI(float health)
     {
         _zillaHealthBar.fillAmount = health;
+        TestToSetZillaHealPrompt(health);
     }
 
     public void SetRillaHealthOnUI(float health)
     {
         _rillaHealthBar.fillAmount = health;
+        TestToSetRillaHealPrompt(health);
     }
 
     public void ChangeZillaFrame(Sprite newSprite)
@@ -78,6 +85,54 @@ public class InGameUI : MonoBehaviour
     public void ChangeRillaFrame(Sprite newSprite)
     {
         _rillaHealthBar.ChangeFrame(newSprite);
+    }
+
+    private void TestToSetZillaHealPrompt(float health)
+    {
+        if (health <= 0.5f && PlayerManager.Instance._zillaActualMeterPercent > 0)
+        {
+            PlayerInput input = GameManager.Instance._zilla.GetComponent<PlayerInput>();
+            for (int i = 0; i < input.devices.Count; i++)
+            {
+                if (input.devices[i].device.ToString() == "XInputControllerWindows:/XInputControllerWindows")
+                {
+                    _zillaHealPrompt.sprite = _ySprite;
+                }
+                else
+                {
+                    _zillaHealPrompt.sprite = _triSprite;
+                }
+            }
+            _zillaHealPrompt.gameObject.SetActive(true);
+        }
+        else
+        {
+            _zillaHealPrompt.gameObject.SetActive(false);
+        }
+    }
+
+    private void TestToSetRillaHealPrompt(float health)
+    {
+        if (health <= 0.5f && PlayerManager.Instance._rillaActualMeterPercent > 0)
+        {
+            PlayerInput input = GameManager.Instance._rilla.GetComponent<PlayerInput>();
+            for (int i = 0; i < input.devices.Count; i++)
+            {
+                if (input.devices[i].device.ToString() == "XInputControllerWindows:/XInputControllerWindows")
+                {
+                    _rillaHealPrompt.sprite = _ySprite;
+                }
+                else
+                {
+                    _rillaHealPrompt.sprite = _triSprite;
+                }
+            }
+            _rillaHealPrompt.gameObject.SetActive(true);
+        }
+        else
+        {
+            _rillaHealPrompt.gameObject.SetActive(false);
+        }
     }
 
 #endregion
@@ -201,8 +256,8 @@ public class InGameUI : MonoBehaviour
     {
         _rillaComboText.SetText(combo);
     }
-    #endregion
-    #region BossHealthShield
+#endregion
+#region BossHealthShield
     public void ActivateBossHealthOnUI()
     {
         _bossHealth.gameObject.SetActive(true);

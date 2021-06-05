@@ -146,6 +146,7 @@ MonoBehaviour:
     - Destructible
     - Terrain
     _sphereCastRadius: 5
+  _lazorHitEffect: {fileID: 7729529639375771904, guid: 0bff46acf5a1f4f4bad23c3627988102, type: 3}
 --- !u!114 &1205055680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +378,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ebeb99c8-d1e9-4e78-a43b-430f1140f40c
     m_ActionName: UI/Accept[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77b10c03-04ec-48d8-92af-9d6e7c3c2e34
+    m_ActionName: UI/SkipCredits[/DualShock4GamepadHID/start,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player

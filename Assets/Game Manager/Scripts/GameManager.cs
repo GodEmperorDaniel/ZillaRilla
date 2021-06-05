@@ -131,10 +131,6 @@ public class GameManager : Manager<GameManager>
 
             ao.completed += OnUnloadOperationComplete;
         }
-        else
-        {
-            //Debug.LogError("Nothing To Unload");
-        }
     }
 
     private void OnLoadOperationComplete(AsyncOperation asyncOperation)
@@ -146,21 +142,23 @@ public class GameManager : Manager<GameManager>
             if (_loadOperations.Count == 0)
             {
                 OnLevelLoaded(_currentGameState);
-                UIManager.Instance.DisableLoadUI();
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(cBoot));
             }
-
             // Dispatch message
             // Transition between scenes
         }
-
-        Debug.Log("Load Complete.");
         EnableAllControls();
     }
 
     private void OnUnloadOperationComplete(AsyncOperation asyncOperation)
     {
-        Debug.Log("Unload Complete.");
+        if (_currentGameState == GameState.IN_GAME)
+        {
+            Time.timeScale = 0;
+            EnableUIControls();
+            UIManager.Instance.DisableLoadUI();
+            UIManager.Instance.EnableControllerScreen();
+        }
     }
 
 #endregion
@@ -300,7 +298,6 @@ public class GameManager : Manager<GameManager>
                 UIManager.Instance.EnableInGameUI();
                 EnableInGameControls();
                 break;
-
             case GameState.PAUSED:
                 _gameIsPaused = true;
                 Time.timeScale = 0.0f;
@@ -332,20 +329,25 @@ public class GameManager : Manager<GameManager>
         switch (state)
         {
             case GameState.BOOT:
+                UIManager.Instance.DisableLoadUI();
                 break;
             case GameState.CUTSCENE:
+                UIManager.Instance.DisableLoadUI();
                 EnableUIControls();
                 break;
             case GameState.MAIN_MENU:
+                UIManager.Instance.DisableLoadUI();
                 UIManager.Instance.InGameUI.DeactivateReviveElements();
                 EnableUIControls();
                 break;
             case GameState.CREDITS:
+                UIManager.Instance.DisableLoadUI();
                 EnableUIControls();
                 break;
             case GameState.LOADING:
                 break;
             case GameState.IN_GAME:
+                //UIManager.Instance.DisableLoadUI();
                 UIManager.Instance.DisableDummyCamera();
                 FindPlayerCharacters();
                 InitializeGoalManager();
@@ -473,7 +475,7 @@ public class GameManager : Manager<GameManager>
         }
     }
 
-    private void EnableInGameControls()
+    public void EnableInGameControls()
     {
         if (_zilla != null || _rilla != null)
         {
