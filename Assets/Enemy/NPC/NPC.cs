@@ -56,7 +56,8 @@ namespace Assets.Enemy.NPCCode
         public void Update()
         {
             SetPlayerReferences();
-            if (Vector3.Distance(_navMeshAgent.destination, transform.position) < 1)
+            float velocity = _navMeshAgent.velocity.magnitude;
+            if (velocity <= 0.5f)
             {
                 _animator.SetFloat("Movement", 0);
             }

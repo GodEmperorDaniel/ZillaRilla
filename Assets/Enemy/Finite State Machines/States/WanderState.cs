@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         private NavMeshAgent myNavMeshAgent;
         private float checkRate;
         private float nextCheck;
+        private Coroutine c_wanderDelay;
 
         public override void OnEnable()
         {
@@ -81,7 +83,7 @@ namespace Assets.Enemy.Finite_State_Machines.States
         }
         private void CheckIfIShouldWander()
         {
-            if (RandomWanderTarget(myTransform.position, wanderRange, out wanderTarget))
+            if (c_wanderDelay == null && RandomWanderTarget(myTransform.position, wanderRange, out wanderTarget))
             {
                 if (_npc.enemyType == EnemyType.SPAWNER && _spawnedEnemies != _nrEnemiesToSpawn)
                 {
@@ -89,10 +91,15 @@ namespace Assets.Enemy.Finite_State_Machines.States
                     _fsm.EnterState(FSMStateType.SPAWNING);
                     _spawnedEnemies++;
                 }
-                if (myNavMeshAgent.isActiveAndEnabled)
-                    myNavMeshAgent.SetDestination(wanderTarget);
-                
+                c_wanderDelay =  _npc.StartCoroutine(DelayWander());
             }
+        }
+        private IEnumerator DelayWander()
+        {
+            yield return new WaitForSeconds(1.2f);
+            if (myNavMeshAgent.isActiveAndEnabled)
+                myNavMeshAgent.SetDestination(wanderTarget);
+            c_wanderDelay = null;
         }
         private bool RandomWanderTarget(Vector3 center, float range, out Vector3 result)
         {
