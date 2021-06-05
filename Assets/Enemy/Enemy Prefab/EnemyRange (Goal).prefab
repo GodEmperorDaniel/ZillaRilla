@@ -765,7 +765,7 @@ MonoBehaviour:
     playerIndex: 0
     _attackDamage: 10
     _damageMultiplier: 1
-    _attackHitbox: {fileID: 6933971389366429885, guid: 255d5ae0102663a4b925a01ced206b62, type: 3}
+    _attackHitbox: {fileID: 219892227518031592, guid: 1772a18352410f841b860143a57da078, type: 3}
     _attackCooldown: 1
     _settingType: 4
     _knockbackStrength: 0
