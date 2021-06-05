@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 2166783594609244649}
   - component: {fileID: 5193420265388910466}
   - component: {fileID: 2997561706580644790}
-  - component: {fileID: 2109761171}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rock_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2260635591554053319
 Transform:
@@ -95,19 +94,5 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7323676633524719268, guid: 175846c177d43054a800a9b7cd5094f9, type: 3}
---- !u!64 &2109761171
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964651258962596915}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7323676633524719268, guid: 175846c177d43054a800a9b7cd5094f9, type: 3}

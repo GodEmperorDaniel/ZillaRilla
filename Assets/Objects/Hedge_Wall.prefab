@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 5017003151944568650}
   - component: {fileID: 5024022724187795771}
   - component: {fileID: 8852716625701618498}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hedge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5017003151944568650
 Transform:
@@ -92,12 +92,12 @@ GameObject:
   - component: {fileID: 3063163977586105531}
   - component: {fileID: 6987824595488631059}
   - component: {fileID: 3077535939949173850}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hedge_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3063163977586105531
 Transform:

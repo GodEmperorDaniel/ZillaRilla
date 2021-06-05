@@ -341,11 +341,11 @@ GameObject:
   - component: {fileID: 1361025445678545121}
   - component: {fileID: 1361025445678545133}
   m_Layer: 0
-  m_Name: Crane
+  m_Name: Crane_Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1543023917307435843
 Transform:
