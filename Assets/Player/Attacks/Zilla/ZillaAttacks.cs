@@ -14,6 +14,8 @@ public class ZillaAttacks : BaseAttack
 
     [SerializeField] public ZillaLazorSettings lazorSettings;
 
+    [SerializeField] private GameObject _lazorHitEffect;
+
     private IZillaLazorInput _lazorInput;
 
     private List<GameObject> _listCanHitListTail = new List<GameObject>();
@@ -82,11 +84,13 @@ public class ZillaAttacks : BaseAttack
             }
             else if (hit && adjustedHitDistance > nextFrameDistance)
             {
+                Instantiate(_lazorHitEffect, rayHit.point, Quaternion.identity);
                 lazorSettings._attackHitbox.transform.localScale += growthVector;
                 yield return null;
             }
             else if (hit && adjustedHitDistance < nextFrameDistance)
             {
+                Instantiate(_lazorHitEffect, rayHit.point, Quaternion.identity);
                 float lazorSettingsSphereCastRadius = (rayHit.distance + lazorSettings._sphereCastRadius - hitBoxOffset
                     * transform.localScale.z) / transform.lossyScale.z;
                 lazorSettings._attackHitbox.transform.localScale = new Vector3(1, 1, lazorSettingsSphereCastRadius);

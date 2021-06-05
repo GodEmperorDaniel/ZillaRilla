@@ -29,13 +29,13 @@ public class PlayerManager : Manager<PlayerManager>
     [SerializeField] private Sprite _zillaRageFrame;
     [SerializeField] private Sprite _zillaOriginalFrame;
     private int _zillaCurrentComboCount = 0;
-    private float _zillaActualMeterPercent;
+    [HideInInspector] public float _zillaActualMeterPercent;
 
     private float _rillaMeterCounter = 0;
     [SerializeField] private Sprite _rillaRageFrame;
     [SerializeField] private Sprite _rillaOriginalFrame;
     private int _rillaCurrentComboCount = 0;
-    private float _rillaActualMeterPercent;
+    [HideInInspector] public float _rillaActualMeterPercent;
 
     private Coroutine c_zillaComboTimer;
     private Coroutine c_rillaComboTimer;

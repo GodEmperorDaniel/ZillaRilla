@@ -47,7 +47,7 @@ public class RillaAttacks : BaseAttack
 
 	public void RillaGroundSlam()
 	{
-		Instantiate(slamSettings._slamEffect, (transform.position + (transform.forward * 10)), Quaternion.Euler(-90f,0,0)) ;
+		Instantiate(slamSettings._slamEffect, (transform.position + (transform.forward * 10) + (Vector3.up * 0.3f)), Quaternion.Euler(-90f,0,0)) ;
 		for (int i = 0; i < _listSlam.Count; i++)
 		{
 			if (_listSlam[i] != null)

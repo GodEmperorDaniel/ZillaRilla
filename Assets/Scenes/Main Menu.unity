@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Musik/cutscene_main_theme_edit_klar_1
+  Event: event:/Musik/MenyMusik
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1
@@ -161,8 +161,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!4 &1865605693
 Transform:
   m_ObjectHideFlags: 0

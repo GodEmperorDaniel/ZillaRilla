@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 7358598565442303235}
   - component: {fileID: 5241361295333407304}
   - component: {fileID: 1344440920679587231}
-  - component: {fileID: 5365019942419694666}
+  - component: {fileID: 5422904174637007457}
   m_Layer: 9
   m_Name: Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2355108799663478165
 Transform:
@@ -114,17 +114,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!138 &5365019942419694666
+--- !u!138 &5422904174637007457
 FixedJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3469981343433453398}
-  m_ConnectedBody: {fileID: 144491717750873476}
+  m_ConnectedBody: {fileID: 1476527174110826442}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: 2000
-  m_BreakTorque: 2000
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -148,7 +148,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7113329130781615456
 Transform:
@@ -267,13 +267,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4455480832282190589}
-  - component: {fileID: 144491717750873476}
+  - component: {fileID: 1476527174110826442}
   m_Layer: 0
   m_Name: Sign_TriDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4455480832282190589
 Transform:
@@ -291,7 +291,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &144491717750873476
+--- !u!54 &1476527174110826442
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
