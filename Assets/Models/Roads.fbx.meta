@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
+      name: mat_Road
     second: {fileID: 2100000, guid: 3791f7232936b08408958756c4426f50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_Road_Double
+    second: {fileID: 2100000, guid: 73173b8c0f91fa24f9d4c60495fed9f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_Road_Single
+    second: {fileID: 2100000, guid: 351a48155b282dc4390175676f511b2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_Road_Stitches
+    second: {fileID: 2100000, guid: 4d8f6e8471c09a84b9ada9aedf59e7c7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -392,7 +392,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 10
+  m_Speed: 30
   m_Acceleration: 999
   avoidancePriority: 50
   m_AngularSpeed: 999
@@ -470,7 +470,7 @@ MonoBehaviour:
     _attackDamage: 10
     _damageMultiplier: 1
     _attackHitbox: {fileID: 0}
-    _attackCooldown: 0.2
+    _attackCooldown: 1
     _settingType: 0
     _knockbackStrength: 0
     _knockbackTime: 0
@@ -498,12 +498,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _maxShieldHealth: 50
-  _currentHealth: 20
-  _currentShieldHealth: 0
-  regenerationSpeed: 0.1
-  regenHealthAmount: 1
+  _maxHealth: 1000
+  _maxShieldHealth: 1000
+  _currentHealth: 1000
+  _currentShieldHealth: 1000
+  regenerationSpeed: 2
+  regenHealthAmount: 100
   _animator: {fileID: 0}
   _iFrames: 0.3
   _playerSettings:
@@ -549,8 +549,8 @@ MonoBehaviour:
   - {fileID: 0}
   _rotationSpeed: 5
   _stunTime: 4
-  lookRadius: 70
-  attackRadius: 30
+  lookRadius: 150
+  attackRadius: 20
   deSpawnTime: 0.1
   _isKnockedBack: 0
   _animator: {fileID: 0}
@@ -612,8 +612,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562726025624874141}
   m_LocalRotation: {x: -0.73010254, y: 0, z: 0, w: 0.6833376}
-  m_LocalPosition: {x: 0, y: 1.34, z: 3.92}
-  m_LocalScale: {x: 1.65, y: 1.12, z: 1.64}
+  m_LocalPosition: {x: 0.000000059605, y: 1.31, z: 2.71}
+  m_LocalScale: {x: 1.056, y: 0.760189, z: 1.0496}
   m_Children: []
   m_Father: {fileID: 1562726024856513426}
   m_RootOrder: 0
