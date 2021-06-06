@@ -46,6 +46,9 @@ public class GoalManager : Manager<GoalManager>
 
     private void InitializeGoal()
     {
+        PlayOneShot _sound;
+        if (TryGetComponent(out _sound) && _currentGoalIndex > 0)
+            _sound.PlaySound("New");
         _goals[_currentGoalIndex].gameObject.SetActive(true);
         string goalName = _goals[_currentGoalIndex].GoalName;
         string goalDescription = _goals[_currentGoalIndex].GoalDescription;
@@ -65,6 +68,7 @@ public class GoalManager : Manager<GoalManager>
         else
         {
             AllGoalsCompleted();
+            gameObject.SetActive(false);
         }
     }
 

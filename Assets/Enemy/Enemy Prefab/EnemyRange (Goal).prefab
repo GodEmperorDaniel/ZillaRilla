@@ -871,7 +871,7 @@ MonoBehaviour:
   - _name: Walk
     _fileLocation: event:/Ljud/Alien Ranged SFX/Alien Ranged Walk
   - _name: Death
-    _fileLocation: event:/Ljud/Alien Ranged SFX/Alien Ranged Death
+    _fileLocation: event:/Ljud/Alien Melee SFX/Alien Melee Death
 --- !u!199 &-4144384034234817962
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -148,13 +148,13 @@ MonoBehaviour:
   guid: e97c96ebf8cc6f46a781111baf068eb5
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 190
 --- !u!114 &-8937389099430733600
 MonoBehaviour:
@@ -240,13 +240,13 @@ MonoBehaviour:
   guid: aa497fc69c03dc42a01c4a3373507223
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 10000
 --- !u!114 &-8822785284886680101
 MonoBehaviour:
@@ -378,13 +378,13 @@ MonoBehaviour:
   guid: 238e99ffa5e3a9438a2d2fe7f68483cb
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &-8655589356233510284
 MonoBehaviour:
@@ -590,6 +590,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &-8118186290478934774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Zilla SFX/ZillaWalk
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Zilla SFX/ZillaWalk
+  guid: aa497fc69c03dc42a01c4a3373507223
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
 --- !u!114 &-8041036167533893910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +682,89 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 360
+--- !u!114 &-7923634520319608218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637585090643781570
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-7870298495971121371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Impact SFX/Impact 2
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Impact SFX/Impact 2
+  guid: 9a105bb6e0f0ab46b7ee8d244030d51f
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1400
+--- !u!114 &-7868615547559755106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &-7792184375563184199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637586115026829942
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2890
+  Exists: 1
 --- !u!114 &-7751367434517549228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,6 +922,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 800
+--- !u!114 &-7399158535854986994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Rilla SFX/RillaGroundSmash
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Rilla SFX/RillaGroundSmash
+  guid: 9b856fa0a4925941b58951ab7ac1f1d6
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 360
 --- !u!114 &-7334040746440258774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,13 +1120,36 @@ MonoBehaviour:
   guid: 2163845d501607498903ec34c0b56ebd
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &-7000069479096600799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Impact SFX/Impact 4
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Impact SFX/Impact 4
+  guid: de94572b71d55649a06258b187e717d8
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &-6992183518740659545
 MonoBehaviour:
@@ -1114,6 +1266,30 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10000
+--- !u!114 &-6713875721710554739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Zilla SFX/ZillaBeamAttack
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Zilla SFX/ZillaBeamAttack
+  guid: 0c53687486aaee4d91e29d071323490a
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3652867529342540807}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 9800
 --- !u!114 &-6696469625841480529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1359,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &-6448623118742167045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Impact SFX/Impact 3
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Impact SFX/Impact 3
+  guid: cca99ad72e36194d9306c173e5bd1af5
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 800
 --- !u!114 &-6281289390021554907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,15 +1398,15 @@ MonoBehaviour:
   guid: 0c53687486aaee4d91e29d071323490a
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -108911225221562892}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 10000
+  - {fileID: -1196566247938652496}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 9800
 --- !u!114 &-6150578471397393909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,7 +1492,7 @@ MonoBehaviour:
   guid: 2280951b3e47f740911d15c747bf954b
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1542,13 +1741,13 @@ MonoBehaviour:
   guid: 4f682bca7e3bda41b39cb35b9137412e
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 10000
 --- !u!114 &-5658183381081280540
 MonoBehaviour:
@@ -1699,13 +1898,13 @@ MonoBehaviour:
   guid: 887c0a9aaeb1e84ab8a541a6d1067d1c
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &-5314713907659353331
 MonoBehaviour:
@@ -1723,13 +1922,13 @@ MonoBehaviour:
   guid: 18dc4b1f94b0c244964cb4260452477c
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 10000
 --- !u!114 &-5197416243314780222
 MonoBehaviour:
@@ -1869,6 +2068,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &-5057670585724734450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Ranged SFX/Alien Ranged Death
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Ranged SFX/Alien Ranged Death
+  guid: 2163845d501607498903ec34c0b56ebd
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &-5025661234311851759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1961,6 +2183,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-4714965785063546264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Menu SFX/ButtonMouseOverMenu
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Menu SFX/ButtonMouseOverMenu
+  guid: 9ab35183ee1b7e44b2c30dbb413cbea5
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 700
 --- !u!114 &-4714552698918676364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,13 +2222,36 @@ MonoBehaviour:
   guid: dabf2695896966418b8f54b48f652590
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
+--- !u!114 &-4582578169300647221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Impact SFX/Impact 1
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Impact SFX/Impact 1
+  guid: dabf2695896966418b8f54b48f652590
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1000
 --- !u!114 &-4542379569159125938
 MonoBehaviour:
@@ -2067,13 +2335,13 @@ MonoBehaviour:
   guid: 5f5e282f0bf3d141baa64defb90c9469
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 10000
 --- !u!114 &-4321646014181049521
 MonoBehaviour:
@@ -2230,6 +2498,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &-3844569363976540041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-3840472961285463510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2299,6 +2587,72 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-3783749999349847554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Rilla SFX/RillaRoar
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Rilla SFX/RillaRoar
+  guid: accc7a6cb9fc2e4e8912549390291bb5
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 540
+--- !u!114 &-3689809050909313991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Musik/cutscene_main_theme_edit_klar_1
+  m_EditorClassIdentifier: 
+  Path: event:/Musik/cutscene_main_theme_edit_klar_1
+  guid: 008f292990f3d541a96e6cb3f9f3393e
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 86082
+--- !u!114 &-3652867529342540807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-3627305419803578128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2315,13 +2669,13 @@ MonoBehaviour:
   guid: 9a105bb6e0f0ab46b7ee8d244030d51f
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1400
 --- !u!114 &-3625741795028020650
 MonoBehaviour:
@@ -2590,6 +2944,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1198
   Exists: 1
+--- !u!114 &-3048364371585976093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Ranged SFX/Alien Ranged Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Ranged SFX/Alien Ranged Attack
+  guid: b1daacc021585846abc7d77b570d6d26
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &-2977005831839355590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2613,6 +2990,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 700
+--- !u!114 &-2917727853243053993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Melee SFX/Alien Melee Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Melee SFX/Alien Melee Attack
+  guid: 52defbc7ed1a104fb52a978dec917539
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 360
 --- !u!114 &-2907448645990902132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,14 +3072,14 @@ MonoBehaviour:
   guid: 181fb6ea06663a439d12778386c749c9
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 2000
+  Length: 100298
 --- !u!114 &-2860095517992969171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,13 +3193,13 @@ MonoBehaviour:
   guid: 52bb7b86c8733743841d7510b389ef65
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1500
 --- !u!114 &-2773033844574353959
 MonoBehaviour:
@@ -2933,13 +3333,13 @@ MonoBehaviour:
   guid: d006786fcf60264a9f00393e73836cac
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &-2540998925349032776
 MonoBehaviour:
@@ -3010,6 +3410,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2048714686607815759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Zilla SFX/ZillaRoar
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Zilla SFX/ZillaRoar
+  guid: 5f5e282f0bf3d141baa64defb90c9469
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
 --- !u!114 &-2034040490648129874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3052,6 +3475,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 2372
   Exists: 1
+--- !u!114 &-1997074051288456800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Spawner SFX/Alien Spawner Death
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Spawner SFX/Alien Spawner Death
+  guid: d006786fcf60264a9f00393e73836cac
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &-1988284173988454149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3181,13 +3627,13 @@ MonoBehaviour:
   guid: 5cb121750273a04390f2f9be812bd407
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 10000
 --- !u!114 &-1725883277931335307
 MonoBehaviour:
@@ -3205,13 +3651,13 @@ MonoBehaviour:
   guid: 0f33f2c1b602ea4ea75af8dc871ac889
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 0
 --- !u!114 &-1708243972926870377
 MonoBehaviour:
@@ -3390,6 +3836,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 540
+--- !u!114 &-1196566247938652496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-1114563322996700579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3543,6 +4009,26 @@ MonoBehaviour:
   lastModified: 637576403262517212
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &-710302433066658044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1
 --- !u!114 &-699035545233804538
 MonoBehaviour:
@@ -3700,7 +4186,7 @@ MonoBehaviour:
   guid: 49e8e7392635404d96f44b37f1beaa91
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3813,6 +4299,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-93235184516807276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Zilla + Rilla SFX/Zilla+RillaJump
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Zilla + Rilla SFX/Zilla+RillaJump
+  guid: 5cb121750273a04390f2f9be812bd407
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
 --- !u!114 &-76057424835144940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3942,8 +4451,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 2778948952887989881}
-  - {fileID: -7147106297904047451}
+  - {fileID: -7792184375563184199}
+  - {fileID: 7788260036690088059}
   EditorEvents:
   - {fileID: 2247071228031786195}
   - {fileID: -6281289390021554907}
@@ -3977,12 +4486,13 @@ MonoBehaviour:
   - {fileID: 4988417497630832271}
   - {fileID: -8953587645661691818}
   - {fileID: 2279237771582341573}
+  - {fileID: 7087117133914075866}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   StringsBanks:
-  - {fileID: 2778948952887989881}
-  stringsBankWriteTime: 637584026000000000
+  - {fileID: -7792184375563184199}
+  stringsBankWriteTime: 637586115026829942
   cacheVersion: 6
 --- !u!114 &45144812845301944
 MonoBehaviour:
@@ -4023,13 +4533,13 @@ MonoBehaviour:
   guid: b1daacc021585846abc7d77b570d6d26
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &76974330666861778
 MonoBehaviour:
@@ -4277,7 +4787,7 @@ MonoBehaviour:
   guid: 9ab35183ee1b7e44b2c30dbb413cbea5
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4308,6 +4818,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &694162492349891512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Musik/sp2_f\xF6rlorar_stinger_klar_2"
+  m_EditorClassIdentifier: 
+  Path: "event:/Musik/sp2_f\xF6rlorar_stinger_klar_2"
+  guid: c4fece83d4e8254da0984ed706152477
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 9512
 --- !u!114 &827465396006111197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4570,7 +5103,7 @@ MonoBehaviour:
   guid: 81f2f6a1ef038a4eb4a06278e75fe876
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4625,6 +5158,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 360
+--- !u!114 &1594902314441489981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Menu SFX/ButtonPushMenu
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Menu SFX/ButtonPushMenu
+  guid: ef733f1dac568244a9f9fff2adcea544
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &1604830917422266048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4664,13 +5220,13 @@ MonoBehaviour:
   guid: accc7a6cb9fc2e4e8912549390291bb5
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 540
 --- !u!114 &1760313094508423955
 MonoBehaviour:
@@ -4695,6 +5251,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &1771038484215336103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Zilla SFX/ZillaTailAttack
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Zilla SFX/ZillaTailAttack
+  guid: 52bb7b86c8733743841d7510b389ef65
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
 --- !u!114 &1868906430617364869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4718,6 +5297,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 15357
+--- !u!114 &1965002341336646120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Musik/MenyMusik
+  m_EditorClassIdentifier: 
+  Path: event:/Musik/MenyMusik
+  guid: 181fb6ea06663a439d12778386c749c9
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 100298
+--- !u!114 &2093131958592211014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Ranged SFX/Alien Ranged Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Ranged SFX/Alien Ranged Walk
+  guid: 20315b16d9d2ea4f922b68d692357eed
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 460
 --- !u!114 &2099952931548438004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4870,7 +5495,7 @@ MonoBehaviour:
   guid: 008f292990f3d541a96e6cb3f9f3393e
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4894,7 +5519,7 @@ MonoBehaviour:
   guid: ef733f1dac568244a9f9fff2adcea544
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5075,6 +5700,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &2968418957989669892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &3039445927412222148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5094,6 +5739,27 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
+  Exists: 1
+--- !u!114 &3095427072232730769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637585090643811500
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2830
   Exists: 1
 --- !u!114 &3133939446763276414
 MonoBehaviour:
@@ -5119,6 +5785,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 800
+--- !u!114 &3139266013636425618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Rilla SFX/RillaGroundSmashJump
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Rilla SFX/RillaGroundSmashJump
+  guid: 887c0a9aaeb1e84ab8a541a6d1067d1c
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &3207474188289128820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,6 +6006,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &3616646626653150775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Rilla SFX/RillaPunchAttack
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Rilla SFX/RillaPunchAttack
+  guid: 76eb235ff9d1ff4f943f3439e382f73f
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1100
 --- !u!114 &3646309339639256384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5419,13 +6131,13 @@ MonoBehaviour:
   guid: 902bf95a2771674dae291e07e8bfc7fc
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 8000
 --- !u!114 &3964515008623492376
 MonoBehaviour:
@@ -5791,6 +6503,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &4564144214807596670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Enviroment SFX/Building Collapsing
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Enviroment SFX/Building Collapsing
+  guid: 902bf95a2771674dae291e07e8bfc7fc
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8000
 --- !u!114 &4640580538450652850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5830,13 +6565,13 @@ MonoBehaviour:
   guid: 76eb235ff9d1ff4f943f3439e382f73f
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1100
 --- !u!114 &4661433241204180772
 MonoBehaviour:
@@ -6107,13 +6842,13 @@ MonoBehaviour:
   guid: de94572b71d55649a06258b187e717d8
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &5097373130900972810
 MonoBehaviour:
@@ -6243,7 +6978,7 @@ MonoBehaviour:
   guid: c4fece83d4e8254da0984ed706152477
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6293,6 +7028,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1198
   Exists: 1
+--- !u!114 &5383885601537924965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Zilla + Rilla SFX/Zilla+RillaLand
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Zilla + Rilla SFX/Zilla+RillaLand
+  guid: 4f682bca7e3bda41b39cb35b9137412e
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
 --- !u!114 &5459008763498803398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6524,6 +7282,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 9512
+--- !u!114 &5807957220389037613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Rilla SFX/RillaWalk
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Rilla SFX/RillaWalk
+  guid: 18dc4b1f94b0c244964cb4260452477c
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
 --- !u!114 &5844249622630540727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6833,6 +7614,52 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &6411076317187682621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Melee SFX/Alien Melee Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Melee SFX/Alien Melee Walk
+  guid: e97c96ebf8cc6f46a781111baf068eb5
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 190
+--- !u!114 &6421178345023984651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Melee SFX/Alien Melee Death
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Melee SFX/Alien Melee Death
+  guid: 81f2f6a1ef038a4eb4a06278e75fe876
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10000
 --- !u!114 &6443312916802384949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6944,13 +7771,13 @@ MonoBehaviour:
   guid: 52defbc7ed1a104fb52a978dec917539
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 360
 --- !u!114 &6720876814739265827
 MonoBehaviour:
@@ -7056,13 +7883,13 @@ MonoBehaviour:
   guid: cca99ad72e36194d9306c173e5bd1af5
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 800
 --- !u!114 &7075116895083023453
 MonoBehaviour:
@@ -7087,6 +7914,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1400
+--- !u!114 &7087117133914075866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Menu SFX/Newer_objective_3
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Menu SFX/Newer_objective_3
+  guid: 5df4f19a4d3791409887afa7a29c9287
+  Banks:
+  - {fileID: 7788260036690088059}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
 --- !u!114 &7122155418641746309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7172,13 +8022,13 @@ MonoBehaviour:
   guid: 20315b16d9d2ea4f922b68d692357eed
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 460
 --- !u!114 &7354116521219320599
 MonoBehaviour:
@@ -7202,6 +8052,29 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+  Length: 2000
+--- !u!114 &7354568930060937907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Alien Spawner SFX/Alien Spawner
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Alien Spawner SFX/Alien Spawner
+  guid: 238e99ffa5e3a9438a2d2fe7f68483cb
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &7398153660101703856
 MonoBehaviour:
@@ -7451,6 +8324,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 15357
+--- !u!114 &7600327335420860970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ljud/Enviroment SFX/Car Alarm
+  m_EditorClassIdentifier: 
+  Path: event:/Ljud/Enviroment SFX/Car Alarm
+  guid: 0f33f2c1b602ea4ea75af8dc871ac889
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &7699658374901858710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7490,14 +8386,33 @@ MonoBehaviour:
   guid: 9b856fa0a4925941b58951ab7ac1f1d6
   Banks:
   - {fileID: 2231851836657054562}
-  - {fileID: -7147106297904047451}
+  - {fileID: 7788260036690088059}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 360
+--- !u!114 &7788260036690088059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../zillarilla_musik_rasmus_mixad_1/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637586115026809991
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &7844835008773043538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7658,6 +8573,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 15357
+--- !u!114 &8145481331430491862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Musik/sp2_win_stinger_4
+  m_EditorClassIdentifier: 
+  Path: event:/Musik/sp2_win_stinger_4
+  guid: 2280951b3e47f740911d15c747bf954b
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 15357
+--- !u!114 &8184977987516694694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Musik/zilla_rilla_musik_bana
+  m_EditorClassIdentifier: 
+  Path: event:/Musik/zilla_rilla_musik_bana
+  guid: 49e8e7392635404d96f44b37f1beaa91
+  Banks:
+  - {fileID: -7923634520319608218}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 197272
 --- !u!114 &8206692818318633036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7930,6 +8891,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &9144962637021133882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ZillaBeamAttack/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &9168382593938445706
 MonoBehaviour:
   m_ObjectHideFlags: 0

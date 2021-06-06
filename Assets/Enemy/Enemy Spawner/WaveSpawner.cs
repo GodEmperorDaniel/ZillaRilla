@@ -47,12 +47,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        // Debug enemy kill button
-        /*if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            Destroy(_enemies[0]);
-        }*/
-
         if (_state == SpawnState.WAITING)
         {
             if (!EnemyIsAlive())

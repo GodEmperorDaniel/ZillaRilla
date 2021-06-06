@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEntries:
   - _name: Death
-    _fileLocation: event:/Ljud/Alien Spawner SFX/Alien Spawner Death
+    _fileLocation: event:/Ljud/Alien Melee SFX/Alien Melee Death
   - _name: Spawn
     _fileLocation: event:/Ljud/Alien Spawner SFX/Alien Spawner
 --- !u!1 &8647186140215250273

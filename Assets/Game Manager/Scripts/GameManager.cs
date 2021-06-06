@@ -276,7 +276,6 @@ public class GameManager : Manager<GameManager>
         switch (state)
         {
             case GameState.BOOT:
-
                 break;
             case GameState.CUTSCENE:
                 UIManager.Instance.EnableDummyCamera();
@@ -427,7 +426,7 @@ public class GameManager : Manager<GameManager>
 
     private void FindPlayerCharacters()
     {
-        FixAttackableCharacterList();
+        ClearAttackable();
         if (GameObject.Find("ZillaPlayer"))
         {
             GameObject.Find("ZillaPlayer").TryGetComponent(out _zilla);
@@ -446,15 +445,16 @@ public class GameManager : Manager<GameManager>
             PlayerManager.Instance.gameObject.SetActive(true);
     }
 
-    private void FixAttackableCharacterList()
+    private void ClearAttackable()
     {
-        for (int i = 0; i < _attackableCharacters.Count; i++)
-        {
-            if (_attackableCharacters[i] == null)
-            {
-                _attackableCharacters.RemoveAt(i);
-            }
-        }
+        _attackableCharacters.Clear();
+        //for (int i = 0; i < _attackableCharacters.Count; i++)
+        //{
+        //    if (_attackableCharacters[i] == null)
+        //    {
+        //        _attackableCharacters.RemoveAt(i);
+        //    }
+        //}
     }
 
     private void InitializeGoalManager()

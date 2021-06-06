@@ -301,8 +301,8 @@ FixedJoint:
   m_GameObject: {fileID: 5747344708521127650}
   m_ConnectedBody: {fileID: 5705493627616937187}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 1000
+  m_BreakTorque: 1000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1

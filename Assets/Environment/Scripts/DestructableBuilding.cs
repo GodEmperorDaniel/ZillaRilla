@@ -64,6 +64,7 @@ public class DestructableBuilding : MonoBehaviour
         rubble.transform.localScale = transform.lossyScale;
         // Sets the rubble as parent to this to make animation use its base position
         transform.SetParent(rubble.transform);
+        
 
         ParticleSystem pSystem = Instantiate(_smokePrefab, rubble.transform);
 
