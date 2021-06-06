@@ -15,6 +15,7 @@ public class Goal : MonoBehaviour
     [SerializeField] protected string goalDescription = "[Default Text]";
     [SerializeField] private NewsCategory newsCategory;
     [SerializeField] private string newsTitle;
+    [SerializeField] protected bool _enableProgressbar = true;
 
     protected bool _completed = false;
 
@@ -33,7 +34,8 @@ public class Goal : MonoBehaviour
 
     public virtual void GoalInitialization()
     {
-        Debug.Log("Goal Initialized");
+        if(_enableProgressbar)
+            StartCoroutine(WaitOneFrame());
     }
     
     public virtual void GoalCompleted()
@@ -58,5 +60,12 @@ public class Goal : MonoBehaviour
             NewsCategory.BossDefeated => "Victory",
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
         };
+    }
+
+    private IEnumerator WaitOneFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        UIManager.Instance.InGameUI.ActivateProgressBar();
+        UIManager.Instance.UpdateProgressionOnUI(0);
     }
 }

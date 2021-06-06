@@ -110,7 +110,6 @@ public class AreaGoal : Goal
     public override void GoalInitialization()
     {
         base.GoalInitialization();
-        UIManager.Instance.InGameUI.ActivateProgressBar();
     }
 
     public override void GoalCompleted()

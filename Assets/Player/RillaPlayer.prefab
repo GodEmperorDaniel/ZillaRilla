@@ -3325,7 +3325,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 77b10c03-04ec-48d8-92af-9d6e7c3c2e34
     m_ActionName: UI/SkipCredits[/DualShock4GamepadHID/start,/XInputControllerWindows/start]
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1

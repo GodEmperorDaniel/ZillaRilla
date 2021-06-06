@@ -73,6 +73,7 @@ public class GameManager : Manager<GameManager>
     private void Start()
     {
         DeactivateAllUI();
+        Cursor.visible = false;
         UIManager.Instance.EnableLoadUI();
         IntroCutScene();
     }
@@ -155,7 +156,7 @@ public class GameManager : Manager<GameManager>
         if (_currentGameState == GameState.IN_GAME)
         {
             Time.timeScale = 0;
-            EnableUIControls();
+            //EnableUIControls();
             UIManager.Instance.DisableLoadUI();
             UIManager.Instance.EnableControllerScreen();
         }
@@ -189,6 +190,7 @@ public class GameManager : Manager<GameManager>
     public void StartNewGame()
     {
         UnloadLevel(cMainMenu);
+        ClearBootScene();
         LoadLevel(mainLevel);
         UpdateState(GameState.IN_GAME);
     }
@@ -207,6 +209,7 @@ public class GameManager : Manager<GameManager>
     {
         UnloadLevel(_currentLevelName);
         DestroyInGameManagers();
+        ClearBootScene();
         LoadLevel(mainLevel);
         UpdateState(GameState.IN_GAME);
     }
@@ -324,8 +327,6 @@ public class GameManager : Manager<GameManager>
 
     private void OnLevelLoaded(GameState state)
     {
-        FindPlayerCharacters();
-
         switch (state)
         {
             case GameState.BOOT:
@@ -350,8 +351,10 @@ public class GameManager : Manager<GameManager>
                 //UIManager.Instance.DisableLoadUI();
                 UIManager.Instance.DisableDummyCamera();
                 FindPlayerCharacters();
+                UIManager.Instance.EnableSkipControllerScreen();
+                EnableUIControls();
                 InitializeGoalManager();
-                EnableInGameControls();
+                //EnableInGameControls();
                 break;
             case GameState.PAUSED:
                 break;
@@ -470,21 +473,18 @@ public class GameManager : Manager<GameManager>
         }
         else
         {
-            UIManager.Instance.GetComponent<PlayerInput>().enabled = true;
-            UIManager.Instance.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+            //UIManager.Instance.GetComponent<PlayerInput>().enabled = true;
+            //UIManager.Instance.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
         }
     }
 
     public void EnableInGameControls()
     {
+        UIManager.Instance.GetComponent<PlayerInput>().enabled = false;
         if (_zilla != null || _rilla != null)
         {
             _zilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
             _rilla.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
-        }
-        else
-        {
-            UIManager.Instance.GetComponent<PlayerInput>().enabled = false;
         }
     }
 
@@ -512,6 +512,14 @@ public class GameManager : Manager<GameManager>
         {
             UIManager.Instance.GetComponent<PlayerInput>().enabled = true;
         }
+    }
+    private void ClearBootScene()
+    {
+        foreach (GameObject go in SceneManager.GetSceneByName(cBoot).GetRootGameObjects())
+        {
+            Destroy(go);
+        }
+        
     }
 
 #region Debug
