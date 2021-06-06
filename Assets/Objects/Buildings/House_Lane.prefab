@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cddfa3e58ddf844c842325e0d2904c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _smokePrefab: {fileID: 5563964438647706889, guid: ee0fc5f8e93acc44b91a732d35aa6f8e, type: 3}
+  _smokePrefab: {fileID: 5563964438647706889, guid: 2e11631a41e320d4287d2b4a9526d83a, type: 3}
   _rubblePrefab: {fileID: 8860495613036758883, guid: 17ab4f0c771531a4aaec830e1eb6d016, type: 3}
   smokeLifetime: 5
   collapseDelay: 1
