@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3966042342665881256}
   - component: {fileID: 46704960985696525}
   - component: {fileID: 2828571331750919623}
-  - component: {fileID: 919132149374278387}
   m_Layer: 0
   m_Name: House_Octa_Ruins
   m_TagString: Untagged
@@ -83,17 +82,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &919132149374278387
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4342005313909709842}
-  m_Material: {fileID: 13400000, guid: c2dca99d9a6e4d44398fd98aa0363b32, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7607732396541980871, guid: 796360c4f2c69414091509c9d147d55c, type: 3}

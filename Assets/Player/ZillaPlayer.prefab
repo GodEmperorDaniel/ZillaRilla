@@ -122,16 +122,16 @@ MonoBehaviour:
   _playerAnimator: {fileID: 1205055677}
   tailSettings:
     playerIndex: 0
-    _attackDamage: 5
+    _attackDamage: 50
     _damageMultiplier: 1
     _attackHitbox: {fileID: 4460215269216205231}
-    _attackCooldown: 1
+    _attackCooldown: 0.3
     _settingType: 2
     _knockbackStrength: 50
     _knockbackTime: 3
   lazorSettings:
     playerIndex: 0
-    _attackDamage: 10
+    _attackDamage: 25
     _damageMultiplier: 1
     _attackHitbox: {fileID: 8227438593615647616}
     _attackCooldown: 0
@@ -163,9 +163,9 @@ MonoBehaviour:
   _moveSpeed: 60
   _lazorMoveSpeed: 30
   _lazorRotationSpeed: 10
-  _rillaStillOnSlam: 1
+  _rillaStillOnSlam: 0
   _gravity: 200
-  _objectMoveForce: 50
+  _objectMoveForce: 75
 --- !u!114 &1205055676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,8 +382,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 77b10c03-04ec-48d8-92af-9d6e7c3c2e34
-    m_ActionName: UI/SkipCredits[/DualShock4GamepadHID/start,/XInputControllerWindows/start]
-  m_NeverAutoSwitchControlSchemes: 0
+    m_ActionName: UI/SkipCredits[/XInputControllerWindows/start]
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -460,8 +460,6 @@ MonoBehaviour:
     _fileLocation: event:/Ljud/Zilla SFX/ZillaTailAttack
   - _name: Roar
     _fileLocation: event:/Ljud/Zilla SFX/ZillaRoar
-  - _name: Lazor
-    _fileLocation: event:/Ljud/Zilla SFX/ZillaBeamAttack
 --- !u!114 &1605752104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,14 +472,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4b623cd6c7c146b295de7d63a5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 500
+  _maxHealth: 100
   _maxShieldHealth: 0
-  _currentHealth: 500
+  _currentHealth: 100
   _currentShieldHealth: 0
   regenerationSpeed: 0.1
   regenHealthAmount: 1
   _animator: {fileID: 1205055677}
-  _iFrames: 0
+  _iFrames: 1
   _playerSettings:
     _timeToRevive: 2
     _timeUntilDeath: 10
@@ -1371,6 +1369,7 @@ MonoBehaviour:
   _targets:
   - Enemy
   - Movable
+  - Destructible
 --- !u!135 &2062944215073896489
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2168,6 +2167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3330779706810916341}
+  - component: {fileID: 1419594607}
   m_Layer: 0
   m_Name: LazorScaler
   m_TagString: Untagged
@@ -2190,6 +2190,29 @@ Transform:
   m_Father: {fileID: 381463971055927896}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1419594607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227438593615647616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ljud/Zilla SFX/ZillaBeamAttack
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &8254073208312161944
 GameObject:
   m_ObjectHideFlags: 0

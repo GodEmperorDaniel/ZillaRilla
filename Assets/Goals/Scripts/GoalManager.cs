@@ -71,6 +71,6 @@ public class GoalManager : Manager<GoalManager>
     private void AllGoalsCompleted()
     {
         // Signal GameManager that all goals are completed
-        Debug.Log("ALL GOALS COMPLETED!");
+        GameManager.Instance.VictoryState();
     }
 }

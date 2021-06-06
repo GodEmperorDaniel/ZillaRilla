@@ -502,8 +502,8 @@ MonoBehaviour:
   _maxShieldHealth: 1000
   _currentHealth: 1000
   _currentShieldHealth: 1000
-  regenerationSpeed: 2
-  regenHealthAmount: 100
+  regenerationSpeed: 0.1
+  regenHealthAmount: 5
   _animator: {fileID: 0}
   _iFrames: 0.3
   _playerSettings:

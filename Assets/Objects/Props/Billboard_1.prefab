@@ -93,7 +93,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8679319559512779470}
   serializedVersion: 2
-  m_Mass: 400
+  m_Mass: 60
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -152,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8679319559523979203}
   - component: {fileID: 8679319559523979202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Billboard_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

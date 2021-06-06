@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 688544967739704427}
   - component: {fileID: 4477122928886746062}
   - component: {fileID: 1856917757386161924}
-  - component: {fileID: 46679354566915515}
   m_Layer: 0
-  m_Name: House_6A_Ruins 1
+  m_Name: House_6A_Ruins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,16 +82,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &46679354566915515
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199817188502298321}
-  m_Material: {fileID: 13400000, guid: c2dca99d9a6e4d44398fd98aa0363b32, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.6355548, y: 0.82890666, z: 2.7568502}
-  m_Center: {x: 0.03166008, y: 0.3418642, z: -0.039423227}

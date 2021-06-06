@@ -61,7 +61,7 @@ public class DestructableBuilding : MonoBehaviour
     {
         DestructableBuilding rubble = Instantiate(_rubblePrefab, transform.position, transform.rotation).AddComponent<DestructableBuilding>();
         rubble.GetComponent<DestructableBuilding>().isRubble = true;
-        rubble.transform.localScale = transform.localScale;
+        rubble.transform.localScale = transform.lossyScale;
         // Sets the rubble as parent to this to make animation use its base position
         transform.SetParent(rubble.transform);
 
