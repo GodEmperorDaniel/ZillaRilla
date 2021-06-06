@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4928840131240104277}
-  - component: {fileID: 4603307882724606215}
+  - component: {fileID: -7633420835815589182}
   - component: {fileID: 1391605044434613334}
   - component: {fileID: 1313078338292259866}
   - component: {fileID: 5053646606795030352}
@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7003489166689753003}
   - component: {fileID: -502858940442366164}
   m_Layer: 12
-  m_Name: House_6B1
+  m_Name: House_6B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,14 +32,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4928840131240104274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.329266, y: -0.00000029934438, z: -36.96637}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4603307882724606215
-BoxCollider:
+--- !u!64 &-7633420835815589182
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -48,9 +48,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.0999236, y: 6.348185, z: 3.2115493}
-  m_Center: {x: 0, y: 3.1740925, z: -0.000000059604645}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3226786246679563400, guid: d3d533c186d09ea498fe811a29516b6d, type: 3}
 --- !u!54 &1391605044434613334
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -95,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cddfa3e58ddf844c842325e0d2904c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _smokePrefab: {fileID: 3312276840990385156, guid: 54148358821020c498c73439b1cc7717, type: 3}
-  _rubblePrefab: {fileID: 7177515072581018778, guid: 0fd192440fc275a4585f4a3df1d1b1ba, type: 3}
+  _smokePrefab: {fileID: 5563964438647706889, guid: ee0fc5f8e93acc44b91a732d35aa6f8e, type: 3}
+  _rubblePrefab: {fileID: 4342005313909709842, guid: a2b651c4079c2f940b70c2d75b2cef39, type: 3}
   smokeLifetime: 5
   collapseDelay: 1
   isRubble: 0

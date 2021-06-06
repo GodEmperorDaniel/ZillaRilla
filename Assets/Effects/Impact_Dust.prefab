@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1262813993839020600}
   - component: {fileID: 1262813993839020615}
   m_Layer: 0
-  m_Name: Death_Dust 1
+  m_Name: Impact_Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 1, g: 1, b: 1, a: 0.5019608}
-      maxColor: {r: 0.7184314, g: 0.8, b: 0.6086275, a: 0.5019608}
+      maxColor: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 0.5019608}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4767,7 +4767,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1d6bc22042221424b8d7990f5b4b5000, type: 2}
+  - {fileID: 2100000, guid: dcb78732405fe594ebc5dddab7d1d08b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

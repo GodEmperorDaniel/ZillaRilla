@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mat_House_6A
-    second: {fileID: 2100000, guid: d9816a380afffac47b3e301e510dbedc, type: 2}
+    second: {fileID: 2100000, guid: 9d65fa1171ebdf04f8f7b04613c44e90, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -55,7 +55,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
