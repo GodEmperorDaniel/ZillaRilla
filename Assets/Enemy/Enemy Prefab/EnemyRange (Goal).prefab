@@ -763,7 +763,7 @@ MonoBehaviour:
     _knockbackTime: 0
   shootingSettings:
     playerIndex: 0
-    _attackDamage: 10
+    _attackDamage: 15
     _damageMultiplier: 1
     _attackHitbox: {fileID: 219892227518031592, guid: 1772a18352410f841b860143a57da078, type: 3}
     _attackCooldown: 1
