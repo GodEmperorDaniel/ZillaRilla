@@ -393,8 +393,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../zillarilla_musik_rasmus_mixad_1/zillarilla_musik.fspro
-  sourceBankPath: ..\zillarilla_musik_rasmus_mixad_1\Build
+  sourceProjectPath: C:/Users/Rikard/Downloads/zillarilla_musik_rasmus_mixad_1/zillarilla_musik.fspro
+  sourceBankPath: C:\Users\Rikard\Downloads\zillarilla_musik_rasmus_mixad_1\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -413,7 +413,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
+  MasterBanks:
+  - Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
