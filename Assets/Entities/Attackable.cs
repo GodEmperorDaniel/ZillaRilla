@@ -24,6 +24,8 @@ public class Attackable : MonoBehaviour
 	private Coroutine c_invincible;
 	private Coroutine c_regenerate;
 
+	private bool _shieldAcitve = true;
+
 	private FiniteStateMachine _fsm;
 	//private FSMStateType _fsmStateType;
 	private NPC _npc;
@@ -83,6 +85,10 @@ public class Attackable : MonoBehaviour
 		else if (_npc && _npc.enemyType == EnemyType.BOSS)
 		{
 			FixBossHealth();
+			if (_shieldAcitve && _currentShieldHealth < 1)
+			{
+				transform.GetChild(2).gameObject.SetActive(false);
+			}
 		}
 
 	}
@@ -131,7 +137,6 @@ public class Attackable : MonoBehaviour
 		{
 			if (_currentShieldHealth <= 0)
 			{
-				transform.GetChild(2).gameObject.SetActive(false);
 				if (_currentHealth <= 0 && _fsm._currentState.StateType != FSMStateType.DEATH)
 				{
 					_fsm.EnterState(FSMStateType.DEATH);

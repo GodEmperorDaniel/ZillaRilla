@@ -65,13 +65,11 @@ public class DestructableBuilding : MonoBehaviour
         // Sets the rubble as parent to this to make animation use its base position
         transform.SetParent(rubble.transform);
 
-        for (int i = 0; i < 4; i++)
-        {
-            ParticleSystem pSystem = Instantiate(_smokePrefab, rubble.transform);
-            pSystem.transform.Rotate(Vector3.up, i * 90);
+        ParticleSystem pSystem = Instantiate(_smokePrefab, rubble.transform);
 
-            _smokeParticleSystems.Add(pSystem);
-        }
+        _smokeParticleSystems.Add(pSystem);
         StartCoroutine(SmokeTimer());
+        //made so only one spawn
+
     }
 }

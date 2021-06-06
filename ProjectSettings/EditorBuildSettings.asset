@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/JonteTest.unity
     guid: c1cf1fa50a1a91a41b3dd6575a0e5a9f
   - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: ef73284fe4e9c844092049ad4a8e5692
+  - enabled: 1
     path: Assets/Scenes/Kopia av Main.unity
     guid: b633b53031f4e614ba061b3f4529f37e
   - enabled: 0
@@ -44,9 +47,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Kopia av Main.unity
     guid: b633b53031f4e614ba061b3f4529f37e
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: ef73284fe4e9c844092049ad4a8e5692
   - enabled: 0
     path: Assets/Player/Revive/Revive_TEST.unity
     guid: f664703595c19f345a57bcf3346f0201

@@ -15,6 +15,7 @@ public class ZillaAttacks : BaseAttack
     [SerializeField] public ZillaLazorSettings lazorSettings;
 
     [SerializeField] private GameObject _lazorHitEffect;
+    [SerializeField] private float _timeBetweenEffects = 0.2f;
 
     private IZillaLazorInput _lazorInput;
 
@@ -23,6 +24,7 @@ public class ZillaAttacks : BaseAttack
     [HideInInspector] public Coroutine c_tailCooldown;
     [HideInInspector] public Coroutine c_lazorCooldown;
     [HideInInspector] public Coroutine c_lazorGrowth;
+    private Coroutine c_lazorEffect;
     Ray ray;
     RaycastHit rayHit = new RaycastHit();
     bool hit = false;
@@ -84,13 +86,21 @@ public class ZillaAttacks : BaseAttack
             }
             else if (hit && adjustedHitDistance > nextFrameDistance)
             {
-                Instantiate(_lazorHitEffect, rayHit.point, Quaternion.identity);
+                if (c_lazorEffect == null)
+                {
+                    Instantiate(_lazorHitEffect, rayHit.point, Quaternion.identity);
+                    c_lazorEffect = StartCoroutine(lazorEffectCooldown(_timeBetweenEffects));
+                }
                 lazorSettings._attackHitbox.transform.localScale += growthVector;
                 yield return null;
             }
             else if (hit && adjustedHitDistance < nextFrameDistance)
             {
-                Instantiate(_lazorHitEffect, rayHit.point, Quaternion.identity);
+                if (c_lazorEffect == null)
+                {
+                    Instantiate(_lazorHitEffect, rayHit.point, Quaternion.identity);
+                    c_lazorEffect = StartCoroutine(lazorEffectCooldown(_timeBetweenEffects));
+                }
                 float lazorSettingsSphereCastRadius = (rayHit.distance + lazorSettings._sphereCastRadius - hitBoxOffset
                     * transform.localScale.z) / transform.lossyScale.z;
                 lazorSettings._attackHitbox.transform.localScale = new Vector3(1, 1, lazorSettingsSphereCastRadius);
@@ -220,6 +230,12 @@ public class ZillaAttacks : BaseAttack
             _playerAnimator.SetBool("ZillaLazorWindup", false);
             c_lazorCooldown = null;
         }
+    }
+
+    private IEnumerator lazorEffectCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        c_lazorEffect = null;
     }
 
     public override void RemoveFromPlayerList(GameObject enemy)

@@ -141,11 +141,13 @@ public class InGameUI : MonoBehaviour
 
     public void DeactivateProgressBar()
     {
+        Debug.Log("not active");
         _progressBar.gameObject.SetActive(false);
     }
 
     public void ActivateProgressBar()
     {
+        Debug.Log("active");
         _progressBar.gameObject.SetActive(true);
     }
 

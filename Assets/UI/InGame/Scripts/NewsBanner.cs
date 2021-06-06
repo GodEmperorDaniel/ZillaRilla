@@ -61,27 +61,6 @@ public class NewsBanner : MonoBehaviour
         {
             ScrollText();
         }
-
-        if (Keyboard.current.pKey.wasPressedThisFrame)
-        {
-            Time.timeScale = 0.0f;
-
-
-            foreach (AnimationState animationState in _animation)
-            {
-                animationState.speed = 0.0f;
-                animationState.time = 0.0f;
-            }
-        }
-        else if (Keyboard.current.oKey.wasPressedThisFrame)
-        {
-            Time.timeScale = 1.0f;
-
-            foreach (AnimationState animationState in _animation)
-            {
-                animationState.speed = 1.0f;
-            }
-        }
     }
 
 #endregion

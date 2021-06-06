@@ -17,7 +17,8 @@ public class UIManager : Manager<UIManager>
     [SerializeField] private VictoryOrLoseMenu _loseMenu;
     [SerializeField] private InGameUI _inGameUI;
     [SerializeField] private LoadScreen _loadUI;
-    [SerializeField] private LoadScreen _controllerScreen;    
+    [SerializeField] private LoadScreen _controllerScreen;
+    [SerializeField] private GameObject _skipControllerScreen;
 
     [SerializeField] private HitIconSpawner _hitIconSpawner;
     private Camera _dummyCamera;
@@ -171,8 +172,19 @@ public class UIManager : Manager<UIManager>
     private void DisableControllerScreen()
     {
         Time.timeScale = 1;
+        DisableSkipControllerScreen();
         GameManager.Instance.EnableInGameControls();
         _controllerScreen.gameObject.SetActive(false);
+    }
+
+    public void EnableSkipControllerScreen()
+    {
+        _skipControllerScreen.SetActive(true);
+    }
+
+    private void DisableSkipControllerScreen()
+    {
+        _skipControllerScreen.SetActive(false);
     }
 
     public void MenuSelection(float navigateDirection)

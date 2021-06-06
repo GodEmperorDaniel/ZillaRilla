@@ -14,7 +14,7 @@ public class DestructibleGoal : Goal
 
 	private void OnEnable()
 	{
-		UIManager.Instance.InGameUI.ActivateProgressBar();
+		GoalInitialization();
 	}
 	private void Awake()
 	{
@@ -37,7 +37,7 @@ public class DestructibleGoal : Goal
 			_goalCalled = true;
 			GoalCompleted();
 		}
-		UIManager.Instance.InGameUI.SetProgressOnUI(_percentDestroyed);
+		UIManager.Instance.InGameUI.SetProgressOnUI(_percentDestroyed / _percentOfHousesToDestroy);
 	}
 	private void HouseDestroyed()
 	{
