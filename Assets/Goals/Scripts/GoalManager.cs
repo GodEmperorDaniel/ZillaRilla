@@ -68,6 +68,7 @@ public class GoalManager : Manager<GoalManager>
         else
         {
             AllGoalsCompleted();
+            UIManager.Instance.InGameUI.DeactivateProgressBar(); //this is added after the fact, not sure if needed or if bad :p
             gameObject.SetActive(false);
         }
     }
