@@ -2,6 +2,8 @@
 
 This is game-project made as part of the game-developers education at the University of Skövde.
 
+[Link to Game](https://godemperordaniel.itch.io/zillarilla)
+
 ## Credits
 
 **Alexander Ekengren** (3D art)
